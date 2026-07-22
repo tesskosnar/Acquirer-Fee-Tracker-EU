@@ -1,11 +1,11 @@
 {
   "countries": {
-    "CZ": {
-      "name": "Česko",
-      "region": "CEE"
-    },
     "PL": {
       "name": "Polsko",
+      "region": "CEE"
+    },
+    "CZ": {
+      "name": "Česko",
       "region": "CEE"
     },
     "SK": {
@@ -16,9 +16,17 @@
       "name": "Maďarsko",
       "region": "CEE"
     },
-    "RO": {
-      "name": "Rumunsko",
-      "region": "CEE"
+    "LT": {
+      "name": "Litva",
+      "region": "Baltic"
+    },
+    "LV": {
+      "name": "Lotyšsko",
+      "region": "Baltic"
+    },
+    "EE": {
+      "name": "Estonsko",
+      "region": "Baltic"
     },
     "SE": {
       "name": "Švédsko",
@@ -27,6 +35,90 @@
     "DK": {
       "name": "Dánsko",
       "region": "Nordic"
+    },
+    "FI": {
+      "name": "Finsko",
+      "region": "Nordic"
+    },
+    "IS": {
+      "name": "Island",
+      "region": "Nordic"
+    },
+    "NO": {
+      "name": "Norsko",
+      "region": "Nordic"
+    },
+    "RO": {
+      "name": "Rumunsko",
+      "region": "SEE"
+    },
+    "BG": {
+      "name": "Bulharsko",
+      "region": "SEE"
+    },
+    "HR": {
+      "name": "Chorvatsko",
+      "region": "SEE"
+    },
+    "SI": {
+      "name": "Slovinsko",
+      "region": "SEE"
+    },
+    "GR": {
+      "name": "Řecko",
+      "region": "SEE"
+    },
+    "DE": {
+      "name": "Německo",
+      "region": "Western"
+    },
+    "FR": {
+      "name": "Francie",
+      "region": "Western"
+    },
+    "BE": {
+      "name": "Belgie",
+      "region": "Western"
+    },
+    "NL": {
+      "name": "Nizozemsko",
+      "region": "Western"
+    },
+    "LU": {
+      "name": "Lucembursko",
+      "region": "Western"
+    },
+    "IE": {
+      "name": "Irsko",
+      "region": "Western"
+    },
+    "IT": {
+      "name": "Itálie",
+      "region": "Southern"
+    },
+    "ES": {
+      "name": "Španělsko",
+      "region": "Southern"
+    },
+    "PT": {
+      "name": "Portugalsko",
+      "region": "Southern"
+    },
+    "MT": {
+      "name": "Malta",
+      "region": "Southern"
+    },
+    "CY": {
+      "name": "Kypr",
+      "region": "Southern"
+    },
+    "AT": {
+      "name": "Rakousko",
+      "region": "DACH"
+    },
+    "LI": {
+      "name": "Lichtenštejnsko",
+      "region": "DACH"
     }
   },
   "sources": {
@@ -36,7 +128,7 @@
       "provider": "Przelewy24"
     },
     "payu_pl": {
-      "url": "https://poland.payu.com/pricing/",
+      "url": "https://poland.payu.com/commercial-offer/",
       "format": "html",
       "provider": "PayU"
     },
@@ -173,7 +265,7 @@
       }
     },
     {
-      "id": "PL-payu-card",
+      "id": "PL-payu-card-promo",
       "country_iso2": "PL",
       "country": "Polsko",
       "region": "CEE",
@@ -183,23 +275,23 @@
       "channel": "online",
       "method": "card",
       "pricing_model": "blended",
-      "variable_pct_min": 1.15,
-      "variable_pct_max": 1.15,
-      "fixed_fee_min": 0.15,
-      "fixed_fee_max": 0.15,
+      "variable_pct_min": 1.1,
+      "variable_pct_max": 1.1,
+      "fixed_fee_min": 0.3,
+      "fixed_fee_max": 0.3,
       "fee_currency": "PLN",
       "monthly_fee": 0,
       "monthly_currency": "PLN",
-      "condition": "",
-      "promo": false,
+      "condition": "zaváděcí sazba (nová registrace)",
+      "promo": true,
       "source_id": "payu_pl",
-      "source_url": "https://poland.payu.com/pricing/",
+      "source_url": "https://poland.payu.com/commercial-offer/",
       "parser": {
         "anchor": "card",
         "auto_parse": true,
         "expected_currency": "PLN"
       },
-      "notes": "",
+      "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
       "verification": "manual baseline",
       "source_status": "seeded",
       "source_checked_at": null,
@@ -213,7 +305,47 @@
       }
     },
     {
-      "id": "PL-payu-a2a",
+      "id": "PL-payu-card-standard",
+      "country_iso2": "PL",
+      "country": "Polsko",
+      "region": "CEE",
+      "provider": "PayU",
+      "provider_type": "PSP / gateway",
+      "product": "Standard",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "blended",
+      "variable_pct_min": 1.49,
+      "variable_pct_max": 1.49,
+      "fixed_fee_min": 0,
+      "fixed_fee_max": 0,
+      "fee_currency": "PLN",
+      "monthly_fee": 0,
+      "monthly_currency": "PLN",
+      "condition": "standardní sazba po skončení zaváděcího období",
+      "promo": false,
+      "source_id": "payu_pl",
+      "source_url": "https://poland.payu.com/commercial-offer/",
+      "parser": {
+        "anchor": "card",
+        "auto_parse": true,
+        "expected_currency": "PLN"
+      },
+      "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
+      "verification": "manual baseline",
+      "source_status": "seeded",
+      "source_checked_at": null,
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": 6.5872,
+        "fee_max_czk": 6.5872,
+        "effective_min_pct": 1.3174,
+        "effective_max_pct": 1.3174
+      }
+    },
+    {
+      "id": "PL-payu-a2a-promo",
       "country_iso2": "PL",
       "country": "Polsko",
       "region": "CEE",
@@ -223,23 +355,63 @@
       "channel": "online",
       "method": "a2a",
       "pricing_model": "blended",
-      "variable_pct_min": 1.15,
-      "variable_pct_max": 1.15,
-      "fixed_fee_min": 0.15,
-      "fixed_fee_max": 0.15,
+      "variable_pct_min": 1.1,
+      "variable_pct_max": 1.1,
+      "fixed_fee_min": 0.3,
+      "fixed_fee_max": 0.3,
       "fee_currency": "PLN",
       "monthly_fee": 0,
       "monthly_currency": "PLN",
-      "condition": "",
-      "promo": false,
+      "condition": "zaváděcí sazba (nová registrace); stejná sazba platí i pro BLIK (0,32 PLN + 1,1 %)",
+      "promo": true,
       "source_id": "payu_pl",
-      "source_url": "https://poland.payu.com/pricing/",
+      "source_url": "https://poland.payu.com/commercial-offer/",
       "parser": {
         "anchor": "transfer",
         "auto_parse": true,
         "expected_currency": "PLN"
       },
-      "notes": "",
+      "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
+      "verification": "manual baseline",
+      "source_status": "seeded",
+      "source_checked_at": null,
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": 6.5872,
+        "fee_max_czk": 6.5872,
+        "effective_min_pct": 1.3174,
+        "effective_max_pct": 1.3174
+      }
+    },
+    {
+      "id": "PL-payu-a2a-standard",
+      "country_iso2": "PL",
+      "country": "Polsko",
+      "region": "CEE",
+      "provider": "PayU",
+      "provider_type": "PSP / gateway",
+      "product": "Standard",
+      "channel": "online",
+      "method": "a2a",
+      "pricing_model": "blended",
+      "variable_pct_min": 1.49,
+      "variable_pct_max": 1.49,
+      "fixed_fee_min": 0,
+      "fixed_fee_max": 0,
+      "fee_currency": "PLN",
+      "monthly_fee": 0,
+      "monthly_currency": "PLN",
+      "condition": "standardní sazba po skončení zaváděcího období",
+      "promo": false,
+      "source_id": "payu_pl",
+      "source_url": "https://poland.payu.com/commercial-offer/",
+      "parser": {
+        "anchor": "transfer",
+        "auto_parse": true,
+        "expected_currency": "PLN"
+      },
+      "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
       "verification": "manual baseline",
       "source_status": "seeded",
       "source_checked_at": null,
@@ -679,7 +851,7 @@
         "auto_parse": true,
         "expected_currency": "CZK"
       },
-      "notes": "",
+      "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
       "verification": "manual baseline",
       "source_status": "seeded",
       "source_checked_at": null,
@@ -719,7 +891,7 @@
         "auto_parse": true,
         "expected_currency": "CZK"
       },
-      "notes": "",
+      "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
       "verification": "manual baseline",
       "source_status": "seeded",
       "source_checked_at": null,
@@ -759,7 +931,7 @@
         "auto_parse": true,
         "expected_currency": "CZK"
       },
-      "notes": "",
+      "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
       "verification": "manual baseline",
       "source_status": "seeded",
       "source_checked_at": null,
@@ -799,7 +971,7 @@
         "auto_parse": true,
         "expected_currency": "CZK"
       },
-      "notes": "",
+      "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
       "verification": "manual baseline",
       "source_status": "seeded",
       "source_checked_at": null,

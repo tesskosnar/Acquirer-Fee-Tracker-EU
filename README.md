@@ -1,16 +1,21 @@
-# Merchant Acceptance Fee Tracker
+# Merchant Fee Tracker
 
-Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace. Výchozí scénář je transakce **500 Kč**; pevné složky v cizích měnách se přepočítávají posledním dostupným kurzem devizového trhu ČNB.
+Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč celou EU/EHP (30 zemí; zatím reálně podložená data pro 7 z nich, zbytek je na mapě vidět jako "zatím nedoplněno"). Výchozí scénář je transakce **500 Kč**, nastavitelná; pevné složky v cizích měnách se přepočítávají posledním dostupným kurzem devizového trhu ČNB.
+
+## Jak se s dashboardem pracuje
+
+Mapa i srovnávací tabulka jsou **kontextové** - ve výchozím stavu vidíš jen mapu a KPI. Klikneš na zemi → tabulka se rozbalí pro tu zemi. Klikneš na jméno poskytovatele v tabulce → přepneš do srovnání toho poskytovatele napříč všemi zeměmi, kde působí (mapa zvýrazní jen ty). Tlačítko "zpět na přehled" nebo druhý klik na stejnou zemi tě vrátí na začátek.
 
 ## Co dashboard obsahuje
 
 - karty / A2A / peněženky jako oddělené metody,
-- rozlišení acquirera, PSP, gateway a A2A schématu,
+- rozlišení acquirera, PSP, gateway a A2A schématu (filtr, ne matoucí popisek u každého řádku),
 - přepočet libovolné hodnoty transakce a měsíčního počtu transakcí,
-- mapa pokrytých zemí, žebříček a filtry,
-- veřejný zdroj u každého řádku,
+- mapa celé EU/EHP obarvená podle sazby (paleta #003f5c → #ffa600, tmavá = levnější),
+- srovnání "co poskytovatel nabízí navíc" - u dvoutarifních nabídek (např. PayU) je vidět zaváděcí i standardní sazba zvlášť, ne jen ta levnější,
+- veřejný zdroj u každého řádku s odkazem přímo na konkrétní ceník (ne obecnou stránku),
 - týdenní historii a export CSV,
-- bezpečný režim: při nefunkčním nebo nejistém parseru se zachová poslední ověřená sazba a označí se ke kontrole.
+- bezpečný režim: při nefunkčním nebo nejistém parseru se zachová poslední ověřená sazba a označí se ke kontrole (v UI jako jednoduchý stavový puntík, ne syrový interní text).
 
 ## Automatická aktualizace
 

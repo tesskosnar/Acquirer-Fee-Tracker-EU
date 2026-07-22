@@ -1,63 +1,525 @@
 <!doctype html>
 <html lang="cs">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Merchant Acceptance Fee Tracker</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merchant Fee Tracker</title>
 <style>
-:root{--ink:#12202f;--muted:#64748b;--line:#dbe3ea;--bg:#f4f7f8;--panel:#fff;--navy:#0b2339;--teal:#0e7c78;--mint:#dff4ef;--amber:#b76b08;--red:#a33434;--shadow:0 14px 36px rgba(15,35,55,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
-a{color:var(--teal)}button,input,select{font:inherit}.wrap{max-width:1480px;margin:auto;padding:0 28px 60px}
-.hero{background:linear-gradient(128deg,#071a2b 0%,#0b3045 58%,#0e6c6a 130%);color:#fff;padding:36px 0 30px;border-bottom:1px solid rgba(255,255,255,.1)}
-.hero .wrap{padding-bottom:0}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;color:#8fe0d4}.hero h1{font-family:Georgia,serif;font-size:clamp(34px,5vw,64px);line-height:1.02;margin:10px 0 13px;font-weight:500;max-width:960px}.hero p{max-width:850px;color:#c9d8e1;font-size:16px;line-height:1.6;margin:0}.meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:#dbe8ee}.meta b{color:#fff}
-.controls{margin-top:-1px;background:#fff;border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;padding:18px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr auto;gap:12px;box-shadow:var(--shadow);position:sticky;top:0;z-index:20}.control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}.control input,.control select{width:100%;border:1px solid #cfd9e2;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink)}.amountline{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:center}.amountline input[type=range]{padding:0;border:0}.btn{border:0;border-radius:9px;background:var(--navy);color:#fff;padding:10px 15px;font-weight:700;cursor:pointer;align-self:end;height:42px}.btn:hover{background:#123b58}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 7px 20px rgba(16,34,51,.04)}.kpi span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}.kpi strong{display:block;font-family:Georgia,serif;font-size:30px;margin-top:8px;font-weight:500}.kpi small{color:var(--muted)}
-.grid{display:grid;grid-template-columns:minmax(420px,.9fr) minmax(620px,1.45fr);gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}.panelhead{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:24px}.panelhead p{margin:4px 0 0;color:var(--muted);font-size:13px}.mapbox{padding:14px 16px 8px}.mapbox svg{width:100%;height:auto;display:block}.country-shape{fill:#e4e9ed;stroke:#fff;stroke-width:1.3;transition:.18s}.country-shape.covered{cursor:pointer}.country-shape.covered:hover,.country-shape.active{stroke:#0b2339;stroke-width:2.2}.legend{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:11px;padding:0 20px 17px}.grad{width:130px;height:9px;border-radius:20px;background:linear-gradient(90deg,#bfe8dc,#e9d58c,#dd8e72)}
-.tablewrap{overflow:auto;max-height:630px}table{border-collapse:collapse;width:100%;font-size:13px}th{position:sticky;top:0;background:#f6f8fa;color:#536273;text-align:left;padding:12px 11px;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.08em;z-index:2}td{padding:12px 11px;border-bottom:1px solid #edf1f4;vertical-align:top}tr:hover td{background:#fafcfc}.provider{font-weight:800}.sub{display:block;color:var(--muted);font-size:11px;margin-top:3px}.fee{font-weight:800;white-space:nowrap}.rate{white-space:nowrap}.source{font-size:11px;font-weight:700}.pill{display:inline-flex;padding:4px 7px;border-radius:99px;font-size:10px;font-weight:800;background:#e8f0f4;color:#3f5668}.pill.card{background:#e5edf7;color:#2e5478}.pill.a2a{background:#ddf3ec;color:#17695f}.pill.warn{background:#fff0d9;color:#9a5a08}.pill.error{background:#fbe1e1;color:#923c3c}.empty{padding:70px 20px;text-align:center;color:var(--muted)}
-.lower{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.chartarea{padding:20px}.chartarea svg{width:100%;height:285px;overflow:visible}.method{padding:20px;line-height:1.65;font-size:14px}.method h3{font-family:Georgia,serif;font-size:21px;margin:0 0 8px}.method ul{padding-left:18px;color:#425567}.footer{color:var(--muted);font-size:12px;margin-top:22px;text-align:center}.notice{padding:12px 16px;background:#fff9e8;border-bottom:1px solid #f2dfab;color:#70531c;font-size:12px}.sortbtn{border:0;background:transparent;padding:0;color:inherit;cursor:pointer;font-weight:inherit;text-transform:inherit;letter-spacing:inherit}.compare{width:16px;height:16px}.spark-label{font-size:11px;fill:#64748b}.spark-line{fill:none;stroke:#0e7c78;stroke-width:3}.spark-dot{fill:#fff;stroke:#0e7c78;stroke-width:2}.toggle{display:flex;border:1px solid #ccd7df;border-radius:9px;overflow:hidden;align-self:end}.toggle button{border:0;background:#fff;padding:10px 12px;cursor:pointer;color:#64748b;font-weight:700}.toggle button.active{background:var(--navy);color:#fff}
-@media(max-width:1050px){.controls{grid-template-columns:repeat(3,1fr);position:relative}.grid,.lower{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.wrap{padding-left:14px;padding-right:14px}.controls{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.hero h1{font-size:38px}.grid{grid-template-columns:1fr}.panelhead{padding:15px}.hide-mobile{display:none}}
+:root{
+  --ink:#12202f; --muted:#64748b; --muted-light:#96a2b0; --line:#dbe3ea; --bg:#f4f7f8; --panel:#fff;
+  --navy:#0b2339; --teal:#0e7c78; --mint:#dff4ef;
+  --amber:#b76b08; --red:#a33434; --green:#1a7a4c;
+  --shadow:0 14px 36px rgba(15,35,55,.08);
+  /* Barevná škála pro mapu - zadaná paleta, index 0 = nejlevnější, 7 = nejdražší */
+  --scale-0:#003f5c; --scale-1:#00546e; --scale-2:#006b71; --scale-3:#008162;
+  --scale-4:#009446; --scale-5:#65a31c; --scale-6:#b1aa00; --scale-7:#ffa600;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--teal)}
+button,input,select{font:inherit}
+.wrap{max-width:1480px;margin:auto;padding:0 28px 60px}
+
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(128deg,#071a2b 0%,#0b3045 58%,#0e6c6a 130%);color:#fff;padding:30px 0 26px;border-bottom:1px solid rgba(255,255,255,.1)}
+.hero .wrap{padding-bottom:0}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;color:#8fe0d4}
+.hero h1{font-family:Georgia,serif;font-size:clamp(30px,4.4vw,52px);line-height:1.05;margin:9px 0 11px;font-weight:500;max-width:960px}
+.hero p{max-width:850px;color:#c9d8e1;font-size:15px;line-height:1.6;margin:0}
+.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#dbe8ee}
+.meta b{color:#fff}
+
+/* ---------- Controls ---------- */
+.controls{
+  margin-top:-1px;background:#fff;border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;
+  padding:16px 18px;box-shadow:var(--shadow);position:sticky;top:0;z-index:20;
+  display:flex; align-items:flex-end; gap:22px; flex-wrap:wrap;
+}
+.control-primary{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.control-primary .control{min-width:200px}
+.control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}
+.control select, .control input{width:100%;border:1px solid #cfd9e2;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink)}
+.control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
+.control-secondary{
+  margin-left:auto; display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap;
+  opacity:.82; font-size:12.5px;
+}
+.control-secondary .control{min-width:132px}
+.control-secondary label{font-size:9px}
+.control-secondary input{padding:7px 9px;font-size:13px}
+.control-secondary .amountline{display:grid;grid-template-columns:1fr 74px;gap:6px;align-items:center}
+.control-secondary .amountline input[type=range]{padding:0;border:0}
+.btn{border:0;border-radius:9px;background:var(--navy);color:#fff;padding:10px 15px;font-weight:700;cursor:pointer;height:41px;white-space:nowrap}
+.btn:hover{background:#123b58}
+.btn-ghost{border:1px solid #cfd9e2;background:#fff;color:var(--ink)}
+.btn-ghost:hover{background:#f4f7f8}
+
+/* ---------- KPIs ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 7px 20px rgba(16,34,51,.04)}
+.kpi span{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800}
+.kpi strong{display:block;font-family:Georgia,serif;font-size:27px;margin-top:7px;font-weight:500}
+.kpi small{color:var(--muted);font-size:12px}
+
+/* ---------- Grid / panels ---------- */
+.grid{display:grid;grid-template-columns:minmax(440px,1fr) minmax(560px,1.3fr);gap:18px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.panelhead{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:21px}
+.panelhead p{margin:4px 0 0;color:var(--muted);font-size:12.5px}
+.pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:#e8f0f4;color:#3f5668;white-space:nowrap}
+
+/* ---------- Map ---------- */
+.mapbox{padding:10px 16px 6px;position:relative}
+.mapbox svg{width:100%;height:auto;display:block}
+.country-shape{stroke:#fff;stroke-width:1;transition:.15s}
+.country-shape.context{fill:#e9edf1;stroke:#f4f7f8}
+.country-shape.active-country{cursor:pointer}
+.country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
+.country-shape.selected{stroke:var(--navy);stroke-width:2.6}
+.country-shape.dimmed{opacity:.28}
+.maplabel{font-size:9.5px;fill:#fff;font-weight:700;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.map-focus-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:0 20px 10px;padding:8px 12px;background:var(--mint);border-radius:9px;font-size:12.5px;color:#0d4a45;
+}
+.map-focus-banner button{border:0;background:#0d4a45;color:#fff;border-radius:6px;padding:4px 9px;font-size:11px;cursor:pointer;font-weight:700}
+.legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;padding:2px 20px 16px;flex-wrap:wrap}
+.legend .grad{width:170px;height:9px;border-radius:20px;background:linear-gradient(90deg,var(--scale-0),var(--scale-1),var(--scale-2),var(--scale-3),var(--scale-4),var(--scale-5),var(--scale-6),var(--scale-7))}
+.map-range-summary{padding:0 20px 14px;font-size:13px;color:var(--ink);line-height:1.5}
+.map-range-summary b{font-family:Georgia,serif;font-size:15px}
+
+/* ---------- Table / Srovnání nabídek ---------- */
+.compare-empty{padding:60px 24px;text-align:center;color:var(--muted)}
+.compare-empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:6px;font-family:Georgia,serif;font-weight:500}
+.tablewrap{overflow:auto;max-height:640px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{position:sticky;top:0;background:#f6f8fa;color:#536273;text-align:left;padding:11px 11px;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.07em;z-index:2}
+td{padding:11px 11px;border-bottom:1px solid #edf1f4;vertical-align:top}
+tr:hover td{background:#fafcfc}
+tr.offerrow{cursor:pointer}
+.provider{font-weight:800}
+.provider-link{font-weight:800;color:var(--ink);cursor:pointer;text-decoration:none;border-bottom:1px dashed var(--muted-light)}
+.provider-link:hover{color:var(--teal);border-color:var(--teal)}
+.sub{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.fee{font-weight:800;white-space:nowrap}
+.rate{white-space:nowrap}
+.source{font-size:11.5px;font-weight:700;white-space:nowrap}
+.pill.card{background:#e5edf7;color:#2e5478}
+.pill.a2a{background:#ddf3ec;color:#17695f}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.status-dot.ok{background:var(--green)}
+.status-dot.warn{background:var(--amber)}
+.status-dot.error{background:var(--red)}
+.status-label{font-size:11px;color:var(--muted)}
+.sortbtn{border:0;background:transparent;padding:0;color:inherit;cursor:pointer;font-weight:inherit;text-transform:inherit;letter-spacing:inherit;display:inline-flex;align-items:center;gap:4px}
+.sortbtn .arrow{font-size:13px;opacity:.35}
+.sortbtn.active .arrow{opacity:1;color:var(--navy)}
+.empty{padding:70px 20px;text-align:center;color:var(--muted)}
+
+/* ---------- Footer note ---------- */
+.fxnote{padding:16px 20px;color:var(--muted);font-size:12.5px;line-height:1.6}
+.fxnote a{font-weight:600}
+.footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
+
+@media(max-width:1150px){
+  .grid{grid-template-columns:1fr}
+  .controls{position:relative}
+}
+@media(max-width:650px){
+  .wrap{padding-left:14px;padding-right:14px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:32px}
+  .panelhead{padding:14px}
+  .control-secondary{margin-left:0;width:100%}
+  .hide-mobile{display:none}
+}
 </style>
 </head>
 <body>
-<header class="hero"><div class="wrap"><div class="eyebrow">EU merchant acceptance intelligence</div><h1>Merchant Acceptance Fee Tracker</h1><p>Veřejné ceny acquiringu, platebních bran a A2A řešení. Pevné poplatky v cizích měnách se přepočítávají podle posledního dostupného kurzu ČNB.</p><div class="meta"><span>Aktualizace: <b id="generated">—</b></span><span>Kurz ČNB: <b id="fxdate">—</b></span><span>Režim: <b>1× týdně</b></span><span>Výchozí transakce: <b>500 Kč</b></span></div></div></header>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">EU merchant acceptance intelligence</div>
+    <h1>Merchant Fee Tracker</h1>
+    <p>Veřejné ceny acquiringu, platebních bran a A2A řešení napříč EU/EHP. Pevné poplatky v cizích měnách se přepočítávají podle posledního dostupného kurzu ČNB.</p>
+    <div class="meta">
+      <span>Aktualizace: <b id="generated">—</b></span>
+      <span>Kurz ČNB k: <b id="fxdate">—</b></span>
+      <span>Režim: <b>1× týdně</b></span>
+    </div>
+  </div>
+</header>
+
 <main class="wrap">
-<section class="controls">
- <div class="control"><label>Hodnota transakce</label><div class="amountline"><input id="amountRange" type="range" min="50" max="10000" step="50" value="500"><input id="amount" type="number" min="1" value="500"></div></div>
- <div class="control"><label>Měsíční počet transakcí</label><input id="monthlyTx" type="number" min="1" value="1000"></div>
- <div class="control"><label>Země</label><select id="country"><option value="">Všechny země</option></select></div>
- <div class="control"><label>Metoda</label><select id="method"><option value="">Karty + A2A</option><option value="card">Karta</option><option value="a2a">A2A / wallet</option></select></div>
- <div class="control"><label>Typ poskytovatele</label><select id="ptype"><option value="">Všechny typy</option></select></div>
- <div class="toggle"><button id="minMode" class="active">MIN</button><button id="maxMode">MAX</button></div>
- <button id="export" class="btn">Export CSV</button>
-</section>
-<section class="kpis"><div class="kpi"><span>Nejnižší efektivní sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div><div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div><div class="kpi"><span>Aktivní nabídky</span><strong id="kpiOffers">—</strong><small>po aplikaci filtrů</small></div><div class="kpi"><span>Měsíční náklad nejlepší nabídky</span><strong id="kpiMonthly">—</strong><small id="kpiMonthlyNote">—</small></div></section>
-<section class="grid">
- <article class="panel"><div class="panelhead"><div><h2>Mapa nejnižší ceny</h2><p>Kliknutím na zemi nastavíš filtr.</p></div><span class="pill" id="mapMode">MIN</span></div><div class="mapbox"><svg id="map" viewBox="0 0 820 560" aria-label="Mapa Evropy"></svg></div><div class="legend"><span>nižší</span><span class="grad"></span><span>vyšší efektivní sazba</span></div></article>
- <article class="panel"><div class="panelhead"><div><h2>Žebříček nabídek</h2><p>Výpočet zahrnuje procentní i pevnou složku.</p></div><span class="pill" id="rowcount">—</span></div><div id="sourceNotice" class="notice">Výchozí data byla převzata z dodané tabulky. Po prvním běhu GitHub Action se doplní živá kontrola zdrojů a aktuální kurz.</div><div class="tablewrap"><table><thead><tr><th>Země</th><th>Poskytovatel</th><th>Metoda</th><th>Publikovaná sazba</th><th><button class="sortbtn" id="sortFee">Poplatek ↕</button></th><th>Efektivně</th><th class="hide-mobile">Měsíčně</th><th>Zdroj</th></tr></thead><tbody id="rows"></tbody></table></div></article>
-</section>
-<section class="lower">
- <article class="panel"><div class="panelhead"><div><h2>Vývoj vybrané nabídky</h2><p id="trendSub">Vyber řádek v tabulce.</p></div><select id="trendOffer"></select></div><div class="chartarea"><svg id="trend" viewBox="0 0 660 285"></svg></div></article>
- <article class="panel"><div class="method"><h3>Jak číst výsledek</h3><ul><li><b>Efektivní sazba</b> = procentní poplatek + pevná část přepočtená kurzem ČNB, děleno hodnotou transakce.</li><li><b>MIN/MAX</b> přepíná spodní a horní hranici u veřejných rozpětí.</li><li><b>Měsíčně</b> násobí poplatek počtem transakcí a přičítá veřejný měsíční paušál, pokud je uveden.</li><li>Individuální nabídky se zobrazí, ale nevstupují do cenového žebříčku.</li><li>Acquirer, PSP, gateway a A2A/wallet jsou metodicky oddělené typy.</li></ul><p><a href="data/latest.csv" download>Stáhnout plný datový export</a> · <a href="data/changes.json">Change log</a></p></div></article>
-</section>
-<div class="footer">Merchant Acceptance Fee Tracker · data se nepublikují bez zdrojového odkazu · automatizované změny používají fail-safe kontrolu důvěry parseru</div>
+
+  <section class="controls">
+    <div class="control-primary">
+      <div class="control country">
+        <label>Země</label>
+        <select id="country"><option value="">Všechny země (30 EU/EHP)</option></select>
+      </div>
+      <div class="control">
+        <label>Metoda</label>
+        <select id="method"><option value="">Karty + A2A</option><option value="card">Karta</option><option value="a2a">A2A / wallet</option></select>
+      </div>
+      <div class="control">
+        <label>Typ poskytovatele</label>
+        <select id="ptype"><option value="">Všechny typy</option></select>
+      </div>
+    </div>
+    <div class="control-secondary">
+      <div class="control">
+        <label>Hodnota transakce</label>
+        <div class="amountline"><input id="amountRange" type="range" min="50" max="10000" step="50" value="500"><input id="amount" type="number" min="1" value="500"></div>
+      </div>
+      <div class="control">
+        <label>Měsíčně transakcí</label>
+        <input id="monthlyTx" type="number" min="1" value="1000">
+      </div>
+      <button id="export" class="btn btn-ghost">Export CSV</button>
+    </div>
+  </section>
+
+  <section class="kpis">
+    <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
+    <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
+    <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
+    <div class="kpi"><span>Měsíční náklad nejlepší nabídky</span><strong id="kpiMonthly">—</strong><small id="kpiMonthlyNote">—</small></div>
+  </section>
+
+  <section class="grid">
+    <article class="panel">
+      <div class="panelhead">
+        <div><h2>Mapa sazeb</h2><p>Klikni na zemi pro detail, znovu pro návrat. Poskytovatele vybereš dole ve srovnání.</p></div>
+      </div>
+      <div id="mapFocusBanner" class="map-focus-banner" style="display:none">
+        <span id="mapFocusText"></span>
+        <button id="mapFocusClear">✕ zpět na přehled</button>
+      </div>
+      <div class="map-range-summary" id="mapRangeSummary"></div>
+      <div class="mapbox"><svg id="map" viewBox="0 0 900 760" aria-label="Mapa Evropy"></svg></div>
+      <div class="legend"><span>nejlevnější</span><span class="grad"></span><span>nejdražší</span></div>
+    </article>
+
+    <article class="panel">
+      <div class="panelhead">
+        <div><h2>Srovnání nabídek</h2><p id="compareSub">Vyber zemi na mapě, nebo poskytovatele v tabulce.</p></div>
+        <span class="pill" id="rowcount">—</span>
+      </div>
+      <div id="compareBody"></div>
+    </article>
+  </section>
+
+  <section class="panel" style="margin-top:18px">
+    <div class="fxnote">
+      Přepočteno dle kurzu ČNB ze dne <b id="fxdate2">—</b>. <a href="data/latest.csv" download>Stáhnout plný datový export</a> · <a href="data/changes.json">Change log</a>
+    </div>
+  </section>
+
+  <div class="footer">Merchant Fee Tracker · data se nepublikují bez zdrojového odkazu · automatizované změny používají fail-safe kontrolu důvěry parseru</div>
 </main>
+
 <script>
-const S={data:null,map:null,amount:500,monthlyTx:1000,country:'',method:'',ptype:'',mode:'min',sortAsc:true,history:[]};
-const fmtCzk=n=>n==null?'individuální':new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:2}).format(n);
-const fmtPct=n=>n==null?'—':new Intl.NumberFormat('cs-CZ',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' %';
-const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-function calc(o){if(o.variable_pct_min==null)return {min:null,max:null,emin:null,emax:null,monthlyMin:null,monthlyMax:null};const fx=S.data.fx.rates[o.fee_currency]?.czk_per_unit??1;const min=S.amount*o.variable_pct_min/100+(o.fixed_fee_min||0)*fx;const max=S.amount*o.variable_pct_max/100+(o.fixed_fee_max||0)*fx;const mfx=S.data.fx.rates[o.monthly_currency]?.czk_per_unit??1;return {min,max,emin:min/S.amount*100,emax:max/S.amount*100,monthlyMin:min*S.monthlyTx+(o.monthly_fee||0)*mfx,monthlyMax:max*S.monthlyTx+(o.monthly_fee||0)*mfx}}
-function published(o){if(o.variable_pct_min==null)return 'individuální';const p=o.variable_pct_min===o.variable_pct_max?`${o.variable_pct_min.toLocaleString('cs-CZ')} %`:`${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;const f=o.fixed_fee_min?` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}`:'';return p+f}
-function filtered(){return S.data.offers.filter(o=>(!S.country||o.country_iso2===S.country)&&(!S.method||o.method===S.method)&&(!S.ptype||o.provider_type===S.ptype)).map(o=>({...o,_c:calc(o)}))}
-function color(v,min,max){if(v==null)return '#cfd7dd';let t=max===min?.25:(v-min)/(max-min);t=Math.max(0,Math.min(1,t));const stops=[[191,232,220],[233,213,140],[221,142,114]];const a=t<.5?stops[0]:stops[1],b=t<.5?stops[1]:stops[2],u=t<.5?t*2:(t-.5)*2;return `rgb(${a.map((x,i)=>Math.round(x+(b[i]-x)*u)).join(',')})`}
-function render(){const rows=filtered();const key=S.mode==='min'?'emin':'emax';const feeKey=S.mode==='min'?'min':'max';const monKey=S.mode==='min'?'monthlyMin':'monthlyMax';const comparable=rows.filter(o=>o._c[key]!=null).sort((a,b)=>S.sortAsc?a._c[key]-b._c[key]:b._c[key]-a._c[key]);const indiv=rows.filter(o=>o._c[key]==null);const all=[...comparable,...indiv];
- document.getElementById('rowcount').textContent=`${all.length} záznamů`;document.getElementById('rows').innerHTML=all.length?all.map(o=>{const c=o._c;const status=o.source_status?.startsWith('error')?'error':o.verification?.includes('review')?'warn':'';return `<tr data-id="${o.id}" class="offerrow"><td><b>${esc(o.country_iso2)}</b><span class="sub">${esc(o.country)}</span></td><td><span class="provider">${esc(o.provider)}</span><span class="sub">${esc(o.product)} · ${esc(o.provider_type)}</span>${o.condition?`<span class="sub">${esc(o.condition)}</span>`:''}</td><td><span class="pill ${o.method}">${o.method==='card'?'Karta':'A2A'}</span></td><td class="rate">${esc(published(o))}</td><td class="fee">${fmtCzk(c[feeKey])}</td><td>${fmtPct(c[key])}</td><td class="hide-mobile">${fmtCzk(c[monKey])}</td><td><a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">zdroj ↗</a><span class="sub"><span class="pill ${status}">${esc(o.verification||'neuvedeno')}</span></span></td></tr>`}).join(''):`<tr><td colspan="8"><div class="empty">Filtrům neodpovídá žádná nabídka.</div></td></tr>`;
- const vals=comparable.map(o=>o._c[key]);const median=vals.length?vals.slice().sort((a,b)=>a-b)[Math.floor(vals.length/2)]:null;const best=comparable[0];document.getElementById('kpiMin').textContent=best?fmtPct(best._c[key]):'—';document.getElementById('kpiMinName').textContent=best?`${best.provider} · ${best.country_iso2}`:'bez srovnatelné nabídky';document.getElementById('kpiMedian').textContent=fmtPct(median);document.getElementById('kpiOffers').textContent=all.length;document.getElementById('kpiMonthly').textContent=best?fmtCzk(best._c[monKey]):'—';document.getElementById('kpiMonthlyNote').textContent=best?`${best.provider}, ${S.monthlyTx.toLocaleString('cs-CZ')} transakcí`:'—';renderMap(rows,key);bindRows();}
-function renderMap(rows,key){const by={};for(const o of rows){if(o._c[key]!=null)by[o.country_iso2]=Math.min(by[o.country_iso2]??Infinity,o._c[key])}const vals=Object.values(by),mn=Math.min(...vals),mx=Math.max(...vals);const svg=document.getElementById('map');svg.innerHTML=S.map.paths.map(p=>`<path class="country-shape ${by[p.iso2]!=null?'covered':''} ${S.country===p.iso2?'active':''}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${by[p.iso2]!=null?color(by[p.iso2],mn,mx):'#e4e9ed'}"><title>${esc(p.name)}${by[p.iso2]!=null?' · '+fmtPct(by[p.iso2]):''}</title></path>`).join('');svg.querySelectorAll('.covered').forEach(p=>p.onclick=()=>{const iso=p.dataset.iso;S.country=S.country===iso?'':iso;document.getElementById('country').value=S.country;render()});document.getElementById('mapMode').textContent=S.mode.toUpperCase()}
-function bindRows(){document.querySelectorAll('.offerrow').forEach(r=>r.onclick=e=>{if(e.target.closest('a'))return;document.getElementById('trendOffer').value=r.dataset.id;renderTrend(r.dataset.id)})}
-async function loadHistory(){try{const idx=await fetch('data/history/index.json').then(r=>r.json());S.history=await Promise.all(idx.slice(-52).map(async x=>({date:x.date,data:await fetch('data/history/'+x.file).then(r=>r.json())})));}catch(e){S.history=[]}}
-function renderTrend(id){const svg=document.getElementById('trend'),pts=[];for(const h of S.history){const o=h.data.offers.find(x=>x.id===id);if(o){const fx=h.data.fx.rates[o.fee_currency]?.czk_per_unit??1;if(o.variable_pct_min!=null){const v=S.amount*o.variable_pct_min/100+(o.fixed_fee_min||0)*fx;pts.push({date:h.date,v:v/S.amount*100})}}}const selected=S.data.offers.find(o=>o.id===id);document.getElementById('trendSub').textContent=selected?`${selected.provider} · ${selected.product} · ${selected.country_iso2}`:'Vyber řádek v tabulce.';if(!pts.length){svg.innerHTML='<text x="330" y="140" text-anchor="middle" class="spark-label">Historie zatím není k dispozici.</text>';return}const W=660,H=285,p=42,min=Math.min(...pts.map(x=>x.v)),max=Math.max(...pts.map(x=>x.v)),span=max-min||.1;const xy=pts.map((x,i)=>({x:p+(pts.length===1?(W-2*p)/2:i/(pts.length-1)*(W-2*p)),y:H-p-(x.v-min)/span*(H-2*p),...x}));const path='M'+xy.map(q=>`${q.x.toFixed(1)},${q.y.toFixed(1)}`).join(' L');svg.innerHTML=`<line x1="${p}" y1="${H-p}" x2="${W-p}" y2="${H-p}" stroke="#dbe3ea"/><line x1="${p}" y1="${p}" x2="${p}" y2="${H-p}" stroke="#dbe3ea"/><path d="${path}" class="spark-line"/>${xy.map(q=>`<circle cx="${q.x}" cy="${q.y}" r="4" class="spark-dot"><title>${q.date}: ${fmtPct(q.v)}</title></circle>`).join('')}<text x="${p}" y="${p-12}" class="spark-label">${fmtPct(max)}</text><text x="${p}" y="${H-p+20}" class="spark-label">${pts[0].date}</text><text x="${W-p}" y="${H-p+20}" text-anchor="end" class="spark-label">${pts.at(-1).date}</text>`}
-function exportCsv(){const rows=filtered(),head=['country','provider','provider_type','product','method','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','monthly_transactions','monthly_min_czk','monthly_max_czk','source_url'];const lines=[head.join(',')];for(const o of rows){const c=o._c;lines.push([o.country_iso2,o.provider,o.provider_type,o.product,o.method,published(o),S.amount,c.min,c.max,c.emin,c.emax,S.monthlyTx,c.monthlyMin,c.monthlyMax,o.source_url].map(x=>'"'+String(x??'').replaceAll('"','""')+'"').join(','))}const b=new Blob(['\ufeff'+lines.join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='acquirer-fees-scenario.csv';a.click();URL.revokeObjectURL(a.href)}
-async function init(){[S.data,S.map]=await Promise.all([fetch('data/latest.json').then(r=>r.json()),fetch('assets/europe-paths.json').then(r=>r.json())]);await loadHistory();document.getElementById('generated').textContent=new Date(S.data.generated_at).toLocaleString('cs-CZ');document.getElementById('fxdate').textContent=S.data.fx.date;const countries=Object.entries(S.data.countries).sort((a,b)=>a[1].name.localeCompare(b[1].name,'cs'));document.getElementById('country').insertAdjacentHTML('beforeend',countries.map(([k,v])=>`<option value="${k}">${v.name}</option>`).join(''));const types=[...new Set(S.data.offers.map(o=>o.provider_type))].sort();document.getElementById('ptype').insertAdjacentHTML('beforeend',types.map(x=>`<option>${esc(x)}</option>`).join(''));const trend=document.getElementById('trendOffer');trend.innerHTML=S.data.offers.filter(o=>o.variable_pct_min!=null).map(o=>`<option value="${o.id}">${o.provider} · ${o.product} · ${o.country_iso2}</option>`).join('');
- const amount=document.getElementById('amount'),range=document.getElementById('amountRange'),mt=document.getElementById('monthlyTx');function setAmount(v){S.amount=Math.max(1,+v||500);amount.value=S.amount;range.value=Math.min(10000,S.amount);render();renderTrend(trend.value)}amount.oninput=()=>setAmount(amount.value);range.oninput=()=>setAmount(range.value);mt.oninput=()=>{S.monthlyTx=Math.max(1,+mt.value||1);render()};document.getElementById('country').onchange=e=>{S.country=e.target.value;render()};document.getElementById('method').onchange=e=>{S.method=e.target.value;render()};document.getElementById('ptype').onchange=e=>{S.ptype=e.target.value;render()};document.getElementById('minMode').onclick=()=>{S.mode='min';document.getElementById('minMode').classList.add('active');document.getElementById('maxMode').classList.remove('active');render()};document.getElementById('maxMode').onclick=()=>{S.mode='max';document.getElementById('maxMode').classList.add('active');document.getElementById('minMode').classList.remove('active');render()};document.getElementById('sortFee').onclick=()=>{S.sortAsc=!S.sortAsc;render()};document.getElementById('export').onclick=exportCsv;trend.onchange=()=>renderTrend(trend.value);render();renderTrend(trend.value)}
-init().catch(e=>{document.body.innerHTML='<div style="padding:40px;font-family:sans-serif"><h1>Data se nepodařilo načíst</h1><pre>'+esc(e.stack)+'</pre><p>Dashboard je nutné otevřít přes GitHub Pages nebo lokální HTTP server, nikoli dvojklikem na soubor.</p></div>'});
-</script></body></html>
+const S = { data:null, map:null, amount:500, monthlyTx:1000, country:'', provider:'', method:'', ptype:'', sortKey:'rate', sortAsc:true };
+
+const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:'CZK', maximumFractionDigits:2}).format(n);
+const fmtPct = n => n == null ? '—' : new Intl.NumberFormat('cs-CZ', {minimumFractionDigits:2, maximumFractionDigits:2}).format(n) + ' %';
+
+const SCALE = ['#003f5c','#00546e','#006b71','#008162','#009446','#65a31c','#b1aa00','#ffa600'];
+function scaleColor(v, min, max) {
+  if (v == null) return null;
+  let t = max === min ? 0.3 : (v - min) / (max - min);
+  t = Math.max(0, Math.min(1, t));
+  const idx = t * (SCALE.length - 1);
+  const lo = Math.floor(idx), hi = Math.ceil(idx), frac = idx - lo;
+  const c1 = SCALE[lo], c2 = SCALE[hi];
+  const mix = (a, b, f) => Math.round(a + (b - a) * f);
+  const hx = c => [parseInt(c.slice(1,3),16), parseInt(c.slice(3,5),16), parseInt(c.slice(5,7),16)];
+  const [r1,g1,b1] = hx(c1), [r2,g2,b2] = hx(c2);
+  return `rgb(${mix(r1,r2,frac)},${mix(g1,g2,frac)},${mix(b1,b2,frac)})`;
+}
+
+function calc(o) {
+  if (o.variable_pct_min == null) return {min:null, max:null, emin:null, emax:null, monthlyMin:null, monthlyMax:null};
+  const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
+  const min = S.amount * o.variable_pct_min / 100 + (o.fixed_fee_min || 0) * fx;
+  const max = S.amount * o.variable_pct_max / 100 + (o.fixed_fee_max || 0) * fx;
+  const mfx = S.data.fx.rates[o.monthly_currency]?.czk_per_unit ?? 1;
+  return {
+    min, max, emin: min / S.amount * 100, emax: max / S.amount * 100,
+    monthlyMin: min * S.monthlyTx + (o.monthly_fee || 0) * mfx,
+    monthlyMax: max * S.monthlyTx + (o.monthly_fee || 0) * mfx,
+  };
+}
+
+function published(o) {
+  if (o.variable_pct_min == null) return 'individuální';
+  const p = o.variable_pct_min === o.variable_pct_max
+    ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
+    : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
+  const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
+  return p + f;
+}
+
+// Stav zdroje shrnutý do jednoho jasného stavu (místo syrového interního textu)
+function statusInfo(o) {
+  const v = o.verification || '';
+  if (o.source_status && o.source_status.startsWith('error')) {
+    return {cls:'error', label:'zdroj nedostupný', detail:o.verification};
+  }
+  if (v.includes('review suggested') || v.includes('review')) {
+    return {cls:'warn', label:'stojí za kontrolu', detail:o.verification};
+  }
+  if (v.startsWith('auto-checked')) {
+    return {cls:'ok', label:'automaticky ověřeno', detail:o.verification};
+  }
+  return {cls:'ok', label:'z výchozí tabulky', detail:o.verification || 'manuální výchozí hodnota'};
+}
+
+function allWithCalc() {
+  return S.data.offers.map(o => ({...o, _c: calc(o)}));
+}
+
+// Nabídky pro aktuální kontext (vybraná země NEBO vybraný poskytovatel), po aplikaci metody/typu
+function contextOffers() {
+  let rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.ptype || o.provider_type === S.ptype));
+  if (S.provider) rows = rows.filter(o => o.provider === S.provider);
+  else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
+  return rows;
+}
+
+function sortRows(rows) {
+  const key = S.sortKey === 'rate' ? 'emin' : 'min';
+  const withVal = rows.filter(o => o._c[key] != null).sort((a, b) => S.sortAsc ? a._c[key] - b._c[key] : b._c[key] - a._c[key]);
+  const withoutVal = rows.filter(o => o._c[key] == null);
+  return [...withVal, ...withoutVal];
+}
+
+function render() {
+  renderKpis();
+  renderMap();
+  renderCompare();
+}
+
+function renderKpis() {
+  const rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.ptype || o.provider_type === S.ptype));
+  const vals = rows.filter(o => o._c.emin != null).map(o => o._c);
+  const byMin = [...rows.filter(o => o._c.emin != null)].sort((a,b) => a._c.emin - b._c.emin);
+  const byMax = [...rows.filter(o => o._c.emin != null)].sort((a,b) => b._c.emin - a._c.emin);
+  const best = byMin[0], worst = byMax[0];
+  const sorted = vals.map(v => v.emin).sort((a,b) => a-b);
+  const median = sorted.length ? sorted[Math.floor(sorted.length/2)] : null;
+
+  document.getElementById('kpiMin').textContent = best ? fmtPct(best._c.emin) : '—';
+  document.getElementById('kpiMinName').textContent = best ? `${best.provider} · ${best.country_iso2}` : '—';
+  document.getElementById('kpiMax').textContent = worst ? fmtPct(worst._c.emin) : '—';
+  document.getElementById('kpiMaxName').textContent = worst ? `${worst.provider} · ${worst.country_iso2}` : '—';
+  document.getElementById('kpiMedian').textContent = fmtPct(median);
+  document.getElementById('kpiMonthly').textContent = best ? fmtCzk(best._c.monthlyMin) : '—';
+  document.getElementById('kpiMonthlyNote').textContent = best ? `${best.provider}, ${S.monthlyTx.toLocaleString('cs-CZ')} transakcí/měsíc` : '—';
+}
+
+function renderMap() {
+  const svg = document.getElementById('map');
+  const banner = document.getElementById('mapFocusBanner');
+  const bannerText = document.getElementById('mapFocusText');
+  const summary = document.getElementById('mapRangeSummary');
+  const base = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.ptype || o.provider_type === S.ptype));
+
+  let byCountry = {}; // iso2 -> nejlevnější emin
+  let scopeRows = base;
+  if (S.provider) scopeRows = base.filter(o => o.provider === S.provider);
+
+  for (const o of scopeRows) {
+    if (o._c.emin == null) continue;
+    byCountry[o.country_iso2] = Math.min(byCountry[o.country_iso2] ?? Infinity, o._c.emin);
+  }
+  const vals = Object.values(byCountry);
+  const mn = vals.length ? Math.min(...vals) : 0, mx = vals.length ? Math.max(...vals) : 1;
+
+  if (S.provider) {
+    const countries = Object.keys(byCountry);
+    banner.style.display = 'flex';
+    bannerText.innerHTML = `<b>${esc(S.provider)}</b> působí v ${countries.length} ${countries.length===1?'zemi':'zemích'} z nabídnutých dat: ${countries.join(', ')}`;
+  } else if (S.country) {
+    banner.style.display = 'flex';
+    const name = S.data.countries[S.country]?.name || S.country;
+    bannerText.innerHTML = `Zobrazena <b>${esc(name)}</b>`;
+  } else {
+    banner.style.display = 'none';
+  }
+
+  if (vals.length) {
+    const cheapest = Object.entries(byCountry).sort((a,b) => a[1]-b[1])[0];
+    const priciest = Object.entries(byCountry).sort((a,b) => b[1]-a[1])[0];
+    const cName = c => S.data.countries[c]?.name || c;
+    summary.innerHTML = S.provider
+      ? `Rozpětí <b>${fmtPct(mn)} – ${fmtPct(mx)}</b> naprič zeměmi, kde tenhle poskytovatel působí.`
+      : `Napříč doplněnými zeměmi: od <b>${fmtPct(mn)}</b> (${esc(cName(cheapest[0]))}) do <b>${fmtPct(mx)}</b> (${esc(cName(priciest[0]))}).`;
+  } else {
+    summary.innerHTML = 'Pro tuhle kombinaci filtrů zatím nejsou žádná srovnatelná data.';
+  }
+
+  const shapes = S.map.paths.map(p => {
+    if (p.context) {
+      return `<path class="country-shape context" d="${p.d}" fill-rule="evenodd"></path>`;
+    }
+    const v = byCountry[p.iso2];
+    const hasData = v != null;
+    const isSelected = S.country === p.iso2;
+    const isDimmed = S.provider && !hasData;
+    const fill = hasData ? scaleColor(v, mn, mx) : '#e4e9ed';
+    const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', isDimmed ? 'dimmed' : ''].filter(Boolean).join(' ');
+    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
+  });
+  svg.innerHTML = shapes.join('');
+
+  svg.querySelectorAll('.active-country').forEach(el => {
+    el.onclick = () => {
+      const iso = el.dataset.iso;
+      S.provider = ''; // klik na mapu vždy přepne do zemního pohledu
+      S.country = S.country === iso ? '' : iso;
+      document.getElementById('country').value = S.country;
+      render();
+    };
+  });
+}
+
+function clearFocus() {
+  S.country = '';
+  S.provider = '';
+  document.getElementById('country').value = '';
+  render();
+}
+
+function renderCompare() {
+  const body = document.getElementById('compareBody');
+  const rowcount = document.getElementById('rowcount');
+  const sub = document.getElementById('compareSub');
+
+  if (!S.country && !S.provider) {
+    rowcount.textContent = '—';
+    sub.textContent = 'Vyber zemi na mapě, nebo poskytovatele v tabulce.';
+    body.innerHTML = `<div class="compare-empty"><b>Zatím nic nevybráno</b>Klikni na zemi v mapě vlevo, nebo si napřed prohlédni libovolnou zemi a pak klikni na jméno poskytovatele - ukáže se srovnání napříč všemi zeměmi, kde působí.</div>`;
+    return;
+  }
+
+  const rows = sortRows(contextOffers());
+  rowcount.textContent = `${rows.length} ${rows.length === 1 ? 'záznam' : rows.length < 5 ? 'záznamy' : 'záznamů'}`;
+  sub.textContent = S.provider
+    ? `${S.provider} napříč zeměmi, kde je k dispozici.`
+    : `Nabídky pro ${S.data.countries[S.country]?.name || S.country}.`;
+
+  if (!rows.length) {
+    body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus změnit metodu nebo typ poskytovatele nahoře.</div>`;
+    return;
+  }
+
+  const arrow = key => S.sortKey === key ? (S.sortAsc ? '↑' : '↓') : '↕';
+  const activeCls = key => S.sortKey === key ? 'active' : '';
+
+  body.innerHTML = `
+    <div class="tablewrap"><table>
+      <thead><tr>
+        <th>${S.provider ? 'Země' : 'Poskytovatel'}</th>
+        <th>Metoda</th>
+        <th><button class="sortbtn ${activeCls('published')}" data-sort="published">Publikovaná sazba <span class="arrow">${arrow('published')}</span></button></th>
+        <th><button class="sortbtn ${activeCls('rate')}" data-sort="rate">Poplatek <span class="arrow">${arrow('rate')}</span></button></th>
+        <th class="hide-mobile">Měsíčně</th>
+        <th>Zdroj</th>
+      </tr></thead>
+      <tbody>
+        ${rows.map(o => {
+          const st = statusInfo(o);
+          return `<tr class="offerrow" data-provider="${esc(o.provider)}">
+            <td>
+              ${S.provider
+                ? `<b>${esc(o.country_iso2)}</b><span class="sub">${esc(o.country)}</span>`
+                : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a>${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}${o.condition ? `<span class="sub">${esc(o.condition)}</span>` : ''}`
+              }
+            </td>
+            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span></td>
+            <td class="rate">${esc(published(o))}</td>
+            <td class="fee">${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}</td>
+            <td class="hide-mobile">${fmtCzk(o._c.monthlyMin)}</td>
+            <td>
+              <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">oficiální ceník ↗</a>
+              <span class="sub"><span class="status-dot ${st.cls}" title="${esc(st.detail)}"></span><span class="status-label">${st.label}</span></span>
+            </td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table></div>`;
+
+  body.querySelectorAll('.provider-link').forEach(el => {
+    el.onclick = e => {
+      e.stopPropagation();
+      S.provider = el.dataset.provider;
+      S.country = '';
+      document.getElementById('country').value = '';
+      render();
+    };
+  });
+  body.querySelectorAll('.sortbtn').forEach(el => {
+    el.onclick = () => {
+      const key = el.dataset.sort;
+      S.sortAsc = S.sortKey === key ? !S.sortAsc : true;
+      S.sortKey = key;
+      renderCompare();
+    };
+  });
+}
+
+function exportCsv() {
+  const rows = contextOffers().length ? sortRows(contextOffers()) : sortRows(allWithCalc());
+  const head = ['country','provider','provider_type','product','method','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','monthly_transactions','monthly_min_czk','monthly_max_czk','source_url'];
+  const lines = [head.join(',')];
+  for (const o of rows) {
+    const c = o._c;
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, published(o), S.amount, c.min, c.max, c.emin, c.emax, S.monthlyTx, c.monthlyMin, c.monthlyMax, o.source_url]
+      .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
+  }
+  const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'merchant-fee-scenario.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+async function init() {
+  [S.data, S.map] = await Promise.all([
+    fetch('data/latest.json').then(r => r.json()),
+    fetch('assets/europe-paths.json').then(r => r.json()),
+  ]);
+  document.getElementById('generated').textContent = new Date(S.data.generated_at).toLocaleString('cs-CZ');
+  document.getElementById('fxdate').textContent = S.data.fx.date;
+  document.getElementById('fxdate2').textContent = S.data.fx.date;
+
+  const countries = Object.entries(S.data.countries).sort((a,b) => a[1].name.localeCompare(b[1].name, 'cs'));
+  document.getElementById('country').insertAdjacentHTML('beforeend', countries.map(([k,v]) => `<option value="${k}">${v.name}</option>`).join(''));
+
+  const types = [...new Set(S.data.offers.map(o => o.provider_type))].sort();
+  document.getElementById('ptype').insertAdjacentHTML('beforeend', types.map(x => `<option>${esc(x)}</option>`).join(''));
+
+  const amount = document.getElementById('amount'), range = document.getElementById('amountRange'), mt = document.getElementById('monthlyTx');
+  function setAmount(v) { S.amount = Math.max(1, +v || 500); amount.value = S.amount; range.value = Math.min(10000, S.amount); render(); }
+  amount.oninput = () => setAmount(amount.value);
+  range.oninput = () => setAmount(range.value);
+  mt.oninput = () => { S.monthlyTx = Math.max(1, +mt.value || 1); render(); };
+  document.getElementById('country').onchange = e => { S.country = e.target.value; S.provider = ''; render(); };
+  document.getElementById('method').onchange = e => { S.method = e.target.value; render(); };
+  document.getElementById('ptype').onchange = e => { S.ptype = e.target.value; render(); };
+  document.getElementById('export').onclick = exportCsv;
+  document.getElementById('mapFocusClear').onclick = clearFocus;
+
+  render();
+}
+init().catch(e => {
+  document.body.innerHTML = '<div style="padding:40px;font-family:sans-serif"><h1>Data se nepodařilo načíst</h1><pre>' + esc(e.stack) + '</pre><p>Dashboard je nutné otevřít přes GitHub Pages nebo lokální HTTP server, nikoli dvojklikem na soubor.</p></div>';
+});
+</script>
+</body>
+</html>

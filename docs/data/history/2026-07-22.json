@@ -1,48 +1,168 @@
 {
-  "generated_at": "2026-07-22T13:56:11+00:00",
+  "generated_at": "2026-07-22T19:02:27+00:00",
   "update_frequency": "weekly",
   "default_transaction_czk": 500,
-  "methodology_version": "1.1",
+  "methodology_version": "1.0",
   "scope_note": "Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.",
   "fx": {
     "source": "Česká národní banka",
     "source_url": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt",
-    "date": "2026-07-21",
+    "date": "2026-07-22",
     "rates": {
       "CZK": {
         "amount": 1,
         "rate_czk": 1.0,
         "czk_per_unit": 1.0
       },
+      "AUD": {
+        "amount": 1,
+        "rate_czk": 14.81,
+        "czk_per_unit": 14.81
+      },
+      "BRL": {
+        "amount": 1,
+        "rate_czk": 4.17,
+        "czk_per_unit": 4.17
+      },
+      "CNY": {
+        "amount": 1,
+        "rate_czk": 3.126,
+        "czk_per_unit": 3.126
+      },
       "DKK": {
         "amount": 1,
-        "rate_czk": 3.233,
-        "czk_per_unit": 3.233
+        "rate_czk": 3.232,
+        "czk_per_unit": 3.232
       },
       "EUR": {
         "amount": 1,
-        "rate_czk": 24.17,
-        "czk_per_unit": 24.17
+        "rate_czk": 24.16,
+        "czk_per_unit": 24.16
+      },
+      "PHP": {
+        "amount": 100,
+        "rate_czk": 34.282,
+        "czk_per_unit": 0.34281999999999996
+      },
+      "HKD": {
+        "amount": 1,
+        "rate_czk": 2.7,
+        "czk_per_unit": 2.7
+      },
+      "INR": {
+        "amount": 100,
+        "rate_czk": 21.925,
+        "czk_per_unit": 0.21925
+      },
+      "IDR": {
+        "amount": 1000,
+        "rate_czk": 1.184,
+        "czk_per_unit": 0.001184
+      },
+      "ISK": {
+        "amount": 100,
+        "rate_czk": 16.872,
+        "czk_per_unit": 0.16872
+      },
+      "ILS": {
+        "amount": 1,
+        "rate_czk": 6.914,
+        "czk_per_unit": 6.914
+      },
+      "JPY": {
+        "amount": 100,
+        "rate_czk": 12.985,
+        "czk_per_unit": 0.12985
+      },
+      "ZAR": {
+        "amount": 1,
+        "rate_czk": 1.286,
+        "czk_per_unit": 1.286
+      },
+      "CAD": {
+        "amount": 1,
+        "rate_czk": 15.033,
+        "czk_per_unit": 15.033
+      },
+      "KRW": {
+        "amount": 100,
+        "rate_czk": 1.431,
+        "czk_per_unit": 0.01431
       },
       "HUF": {
         "amount": 100,
-        "rate_czk": 6.707,
-        "czk_per_unit": 0.06707
+        "rate_czk": 6.645,
+        "czk_per_unit": 0.06645
+      },
+      "MYR": {
+        "amount": 1,
+        "rate_czk": 5.18,
+        "czk_per_unit": 5.18
+      },
+      "MXN": {
+        "amount": 1,
+        "rate_czk": 1.216,
+        "czk_per_unit": 1.216
+      },
+      "XDR": {
+        "amount": 1,
+        "rate_czk": 28.766,
+        "czk_per_unit": 28.766
+      },
+      "NOK": {
+        "amount": 1,
+        "rate_czk": 2.206,
+        "czk_per_unit": 2.206
+      },
+      "NZD": {
+        "amount": 1,
+        "rate_czk": 12.322,
+        "czk_per_unit": 12.322
       },
       "PLN": {
         "amount": 1,
-        "rate_czk": 5.581,
-        "czk_per_unit": 5.581
+        "rate_czk": 5.58,
+        "czk_per_unit": 5.58
       },
       "RON": {
         "amount": 1,
-        "rate_czk": 4.615,
-        "czk_per_unit": 4.615
+        "rate_czk": 4.612,
+        "czk_per_unit": 4.612
+      },
+      "SGD": {
+        "amount": 1,
+        "rate_czk": 16.4,
+        "czk_per_unit": 16.4
       },
       "SEK": {
         "amount": 1,
-        "rate_czk": 2.188,
-        "czk_per_unit": 2.188
+        "rate_czk": 2.181,
+        "czk_per_unit": 2.181
+      },
+      "CHF": {
+        "amount": 1,
+        "rate_czk": 26.076,
+        "czk_per_unit": 26.076
+      },
+      "THB": {
+        "amount": 100,
+        "rate_czk": 62.631,
+        "czk_per_unit": 0.62631
+      },
+      "TRY": {
+        "amount": 100,
+        "rate_czk": 44.84,
+        "czk_per_unit": 0.4484
+      },
+      "USD": {
+        "amount": 1,
+        "rate_czk": 21.173,
+        "czk_per_unit": 21.173
+      },
+      "GBP": {
+        "amount": 1,
+        "rate_czk": 28.307,
+        "czk_per_unit": 28.307
       }
     }
   },
@@ -259,16 +379,16 @@
         "expected_currency": "PLN"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 1.29%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "523a8f5ce3a27591fb1c4d664e478f7a4696703a5e6a71756d089043eabac979",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 8.1243,
-        "fee_max_czk": 8.1243,
-        "effective_min_pct": 1.6249,
-        "effective_max_pct": 1.6249
+        "fee_min_czk": 8.124,
+        "fee_max_czk": 8.124,
+        "effective_min_pct": 1.6248,
+        "effective_max_pct": 1.6248
       }
     },
     {
@@ -299,16 +419,16 @@
         "expected_currency": "PLN"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 1.29%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "523a8f5ce3a27591fb1c4d664e478f7a4696703a5e6a71756d089043eabac979",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 8.1243,
-        "fee_max_czk": 8.1243,
-        "effective_min_pct": 1.6249,
-        "effective_max_pct": 1.6249
+        "fee_min_czk": 8.124,
+        "fee_max_czk": 8.124,
+        "effective_min_pct": 1.6248,
+        "effective_max_pct": 1.6248
       }
     },
     {
@@ -339,16 +459,16 @@
         "expected_currency": "PLN"
       },
       "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 7.1743,
-        "fee_max_czk": 7.1743,
-        "effective_min_pct": 1.4349,
-        "effective_max_pct": 1.4349
+        "fee_min_czk": 7.174,
+        "fee_max_czk": 7.174,
+        "effective_min_pct": 1.4348,
+        "effective_max_pct": 1.4348
       }
     },
     {
@@ -379,9 +499,9 @@
         "expected_currency": "PLN"
       },
       "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -419,16 +539,16 @@
         "expected_currency": "PLN"
       },
       "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 7.1743,
-        "fee_max_czk": 7.1743,
-        "effective_min_pct": 1.4349,
-        "effective_max_pct": 1.4349
+        "fee_min_czk": 7.174,
+        "fee_max_czk": 7.174,
+        "effective_min_pct": 1.4348,
+        "effective_max_pct": 1.4348
       }
     },
     {
@@ -459,9 +579,9 @@
         "expected_currency": "PLN"
       },
       "notes": "Ceník ukazuje dvě čísla u každé metody: zaváděcí sazbu (1,1 % + 0,30 PLN) a plnou standardní sazbu (1,49 %), na kterou přechází po skončení zvýhodněného období. Obě jsou tu záměrně zvlášť, ať se needuje jen ta levnější.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -499,10 +619,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -539,10 +659,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -579,16 +699,16 @@
         "expected_currency": "PLN"
       },
       "notes": "Veřejné rozpětí; konkrétní sazba závisí na tarifu a podmínkách.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.737,
-        "fee_max_czk": 25.237,
-        "effective_min_pct": 2.7474,
-        "effective_max_pct": 5.0474
+        "fee_min_czk": 13.7364,
+        "fee_max_czk": 25.2364,
+        "effective_min_pct": 2.7473,
+        "effective_max_pct": 5.0473
       }
     },
     {
@@ -619,16 +739,16 @@
         "expected_currency": "PLN"
       },
       "notes": "Veřejné rozpětí; konkrétní sazba závisí na tarifu a podmínkách.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.737,
-        "fee_max_czk": 25.237,
-        "effective_min_pct": 2.7474,
-        "effective_max_pct": 5.0474
+        "fee_min_czk": 13.7364,
+        "fee_max_czk": 25.2364,
+        "effective_min_pct": 2.7473,
+        "effective_max_pct": 5.0473
       }
     },
     {
@@ -642,8 +762,8 @@
       "channel": "online",
       "method": "card",
       "pricing_model": "blended",
-      "variable_pct_min": 1.0,
-      "variable_pct_max": 1.0,
+      "variable_pct_min": 0.6,
+      "variable_pct_max": 0.6,
       "fixed_fee_min": 0,
       "fixed_fee_max": 0,
       "fee_currency": "CZK",
@@ -659,16 +779,16 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
-      "last_changed_at": null,
+      "verification": "auto-checked (99%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "8a4ae532ce6e355af01d04ab2d4068bb4b6e2b3db4ab65b158b131704b03977c",
+      "last_changed_at": "2026-07-22T19:02:27+00:00",
       "calculation_500_czk": {
-        "fee_min_czk": 5.0,
-        "fee_max_czk": 5.0,
-        "effective_min_pct": 1.0,
-        "effective_max_pct": 1.0
+        "fee_min_czk": 3.0,
+        "fee_max_czk": 3.0,
+        "effective_min_pct": 0.6,
+        "effective_max_pct": 0.6
       }
     },
     {
@@ -682,8 +802,8 @@
       "channel": "online",
       "method": "a2a",
       "pricing_model": "blended",
-      "variable_pct_min": 1.0,
-      "variable_pct_max": 1.0,
+      "variable_pct_min": 0.6,
+      "variable_pct_max": 0.6,
       "fixed_fee_min": 0,
       "fixed_fee_max": 0,
       "fee_currency": "CZK",
@@ -699,16 +819,16 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
-      "last_changed_at": null,
+      "verification": "auto-checked (99%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "8a4ae532ce6e355af01d04ab2d4068bb4b6e2b3db4ab65b158b131704b03977c",
+      "last_changed_at": "2026-07-22T19:02:27+00:00",
       "calculation_500_czk": {
-        "fee_min_czk": 5.0,
-        "fee_max_czk": 5.0,
-        "effective_min_pct": 1.0,
-        "effective_max_pct": 1.0
+        "fee_min_czk": 3.0,
+        "fee_max_czk": 3.0,
+        "effective_min_pct": 0.6,
+        "effective_max_pct": 0.6
       }
     },
     {
@@ -722,10 +842,10 @@
       "channel": "online",
       "method": "card",
       "pricing_model": "blended",
-      "variable_pct_min": 0.67,
-      "variable_pct_max": 0.67,
-      "fixed_fee_min": 1.0,
-      "fixed_fee_max": 1.0,
+      "variable_pct_min": 0.47,
+      "variable_pct_max": 0.47,
+      "fixed_fee_min": 0.0,
+      "fixed_fee_max": 0.0,
       "fee_currency": "CZK",
       "monthly_fee": 0,
       "monthly_currency": "CZK",
@@ -739,16 +859,16 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
-      "last_changed_at": null,
+      "verification": "auto-checked (99%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "8a4ae532ce6e355af01d04ab2d4068bb4b6e2b3db4ab65b158b131704b03977c",
+      "last_changed_at": "2026-07-22T19:02:27+00:00",
       "calculation_500_czk": {
-        "fee_min_czk": 4.35,
-        "fee_max_czk": 4.35,
-        "effective_min_pct": 0.87,
-        "effective_max_pct": 0.87
+        "fee_min_czk": 2.35,
+        "fee_max_czk": 2.35,
+        "effective_min_pct": 0.47,
+        "effective_max_pct": 0.47
       }
     },
     {
@@ -762,8 +882,8 @@
       "channel": "online",
       "method": "a2a",
       "pricing_model": "blended",
-      "variable_pct_min": 0.62,
-      "variable_pct_max": 0.62,
+      "variable_pct_min": 1.0,
+      "variable_pct_max": 1.0,
       "fixed_fee_min": 0,
       "fixed_fee_max": 0,
       "fee_currency": "CZK",
@@ -779,16 +899,16 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
-      "last_changed_at": null,
+      "verification": "auto-checked (99%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "8a4ae532ce6e355af01d04ab2d4068bb4b6e2b3db4ab65b158b131704b03977c",
+      "last_changed_at": "2026-07-22T19:02:27+00:00",
       "calculation_500_czk": {
-        "fee_min_czk": 3.1,
-        "fee_max_czk": 3.1,
-        "effective_min_pct": 0.62,
-        "effective_max_pct": 0.62
+        "fee_min_czk": 5.0,
+        "fee_max_czk": 5.0,
+        "effective_min_pct": 1.0,
+        "effective_max_pct": 1.0
       }
     },
     {
@@ -819,10 +939,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -859,10 +979,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -899,9 +1019,9 @@
         "expected_currency": "CZK"
       },
       "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -939,9 +1059,9 @@
         "expected_currency": "CZK"
       },
       "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -979,9 +1099,9 @@
         "expected_currency": "CZK"
       },
       "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1019,9 +1139,9 @@
         "expected_currency": "CZK"
       },
       "notes": "Zdrojová URL vede na obecnou stránku o aktivaci, ne přímo na ceník - PayU ČR přesný veřejný ceníkový odkaz zatím nemám ověřený, stojí za dohledání.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1059,10 +1179,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -1099,10 +1219,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -1122,10 +1242,10 @@
       "channel": "online",
       "method": "card",
       "pricing_model": "blended",
-      "variable_pct_min": 1.0,
-      "variable_pct_max": 1.0,
-      "fixed_fee_min": 1.0,
-      "fixed_fee_max": 1.0,
+      "variable_pct_min": 0.89,
+      "variable_pct_max": 0.89,
+      "fixed_fee_min": 0.0,
+      "fixed_fee_max": 0.0,
       "fee_currency": "CZK",
       "monthly_fee": 0,
       "monthly_currency": "CZK",
@@ -1139,16 +1259,16 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
-      "last_changed_at": null,
+      "verification": "auto-checked (98%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "5b05f81e06a284d71c21f430746d0adbae5269915f94666013a25624e65ec2ba",
+      "last_changed_at": "2026-07-22T19:02:27+00:00",
       "calculation_500_czk": {
-        "fee_min_czk": 6.0,
-        "fee_max_czk": 6.0,
-        "effective_min_pct": 1.2,
-        "effective_max_pct": 1.2
+        "fee_min_czk": 4.45,
+        "fee_max_czk": 4.45,
+        "effective_min_pct": 0.89,
+        "effective_max_pct": 0.89
       }
     },
     {
@@ -1179,10 +1299,10 @@
         "expected_currency": "CZK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (69%; 0,89 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "5b05f81e06a284d71c21f430746d0adbae5269915f94666013a25624e65ec2ba",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.0,
@@ -1219,9 +1339,9 @@
         "expected_currency": "CZK"
       },
       "notes": "Ověřit, zda jde o standardní veřejnou sazbu nebo marketingovou sazbu „od“.",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1259,10 +1379,10 @@
         "expected_currency": "EUR"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -1299,10 +1419,10 @@
         "expected_currency": "EUR"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -1339,10 +1459,10 @@
         "expected_currency": "EUR"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -1379,10 +1499,10 @@
         "expected_currency": "EUR"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -1419,16 +1539,16 @@
         "expected_currency": "EUR"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.4004,
-        "fee_max_czk": 24.9004,
-        "effective_min_pct": 2.6801,
-        "effective_max_pct": 4.9801
+        "fee_min_czk": 13.3992,
+        "fee_max_czk": 24.8992,
+        "effective_min_pct": 2.6798,
+        "effective_max_pct": 4.9798
       }
     },
     {
@@ -1459,16 +1579,16 @@
         "expected_currency": "EUR"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.4004,
-        "fee_max_czk": 24.9004,
-        "effective_min_pct": 2.6801,
-        "effective_max_pct": 4.9801
+        "fee_min_czk": 13.3992,
+        "fee_max_czk": 24.8992,
+        "effective_min_pct": 2.6798,
+        "effective_max_pct": 4.9798
       }
     },
     {
@@ -1499,10 +1619,10 @@
         "expected_currency": "HUF"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -1539,10 +1659,10 @@
         "expected_currency": "HUF"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -1579,10 +1699,10 @@
         "expected_currency": "HUF"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -1619,10 +1739,10 @@
         "expected_currency": "HUF"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; no fee expression found)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "2239db337e3e30c403d6ba1b43ce70fe3d45e1bb5354a4de290e3a21fd8f04ee",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.5,
@@ -1659,16 +1779,16 @@
         "expected_currency": "HUF"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.7194,
-        "fee_max_czk": 25.2194,
-        "effective_min_pct": 2.7439,
-        "effective_max_pct": 5.0439
+        "fee_min_czk": 13.6896,
+        "fee_max_czk": 25.1896,
+        "effective_min_pct": 2.7379,
+        "effective_max_pct": 5.0379
       }
     },
     {
@@ -1699,16 +1819,16 @@
         "expected_currency": "HUF"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.7194,
-        "fee_max_czk": 25.2194,
-        "effective_min_pct": 2.7439,
-        "effective_max_pct": 5.0439
+        "fee_min_czk": 13.6896,
+        "fee_max_czk": 25.1896,
+        "effective_min_pct": 2.7379,
+        "effective_max_pct": 5.0379
       }
     },
     {
@@ -1739,16 +1859,16 @@
         "expected_currency": "RON"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
+      "verification": "retained – source unavailable",
+      "source_status": "error: HTTP 403",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 6.3345,
-        "fee_max_czk": 6.3345,
-        "effective_min_pct": 1.2669,
-        "effective_max_pct": 1.2669
+        "fee_min_czk": 6.3336,
+        "fee_max_czk": 6.3336,
+        "effective_min_pct": 1.2667,
+        "effective_max_pct": 1.2667
       }
     },
     {
@@ -1779,10 +1899,10 @@
         "expected_currency": "RON"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -1819,10 +1939,10 @@
         "expected_currency": "RON"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 0,99 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "f3d53cc692214e9ef35e9274314203cc9b399ece05421588c2816f3f92de253e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.95,
@@ -1859,16 +1979,16 @@
         "expected_currency": "RON"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.7305,
-        "fee_max_czk": 25.2305,
-        "effective_min_pct": 2.7461,
-        "effective_max_pct": 5.0461
+        "fee_min_czk": 13.7284,
+        "fee_max_czk": 25.2284,
+        "effective_min_pct": 2.7457,
+        "effective_max_pct": 5.0457
       }
     },
     {
@@ -1899,16 +2019,16 @@
         "expected_currency": "RON"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (70%; 2.1 %)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "18806e7a6c3df5e6d1547f635deb95606c7730eb560b3fc8eb757ed89031af64",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 13.7305,
-        "fee_max_czk": 25.2305,
-        "effective_min_pct": 2.7461,
-        "effective_max_pct": 5.0461
+        "fee_min_czk": 13.7284,
+        "fee_max_czk": 25.2284,
+        "effective_min_pct": 2.7457,
+        "effective_max_pct": 5.0457
       }
     },
     {
@@ -1939,10 +2059,10 @@
         "expected_currency": "SEK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "retained – review suggested (0%; manual-only source)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "a57f111a39afc060e8f0a158f8277df0ada627c7d221dd0f32edba018f4e1a3e",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -1979,16 +2099,16 @@
         "expected_currency": "DKK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "auto-checked (99%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "a2a7d57b602f7dac8b8f1dd4304661ef90c09f109212c49dd9d83ac2bbc8c459",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 10.683,
-        "fee_max_czk": 10.683,
-        "effective_min_pct": 2.1366,
-        "effective_max_pct": 2.1366
+        "fee_min_czk": 10.682,
+        "fee_max_czk": 10.682,
+        "effective_min_pct": 2.1364,
+        "effective_max_pct": 2.1364
       }
     },
     {
@@ -2019,18 +2139,159 @@
         "expected_currency": "DKK"
       },
       "notes": "",
-      "verification": "manual baseline",
-      "source_status": "seeded",
-      "source_checked_at": "2026-07-22T13:56:11+00:00",
-      "source_hash": null,
+      "verification": "auto-checked (99%)",
+      "source_status": "ok",
+      "source_checked_at": "2026-07-22T19:02:27+00:00",
+      "source_hash": "a2a7d57b602f7dac8b8f1dd4304661ef90c09f109212c49dd9d83ac2bbc8c459",
       "last_changed_at": null,
       "calculation_500_czk": {
-        "fee_min_czk": 10.683,
-        "fee_max_czk": 10.683,
-        "effective_min_pct": 2.1366,
-        "effective_max_pct": 2.1366
+        "fee_min_czk": 10.682,
+        "fee_max_czk": 10.682,
+        "effective_min_pct": 2.1364,
+        "effective_max_pct": 2.1364
       }
     }
   ],
-  "change_log": []
+  "change_log": [
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-easy-card",
+      "field": "variable_pct_min",
+      "old": 1.0,
+      "new": 0.6,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,6 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-easy-card",
+      "field": "variable_pct_max",
+      "old": 1.0,
+      "new": 0.6,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,6 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-easy-a2a",
+      "field": "variable_pct_min",
+      "old": 1.0,
+      "new": 0.6,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,6 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-easy-a2a",
+      "field": "variable_pct_max",
+      "old": 1.0,
+      "new": 0.6,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,6 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-profi-card",
+      "field": "variable_pct_min",
+      "old": 0.67,
+      "new": 0.47,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,47 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-profi-card",
+      "field": "variable_pct_max",
+      "old": 0.67,
+      "new": 0.47,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,47 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-profi-card",
+      "field": "fixed_fee_min",
+      "old": 1.0,
+      "new": 0.0,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,47 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-profi-card",
+      "field": "fixed_fee_max",
+      "old": 1.0,
+      "new": 0.0,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "0,47 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-profi-a2a",
+      "field": "variable_pct_min",
+      "old": 0.62,
+      "new": 1.0,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "1 % + 0 Kč"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-comgate-profi-a2a",
+      "field": "variable_pct_max",
+      "old": 0.62,
+      "new": 1.0,
+      "source_url": "https://www.comgate.cz/cenove-tarify-platebni-brany",
+      "confidence": 0.99,
+      "raw_match": "1 % + 0 Kč"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-gopay-card",
+      "field": "variable_pct_min",
+      "old": 1.0,
+      "new": 0.89,
+      "source_url": "https://www.gopay.com/cs/platebni-brana/",
+      "confidence": 0.977,
+      "raw_match": "0,89 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-gopay-card",
+      "field": "variable_pct_max",
+      "old": 1.0,
+      "new": 0.89,
+      "source_url": "https://www.gopay.com/cs/platebni-brana/",
+      "confidence": 0.977,
+      "raw_match": "0,89 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-gopay-card",
+      "field": "fixed_fee_min",
+      "old": 1.0,
+      "new": 0.0,
+      "source_url": "https://www.gopay.com/cs/platebni-brana/",
+      "confidence": 0.977,
+      "raw_match": "0,89 %"
+    },
+    {
+      "detected_at": "2026-07-22T19:02:27+00:00",
+      "offer_id": "CZ-gopay-card",
+      "field": "fixed_fee_max",
+      "old": 1.0,
+      "new": 0.0,
+      "source_url": "https://www.gopay.com/cs/platebni-brana/",
+      "confidence": 0.977,
+      "raw_match": "0,89 %"
+    }
+  ]
 }

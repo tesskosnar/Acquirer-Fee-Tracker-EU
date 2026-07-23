@@ -72,9 +72,6 @@ button,input,select{font:inherit}
 .seg-ccy button.active{background:var(--navy);color:#fff}
 
 /* ---------- Grid / panels ---------- */
-.grid{display:flex;flex-direction:column;gap:18px}
-.grid > .map-panel{width:100%}
-.grid > .compare-panel{width:100%}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
 .panel-light{
   --panel:var(--light-bg); --panel-alt:#efe8d5; --ink:var(--light-ink); --muted:var(--light-muted);
@@ -93,25 +90,25 @@ button,input,select{font:inherit}
 .pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:rgba(255,255,255,.08);color:var(--ink);white-space:nowrap}
 .pill.pm-warn{background:rgba(227,171,76,.16);color:var(--amber);cursor:help}
 
-/* ---------- Map ---------- */
-.mapbox{padding:14px 20px 10px;position:relative}
-.mapbox svg{width:100%;height:auto;display:block}
-.country-shape{stroke:var(--panel);stroke-width:1;transition:.15s}
-.country-shape.context{fill:#e4e0d1;stroke:var(--panel)}
+/* ---------- Map - přesně podle vzoru: pevná šířka mapy, tmavá, s malým světlým detail panelem vedle ---------- */
+.map-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.map-svg-host{width:490px;max-width:100%;flex-shrink:0;background:var(--panel-alt);border-radius:16px;padding:14px}
+.map-svg-host svg{width:100%;height:auto;display:block}
+.country-shape{stroke:var(--panel-alt);stroke-width:1;transition:.15s}
+.country-shape.context{fill:#2a3f66;stroke:var(--panel-alt)}
 .country-shape.active-country{cursor:pointer}
-.country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
-.country-shape.selected{stroke:#e8543f;stroke-width:3.5}
+.country-shape.active-country:hover{stroke:#fff;stroke-width:2}
+.country-shape.selected{stroke:#e8543f;stroke-width:3}
 .country-shape.dimmed{opacity:.22}
-.maplabel{font-size:9.5px;fill:#fff;font-weight:700;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.5)}
-.map-focus-banner{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin:0 20px 10px;padding:8px 12px;background:var(--mint);border-radius:9px;font-size:12.5px;color:#8fe0d4;
-}
-.map-focus-banner button{border:0;background:#144840;color:#8fe0d4;border-radius:6px;padding:4px 9px;font-size:11px;cursor:pointer;font-weight:700}
-.legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;padding:2px 20px 16px;flex-wrap:wrap}
-.legend .grad{width:170px;height:9px;border-radius:20px;background:linear-gradient(90deg,var(--scale-0),var(--scale-1),var(--scale-2),var(--scale-3),var(--scale-4),var(--scale-5),var(--scale-6),var(--scale-7))}
-.map-range-summary{padding:0 20px 14px;font-size:13px;color:var(--ink);line-height:1.5}
-.map-range-summary b{font-family:Georgia,serif;font-size:15px}
+.legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:10px;flex-wrap:wrap}
+.legend .grad{width:120px;height:7px;border-radius:20px;background:linear-gradient(90deg,var(--scale-0),var(--scale-1),var(--scale-2),var(--scale-3),var(--scale-4),var(--scale-5),var(--scale-6),var(--scale-7))}
+.map-detail{flex:1;min-width:220px;background:var(--light-bg);color:var(--light-ink);border-radius:16px;padding:18px 20px;min-height:170px}
+.map-detail .name{font-weight:700;font-size:16px;margin:0 0 4px}
+.map-detail .region{font-size:11px;color:var(--light-muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 14px}
+.map-detail .label{font-size:12px;color:var(--light-muted);margin-bottom:3px}
+.map-detail .val{font-size:13px;font-weight:700;margin-bottom:12px}
+.map-detail a.source-link{color:#4755cb;font-weight:600;text-decoration:none;border-bottom:1px dotted currentColor}
+.map-detail .empty-hint{color:var(--light-muted);font-size:13px;margin:0}
 
 /* ---------- Table / Srovnání nabídek ---------- */
 .compare-empty{padding:60px 24px;text-align:center;color:var(--muted)}
@@ -147,7 +144,8 @@ tr.offerrow{cursor:pointer}
 .footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
 
 @media(max-width:1150px){
-  .grid > .map-panel{width:100%}
+  .map-wrap{flex-direction:column}
+  .map-svg-host{width:100%}
   .controls{position:relative}
 }
 @media(max-width:650px){
@@ -212,27 +210,25 @@ tr.offerrow{cursor:pointer}
     <div class="kpi kpi-amount"><span>Přepočet pro platbu</span><div class="kpi-amount-row"><input id="amount" type="number" min="1" value="1000"><div class="seg seg-ccy" id="ccy-seg"><button data-v="CZK" class="active">Kč</button><button data-v="EUR">€</button></div></div></div>
   </section>
 
-  <section class="grid">
-    <article class="panel panel-light map-panel">
-      <div class="panelhead">
-        <div><h2>Mapa sazeb</h2><p>Klikni na zemi nebo poskytovatele.</p></div>
+  <section class="panel" style="padding:19px 21px">
+    <div class="panelhead" style="padding:0 0 12px;border:0">
+      <div><h2 style="margin:0">Mapa sazeb</h2><p>Klikni na zemi pro detail.</p></div>
+    </div>
+    <div class="map-wrap">
+      <div>
+        <div class="map-svg-host"><svg id="map" viewBox="0 0 600 800" aria-label="Mapa Evropy"></svg></div>
+        <div class="legend"><span id="legendLo">—</span><span class="grad"></span><span id="legendHi">—</span></div>
       </div>
-      <div id="mapFocusBanner" class="map-focus-banner" style="display:none">
-        <span id="mapFocusText"></span>
-        <button id="mapFocusClear">✕ zpět na přehled</button>
-      </div>
-      <div class="map-range-summary" id="mapRangeSummary"></div>
-      <div class="mapbox"><svg id="map" viewBox="0 0 740 600" aria-label="Mapa Evropy"></svg></div>
-      <div class="legend"><span>nejlevnější</span><span class="grad"></span><span>nejdražší</span></div>
-    </article>
+      <div class="map-detail" id="mapDetail"></div>
+    </div>
+  </section>
 
-    <article class="panel panel-light compare-panel">
-      <div class="panelhead">
-        <div><h2>Srovnání nabídek</h2><p id="compareSub">Vyber zemi na mapě, nebo poskytovatele v tabulce.</p></div>
-        <span class="pill" id="rowcount">—</span>
-      </div>
-      <div id="compareBody"></div>
-    </article>
+  <section class="panel panel-light" style="margin-top:18px">
+    <div class="panelhead">
+      <div><h2>Srovnání nabídek</h2><p id="compareSub">Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.</p></div>
+      <span class="pill" id="rowcount">—</span>
+    </div>
+    <div id="compareBody"></div>
   </section>
 
   <section class="panel" style="margin-top:18px">
@@ -356,47 +352,17 @@ function renderKpis() {
 
 function renderMap() {
   const svg = document.getElementById('map');
-  const banner = document.getElementById('mapFocusBanner');
-  const bannerText = document.getElementById('mapFocusText');
-  const summary = document.getElementById('mapRangeSummary');
-  const base = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)));
+  const base = allWithCalc().filter(o => (!S.method || o.method === S.method));
 
-  let byCountry = {}; // iso2 -> nejlevnější emin
-  let scopeRows = base;
-  if (S.provider) scopeRows = base.filter(o => o.provider === S.provider);
-
-  for (const o of scopeRows) {
+  let byCountry = {}; // iso2 -> nejlevnější emin, napříč VŠEMI daty (mapa se nezoomuje, jen dimuje)
+  for (const o of base) {
     if (o._c.emin == null) continue;
     byCountry[o.country_iso2] = Math.min(byCountry[o.country_iso2] ?? Infinity, o._c.emin);
   }
   const vals = Object.values(byCountry);
   const mn = vals.length ? Math.min(...vals) : 0, mx = vals.length ? Math.max(...vals) : 1;
-
-  if (S.provider) {
-    const countries = Object.keys(byCountry);
-    banner.style.display = 'flex';
-    bannerText.innerHTML = `<b>${esc(S.provider)}</b> působí v ${countries.length} ${countries.length===1?'zemi':'zemích'} z nabídnutých dat: ${countries.join(', ')}`;
-  } else if (S.country) {
-    banner.style.display = 'flex';
-    const name = S.data.countries[S.country]?.name || S.country;
-    bannerText.innerHTML = `Zobrazena <b>${esc(name)}</b>`;
-  } else if (S.region) {
-    banner.style.display = 'flex';
-    bannerText.innerHTML = `Region <b>${esc(REGION_LABELS[S.region])}</b>: ${REGION_COUNTRIES[S.region].join(', ')}`;
-  } else {
-    banner.style.display = 'none';
-  }
-
-  if (vals.length) {
-    const cheapest = Object.entries(byCountry).sort((a,b) => a[1]-b[1])[0];
-    const priciest = Object.entries(byCountry).sort((a,b) => b[1]-a[1])[0];
-    const cName = c => S.data.countries[c]?.name || c;
-    summary.innerHTML = S.provider
-      ? `Rozpětí <b>${fmtPct(mn)} – ${fmtPct(mx)}</b> naprič zeměmi, kde tenhle poskytovatel působí.`
-      : `Napříč doplněnými zeměmi: od <b>${fmtPct(mn)}</b> (${esc(cName(cheapest[0]))}) do <b>${fmtPct(mx)}</b> (${esc(cName(priciest[0]))}).`;
-  } else {
-    summary.innerHTML = 'Pro tuhle kombinaci filtrů zatím nejsou žádná srovnatelná data.';
-  }
+  document.getElementById('legendLo').textContent = fmtPct(mn);
+  document.getElementById('legendHi').textContent = fmtPct(mx);
 
   const shapes = S.map.paths.map(p => {
     if (p.context) {
@@ -405,79 +371,58 @@ function renderMap() {
     const v = byCountry[p.iso2];
     const hasData = v != null;
     const isSelected = S.country === p.iso2;
-    const isDimmed = (S.provider && !hasData) || (S.region && !REGION_COUNTRIES[S.region].includes(p.iso2));
-    const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
-    const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', isDimmed ? 'dimmed' : ''].filter(Boolean).join(' ');
+    const inRegion = !S.region || REGION_COUNTRIES[S.region].includes(p.iso2);
+    const fill = hasData ? scaleColor(v, mn, mx) : '#3a4a6b';
+    const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', !inRegion ? 'dimmed' : ''].filter(Boolean).join(' ');
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
-  applyMapZoom(byCountry);
+  svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 800'); // mapa se podle vzoru nezoomuje, jen dimuje mimo vybraný region
 
   svg.querySelectorAll('.active-country').forEach(el => {
     el.onclick = () => {
       const iso = el.dataset.iso;
-      S.provider = ''; // klik na mapu vždy přepne do zemního pohledu
-      S.region = '';
-      resetRegionButtons();
       S.country = S.country === iso ? '' : iso;
-      document.getElementById('country').value = S.country;
       render();
     };
   });
+
+  renderMapDetail();
 }
 
-// Přiblížení mapy - žádné přegenerování cest, jen přepnutí SVG viewBoxu na
-// předpočítaný výřez (celá EU/EHP / jeden region / jedna země / země
-// poskytovatele dohromady). S plynulým přechodem přes CSS transition.
-function applyMapZoom(byCountry) {
-  const svg = document.getElementById('map');
-  const vb = S.map.viewBoxes;
-  if (!vb) return; // starší/nesynchronizovaná assets/europe-paths.json bez viewBoxes - zoom prostě přeskočit, ne spadnout
-  // Zoom se dělá jen pro region - u jedné země/poskytovatele zůstává mapa na
-  // celé EU/EHP (podle vzoru) a výběr se zvýrazní jen barevným obrysem,
-  // ať se neztratí kontext okolních zemí (u malých zemí byl zoom dřív matoucí).
-  const target = (S.region && vb['region:' + S.region]) ? vb['region:' + S.region] : vb.all;
-  if (target) animateViewBox(svg, target);
-}
-
-// SVG viewBox se nedá spolehlivě animovat čistě přes CSS transition napříč
-// prohlížeči (je to prezentační atribut, ne standardní animovatelná CSS
-// vlastnost) - proto ruční plynulá interpolace po snímcích.
-let mapZoomRAF = null;
-function animateViewBox(svg, targetStr) {
-  const parse = s => s.split(' ').map(Number);
-  const current = parse(svg.getAttribute('viewBox') || svg.dataset.lastViewBox || targetStr);
-  const target = parse(targetStr);
-  if (current.every((v, i) => Math.abs(v - target[i]) < 0.5)) { svg.setAttribute('viewBox', targetStr); return; }
-
-  if (mapZoomRAF) cancelAnimationFrame(mapZoomRAF);
-  const duration = 500;
-  const start = performance.now();
-  const ease = t => 1 - Math.pow(1 - t, 3); // ease-out kubická
-
-  function step(now) {
-    const t = Math.min(1, (now - start) / duration);
-    const e = ease(t);
-    const box = current.map((c, i) => c + (target[i] - c) * e);
-    svg.setAttribute('viewBox', box.join(' '));
-    svg.dataset.lastViewBox = box.join(' ');
-    if (t < 1) { mapZoomRAF = requestAnimationFrame(step); }
-    else { mapZoomRAF = null; svg.dataset.lastViewBox = targetStr; }
+function renderMapDetail() {
+  const host = document.getElementById('mapDetail');
+  if (!S.country) {
+    host.innerHTML = `<p class="empty-hint">Klikni na zemi vlevo pro detail nabídek.</p>`;
+    return;
   }
-  mapZoomRAF = requestAnimationFrame(step);
-}
-
-function resetRegionButtons() {
-  document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === ''));
+  const name = S.data.countries[S.country]?.name || S.country;
+  const region = S.data.countries[S.country]?.region || '';
+  const rows = allWithCalc().filter(o => o.country_iso2 === S.country && (!S.method || o.method === S.method));
+  const withVal = rows.filter(o => o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
+  const best = withVal[0];
+  const links = rows.slice(0, 4).map(o => `<a class="source-link" href="${esc(o.source_url)}" target="_blank" rel="noopener">${esc(o.provider)} ↗</a>`).join('');
+  host.innerHTML = `
+    <p class="name">${esc(name)}</p>
+    <p class="region">${esc(region)}</p>
+    <div class="label">Nejnižší dostupná sazba</div>
+    <div class="val" style="font-size:20px">${best ? fmtPct(best._c.emin) + ' · ' + esc(best.provider) : '—'}</div>
+    <div class="label">Počet nabídek</div>
+    <div class="val">${rows.length}</div>
+    <div class="label" style="margin-bottom:5px">Zdroje</div>
+    <div style="display:flex; flex-direction:column; gap:4px">${links || '—'}</div>
+  `;
 }
 
 function clearFocus() {
   S.country = '';
   S.provider = '';
-  S.region = '';
   document.getElementById('country').value = '';
-  resetRegionButtons();
   render();
+}
+
+function resetRegionButtons() {
+  document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === ''));
 }
 
 function renderCompare() {
@@ -485,23 +430,18 @@ function renderCompare() {
   const rowcount = document.getElementById('rowcount');
   const sub = document.getElementById('compareSub');
 
-  if (!S.country && !S.provider && !S.region) {
-    rowcount.textContent = '—';
-    sub.textContent = 'Vyber zemi na mapě, region, nebo poskytovatele v tabulce.';
-    body.innerHTML = `<div class="compare-empty"><b>Zatím nic nevybráno</b>Klikni na zemi v mapě vlevo, vyber region nahoře, nebo si napřed prohlédni libovolnou zemi a pak klikni na jméno poskytovatele - ukáže se srovnání napříč všemi zeměmi, kde působí.</div>`;
-    return;
-  }
-
   const rows = sortRows(contextOffers());
   rowcount.textContent = `${rows.length} ${rows.length === 1 ? 'záznam' : rows.length < 5 ? 'záznamy' : 'záznamů'}`;
   sub.textContent = S.provider
     ? `${S.provider} napříč zeměmi, kde je k dispozici.`
     : S.country
     ? `Nabídky pro ${S.data.countries[S.country]?.name || S.country}.`
-    : `Nabídky v regionu ${REGION_LABELS[S.region]} (${REGION_COUNTRIES[S.region].join(', ')}).`;
+    : S.region
+    ? `Nabídky v regionu ${REGION_LABELS[S.region]} (${REGION_COUNTRIES[S.region].join(', ')}).`
+    : 'Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.';
 
   if (!rows.length) {
-    body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus změnit metodu nebo typ poskytovatele nahoře.</div>`;
+    body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus změnit metodu nebo region nahoře.</div>`;
     return;
   }
 
@@ -627,7 +567,6 @@ async function init() {
     render();
   });
   document.getElementById('export').onclick = exportCsv;
-  document.getElementById('mapFocusClear').onclick = clearFocus;
 
   render();
 }

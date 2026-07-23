@@ -41,10 +41,15 @@ button,input,select{font:inherit}
 .control select, .control input{width:100%;border:1px solid #cfd9e2;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink)}
 .control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
 .control-secondary{display:none} /* přesunuto do panelu Srovnání nabídek */
-.compare-amount{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--line);background:#fafbfc}
-.compare-amount label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
-.compare-amount input{width:110px;border:1px solid #cfd9e2;border-radius:9px;padding:8px 10px;font-weight:700;font-size:15px}
-.coverage-note{font-size:11.5px;color:var(--muted);margin-left:auto}
+.control-region{flex:1 1 auto;min-width:280px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;background:#f1f4f6;border-radius:9px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:12.5px;padding:7px 11px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.seg button.active{background:var(--navy);color:#fff}
+.seg button:hover:not(.active){background:#e4e9ec}
+.kpi-amount{display:flex;flex-direction:column;justify-content:center}
+.kpi-amount-row{display:flex;align-items:baseline;gap:7px;margin-top:7px}
+.kpi-amount input{width:100%;border:1.5px solid #cfd9e2;border-radius:9px;padding:7px 10px;font-family:Georgia,serif;font-size:23px;font-weight:500;color:var(--ink)}
+.kpi-amount-ccy{color:var(--muted);font-size:13px;flex-shrink:0}
 .btn{border:0;border-radius:9px;background:var(--navy);color:#fff;padding:10px 15px;font-weight:700;cursor:pointer;height:41px;white-space:nowrap}
 .btn:hover{background:#123b58}
 .btn-ghost{border:1px solid #cfd9e2;background:#fff;color:var(--ink)}
@@ -158,22 +163,34 @@ tr.offerrow{cursor:pointer}
       </div>
       <div class="control">
         <label>Metoda</label>
-        <select id="method"><option value="">Karty + A2A</option><option value="card">Karta</option><option value="a2a">A2A / wallet</option></select>
+        <div class="seg" id="method-seg">
+          <button data-v="" class="active">Karty + A2A</button>
+          <button data-v="card">Karta</button>
+          <button data-v="a2a">A2A / wallet</button>
+        </div>
       </div>
-      <div class="control">
-        <label>Cenový model</label>
-        <select id="ptype"><option value="">Všechny modely</option></select>
+      <div class="control control-region">
+        <label>Region</label>
+        <div class="seg" id="region-seg">
+          <button data-v="" class="active">Celá EU/EHP</button>
+          <button data-v="CEE">CEE</button>
+          <button data-v="Baltic">Pobaltí</button>
+          <button data-v="Nordic">Severní Evropa</button>
+          <button data-v="Southeast">Jihovýchodní Evropa</button>
+          <button data-v="Western">Západní Evropa</button>
+          <button data-v="Southern">Jižní Evropa</button>
+          <button data-v="DACH">Rakousko a okolí</button>
+        </div>
       </div>
     </div>
-      <button id="export" class="btn btn-ghost">Export CSV</button>
-    </div>
+    <button id="export" class="btn btn-ghost">Export CSV</button>
   </section>
 
   <section class="kpis">
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
-    <div class="kpi"><span>Pokrytí dat</span><strong id="kpiCoverage">—</strong><small id="kpiCoverageNote">zemí EU/EHP má zatím reálná data</small></div>
+    <div class="kpi kpi-amount"><span>Přepočet pro platbu</span><div class="kpi-amount-row"><input id="amount" type="number" min="1" value="1000"><span class="kpi-amount-ccy">Kč</span></div></div>
   </section>
 
   <section class="grid">
@@ -195,11 +212,6 @@ tr.offerrow{cursor:pointer}
         <div><h2>Srovnání nabídek</h2><p id="compareSub">Vyber zemi na mapě, nebo poskytovatele v tabulce.</p></div>
         <span class="pill" id="rowcount">—</span>
       </div>
-      <div class="compare-amount">
-        <label for="amount">Přepočet pro platbu</label>
-        <input id="amount" type="number" min="1" value="1000">
-        <span style="color:var(--muted);font-size:13px">Kč</span>
-      </div>
       <div id="compareBody"></div>
     </article>
   </section>
@@ -214,14 +226,17 @@ tr.offerrow{cursor:pointer}
 </main>
 
 <script>
-const PM_LABELS = {
-  blended: "Blended (all-in)",
-  interchange_plus: "Interchange+ (jen markup)",
-  interchange_plus_individual: "Interchange+ (individuální)",
-  individual: "Individuální nabídka",
-  benchmark: "Historický průměr",
+const REGION_COUNTRIES = {
+  CEE: ["PL","CZ","SK","HU"],
+  Baltic: ["LT","LV","EE"],
+  Nordic: ["SE","DK","FI","IS","NO"],
+  Southeast: ["RO","BG","HR","SI","GR"],
+  Western: ["DE","FR","BE","NL","LU","IE"],
+  Southern: ["IT","ES","PT","MT","CY"],
+  DACH: ["AT","LI"],
 };
-const S = { data:null, map:null, amount:1000, country:'', provider:'', method:'', ptype:'', sortKey:'rate', sortAsc:true };
+const REGION_LABELS = {CEE:"CEE", Baltic:"Pobaltí", Nordic:"Severní Evropa", Southeast:"Jihovýchodní Evropa", Western:"Západní Evropa", Southern:"Jižní Evropa", DACH:"Rakousko a okolí"};
+const S = { data:null, map:null, amount:1000, country:'', provider:'', region:'', method:'', sortKey:'rate', sortAsc:true };
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:'CZK', maximumFractionDigits:2}).format(n);
@@ -285,7 +300,7 @@ function allWithCalc() {
 
 // Nabídky pro aktuální kontext (vybraná země NEBO vybraný poskytovatel), po aplikaci metody/typu
 function contextOffers() {
-  let rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.ptype || o.provider_type === S.ptype));
+  let rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)));
   if (S.provider) rows = rows.filter(o => o.provider === S.provider);
   else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
   return rows;
@@ -305,7 +320,7 @@ function render() {
 }
 
 function renderKpis() {
-  const rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.ptype || o.provider_type === S.ptype));
+  const rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)));
   const vals = rows.filter(o => o._c.emin != null).map(o => o._c);
   const byMin = [...rows.filter(o => o._c.emin != null)].sort((a,b) => a._c.emin - b._c.emin);
   const byMax = [...rows.filter(o => o._c.emin != null)].sort((a,b) => b._c.emin - a._c.emin);
@@ -318,9 +333,6 @@ function renderKpis() {
   document.getElementById('kpiMax').textContent = worst ? fmtPct(worst._c.emin) : '—';
   document.getElementById('kpiMaxName').textContent = worst ? `${worst.provider} · ${worst.country_iso2}` : '—';
   document.getElementById('kpiMedian').textContent = fmtPct(median);
-  const coveredCountries = new Set(rows.filter(o => o._c.emin != null).map(o => o.country_iso2));
-  const totalCountries = Object.keys(S.data.countries).length;
-  document.getElementById('kpiCoverage').textContent = `${coveredCountries.size} / ${totalCountries}`;
 }
 
 function renderMap() {
@@ -328,7 +340,7 @@ function renderMap() {
   const banner = document.getElementById('mapFocusBanner');
   const bannerText = document.getElementById('mapFocusText');
   const summary = document.getElementById('mapRangeSummary');
-  const base = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.ptype || o.provider_type === S.ptype));
+  const base = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)));
 
   let byCountry = {}; // iso2 -> nejlevnější emin
   let scopeRows = base;
@@ -349,6 +361,9 @@ function renderMap() {
     banner.style.display = 'flex';
     const name = S.data.countries[S.country]?.name || S.country;
     bannerText.innerHTML = `Zobrazena <b>${esc(name)}</b>`;
+  } else if (S.region) {
+    banner.style.display = 'flex';
+    bannerText.innerHTML = `Region <b>${esc(REGION_LABELS[S.region])}</b>: ${REGION_COUNTRIES[S.region].join(', ')}`;
   } else {
     banner.style.display = 'none';
   }
@@ -371,7 +386,7 @@ function renderMap() {
     const v = byCountry[p.iso2];
     const hasData = v != null;
     const isSelected = S.country === p.iso2;
-    const isDimmed = S.provider && !hasData;
+    const isDimmed = (S.provider && !hasData) || (S.region && !REGION_COUNTRIES[S.region].includes(p.iso2));
     const fill = hasData ? scaleColor(v, mn, mx) : '#e4e9ed';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', isDimmed ? 'dimmed' : ''].filter(Boolean).join(' ');
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
@@ -382,6 +397,8 @@ function renderMap() {
     el.onclick = () => {
       const iso = el.dataset.iso;
       S.provider = ''; // klik na mapu vždy přepne do zemního pohledu
+      S.region = '';
+      resetRegionButtons();
       S.country = S.country === iso ? '' : iso;
       document.getElementById('country').value = S.country;
       render();
@@ -389,10 +406,16 @@ function renderMap() {
   });
 }
 
+function resetRegionButtons() {
+  document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === ''));
+}
+
 function clearFocus() {
   S.country = '';
   S.provider = '';
+  S.region = '';
   document.getElementById('country').value = '';
+  resetRegionButtons();
   render();
 }
 
@@ -401,10 +424,10 @@ function renderCompare() {
   const rowcount = document.getElementById('rowcount');
   const sub = document.getElementById('compareSub');
 
-  if (!S.country && !S.provider) {
+  if (!S.country && !S.provider && !S.region) {
     rowcount.textContent = '—';
-    sub.textContent = 'Vyber zemi na mapě, nebo poskytovatele v tabulce.';
-    body.innerHTML = `<div class="compare-empty"><b>Zatím nic nevybráno</b>Klikni na zemi v mapě vlevo, nebo si napřed prohlédni libovolnou zemi a pak klikni na jméno poskytovatele - ukáže se srovnání napříč všemi zeměmi, kde působí.</div>`;
+    sub.textContent = 'Vyber zemi na mapě, region, nebo poskytovatele v tabulce.';
+    body.innerHTML = `<div class="compare-empty"><b>Zatím nic nevybráno</b>Klikni na zemi v mapě vlevo, vyber region nahoře, nebo si napřed prohlédni libovolnou zemi a pak klikni na jméno poskytovatele - ukáže se srovnání napříč všemi zeměmi, kde působí.</div>`;
     return;
   }
 
@@ -412,7 +435,9 @@ function renderCompare() {
   rowcount.textContent = `${rows.length} ${rows.length === 1 ? 'záznam' : rows.length < 5 ? 'záznamy' : 'záznamů'}`;
   sub.textContent = S.provider
     ? `${S.provider} napříč zeměmi, kde je k dispozici.`
-    : `Nabídky pro ${S.data.countries[S.country]?.name || S.country}.`;
+    : S.country
+    ? `Nabídky pro ${S.data.countries[S.country]?.name || S.country}.`
+    : `Nabídky v regionu ${REGION_LABELS[S.region]} (${REGION_COUNTRIES[S.region].join(', ')}).`;
 
   if (!rows.length) {
     body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus změnit metodu nebo typ poskytovatele nahoře.</div>`;
@@ -439,13 +464,11 @@ function renderCompare() {
             : o.pricing_model === 'Benchmark'
             ? `<span class="pill pm-warn" title="Historický tržní průměr, ne aktuální nabídka konkrétního poskytovatele">historický průměr</span>`
             : '';
+          const nameCell = S.provider
+            ? `<b>${esc(o.country_iso2)}</b><span class="sub">${esc(o.country)}</span>`
+            : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a> ${pmBadge}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}`;
           return `<tr class="offerrow" data-provider="${esc(o.provider)}">
-            <td>
-              ${S.provider
-                ? `<b>${esc(o.country_iso2)}</b><span class="sub">${esc(o.country)}</span>`
-                : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a> ${pmBadge}${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}`
-              }
-            </td>
+            <td>${nameCell}</td>
             <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span></td>
             <td class="rate">${esc(published(o))}</td>
             <td class="fee">${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}</td>
@@ -463,6 +486,8 @@ function renderCompare() {
       e.stopPropagation();
       S.provider = el.dataset.provider;
       S.country = '';
+      S.region = '';
+      resetRegionButtons();
       document.getElementById('country').value = '';
       render();
     };
@@ -513,14 +538,26 @@ async function init() {
     `<optgroup label="Zatím bez dat (${noData.length})">${noData.map(opt).join('')}</optgroup>`
   );
 
-  const types = [...new Set(S.data.offers.map(o => o.provider_type))].sort();
-  document.getElementById('ptype').insertAdjacentHTML('beforeend', types.map(x => `<option value="${esc(x)}">${esc(PM_LABELS[x] || x)}</option>`).join(''));
-
   const amount = document.getElementById('amount');
   amount.oninput = () => { S.amount = Math.max(1, +amount.value || 1000); render(); };
-  document.getElementById('country').onchange = e => { S.country = e.target.value; S.provider = ''; render(); };
-  document.getElementById('method').onchange = e => { S.method = e.target.value; render(); };
-  document.getElementById('ptype').onchange = e => { S.ptype = e.target.value; render(); };
+  document.getElementById('country').onchange = e => {
+    S.country = e.target.value; S.provider = ''; S.region = ''; resetRegionButtons(); render();
+  };
+  document.getElementById('method-seg').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-v]');
+    if (!btn) return;
+    S.method = btn.dataset.v;
+    document.querySelectorAll('#method-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    render();
+  });
+  document.getElementById('region-seg').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-v]');
+    if (!btn) return;
+    S.region = btn.dataset.v;
+    document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    if (S.region) { S.country = ''; S.provider = ''; document.getElementById('country').value = ''; }
+    render();
+  });
   document.getElementById('export').onclick = exportCsv;
   document.getElementById('mapFocusClear').onclick = clearFocus;
 

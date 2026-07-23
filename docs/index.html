@@ -75,7 +75,7 @@ button,input,select{font:inherit}
 
 /* ---------- Map ---------- */
 .mapbox{padding:14px 20px 10px;position:relative}
-.mapbox svg{width:100%;height:auto;display:block}
+.mapbox svg{width:100%;height:auto;display:block;transition:.5s cubic-bezier(.3,.1,.2,1)}
 .country-shape{stroke:var(--bg);stroke-width:1;transition:.15s}
 .country-shape.context{fill:#132840;stroke:var(--bg)}
 .country-shape.active-country{cursor:pointer}
@@ -391,6 +391,7 @@ function renderMap() {
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
+  applyMapZoom(byCountry);
 
   svg.querySelectorAll('.active-country').forEach(el => {
     el.onclick = () => {
@@ -403,6 +404,30 @@ function renderMap() {
       render();
     };
   });
+}
+
+// Přiblížení mapy - žádné přegenerování cest, jen přepnutí SVG viewBoxu na
+// předpočítaný výřez (celá EU/EHP / jeden region / jedna země / země
+// poskytovatele dohromady). S plynulým přechodem přes CSS transition.
+function applyMapZoom(byCountry) {
+  const svg = document.getElementById('map');
+  const vb = S.map.viewBoxes;
+  let target = vb.all;
+
+  if (S.country && vb[S.country]) {
+    target = vb[S.country];
+  } else if (S.region && vb['region:' + S.region]) {
+    target = vb['region:' + S.region];
+  } else if (S.provider) {
+    const isos = Object.keys(byCountry);
+    const boxes = isos.map(iso => vb[iso]).filter(Boolean).map(s => s.split(' ').map(Number));
+    if (boxes.length) {
+      const x0 = Math.min(...boxes.map(b => b[0])), y0 = Math.min(...boxes.map(b => b[1]));
+      const x1 = Math.max(...boxes.map(b => b[0] + b[2])), y1 = Math.max(...boxes.map(b => b[1] + b[3]));
+      target = `${x0} ${y0} ${x1 - x0} ${y1 - y0}`;
+    }
+  }
+  svg.setAttribute('viewBox', target);
 }
 
 function resetRegionButtons() {

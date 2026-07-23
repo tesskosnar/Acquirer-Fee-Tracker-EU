@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T12:08:31+00:00",
+  "generated_at": "2026-07-23T12:21:10+00:00",
   "update_frequency": "weekly",
   "default_transaction_czk": 500,
   "methodology_version": "1.0",
@@ -797,8 +797,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "3fb9f6a1bc9660dbece5532ab14115e58c93e9489ce43d0705ba2570abc52362",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "1de2994a7009e2de3cd16d4019a4d9276f01dc1590c7899f26f992311bd5f831",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -838,7 +838,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -879,7 +879,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -920,7 +920,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -961,8 +961,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -1002,7 +1002,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1043,8 +1043,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "593d15410d6c84829ad48b7fd94d9f8e5ee7b113b0b498fac6aeea81a353dece",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "4c1e128d49763c755c982601d1e89386dd89da8e79405ffd0b6ac9fc032cac8f",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -1084,7 +1084,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1125,7 +1125,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1166,7 +1166,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1207,8 +1207,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -1248,7 +1248,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1289,8 +1289,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "fd68ed387a5d49373ef94f2c0490b8fff1e0c5f25776ea78859b49d355566741",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "69fcc461a06ff192f2589f6d8291b031a0acc110b8c2991a4dbc37ab402a9066",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -1330,7 +1330,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1371,7 +1371,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1412,7 +1412,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1453,8 +1453,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -1494,7 +1494,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1535,8 +1535,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "7465e48c99cf0b58e6331714a018c3b0240e52fe168acf189cd03441373bc54f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "75b52cebb9b2b5a9bb05416cd70fb03ed8c99b6ce2a36d46b9077dab230e188c",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -1576,7 +1576,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1617,7 +1617,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1658,7 +1658,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1699,8 +1699,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -1740,7 +1740,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1781,8 +1781,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "d2d327705c290762b7ab9b614cedc78d6f6e891ff8376f5a8abe42bc3ed52e29",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "04261f1bfb11927c3d6cba65e04e02313aa5a0b48005f5bd4c16c21b45ac4481",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -1822,7 +1822,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1863,7 +1863,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1904,7 +1904,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1945,8 +1945,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -1986,7 +1986,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2027,8 +2027,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "15f9e88a3ed818aece4a035e0bff5500062913c900066d16a0e6c3a8ab19198b",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "2b5d09b748a2f5496dd38135ca2756443dec29a25c777482b8a390ad5ca5e473",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 14.0,
@@ -2068,7 +2068,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2109,7 +2109,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2150,7 +2150,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2191,8 +2191,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -2232,7 +2232,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2273,8 +2273,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "cfd2d57168e269db64f648c8e1037c776be6b699a0b75f4d5de28eee88220e58",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "f3b3e2cfd54b451308476e8a8251efe5d01bcd8bdf60255deb9f3aa9b3d91e3b",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.3176,
@@ -2314,7 +2314,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2355,7 +2355,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2396,7 +2396,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2437,8 +2437,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -2478,7 +2478,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2519,8 +2519,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "dfc735aaf5f679132c2964a3af2a9b97bbc2dcc4669b10d09d1bdac5ef049cc8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "b9feb2b789840aa899d046ed32d376ced0de6732ce81fd0304c0cf83d882fe52",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -2560,7 +2560,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2601,7 +2601,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2642,7 +2642,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2683,8 +2683,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -2724,7 +2724,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2765,8 +2765,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "c9a80a76aa2a38c2160d6b36b708f61b32650ec73290e01cb89df44b45a9c58d",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "8ee42a870bcef7c0e4088859a0c3e61725785ff2ca59aecc019cc920d0deda40",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -2806,7 +2806,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2847,7 +2847,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2888,7 +2888,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2929,8 +2929,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -2970,7 +2970,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3011,8 +3011,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "c0f844331772350bb489f74b8b4fb0c1f01698b67cf9d155586cc2d8a76088c1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "f9d91e75cf7852f964eb27258cdaa3a4b31042a32ab8c1e744f7b8939aea9120",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -3052,7 +3052,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3093,7 +3093,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3134,7 +3134,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3175,8 +3175,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -3216,7 +3216,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3257,8 +3257,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "733f4d59c5abcbdfabb84932575350eaaaef96392553755fa0f33dcf0440e55a",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "3c1fdbce096ba89d2f2e78de450262d74b91e6bb8921bce6dd507ec8f6ca4bd2",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -3298,7 +3298,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3339,7 +3339,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3380,7 +3380,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3421,8 +3421,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -3462,7 +3462,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3503,8 +3503,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "88230053997788a3473128a0f93e811ff10054dba356c4207c1d038ed4ebaff1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "ddc3db39c109fa0ff81cf23bc0dce67244d083dc69835e1370fca5cfc970030a",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -3544,7 +3544,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3585,7 +3585,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3626,7 +3626,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3667,8 +3667,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -3708,7 +3708,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3749,8 +3749,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "65e4f9e4acb87827e084b9d0c6a9de1d56b0eaf2f29903bb73f6e54aa03f1c62",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "e157f049e4b1c611b649052b60abd2333466c0857c063f06a0909b95b3610ab8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.1483,
@@ -3790,7 +3790,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3831,7 +3831,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3872,7 +3872,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3913,8 +3913,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -3954,7 +3954,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3995,8 +3995,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "32f5bfdc503f77f5cffd88ba3a31b8ea0aefd213794fc90a440f1bb4fdbaec86",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "dcf3f5a5c5608319d524b2aa174cfeeae716b1416815c529b98278761caaf9f8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -4036,7 +4036,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4077,7 +4077,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4118,7 +4118,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4159,8 +4159,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -4200,7 +4200,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4241,8 +4241,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "0a6e5ff579ac5f7d190d64703fab9e8d92d4de8a83e6bcd85fc964d912ee8454",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "0eb8fe3ad25a182cf08e182b4a2a382ad085dcb3ac10182eba0c29fc3153e743",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -4282,7 +4282,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4323,7 +4323,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4364,7 +4364,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4405,8 +4405,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -4446,7 +4446,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4487,8 +4487,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "c57ba55628eceeb5f6e7507b69285ab19ed8337d5834884f39730a0f5ccea5c9",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "63ef9aa02091f43ca42507d44b2bfb7f7472fe3e103ed714ddfe6737773343b4",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -4528,7 +4528,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4569,7 +4569,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4610,7 +4610,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4651,8 +4651,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -4692,7 +4692,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4733,8 +4733,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "2ce67cd9b8c53cf22d30e33c2c4cc6074491a6cd19180041e14bcc78287bfaa0",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "66c9e39b261dc868fdad4ec61920d39dcdde49f7625292c0c6a7fa5dea8bd456",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -4774,7 +4774,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4815,7 +4815,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4856,7 +4856,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4897,8 +4897,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -4938,7 +4938,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4979,8 +4979,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "2afe1c20d260a7ddcb3562154a484c8034bb72223deae2d8ec87490b61815eb5",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "adc051fdad0ebd1d74425a5be34f970ba62d0dda87d4ae56a62e61e612aaf43b",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -5020,7 +5020,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5061,7 +5061,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5102,7 +5102,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5143,8 +5143,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -5184,7 +5184,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5225,8 +5225,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "fa7b2f88d74a3118610015e654a47cb2c76e51de27f0ad76b8f987913d20710f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "4903da59485aa2e6418b3fa6f05543eea1e98c7141cf66d3150f8f88243a41c7",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -5266,7 +5266,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5307,7 +5307,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5348,7 +5348,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5389,8 +5389,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -5430,7 +5430,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5471,8 +5471,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "a4952bab519d151edc73f1424095980a115ec91455a807dd5c58cb5c4b50f633",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "7ba99235cd3f360a730a61ecf77c711ceae2c69d20c3341967c3a395d3deaad1",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -5512,7 +5512,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5553,7 +5553,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5594,7 +5594,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5635,8 +5635,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -5676,7 +5676,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5717,8 +5717,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "7485d90e5dd634c6dc7e2ac5b17047da603242775293d7cc5da5f2879a503f5c",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "29191a796b70fc4775f68ee9977067959555c3691bef27ba1f14e266fa03bd06",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.08,
@@ -5758,7 +5758,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5799,7 +5799,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5840,7 +5840,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5881,8 +5881,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -5922,7 +5922,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5963,8 +5963,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "ebe33c692cef5cc80aac201ccf57d295ce2584f6451d43639b0048a4ab0331f4",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "e0f9499896db3ed5f5937211f1bc8f47931968a805c57a5c34fd6b5036141baf",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -6004,7 +6004,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6045,7 +6045,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6086,7 +6086,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6127,8 +6127,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -6168,7 +6168,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6209,8 +6209,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "495362c18d5e29a228a11d937ec26a43e2e0966852aaea4a4da9d511ee21069a",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c2fca4fe67b35f517bebfd6b8d8808da92a3b528cf6805a898d3d669afb776cb",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 12.112,
@@ -6250,7 +6250,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6291,7 +6291,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6332,7 +6332,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6373,8 +6373,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -6414,7 +6414,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6455,8 +6455,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "91155e8208657632d6841f39b0e8e6d79adf6af44bf50addd9115ffa6bf0da77",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "3aabf8f23cabe8ccea80ec891970ee2697d1afbea9b6c96e0a497a09bab29729",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -6496,7 +6496,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6537,7 +6537,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6578,7 +6578,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6619,8 +6619,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -6660,7 +6660,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6701,8 +6701,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "4ce3d285c715d8663e503581d9f7b047d5f64cefe5c0c79396e1f5479337b39a",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "2e450b384ad3af56ae152afc20223862a35f4d4fe7aeb1c7e44e1874985db8f0",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -6742,7 +6742,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6783,7 +6783,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6824,7 +6824,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6865,8 +6865,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -6906,7 +6906,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6947,8 +6947,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "c6b942aee26955b4b0a1022c02470ccc6aa12b41b3ca845e75b02e51e4d4116e",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "7ce1c2855dcb49eb5c95612535645d33035a293591a822fd8a621eacd07a304a",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -6988,7 +6988,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7029,7 +7029,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7070,7 +7070,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7111,8 +7111,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -7152,7 +7152,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7193,8 +7193,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "e7ce48c0c7694377055403982ab99719865e9ce90dc5b2540771421ce0a3cc19",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "ee83bc67ac479c895ecbe9170432d4dacf0db590a80377a41e020a5d703bbd21",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 11.4258,
@@ -7234,7 +7234,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7275,7 +7275,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7316,7 +7316,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7357,8 +7357,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -7398,7 +7398,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7439,7 +7439,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7480,7 +7480,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7521,7 +7521,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7562,7 +7562,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7603,8 +7603,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "b4c1f75198912a6fadda7d1658e8f4e3d4f60a8d81272a3fea917d9618e9208e",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c02ffa7da77d0b5c46503d287225127b1db0e6f13cee083e209c6f2d635708ce",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 15.3228,
@@ -7644,7 +7644,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7685,8 +7685,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -7726,7 +7726,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7767,8 +7767,8 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "ef88ca0fae084ca53b163519d5cb41014d90e8be76dd72399d41a7aa529d08dd",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "86c876bf7d68d1c635d2690f7fcc8b5fd3862ec92f1431a8a7f30b14ea026071",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 16.412,
@@ -7808,7 +7808,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "32c89b539c4a3dc1a2b803810477ceb586ef4a46ea7f1518372c335417229cbc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7849,7 +7849,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "127a38c3ab318ea51bc8b1bc8c89a03069a2a5e360d800f6787c1f77fdbae4f3",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7890,7 +7890,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "26a7351fd84a0d4d5615bcc891de2d1afa386ccfb65824dd0a2b86eedbdf8c2c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7931,8 +7931,8 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "514f190bb4ccc34bd84ead4fcfb4d0c23c006b0fd25f70df3aa6255e32a6bd39",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c20d76679de90c510202654795c1e24f9da96f8e9e54fd7d62e24ee66886dc24",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.7525,
@@ -7972,7 +7972,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1b54154219ffd34aa7915922c9f9ab85e5e083f927e2da28ff30ad0dfcf8f495",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8013,8 +8013,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "5dec5daf8484fe33efe25abda2165c42e37074e6cb1b720fa8cf8192a3b8efd8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "7cfbe6422d0ec4bb2942ce6c699e893b70ea14516e4adea981335940a5e0ace1",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.0,
@@ -8054,8 +8054,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "5dec5daf8484fe33efe25abda2165c42e37074e6cb1b720fa8cf8192a3b8efd8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "7cfbe6422d0ec4bb2942ce6c699e893b70ea14516e4adea981335940a5e0ace1",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 4.35,
@@ -8095,8 +8095,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "5dec5daf8484fe33efe25abda2165c42e37074e6cb1b720fa8cf8192a3b8efd8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "7cfbe6422d0ec4bb2942ce6c699e893b70ea14516e4adea981335940a5e0ace1",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 3.1,
@@ -8136,7 +8136,7 @@
       "notes": "",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8177,7 +8177,7 @@
       "notes": "",
       "verification": "retained – source unavailable",
       "source_status": "error: 404 Client Error: Not Found for url: https://www.gopay.com/cs/cenik/",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8218,8 +8218,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "9636fe09b45e26ec2d4b22d53bf017d09c0b733be636df4adb42093f833ff48f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "5edabe009ccfd30cff60f3d585c162a4afd551c68f341cfd11ee3031945d18f1",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 12.5,
@@ -8259,7 +8259,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "523a8f5ce3a27591fb1c4d664e478f7a4696703a5e6a71756d089043eabac979",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8300,7 +8300,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "523a8f5ce3a27591fb1c4d664e478f7a4696703a5e6a71756d089043eabac979",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8341,7 +8341,7 @@
       "notes": "",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8382,7 +8382,7 @@
       "notes": "",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8423,8 +8423,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "f3d48c430dbeff9eccf39cb694e0a2a2ecfe48178c913774057be7bc947a15a8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "4881592d7e241dee1836debaf8bc453d0666ffd67b0ae6c0c451609a2a1ca33f",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.45,
@@ -8464,8 +8464,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "f3d48c430dbeff9eccf39cb694e0a2a2ecfe48178c913774057be7bc947a15a8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "4881592d7e241dee1836debaf8bc453d0666ffd67b0ae6c0c451609a2a1ca33f",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.95,
@@ -8505,8 +8505,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "4142e5927447147e3e2045f3665fc77ca31cd994735c105465e9f44f2351166e",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "a9991fe3eabb9b576ffa71cc58e431f28ef463075577f74c34cae19f07167553",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 6.182,
@@ -8546,7 +8546,7 @@
       "notes": "advertised from",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "736e45b08ab6747c326cb5465ec05c186697d3a38b6cc7efc5c02a51119e852c",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8587,7 +8587,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1c79ae2bf79bbf466e7d744097ffa75345a024a67ea972a3c755f1b2a1921934",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8628,7 +8628,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1c79ae2bf79bbf466e7d744097ffa75345a024a67ea972a3c755f1b2a1921934",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8669,7 +8669,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "b93377edb789c0ae2736865a5371ffde521bf03b41d8b23c6e0e7361e044955b",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8710,7 +8710,7 @@
       "notes": "advertised from",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "8bc1230f7f89c5bfbc6bebcf9b658079f626d90142e1585d520fe69beeb1943d",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8751,7 +8751,7 @@
       "notes": "advertised from",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "368e0840adabaa79a2d43d1611f5f474095fbb43de1b3a57e53ac4b69d8bd9be",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8792,7 +8792,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "9e660f67ae0940cb444be72a3289b33eea9a6289d6993f464fdbf0c92a8102ae",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8833,8 +8833,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "05b319a41323de07ee13d4120027fa04ec711b485ec87be0a415a98764a67d9f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "203494de6ad8b4d6cdd71d1bf09c571127855b647f68709942ce6f3661a0c9c8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 14.04,
@@ -8874,8 +8874,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "05b319a41323de07ee13d4120027fa04ec711b485ec87be0a415a98764a67d9f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "203494de6ad8b4d6cdd71d1bf09c571127855b647f68709942ce6f3661a0c9c8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.04,
@@ -8915,7 +8915,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "db2281eb92b5836a969ed03def0b31f213dde4d1a2fa076d0db3032c4bf9d787",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8956,7 +8956,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "db2281eb92b5836a969ed03def0b31f213dde4d1a2fa076d0db3032c4bf9d787",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8997,8 +8997,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "d4fc9d1e7d1dd05ecdb360642d11ba14b0d6d6a6cee4d3baf7f7ff6f1f0ab2ad",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "2703854bbf3ef25b8a9a4a9824b78c1b657187dee9a6de2bdc29a82383f5d2fd",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 12.5,
@@ -9038,8 +9038,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "deafb4f2c01f2c191013ac69244b9348c196a388d0fc954a5282286f6ca57ff3",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "bcec7b1f8c45a6985c2511c1334d8f96f0f66e24628bea1ea4efb0dee2794584",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 12.5,
@@ -9079,7 +9079,7 @@
       "notes": "derived components",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "3f419b2e0f88f484d7b9a9a3f7241d5c144694afecfaaadfb089f8d21e248f02",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9120,8 +9120,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "05b319a41323de07ee13d4120027fa04ec711b485ec87be0a415a98764a67d9f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "203494de6ad8b4d6cdd71d1bf09c571127855b647f68709942ce6f3661a0c9c8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 15.04,
@@ -9161,8 +9161,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "05b319a41323de07ee13d4120027fa04ec711b485ec87be0a415a98764a67d9f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "203494de6ad8b4d6cdd71d1bf09c571127855b647f68709942ce6f3661a0c9c8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 7.0064,
@@ -9202,7 +9202,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "5a70a5dc6948bf83f80648ada2d95d4d0e1107080ce9c33ae9d3e1adaf7e092f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9243,7 +9243,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "5a70a5dc6948bf83f80648ada2d95d4d0e1107080ce9c33ae9d3e1adaf7e092f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9284,7 +9284,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "5a70a5dc6948bf83f80648ada2d95d4d0e1107080ce9c33ae9d3e1adaf7e092f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9325,8 +9325,8 @@
       "notes": "threshold conditions",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "9729465b04cb6a953cb9dc059daa255352890aed3a22cf61309e86e6e9a6ead1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "79f1e41026b7d38ea7281d5937e1751e0ae5214a006be1bc3264063aeca59cef",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 5.1744,
@@ -9366,8 +9366,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "05b319a41323de07ee13d4120027fa04ec711b485ec87be0a415a98764a67d9f",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "203494de6ad8b4d6cdd71d1bf09c571127855b647f68709942ce6f3661a0c9c8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 13.54,
@@ -9407,8 +9407,8 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "b73709f57a303e1d1c0626e930638dbdc1185aab028bdc240f909950a23abc02",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "d0178aeee143f72146de9ac99dfe4832103fb0ad13bb4988f59b33a6c5e2f2be",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 20.8228,
@@ -9448,7 +9448,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "2e3931710246428f29fce0dc211c2bbfd2a5f1a22366e1d81761585f139c84bc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9489,7 +9489,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "2e3931710246428f29fce0dc211c2bbfd2a5f1a22366e1d81761585f139c84bc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9530,7 +9530,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "0b4b631f60b1b1c22576356099d54ea039e3985b8aa110e5d9cc87ac71abcb66",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9571,7 +9571,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "0b4b631f60b1b1c22576356099d54ea039e3985b8aa110e5d9cc87ac71abcb66",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9612,7 +9612,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "2e3931710246428f29fce0dc211c2bbfd2a5f1a22366e1d81761585f139c84bc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9653,7 +9653,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "2e3931710246428f29fce0dc211c2bbfd2a5f1a22366e1d81761585f139c84bc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9694,7 +9694,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "0b4b631f60b1b1c22576356099d54ea039e3985b8aa110e5d9cc87ac71abcb66",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9735,7 +9735,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "0b4b631f60b1b1c22576356099d54ea039e3985b8aa110e5d9cc87ac71abcb66",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9776,7 +9776,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "2e3931710246428f29fce0dc211c2bbfd2a5f1a22366e1d81761585f139c84bc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9817,7 +9817,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "2e3931710246428f29fce0dc211c2bbfd2a5f1a22366e1d81761585f139c84bc",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9858,7 +9858,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "0b4b631f60b1b1c22576356099d54ea039e3985b8aa110e5d9cc87ac71abcb66",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9899,7 +9899,7 @@
       "notes": "",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "0b4b631f60b1b1c22576356099d54ea039e3985b8aa110e5d9cc87ac71abcb66",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9940,8 +9940,8 @@
       "notes": "Official historical market average, not a current merchant offer.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "01d737baf7d0e179f733ad0cf8c4f9562ed80712d9ae686d11722ca2868a55aa",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c513dfe8bf198fc561dcdac2d497c84a19ae7847afcd833daffc3ac5c8240497",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": 3.0,
@@ -9981,7 +9981,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "4b2d1a9557e0c2457b4a2747427ebf1787a1ac587ec08285fa32b3d4fb6aaddb",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10022,7 +10022,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "5683db62a72a2825f2c71cd33e63f406d3fbfac2b3b9a978d1e2efd8a09a14b9",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10061,10 +10061,10 @@
         "expected_currency": "EUR"
       },
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
-      "verification": "retained – review suggested (0%; manual-only source)",
-      "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "15ec222f40b0e7bd913e74040d211f763a26523705669874f96acc9f4807abca",
+      "verification": "retained – source unavailable",
+      "source_status": "error: 406 Client Error: Not Acceptable for url: https://worldline.com/",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10104,8 +10104,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "c21c8160d8a184c8e82709fdbcc75ab6fdba83961f87b818f4d202368eeeb34e",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "8204c057b0bc39ac6368216bcc31ee12dd8a58894b15a49af6c47d54f18a49a8",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10145,8 +10145,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "58ffaae62d26f4ac9b176f3d2bf6b20c0275c9a9f55230f454847666e9cc8fe8",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "3cfdf0cd6a7ef16cb2d1202132e62050a1ae20fbeb45105628256ab1e85bf6cf",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10186,8 +10186,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "352304fe84e431ae68d13f4a3183f7811feefecbf85e0b77f22d6382cb679c0e",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "c1ad689e8cdf73fc9bd07e23c6c9392cdbc8729a504837cc31ce61c826b955bc",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10227,7 +10227,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1855310b6d20484375c3676798158efd5bed8d37a78a5f9d28a2444c2b3b6a2f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10268,7 +10268,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "82af7392e44c28aaeafde80ebc17d803a6b6d785c1ab1abd3e1ce4be4d15ee3a",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10309,7 +10309,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTPSConnectionPool(host='www.viva.com', port=443): Read timed out. (read timeout=30)",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10350,8 +10350,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "54f2318cf34b6d925f806be1e21fc7132b84559f251c0a7eda4ace4618855392",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "048351bedf081dc5a9fbdb2cdc0f9d7ef7bee18877a09cd4eb943f6ae3b0e573",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10391,7 +10391,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10432,7 +10432,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1855310b6d20484375c3676798158efd5bed8d37a78a5f9d28a2444c2b3b6a2f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10473,8 +10473,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "8c5a5c7610cd066dcf6e775bb0050e3c8dd06aed7409cb9cc155af43ac2340c1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "10a73f729d774019a91899de0e4c09721483292c8e7347f3cb99049868528715",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10514,8 +10514,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "41274fa87a1eab8dee353719e2e40301acf9050ca74d1c93beb4b7b4f7818094",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "e1a25fd22d9d35b612ab44a5d0f54ef645c47ff836aff8f05e019b0deb01c1ef",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10555,8 +10555,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "8c5a5c7610cd066dcf6e775bb0050e3c8dd06aed7409cb9cc155af43ac2340c1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "10a73f729d774019a91899de0e4c09721483292c8e7347f3cb99049868528715",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10596,7 +10596,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1855310b6d20484375c3676798158efd5bed8d37a78a5f9d28a2444c2b3b6a2f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10635,10 +10635,10 @@
         "expected_currency": "EUR"
       },
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
-      "verification": "retained – review suggested (0%; manual-only source)",
-      "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "15ec222f40b0e7bd913e74040d211f763a26523705669874f96acc9f4807abca",
+      "verification": "retained – source unavailable",
+      "source_status": "error: 406 Client Error: Not Acceptable for url: https://worldline.com/",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10678,7 +10678,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10719,8 +10719,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "2fe62a332c7eba2a2d11504bdfd76192e3240f4a0f833f4184404b889a9cedbb",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "e8a77d1be887920e7d9be2c5ea2ec0edc5a45efbf42cd71e35713e6c8908bf08",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -10760,7 +10760,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "943dfb7e0020d3a40a431805f312c6f95d3653fa4822911b256dfcc955f3dbf6",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10801,7 +10801,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTPSConnectionPool(host='www.viva.com', port=443): Read timed out. (read timeout=30)",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10842,7 +10842,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1855310b6d20484375c3676798158efd5bed8d37a78a5f9d28a2444c2b3b6a2f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10883,7 +10883,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "9913930efc41dabff808e1b1920393965561735a4a6372a6e0c095fd7e1c72d1",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10924,7 +10924,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "16dda0d4324a0f4cd62384def6f7579b90c543f333c07b0d9156a0647971a943",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10965,8 +10965,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "1431179c2c5e59d4ff3c5547a8dd7159bb903fecbad7b3400f12516bdbbd5820",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "63dc1f33f979ad16a4c1443b8bfe8a512f10d56e2f7e4fd94177cb353e4e50e7",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11006,7 +11006,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1855310b6d20484375c3676798158efd5bed8d37a78a5f9d28a2444c2b3b6a2f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11047,7 +11047,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "09592342d50fbbce394ccdffcca867358e1fd5275e2cc1d3d99ce106cdbf92b0",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11088,8 +11088,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "41274fa87a1eab8dee353719e2e40301acf9050ca74d1c93beb4b7b4f7818094",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "e1a25fd22d9d35b612ab44a5d0f54ef645c47ff836aff8f05e019b0deb01c1ef",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11129,7 +11129,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11170,8 +11170,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "41274fa87a1eab8dee353719e2e40301acf9050ca74d1c93beb4b7b4f7818094",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "e1a25fd22d9d35b612ab44a5d0f54ef645c47ff836aff8f05e019b0deb01c1ef",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11211,7 +11211,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – source unavailable",
       "source_status": "error: HTTP 403",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11250,10 +11250,10 @@
         "expected_currency": "EUR"
       },
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
-      "verification": "retained – review suggested (0%; manual-only source)",
-      "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "15ec222f40b0e7bd913e74040d211f763a26523705669874f96acc9f4807abca",
+      "verification": "retained – source unavailable",
+      "source_status": "error: 406 Client Error: Not Acceptable for url: https://worldline.com/",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11293,8 +11293,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "d9949757bd0984319dffa0a752044e07b9fc5682c4cb5cbba739e82382a83e12",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "d7cc4f21e2224d67b306be9062969a2a9a218fb290e4f39c4d9dfb58aab27260",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11334,7 +11334,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "43e12a5b6d0863f8a2bc968e8f7983529a129225ea49f571b8b4f66977c3b74e",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11375,7 +11375,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "7a370b3988aeab9165e15221ca1cfe3f34eb7f80bc034efdf784bf59cabf5ba2",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11416,8 +11416,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "ebd9637ead5a91e4327b5fa2be223f92fc7a93d5909157d5ad45ed682b666663",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "ce984b00967439bf7bfdfb47f1ae218a2745fd19f56c5064dfd99bc117bb991c",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11457,8 +11457,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "f0a9f5d197847713391c9381e673bafe993a163e011c7549b61e0fe2b4ad2cee",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "6d3f614b6f3feb1c6b44d074d81af94de81aa1a03bd69c7f57fbdbe36c8bf104",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11498,7 +11498,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "f1dc47c4e5fa9e3305e974a2bcdb6a1938da3a62dd1609905304162bb3aaa8a7",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11539,8 +11539,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "9243d8d4da8e9cb19ffc7d0706e77a2aeb29d39ef2ab9f311e2ed0d35e75135d",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "5a433ca2181ecfbd12d4a3825162620dec020ef94c7c30aa589ad9d9f9526c5a",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11580,7 +11580,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "92ca339f3bbaaf480a1903e7792ef51298019eaab172e21db5ffde93ef02122d",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11621,7 +11621,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "b6d9a54f76c2ca0897f7f9edfdff14f89c07e5a5cb3f553158b62ccd89a95b5f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11662,7 +11662,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "099813dc3088fc616cd56348d74709f282d0f2632c37390ec28bef196283f49d",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11703,8 +11703,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "4f3953ac65921bddb895b875c840952385d8d7a55e47f77931907226a283a1ec",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "27fc63c482ef8d996a138a178a1ac2f7a90728a05f6a4a5aaa99eb114bcf330c",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11742,10 +11742,10 @@
         "expected_currency": "EUR"
       },
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
-      "verification": "retained – review suggested (0%; manual-only source)",
-      "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "15ec222f40b0e7bd913e74040d211f763a26523705669874f96acc9f4807abca",
+      "verification": "retained – source unavailable",
+      "source_status": "error: 406 Client Error: Not Acceptable for url: https://worldline.com/",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11785,7 +11785,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "f25a407e98697d4808cb742f2c6774d6b2e9ff5284c927587044e42ea9d517bd",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11826,7 +11826,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "461432be056fe40a24fe2b7f33f4f95a37622f9733b85b42810345dac28172d4",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11867,8 +11867,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "68fc3c0b6e7ba68b7404d6f7ecc801abe4e0ea47ecbf590982dc991a02a3d3dd",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "790ecdba3587cb38e741af13a60bbd63ba6d2f4ae25aa5e70a6a0821e52b0df5",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11908,8 +11908,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "8c5a5c7610cd066dcf6e775bb0050e3c8dd06aed7409cb9cc155af43ac2340c1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "10a73f729d774019a91899de0e4c09721483292c8e7347f3cb99049868528715",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -11949,7 +11949,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "8c9c66e69825866ab053380aa86e09af113ddb3c5e7d728b11471f5ba2ba41fe",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11988,10 +11988,10 @@
         "expected_currency": "CHF"
       },
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
-      "verification": "retained – review suggested (0%; manual-only source)",
-      "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "15ec222f40b0e7bd913e74040d211f763a26523705669874f96acc9f4807abca",
+      "verification": "retained – source unavailable",
+      "source_status": "error: 406 Client Error: Not Acceptable for url: https://worldline.com/",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,
@@ -12031,7 +12031,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
       "source_hash": "1855310b6d20484375c3676798158efd5bed8d37a78a5f9d28a2444c2b3b6a2f",
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12072,8 +12072,8 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "retained – review suggested (0%; manual-only source)",
       "source_status": "ok",
-      "source_checked_at": "2026-07-23T12:08:31+00:00",
-      "source_hash": "8c5a5c7610cd066dcf6e775bb0050e3c8dd06aed7409cb9cc155af43ac2340c1",
+      "source_checked_at": "2026-07-23T12:21:10+00:00",
+      "source_hash": "10a73f729d774019a91899de0e4c09721483292c8e7347f3cb99049868528715",
       "last_changed_at": null,
       "calculation_500_czk": {
         "fee_min_czk": null,

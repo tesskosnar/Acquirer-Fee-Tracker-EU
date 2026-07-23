@@ -6,10 +6,10 @@
 <title>Merchant Fee Tracker</title>
 <style>
 :root{
-  --ink:#12202f; --muted:#64748b; --muted-light:#96a2b0; --line:#dbe3ea; --bg:#f4f7f8; --panel:#fff;
-  --navy:#0b2339; --teal:#0e7c78; --mint:#dff4ef;
-  --amber:#b76b08; --red:#a33434; --green:#1a7a4c;
-  --shadow:0 14px 36px rgba(15,35,55,.08);
+  --ink:#e8eef6; --muted:#93a7c0; --muted-light:#5f7793; --line:#22405e; --bg:#071627; --panel:#0f2c48;
+  --panel-alt:#0a2036; --navy:#2f6fb0; --navy-deep:#0b2339; --teal:#2fc9bd; --mint:#0f3a37;
+  --amber:#e3ab4c; --red:#e37a72; --green:#3ddb96;
+  --shadow:0 14px 36px rgba(0,0,0,.35);
   /* Barevná škála pro mapu - zadaná paleta, index 0 = nejlevnější, 7 = nejdražší */
   --scale-0:#003f5c; --scale-1:#00546e; --scale-2:#006b71; --scale-3:#008162;
   --scale-4:#009446; --scale-5:#65a31c; --scale-6:#b1aa00; --scale-7:#ffa600;
@@ -21,71 +21,73 @@ button,input,select{font:inherit}
 .wrap{max-width:1480px;margin:auto;padding:0 28px 60px}
 
 /* ---------- Hero ---------- */
-.hero{background:linear-gradient(128deg,#071a2b 0%,#0b3045 58%,#0e6c6a 130%);color:#fff;padding:30px 0 26px;border-bottom:1px solid rgba(255,255,255,.1)}
+.hero{background:linear-gradient(128deg,#050f1c 0%,#0b2b45 58%,#0e4a5f 130%);color:#fff;padding:30px 0 26px;border-bottom:1px solid rgba(255,255,255,.08)}
 .hero .wrap{padding-bottom:0}
 .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;color:#8fe0d4}
 .hero h1{font-family:Georgia,serif;font-size:clamp(30px,4.4vw,52px);line-height:1.05;margin:9px 0 11px;font-weight:500;max-width:960px}
-.hero p{max-width:850px;color:#c9d8e1;font-size:15px;line-height:1.6;margin:0}
-.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#dbe8ee}
+.hero p{max-width:850px;color:#b9cddc;font-size:15px;line-height:1.6;margin:0}
+.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#c7dbe6}
 .meta b{color:#fff}
 
 /* ---------- Controls ---------- */
 .controls{
-  margin-top:-1px;background:#fff;border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;
+  margin-top:-1px;background:var(--panel);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;
   padding:16px 18px;box-shadow:var(--shadow);position:sticky;top:0;z-index:20;
   display:flex; align-items:flex-end; gap:22px; flex-wrap:wrap;
 }
 .control-primary{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
 .control-primary .control{min-width:200px}
 .control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}
-.control select, .control input{width:100%;border:1px solid #cfd9e2;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink)}
+.control select, .control input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:var(--panel-alt);color:var(--ink)}
 .control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
 .control-secondary{display:none} /* přesunuto do panelu Srovnání nabídek */
 .control-region{flex:1 1 auto;min-width:280px}
-.seg{display:inline-flex;flex-wrap:wrap;gap:4px;background:#f1f4f6;border-radius:9px;padding:3px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--panel-alt);border:1px solid var(--line);border-radius:9px;padding:3px}
 .seg button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:12.5px;padding:7px 11px;border-radius:7px;cursor:pointer;white-space:nowrap}
 .seg button.active{background:var(--navy);color:#fff}
-.seg button:hover:not(.active){background:#e4e9ec}
+.seg button:hover:not(.active){background:rgba(255,255,255,.06);color:var(--ink)}
 .kpi-amount{display:flex;flex-direction:column;justify-content:center}
 .kpi-amount-row{display:flex;align-items:baseline;gap:7px;margin-top:7px}
-.kpi-amount input{width:100%;border:1.5px solid #cfd9e2;border-radius:9px;padding:7px 10px;font-family:Georgia,serif;font-size:23px;font-weight:500;color:var(--ink)}
+.kpi-amount input{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:7px 10px;font-family:Georgia,serif;font-size:23px;font-weight:500;color:var(--ink);background:var(--panel-alt)}
 .kpi-amount-ccy{color:var(--muted);font-size:13px;flex-shrink:0}
+.seg-ccy{padding:2px;flex-shrink:0}
+.seg-ccy button{padding:6px 10px;font-size:12px}
 .btn{border:0;border-radius:9px;background:var(--navy);color:#fff;padding:10px 15px;font-weight:700;cursor:pointer;height:41px;white-space:nowrap}
-.btn:hover{background:#123b58}
-.btn-ghost{border:1px solid #cfd9e2;background:#fff;color:var(--ink)}
-.btn-ghost:hover{background:#f4f7f8}
+.btn:hover{background:#3d80c4}
+.btn-ghost{border:1px solid var(--line);background:var(--panel-alt);color:var(--ink)}
+.btn-ghost:hover{background:rgba(255,255,255,.06)}
 
 /* ---------- KPIs ---------- */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
-.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 7px 20px rgba(16,34,51,.04)}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 7px 20px rgba(0,0,0,.18)}
 .kpi span{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800}
-.kpi strong{display:block;font-family:Georgia,serif;font-size:27px;margin-top:7px;font-weight:500}
+.kpi strong{display:block;font-family:Georgia,serif;font-size:27px;margin-top:7px;font-weight:500;color:var(--ink)}
 .kpi small{color:var(--muted);font-size:12px}
 
 /* ---------- Grid / panels ---------- */
 .grid{display:grid;grid-template-columns:minmax(440px,1fr) minmax(560px,1.3fr);gap:18px;align-items:start}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
 .panelhead{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
-.panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:21px}
+.panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:21px;color:var(--ink)}
 .panelhead p{margin:4px 0 0;color:var(--muted);font-size:12.5px}
-.pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:#e8f0f4;color:#3f5668;white-space:nowrap}
-.pill.pm-warn{background:#fdf1de;color:var(--amber);cursor:help}
+.pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:rgba(255,255,255,.08);color:var(--ink);white-space:nowrap}
+.pill.pm-warn{background:rgba(227,171,76,.16);color:var(--amber);cursor:help}
 
 /* ---------- Map ---------- */
 .mapbox{padding:10px 16px 6px;position:relative}
 .mapbox svg{width:100%;height:auto;display:block}
-.country-shape{stroke:#fff;stroke-width:1;transition:.15s}
-.country-shape.context{fill:#e9edf1;stroke:#f4f7f8}
+.country-shape{stroke:var(--bg);stroke-width:1;transition:.15s}
+.country-shape.context{fill:#132840;stroke:var(--bg)}
 .country-shape.active-country{cursor:pointer}
-.country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
-.country-shape.selected{stroke:var(--navy);stroke-width:2.6}
-.country-shape.dimmed{opacity:.28}
-.maplabel{font-size:9.5px;fill:#fff;font-weight:700;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.country-shape.active-country:hover{stroke:#fff;stroke-width:2}
+.country-shape.selected{stroke:#fff;stroke-width:2.6}
+.country-shape.dimmed{opacity:.25}
+.maplabel{font-size:9.5px;fill:#fff;font-weight:700;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.5)}
 .map-focus-banner{
   display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin:0 20px 10px;padding:8px 12px;background:var(--mint);border-radius:9px;font-size:12.5px;color:#0d4a45;
+  margin:0 20px 10px;padding:8px 12px;background:var(--mint);border-radius:9px;font-size:12.5px;color:#8fe0d4;
 }
-.map-focus-banner button{border:0;background:#0d4a45;color:#fff;border-radius:6px;padding:4px 9px;font-size:11px;cursor:pointer;font-weight:700}
+.map-focus-banner button{border:0;background:#144840;color:#8fe0d4;border-radius:6px;padding:4px 9px;font-size:11px;cursor:pointer;font-weight:700}
 .legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;padding:2px 20px 16px;flex-wrap:wrap}
 .legend .grad{width:170px;height:9px;border-radius:20px;background:linear-gradient(90deg,var(--scale-0),var(--scale-1),var(--scale-2),var(--scale-3),var(--scale-4),var(--scale-5),var(--scale-6),var(--scale-7))}
 .map-range-summary{padding:0 20px 14px;font-size:13px;color:var(--ink);line-height:1.5}
@@ -96,27 +98,27 @@ button,input,select{font:inherit}
 .compare-empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:6px;font-family:Georgia,serif;font-weight:500}
 .tablewrap{overflow:auto;max-height:640px}
 table{border-collapse:collapse;width:100%;font-size:13px}
-th{position:sticky;top:0;background:#f6f8fa;color:#536273;text-align:left;padding:11px 11px;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.07em;z-index:2}
-td{padding:11px 11px;border-bottom:1px solid #edf1f4;vertical-align:top}
-tr:hover td{background:#fafcfc}
+th{position:sticky;top:0;background:var(--panel-alt);color:var(--muted);text-align:left;padding:11px 11px;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.07em;z-index:2}
+td{padding:11px 11px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+tr:hover td{background:rgba(255,255,255,.03)}
 tr.offerrow{cursor:pointer}
 .provider{font-weight:800}
 .provider-link{font-weight:800;color:var(--ink);cursor:pointer;text-decoration:none;border-bottom:1px dashed var(--muted-light)}
 .provider-link:hover{color:var(--teal);border-color:var(--teal)}
 .sub{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .fee{font-weight:800;white-space:nowrap}
-.rate{white-space:nowrap}
+.rate{white-space:nowrap;color:var(--ink)}
 .source{font-size:11.5px;font-weight:700;white-space:nowrap}
-.pill.card{background:#e5edf7;color:#2e5478}
-.pill.a2a{background:#ddf3ec;color:#17695f}
+.pill.card{background:rgba(66,138,214,.18);color:#8fc0f0}
+.pill.a2a{background:rgba(61,219,150,.16);color:#7fe6bb}
 .status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 .status-dot.ok{background:var(--green)}
 .status-dot.warn{background:var(--amber)}
 .status-dot.error{background:var(--red)}
 .status-label{font-size:11px;color:var(--muted)}
-.sortbtn{border:0;background:transparent;padding:0;color:inherit;cursor:pointer;font-weight:inherit;text-transform:inherit;letter-spacing:inherit;display:inline-flex;align-items:center;gap:4px}
-.sortbtn .arrow{font-size:13px;opacity:.35}
-.sortbtn.active .arrow{opacity:1;color:var(--navy)}
+.sortbtn{border:0;background:transparent;padding:0;color:var(--ink);cursor:pointer;font-weight:inherit;text-transform:inherit;letter-spacing:inherit;display:inline-flex;align-items:center;gap:4px}
+.sortbtn .arrow{font-size:13px;opacity:.45}
+.sortbtn.active .arrow{opacity:1;color:var(--teal)}
 .empty{padding:70px 20px;text-align:center;color:var(--muted)}
 
 /* ---------- Footer note ---------- */
@@ -174,12 +176,9 @@ tr.offerrow{cursor:pointer}
         <div class="seg" id="region-seg">
           <button data-v="" class="active">Celá EU/EHP</button>
           <button data-v="CEE">CEE</button>
-          <button data-v="Baltic">Pobaltí</button>
-          <button data-v="Nordic">Severní Evropa</button>
-          <button data-v="Southeast">Jihovýchodní Evropa</button>
-          <button data-v="Western">Západní Evropa</button>
-          <button data-v="Southern">Jižní Evropa</button>
-          <button data-v="DACH">Rakousko a okolí</button>
+          <button data-v="Western">Western</button>
+          <button data-v="Nordic">Nordic</button>
+          <button data-v="Southern">Southern</button>
         </div>
       </div>
     </div>
@@ -190,13 +189,13 @@ tr.offerrow{cursor:pointer}
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
-    <div class="kpi kpi-amount"><span>Přepočet pro platbu</span><div class="kpi-amount-row"><input id="amount" type="number" min="1" value="1000"><span class="kpi-amount-ccy">Kč</span></div></div>
+    <div class="kpi kpi-amount"><span>Přepočet pro platbu</span><div class="kpi-amount-row"><input id="amount" type="number" min="1" value="1000"><div class="seg seg-ccy" id="ccy-seg"><button data-v="CZK" class="active">Kč</button><button data-v="EUR">€</button></div></div></div>
   </section>
 
   <section class="grid">
     <article class="panel">
       <div class="panelhead">
-        <div><h2>Mapa sazeb</h2><p>Klikni na zemi pro detail, znovu pro návrat. Barevně jsou jen země s daty - zbytek EU/EHP je na mapě i v seznamu vidět, ale zatím bez čísel.</p></div>
+        <div><h2>Mapa sazeb</h2><p>Klikni na zemi nebo poskytovatele.</p></div>
       </div>
       <div id="mapFocusBanner" class="map-focus-banner" style="display:none">
         <span id="mapFocusText"></span>
@@ -227,19 +226,16 @@ tr.offerrow{cursor:pointer}
 
 <script>
 const REGION_COUNTRIES = {
-  CEE: ["PL","CZ","SK","HU"],
-  Baltic: ["LT","LV","EE"],
+  CEE: ["PL","CZ","SK","HU","RO","BG","LT","LV","EE","HR","SI"],
+  Western: ["DE","FR","BE","NL","LU","IE","AT","LI"],
   Nordic: ["SE","DK","FI","IS","NO"],
-  Southeast: ["RO","BG","HR","SI","GR"],
-  Western: ["DE","FR","BE","NL","LU","IE"],
-  Southern: ["IT","ES","PT","MT","CY"],
-  DACH: ["AT","LI"],
+  Southern: ["IT","ES","PT","MT","CY","GR"],
 };
-const REGION_LABELS = {CEE:"CEE", Baltic:"Pobaltí", Nordic:"Severní Evropa", Southeast:"Jihovýchodní Evropa", Western:"Západní Evropa", Southern:"Jižní Evropa", DACH:"Rakousko a okolí"};
-const S = { data:null, map:null, amount:1000, country:'', provider:'', region:'', method:'', sortKey:'rate', sortAsc:true };
+const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
+const S = { data:null, map:null, amount:1000, ccy:'CZK', country:'', provider:'', region:'', method:'', sortKey:'rate', sortAsc:true };
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:'CZK', maximumFractionDigits:2}).format(n);
+const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:S.ccy, maximumFractionDigits:2}).format(n);
 const fmtPct = n => n == null ? '—' : new Intl.NumberFormat('cs-CZ', {minimumFractionDigits:2, maximumFractionDigits:2}).format(n) + ' %';
 
 const SCALE = ['#003f5c','#00546e','#006b71','#008162','#009446','#65a31c','#b1aa00','#ffa600'];
@@ -258,10 +254,13 @@ function scaleColor(v, min, max) {
 
 function calc(o) {
   if (o.variable_pct_min == null) return {min:null, max:null, emin:null, emax:null};
+  const eurRate = S.data.fx.rates.EUR?.czk_per_unit ?? 24;
+  const amountCzk = S.ccy === 'EUR' ? S.amount * eurRate : S.amount;
   const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
-  const min = S.amount * o.variable_pct_min / 100 + (o.fixed_fee_min || 0) * fx;
-  const max = S.amount * o.variable_pct_max / 100 + (o.fixed_fee_max || 0) * fx;
-  return { min, max, emin: min / S.amount * 100, emax: max / S.amount * 100 };
+  const minCzk = amountCzk * o.variable_pct_min / 100 + (o.fixed_fee_min || 0) * fx;
+  const maxCzk = amountCzk * o.variable_pct_max / 100 + (o.fixed_fee_max || 0) * fx;
+  const toDisplay = v => S.ccy === 'EUR' ? v / eurRate : v;
+  return { min: toDisplay(minCzk), max: toDisplay(maxCzk), emin: minCzk / amountCzk * 100, emax: maxCzk / amountCzk * 100 };
 }
 
 function published(o) {
@@ -387,7 +386,7 @@ function renderMap() {
     const hasData = v != null;
     const isSelected = S.country === p.iso2;
     const isDimmed = (S.provider && !hasData) || (S.region && !REGION_COUNTRIES[S.region].includes(p.iso2));
-    const fill = hasData ? scaleColor(v, mn, mx) : '#e4e9ed';
+    const fill = hasData ? scaleColor(v, mn, mx) : '#1c3854';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', isDimmed ? 'dimmed' : ''].filter(Boolean).join(' ');
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
@@ -474,7 +473,7 @@ function renderCompare() {
             <td class="fee">${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}</td>
             <td>
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">oficiální ceník ↗</a>
-              <span class="sub"><span class="status-dot ${st.cls}" title="${esc(st.detail)}"></span><span class="status-label">${st.label}</span></span>
+              ${st.cls === 'error' ? `<span class="sub"><span class="status-dot error" title="${esc(st.detail)}"></span><span class="status-label">nedostupné při poslední kontrole</span></span>` : ''}
             </td>
           </tr>`;
         }).join('')}
@@ -540,6 +539,13 @@ async function init() {
 
   const amount = document.getElementById('amount');
   amount.oninput = () => { S.amount = Math.max(1, +amount.value || 1000); render(); };
+  document.getElementById('ccy-seg').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-v]');
+    if (!btn) return;
+    S.ccy = btn.dataset.v;
+    document.querySelectorAll('#ccy-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    render();
+  });
   document.getElementById('country').onchange = e => {
     S.country = e.target.value; S.provider = ''; S.region = ''; resetRegionButtons(); render();
   };

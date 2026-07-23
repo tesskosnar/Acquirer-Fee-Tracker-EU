@@ -93,13 +93,13 @@ button,input,select{font:inherit}
 
 /* ---------- Map ---------- */
 .mapbox{padding:14px 20px 10px;position:relative}
-.mapbox svg{width:100%;height:auto;display:block;transition:.5s cubic-bezier(.3,.1,.2,1)}
-.country-shape{stroke:var(--bg);stroke-width:1;transition:.15s}
-.country-shape.context{fill:#132840;stroke:var(--bg)}
+.mapbox svg{width:100%;height:auto;display:block}
+.country-shape{stroke:var(--panel);stroke-width:1;transition:.15s}
+.country-shape.context{fill:#e4e0d1;stroke:var(--panel)}
 .country-shape.active-country{cursor:pointer}
-.country-shape.active-country:hover{stroke:#fff;stroke-width:2}
-.country-shape.selected{stroke:#fff;stroke-width:2.6}
-.country-shape.dimmed{opacity:.25}
+.country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
+.country-shape.selected{stroke:var(--navy);stroke-width:2.6}
+.country-shape.dimmed{opacity:.22}
 .maplabel{font-size:9.5px;fill:#fff;font-weight:700;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.5)}
 .map-focus-banner{
   display:flex;align-items:center;justify-content:space-between;gap:10px;
@@ -211,7 +211,7 @@ tr.offerrow{cursor:pointer}
   </section>
 
   <section class="grid">
-    <article class="panel">
+    <article class="panel panel-light">
       <div class="panelhead">
         <div><h2>Mapa sazeb</h2><p>Klikni na zemi nebo poskytovatele.</p></div>
       </div>
@@ -220,7 +220,7 @@ tr.offerrow{cursor:pointer}
         <button id="mapFocusClear">✕ zpět na přehled</button>
       </div>
       <div class="map-range-summary" id="mapRangeSummary"></div>
-      <div class="mapbox"><svg id="map" viewBox="0 0 900 760" aria-label="Mapa Evropy"></svg></div>
+      <div class="mapbox"><svg id="map" viewBox="0 0 760 900" aria-label="Mapa Evropy"></svg></div>
       <div class="legend"><span>nejlevnější</span><span class="grad"></span><span>nejdražší</span></div>
     </article>
 
@@ -404,7 +404,7 @@ function renderMap() {
     const hasData = v != null;
     const isSelected = S.country === p.iso2;
     const isDimmed = (S.provider && !hasData) || (S.region && !REGION_COUNTRIES[S.region].includes(p.iso2));
-    const fill = hasData ? scaleColor(v, mn, mx) : '#1c3854';
+    const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', isDimmed ? 'dimmed' : ''].filter(Boolean).join(' ');
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
@@ -446,7 +446,34 @@ function applyMapZoom(byCountry) {
       target = `${x0} ${y0} ${x1 - x0} ${y1 - y0}`;
     }
   }
-  if (target) svg.setAttribute('viewBox', target);
+  if (target) animateViewBox(svg, target);
+}
+
+// SVG viewBox se nedá spolehlivě animovat čistě přes CSS transition napříč
+// prohlížeči (je to prezentační atribut, ne standardní animovatelná CSS
+// vlastnost) - proto ruční plynulá interpolace po snímcích.
+let mapZoomRAF = null;
+function animateViewBox(svg, targetStr) {
+  const parse = s => s.split(' ').map(Number);
+  const current = parse(svg.getAttribute('viewBox') || svg.dataset.lastViewBox || targetStr);
+  const target = parse(targetStr);
+  if (current.every((v, i) => Math.abs(v - target[i]) < 0.5)) { svg.setAttribute('viewBox', targetStr); return; }
+
+  if (mapZoomRAF) cancelAnimationFrame(mapZoomRAF);
+  const duration = 500;
+  const start = performance.now();
+  const ease = t => 1 - Math.pow(1 - t, 3); // ease-out kubická
+
+  function step(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const e = ease(t);
+    const box = current.map((c, i) => c + (target[i] - c) * e);
+    svg.setAttribute('viewBox', box.join(' '));
+    svg.dataset.lastViewBox = box.join(' ');
+    if (t < 1) { mapZoomRAF = requestAnimationFrame(step); }
+    else { mapZoomRAF = null; svg.dataset.lastViewBox = targetStr; }
+  }
+  mapZoomRAF = requestAnimationFrame(step);
 }
 
 function resetRegionButtons() {

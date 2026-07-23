@@ -1,6 +1,26 @@
 # Merchant Fee Tracker
 
-Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč celou EU/EHP (30 zemí; zatím reálně podložená data pro 7 z nich, zbytek je na mapě vidět jako "zatím nedoplněno"). Výchozí scénář je transakce **500 Kč**, nastavitelná; pevné složky v cizích měnách se přepočítávají posledním dostupným kurzem devizového trhu ČNB.
+Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč celou EU/EHP (všech 30 zemí má data - 276 nabídek, 59 poskytovatelů).
+
+## Původ dat
+
+Základní dataset vznikl postupně (7 CEE zemí → 12 → 30), pak byl nahrazen výrazně bohatším datasetem od jiného AI nástroje, který jsem před zapracováním kriticky ověřil: náhodný vzorek přepočtů, křížová kontrola proti už dřív ověřeným hodnotám (Stripe 1,5 %+0,25 EUR sedělo přesně), kontrola zdrojových URL a metodiky. Nešlo o slepé zkopírování - viz `Kontrola`/`verification` pole u každé nabídky a poznámka níž o tom, co "kontrola" u tohohle datasetu znamená.
+
+## Tři typy cen - záměrně nemíchané do jednoho žebříčku
+
+- **Veřejný ceník** (blended) - přímo srovnatelná all-in cena.
+- **Procesní/markup složka (IC++)** - jen marže poskytovatele nad interchange, NENÍ to celková cena (skutečný náklad je vyšší o interchange a scheme fee). V UI označeno žlutým štítkem "jen markup".
+- **Individuální nabídka** - cena na vyžádání, žádné číslo se nevymýšlí, poskytovatel zůstává v přehledu jako referenční bod.
+
+## Co dashboard obsahuje
+
+- karty / A2A / lokální metody (BLIK, MB WAY, Multibanco...) jako oddělené řádky,
+- mapa celé EU/EHP obarvená podle sazby (paleta #003f5c → #ffa600, tmavá = levnější),
+- kontextové srovnání - klikneš na zemi nebo poskytovatele, teprve pak se rozbalí tabulka,
+- nastavitelná částka transakce (výchozí 1000 Kč), žádný zbytečný měsíční kalkulátor,
+- veřejný zdroj u každého řádku s odkazem přímo na konkrétní ceník,
+- týdenní historii a export CSV,
+- bezpečný režim: při nefunkčním nebo nejistém parseru se zachová poslední ověřená sazba a označí se ke kontrole (v UI jako jednoduchý stavový puntík, ne syrový interní text).
 
 ## Jak se s dashboardem pracuje
 

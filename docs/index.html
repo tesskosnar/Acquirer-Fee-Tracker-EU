@@ -40,15 +40,11 @@ button,input,select{font:inherit}
 .control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}
 .control select, .control input{width:100%;border:1px solid #cfd9e2;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink)}
 .control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
-.control-secondary{
-  margin-left:auto; display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap;
-  opacity:.82; font-size:12.5px;
-}
-.control-secondary .control{min-width:132px}
-.control-secondary label{font-size:9px}
-.control-secondary input{padding:7px 9px;font-size:13px}
-.control-secondary .amountline{display:grid;grid-template-columns:1fr 74px;gap:6px;align-items:center}
-.control-secondary .amountline input[type=range]{padding:0;border:0}
+.control-secondary{display:none} /* přesunuto do panelu Srovnání nabídek */
+.compare-amount{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--line);background:#fafbfc}
+.compare-amount label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
+.compare-amount input{width:110px;border:1px solid #cfd9e2;border-radius:9px;padding:8px 10px;font-weight:700;font-size:15px}
+.coverage-note{font-size:11.5px;color:var(--muted);margin-left:auto}
 .btn{border:0;border-radius:9px;background:var(--navy);color:#fff;padding:10px 15px;font-weight:700;cursor:pointer;height:41px;white-space:nowrap}
 .btn:hover{background:#123b58}
 .btn-ghost{border:1px solid #cfd9e2;background:#fff;color:var(--ink)}
@@ -68,6 +64,7 @@ button,input,select{font:inherit}
 .panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:21px}
 .panelhead p{margin:4px 0 0;color:var(--muted);font-size:12.5px}
 .pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:#e8f0f4;color:#3f5668;white-space:nowrap}
+.pill.pm-warn{background:#fdf1de;color:var(--amber);cursor:help}
 
 /* ---------- Map ---------- */
 .mapbox{padding:10px 16px 6px;position:relative}
@@ -164,19 +161,10 @@ tr.offerrow{cursor:pointer}
         <select id="method"><option value="">Karty + A2A</option><option value="card">Karta</option><option value="a2a">A2A / wallet</option></select>
       </div>
       <div class="control">
-        <label>Typ poskytovatele</label>
-        <select id="ptype"><option value="">Všechny typy</option></select>
+        <label>Cenový model</label>
+        <select id="ptype"><option value="">Všechny modely</option></select>
       </div>
     </div>
-    <div class="control-secondary">
-      <div class="control">
-        <label>Hodnota transakce</label>
-        <div class="amountline"><input id="amountRange" type="range" min="50" max="10000" step="50" value="500"><input id="amount" type="number" min="1" value="500"></div>
-      </div>
-      <div class="control">
-        <label>Měsíčně transakcí</label>
-        <input id="monthlyTx" type="number" min="1" value="1000">
-      </div>
       <button id="export" class="btn btn-ghost">Export CSV</button>
     </div>
   </section>
@@ -185,13 +173,13 @@ tr.offerrow{cursor:pointer}
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
-    <div class="kpi"><span>Měsíční náklad nejlepší nabídky</span><strong id="kpiMonthly">—</strong><small id="kpiMonthlyNote">—</small></div>
+    <div class="kpi"><span>Pokrytí dat</span><strong id="kpiCoverage">—</strong><small id="kpiCoverageNote">zemí EU/EHP má zatím reálná data</small></div>
   </section>
 
   <section class="grid">
     <article class="panel">
       <div class="panelhead">
-        <div><h2>Mapa sazeb</h2><p>Klikni na zemi pro detail, znovu pro návrat. Poskytovatele vybereš dole ve srovnání.</p></div>
+        <div><h2>Mapa sazeb</h2><p>Klikni na zemi pro detail, znovu pro návrat. Barevně jsou jen země s daty - zbytek EU/EHP je na mapě i v seznamu vidět, ale zatím bez čísel.</p></div>
       </div>
       <div id="mapFocusBanner" class="map-focus-banner" style="display:none">
         <span id="mapFocusText"></span>
@@ -207,6 +195,11 @@ tr.offerrow{cursor:pointer}
         <div><h2>Srovnání nabídek</h2><p id="compareSub">Vyber zemi na mapě, nebo poskytovatele v tabulce.</p></div>
         <span class="pill" id="rowcount">—</span>
       </div>
+      <div class="compare-amount">
+        <label for="amount">Přepočet pro platbu</label>
+        <input id="amount" type="number" min="1" value="1000">
+        <span style="color:var(--muted);font-size:13px">Kč</span>
+      </div>
       <div id="compareBody"></div>
     </article>
   </section>
@@ -221,7 +214,14 @@ tr.offerrow{cursor:pointer}
 </main>
 
 <script>
-const S = { data:null, map:null, amount:500, monthlyTx:1000, country:'', provider:'', method:'', ptype:'', sortKey:'rate', sortAsc:true };
+const PM_LABELS = {
+  blended: "Blended (all-in)",
+  interchange_plus: "Interchange+ (jen markup)",
+  interchange_plus_individual: "Interchange+ (individuální)",
+  individual: "Individuální nabídka",
+  benchmark: "Historický průměr",
+};
+const S = { data:null, map:null, amount:1000, country:'', provider:'', method:'', ptype:'', sortKey:'rate', sortAsc:true };
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:'CZK', maximumFractionDigits:2}).format(n);
@@ -242,16 +242,11 @@ function scaleColor(v, min, max) {
 }
 
 function calc(o) {
-  if (o.variable_pct_min == null) return {min:null, max:null, emin:null, emax:null, monthlyMin:null, monthlyMax:null};
+  if (o.variable_pct_min == null) return {min:null, max:null, emin:null, emax:null};
   const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
   const min = S.amount * o.variable_pct_min / 100 + (o.fixed_fee_min || 0) * fx;
   const max = S.amount * o.variable_pct_max / 100 + (o.fixed_fee_max || 0) * fx;
-  const mfx = S.data.fx.rates[o.monthly_currency]?.czk_per_unit ?? 1;
-  return {
-    min, max, emin: min / S.amount * 100, emax: max / S.amount * 100,
-    monthlyMin: min * S.monthlyTx + (o.monthly_fee || 0) * mfx,
-    monthlyMax: max * S.monthlyTx + (o.monthly_fee || 0) * mfx,
-  };
+  return { min, max, emin: min / S.amount * 100, emax: max / S.amount * 100 };
 }
 
 function published(o) {
@@ -274,6 +269,12 @@ function statusInfo(o) {
   }
   if (v.startsWith('auto-checked')) {
     return {cls:'ok', label:'automaticky ověřeno', detail:o.verification};
+  }
+  if (v.includes('namátkově')) {
+    return {cls:'warn', label:'namátkově ověřeno', detail:o.verification};
+  }
+  if (v.includes('rozšířeného datasetu')) {
+    return {cls:'ok', label:'z rozšířeného datasetu', detail:o.verification};
   }
   return {cls:'ok', label:'z výchozí tabulky', detail:o.verification || 'manuální výchozí hodnota'};
 }
@@ -317,8 +318,9 @@ function renderKpis() {
   document.getElementById('kpiMax').textContent = worst ? fmtPct(worst._c.emin) : '—';
   document.getElementById('kpiMaxName').textContent = worst ? `${worst.provider} · ${worst.country_iso2}` : '—';
   document.getElementById('kpiMedian').textContent = fmtPct(median);
-  document.getElementById('kpiMonthly').textContent = best ? fmtCzk(best._c.monthlyMin) : '—';
-  document.getElementById('kpiMonthlyNote').textContent = best ? `${best.provider}, ${S.monthlyTx.toLocaleString('cs-CZ')} transakcí/měsíc` : '—';
+  const coveredCountries = new Set(rows.filter(o => o._c.emin != null).map(o => o.country_iso2));
+  const totalCountries = Object.keys(S.data.countries).length;
+  document.getElementById('kpiCoverage').textContent = `${coveredCountries.size} / ${totalCountries}`;
 }
 
 function renderMap() {
@@ -427,23 +429,26 @@ function renderCompare() {
         <th>Metoda</th>
         <th><button class="sortbtn ${activeCls('published')}" data-sort="published">Publikovaná sazba <span class="arrow">${arrow('published')}</span></button></th>
         <th><button class="sortbtn ${activeCls('rate')}" data-sort="rate">Poplatek <span class="arrow">${arrow('rate')}</span></button></th>
-        <th class="hide-mobile">Měsíčně</th>
         <th>Zdroj</th>
       </tr></thead>
       <tbody>
         ${rows.map(o => {
           const st = statusInfo(o);
+          const pmBadge = (o.pricing_model || '').includes('IC+')
+            ? `<span class="pill pm-warn" title="Jen procesní/markup složka, NENÍ all-in - k tomu se ještě přičítá interchange a scheme fee">jen markup</span>`
+            : o.pricing_model === 'Benchmark'
+            ? `<span class="pill pm-warn" title="Historický tržní průměr, ne aktuální nabídka konkrétního poskytovatele">historický průměr</span>`
+            : '';
           return `<tr class="offerrow" data-provider="${esc(o.provider)}">
             <td>
               ${S.provider
                 ? `<b>${esc(o.country_iso2)}</b><span class="sub">${esc(o.country)}</span>`
-                : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a>${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}${o.condition ? `<span class="sub">${esc(o.condition)}</span>` : ''}`
+                : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a> ${pmBadge}${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}`
               }
             </td>
             <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span></td>
             <td class="rate">${esc(published(o))}</td>
             <td class="fee">${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}</td>
-            <td class="hide-mobile">${fmtCzk(o._c.monthlyMin)}</td>
             <td>
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">oficiální ceník ↗</a>
               <span class="sub"><span class="status-dot ${st.cls}" title="${esc(st.detail)}"></span><span class="status-label">${st.label}</span></span>
@@ -474,11 +479,11 @@ function renderCompare() {
 
 function exportCsv() {
   const rows = contextOffers().length ? sortRows(contextOffers()) : sortRows(allWithCalc());
-  const head = ['country','provider','provider_type','product','method','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','monthly_transactions','monthly_min_czk','monthly_max_czk','source_url'];
+  const head = ['country','provider','provider_type','product','method','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','source_url'];
   const lines = [head.join(',')];
   for (const o of rows) {
     const c = o._c;
-    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, published(o), S.amount, c.min, c.max, c.emin, c.emax, S.monthlyTx, c.monthlyMin, c.monthlyMax, o.source_url]
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, published(o), S.amount, c.min, c.max, c.emin, c.emax, o.source_url]
       .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
   }
   const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});
@@ -498,17 +503,21 @@ async function init() {
   document.getElementById('fxdate').textContent = S.data.fx.date;
   document.getElementById('fxdate2').textContent = S.data.fx.date;
 
+  const withData = new Set(S.data.offers.filter(o => o.variable_pct_min != null).map(o => o.country_iso2));
   const countries = Object.entries(S.data.countries).sort((a,b) => a[1].name.localeCompare(b[1].name, 'cs'));
-  document.getElementById('country').insertAdjacentHTML('beforeend', countries.map(([k,v]) => `<option value="${k}">${v.name}</option>`).join(''));
+  const haveData = countries.filter(([k]) => withData.has(k));
+  const noData = countries.filter(([k]) => !withData.has(k));
+  const opt = ([k,v]) => `<option value="${k}">${v.name}</option>`;
+  document.getElementById('country').insertAdjacentHTML('beforeend',
+    `<optgroup label="Země s daty (${haveData.length})">${haveData.map(opt).join('')}</optgroup>` +
+    `<optgroup label="Zatím bez dat (${noData.length})">${noData.map(opt).join('')}</optgroup>`
+  );
 
   const types = [...new Set(S.data.offers.map(o => o.provider_type))].sort();
-  document.getElementById('ptype').insertAdjacentHTML('beforeend', types.map(x => `<option>${esc(x)}</option>`).join(''));
+  document.getElementById('ptype').insertAdjacentHTML('beforeend', types.map(x => `<option value="${esc(x)}">${esc(PM_LABELS[x] || x)}</option>`).join(''));
 
-  const amount = document.getElementById('amount'), range = document.getElementById('amountRange'), mt = document.getElementById('monthlyTx');
-  function setAmount(v) { S.amount = Math.max(1, +v || 500); amount.value = S.amount; range.value = Math.min(10000, S.amount); render(); }
-  amount.oninput = () => setAmount(amount.value);
-  range.oninput = () => setAmount(range.value);
-  mt.oninput = () => { S.monthlyTx = Math.max(1, +mt.value || 1); render(); };
+  const amount = document.getElementById('amount');
+  amount.oninput = () => { S.amount = Math.max(1, +amount.value || 1000); render(); };
   document.getElementById('country').onchange = e => { S.country = e.target.value; S.provider = ''; render(); };
   document.getElementById('method').onchange = e => { S.method = e.target.value; render(); };
   document.getElementById('ptype').onchange = e => { S.ptype = e.target.value; render(); };

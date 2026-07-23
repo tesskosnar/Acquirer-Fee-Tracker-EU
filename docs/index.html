@@ -72,7 +72,9 @@ button,input,select{font:inherit}
 .seg-ccy button.active{background:var(--navy);color:#fff}
 
 /* ---------- Grid / panels ---------- */
-.grid{display:grid;grid-template-columns:minmax(480px,1.15fr) minmax(460px,1fr);gap:18px;align-items:start}
+.grid{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.grid > .map-panel{width:700px;max-width:100%;flex-shrink:0}
+.grid > .compare-panel{flex:1 1 460px;min-width:0}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
 .panel-light{
   --panel:var(--light-bg); --panel-alt:#efe8d5; --ink:var(--light-ink); --muted:var(--light-muted);
@@ -145,7 +147,7 @@ tr.offerrow{cursor:pointer}
 .footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
 
 @media(max-width:1150px){
-  .grid{grid-template-columns:1fr}
+  .grid > .map-panel{width:100%}
   .controls{position:relative}
 }
 @media(max-width:650px){
@@ -211,7 +213,7 @@ tr.offerrow{cursor:pointer}
   </section>
 
   <section class="grid">
-    <article class="panel">
+    <article class="panel map-panel">
       <div class="panelhead">
         <div><h2>Mapa sazeb</h2><p>Klikni na zemi nebo poskytovatele.</p></div>
       </div>
@@ -224,7 +226,7 @@ tr.offerrow{cursor:pointer}
       <div class="legend"><span>nejlevnější</span><span class="grad"></span><span>nejdražší</span></div>
     </article>
 
-    <article class="panel panel-light">
+    <article class="panel panel-light compare-panel">
       <div class="panelhead">
         <div><h2>Srovnání nabídek</h2><p id="compareSub">Vyber zemi na mapě, nebo poskytovatele v tabulce.</p></div>
         <span class="pill" id="rowcount">—</span>

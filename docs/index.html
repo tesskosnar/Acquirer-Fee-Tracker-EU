@@ -10,6 +10,8 @@
   --panel-alt:#0a2036; --navy:#2f6fb0; --navy-deep:#0b2339; --teal:#2fc9bd; --mint:#0f3a37;
   --amber:#e3ab4c; --red:#e37a72; --green:#3ddb96;
   --shadow:0 14px 36px rgba(0,0,0,.35);
+  /* Světlé karty (KPI, Srovnání nabídek) - kontrast na tmavé stránce, jako u vzoru */
+  --light-bg:#f6f3ea; --light-ink:#1c2331; --light-muted:#6b7280; --light-line:#e4ddc9; --light-shadow:0 16px 34px rgba(0,0,0,.28);
   /* Barevná škála pro mapu - zadaná paleta, index 0 = nejlevnější, 7 = nejdražší */
   --scale-0:#003f5c; --scale-1:#00546e; --scale-2:#006b71; --scale-3:#008162;
   --scale-4:#009446; --scale-5:#65a31c; --scale-6:#b1aa00; --scale-7:#ffa600;
@@ -59,14 +61,30 @@ button,input,select{font:inherit}
 
 /* ---------- KPIs ---------- */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
-.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 7px 20px rgba(0,0,0,.18)}
-.kpi span{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800}
-.kpi strong{display:block;font-family:Georgia,serif;font-size:27px;margin-top:7px;font-weight:500;color:var(--ink)}
-.kpi small{color:var(--muted);font-size:12px}
+.kpi{background:var(--light-bg);border:1px solid var(--light-line);border-radius:14px;padding:16px 18px;box-shadow:var(--light-shadow)}
+.kpi span{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--light-muted);font-weight:800}
+.kpi strong{display:block;font-family:Georgia,serif;font-size:27px;margin-top:7px;font-weight:500;color:var(--light-ink)}
+.kpi small{color:var(--light-muted);font-size:12px}
+.kpi-amount input{width:100%;border:1.5px solid var(--light-line);border-radius:9px;padding:7px 10px;font-family:Georgia,serif;font-size:23px;font-weight:500;color:var(--light-ink);background:#fff}
+.kpi-amount-ccy{color:var(--light-muted);font-size:13px;flex-shrink:0}
+.seg-ccy{background:#fff;border-color:var(--light-line)}
+.seg-ccy button{color:var(--light-muted)}
+.seg-ccy button.active{background:var(--navy);color:#fff}
 
 /* ---------- Grid / panels ---------- */
 .grid{display:grid;grid-template-columns:minmax(480px,1.15fr) minmax(460px,1fr);gap:18px;align-items:start}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.panel-light{
+  --panel:var(--light-bg); --panel-alt:#efe8d5; --ink:var(--light-ink); --muted:var(--light-muted);
+  --line:var(--light-line); --bg:#fff;
+  background:var(--light-bg); border-color:var(--light-line); box-shadow:var(--light-shadow);
+}
+.panel-light .pill.card{background:#dce9f7;color:#1e4f80}
+.panel-light .pill.a2a{background:#dcf3e6;color:#12654a}
+.panel-light .pill.pm-warn{background:#fbead0;color:#9a6415}
+.panel-light tr:hover td{background:rgba(20,30,45,.035)}
+.panel-light .provider-link{color:var(--light-ink)}
+.panel-light .sortbtn{color:var(--light-ink)}
 .panelhead{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
 .panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:21px;color:var(--ink)}
 .panelhead p{margin:4px 0 0;color:var(--muted);font-size:12.5px}
@@ -206,7 +224,7 @@ tr.offerrow{cursor:pointer}
       <div class="legend"><span>nejlevnější</span><span class="grad"></span><span>nejdražší</span></div>
     </article>
 
-    <article class="panel">
+    <article class="panel panel-light">
       <div class="panelhead">
         <div><h2>Srovnání nabídek</h2><p id="compareSub">Vyber zemi na mapě, nebo poskytovatele v tabulce.</p></div>
         <span class="pill" id="rowcount">—</span>
@@ -412,7 +430,8 @@ function renderMap() {
 function applyMapZoom(byCountry) {
   const svg = document.getElementById('map');
   const vb = S.map.viewBoxes;
-  let target = vb.all;
+  if (!vb) return; // starší/nesynchronizovaná assets/europe-paths.json bez viewBoxes - zoom prostě přeskočit, ne spadnout
+  let target = vb.all || svg.getAttribute('viewBox');
 
   if (S.country && vb[S.country]) {
     target = vb[S.country];
@@ -427,7 +446,7 @@ function applyMapZoom(byCountry) {
       target = `${x0} ${y0} ${x1 - x0} ${y1 - y0}`;
     }
   }
-  svg.setAttribute('viewBox', target);
+  if (target) svg.setAttribute('viewBox', target);
 }
 
 function resetRegionButtons() {

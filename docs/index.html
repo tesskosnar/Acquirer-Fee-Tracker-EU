@@ -95,7 +95,7 @@ button,input,select{font:inherit}
 .mapbox{padding:14px 20px 10px;position:relative}
 .mapbox svg{width:100%;height:auto;display:block}
 .country-shape{stroke:var(--panel);stroke-width:1;transition:.15s}
-.country-shape.context{fill:#e4e0d1;stroke:var(--panel)}
+.country-shape.context{fill:#132840;stroke:var(--panel)}
 .country-shape.active-country{cursor:pointer}
 .country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
 .country-shape.selected{stroke:#e8543f;stroke-width:3.5}
@@ -211,7 +211,7 @@ tr.offerrow{cursor:pointer}
   </section>
 
   <section class="grid">
-    <article class="panel panel-light">
+    <article class="panel">
       <div class="panelhead">
         <div><h2>Mapa sazeb</h2><p>Klikni na zemi nebo poskytovatele.</p></div>
       </div>
@@ -220,7 +220,7 @@ tr.offerrow{cursor:pointer}
         <button id="mapFocusClear">✕ zpět na přehled</button>
       </div>
       <div class="map-range-summary" id="mapRangeSummary"></div>
-      <div class="mapbox"><svg id="map" viewBox="0 0 760 900" aria-label="Mapa Evropy"></svg></div>
+      <div class="mapbox"><svg id="map" viewBox="0 0 740 600" aria-label="Mapa Evropy"></svg></div>
       <div class="legend"><span>nejlevnější</span><span class="grad"></span><span>nejdražší</span></div>
     </article>
 
@@ -404,7 +404,7 @@ function renderMap() {
     const hasData = v != null;
     const isSelected = S.country === p.iso2;
     const isDimmed = (S.provider && !hasData) || (S.region && !REGION_COUNTRIES[S.region].includes(p.iso2));
-    const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
+    const fill = hasData ? scaleColor(v, mn, mx) : '#1c3854';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', isDimmed ? 'dimmed' : ''].filter(Boolean).join(' ');
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });

@@ -98,7 +98,7 @@ button,input,select{font:inherit}
 .country-shape.context{fill:#e4e0d1;stroke:var(--panel)}
 .country-shape.active-country{cursor:pointer}
 .country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
-.country-shape.selected{stroke:var(--navy);stroke-width:2.6}
+.country-shape.selected{stroke:#e8543f;stroke-width:3.5}
 .country-shape.dimmed{opacity:.22}
 .maplabel{font-size:9.5px;fill:#fff;font-weight:700;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.5)}
 .map-focus-banner{
@@ -431,21 +431,10 @@ function applyMapZoom(byCountry) {
   const svg = document.getElementById('map');
   const vb = S.map.viewBoxes;
   if (!vb) return; // starší/nesynchronizovaná assets/europe-paths.json bez viewBoxes - zoom prostě přeskočit, ne spadnout
-  let target = vb.all || svg.getAttribute('viewBox');
-
-  if (S.country && vb[S.country]) {
-    target = vb[S.country];
-  } else if (S.region && vb['region:' + S.region]) {
-    target = vb['region:' + S.region];
-  } else if (S.provider) {
-    const isos = Object.keys(byCountry);
-    const boxes = isos.map(iso => vb[iso]).filter(Boolean).map(s => s.split(' ').map(Number));
-    if (boxes.length) {
-      const x0 = Math.min(...boxes.map(b => b[0])), y0 = Math.min(...boxes.map(b => b[1]));
-      const x1 = Math.max(...boxes.map(b => b[0] + b[2])), y1 = Math.max(...boxes.map(b => b[1] + b[3]));
-      target = `${x0} ${y0} ${x1 - x0} ${y1 - y0}`;
-    }
-  }
+  // Zoom se dělá jen pro region - u jedné země/poskytovatele zůstává mapa na
+  // celé EU/EHP (podle vzoru) a výběr se zvýrazní jen barevným obrysem,
+  // ať se neztratí kontext okolních zemí (u malých zemí byl zoom dřív matoucí).
+  const target = (S.region && vb['region:' + S.region]) ? vb['region:' + S.region] : vb.all;
   if (target) animateViewBox(svg, target);
 }
 

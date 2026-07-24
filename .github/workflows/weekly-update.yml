@@ -21,6 +21,9 @@ jobs:
       - name: Checkout repozitáře
         uses: actions/checkout@v4
 
+      - name: Stáhnout nejnovější stav main (kdyby mezitím přibyla ruční úprava dat)
+        run: git pull origin main
+
       - name: Nastavit Python
         uses: actions/setup-python@v5
         with:
@@ -44,5 +47,14 @@ jobs:
             echo "Žádná změna dat, není co commitovat."
           else
             git commit -m "chore: týdenní aktualizace poplatků ($(date -u +%Y-%m-%d))"
-            git push
+            # Pojistka pro nešťastné načasování (ruční push těsně mezi naším
+            # pullem na začátku a pushem teď): zkusit rebase + push, max 3x.
+            for i in 1 2 3; do
+              if git pull --rebase origin main && git push; then
+                echo "Push úspěšný."
+                break
+              fi
+              echo "Pokus $i selhal, zkouším znovu za 10s..."
+              sleep 10
+            done
           fi

@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-24T08:22:53+00:00",
+  "generated_at": "2026-07-24T08:26:06+00:00",
   "update_frequency": "weekly",
   "default_transaction_czk": 1000,
-  "methodology_version": "3.1-prubezne-overovani-23-zemi",
-  "scope_note": "Original 7-country/9-provider CEE dataset restored; ongoing critical re-verification of remaining 23 countries in progress.",
+  "methodology_version": "3.2-prubezne-overovani-23-zemi",
+  "scope_note": "Original 7-country/9-provider CEE dataset restored; ongoing critical re-verification of remaining countries in progress.",
   "fx": {
     "source": "Česká národní banka",
     "source_url": "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt",
@@ -697,7 +697,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -738,7 +738,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -779,7 +779,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -820,7 +820,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -861,7 +861,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -902,7 +902,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -943,7 +943,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -984,7 +984,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1025,7 +1025,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1066,7 +1066,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1107,7 +1107,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1148,7 +1148,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1189,7 +1189,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1230,7 +1230,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1271,7 +1271,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1312,7 +1312,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1353,7 +1353,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1394,7 +1394,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1435,7 +1435,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1476,7 +1476,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1517,7 +1517,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1558,7 +1558,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1599,7 +1599,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1640,7 +1640,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1681,7 +1681,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1722,7 +1722,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1763,7 +1763,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1804,7 +1804,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1845,7 +1845,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1886,7 +1886,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1927,7 +1927,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -1968,7 +1968,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2009,7 +2009,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2050,7 +2050,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2091,7 +2091,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2132,7 +2132,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2173,7 +2173,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2214,7 +2214,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2255,7 +2255,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2296,7 +2296,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2337,7 +2337,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2378,7 +2378,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2419,7 +2419,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2460,7 +2460,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2501,7 +2501,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2542,7 +2542,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2583,7 +2583,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2624,7 +2624,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2665,7 +2665,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2706,7 +2706,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2747,7 +2747,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2788,7 +2788,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2829,7 +2829,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2870,7 +2870,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2911,7 +2911,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2952,7 +2952,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -2993,7 +2993,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3034,7 +3034,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3075,7 +3075,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3116,7 +3116,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3157,7 +3157,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3198,7 +3198,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3239,7 +3239,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3280,7 +3280,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3321,7 +3321,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3362,7 +3362,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3403,7 +3403,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3444,7 +3444,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3485,7 +3485,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3526,7 +3526,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3567,7 +3567,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3608,7 +3608,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3649,7 +3649,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3690,7 +3690,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3731,7 +3731,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3772,7 +3772,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3813,7 +3813,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3854,7 +3854,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3895,7 +3895,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3936,7 +3936,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -3977,7 +3977,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4018,7 +4018,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4059,7 +4059,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4100,7 +4100,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4141,7 +4141,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4182,7 +4182,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4223,7 +4223,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4264,7 +4264,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4305,7 +4305,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4346,7 +4346,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4387,7 +4387,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4428,7 +4428,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4469,7 +4469,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4510,7 +4510,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4551,7 +4551,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4592,7 +4592,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4633,7 +4633,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4674,7 +4674,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4715,7 +4715,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4756,7 +4756,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4797,7 +4797,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4838,7 +4838,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4879,7 +4879,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4920,7 +4920,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -4961,7 +4961,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5002,7 +5002,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5043,7 +5043,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5084,7 +5084,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5125,7 +5125,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5166,7 +5166,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5207,7 +5207,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5248,7 +5248,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5289,7 +5289,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5330,7 +5330,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5371,7 +5371,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5412,7 +5412,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5453,7 +5453,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5494,7 +5494,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5535,7 +5535,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5576,7 +5576,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5617,7 +5617,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5658,7 +5658,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5699,7 +5699,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5740,7 +5740,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5781,7 +5781,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5822,7 +5822,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5863,7 +5863,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5904,7 +5904,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5945,7 +5945,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -5986,7 +5986,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6027,7 +6027,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6068,7 +6068,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6109,7 +6109,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6150,7 +6150,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6191,7 +6191,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6232,7 +6232,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6273,7 +6273,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6314,7 +6314,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6355,7 +6355,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6396,7 +6396,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6437,7 +6437,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6478,7 +6478,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6519,7 +6519,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6560,7 +6560,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6601,7 +6601,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6642,7 +6642,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6683,7 +6683,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6724,7 +6724,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6765,7 +6765,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6806,7 +6806,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6847,7 +6847,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6888,7 +6888,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6929,7 +6929,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -6970,7 +6970,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7011,7 +7011,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7052,7 +7052,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7093,7 +7093,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7134,7 +7134,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7175,7 +7175,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7216,7 +7216,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7257,7 +7257,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7298,7 +7298,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7339,7 +7339,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7380,7 +7380,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7421,7 +7421,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7462,7 +7462,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7503,7 +7503,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7544,7 +7544,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7585,7 +7585,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7626,7 +7626,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7667,7 +7667,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7708,7 +7708,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7749,7 +7749,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7790,7 +7790,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7831,7 +7831,7 @@
       "notes": "USD 0.13 processing + 0.60% acquiring markup; interchange and scheme fees are additional. Pozor: jde jen o procesní/markup složku (IC++), NE o all-in cenu - nezahrnuje interchange a scheme fees, skutečný celkový náklad bude vyšší.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7872,7 +7872,7 @@
       "notes": "EEA acquiring coverage; comparable all-in price requires quote.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7913,7 +7913,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7954,7 +7954,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -7995,7 +7995,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8036,7 +8036,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8077,7 +8077,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8118,7 +8118,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8159,7 +8159,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8200,7 +8200,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8241,7 +8241,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8282,7 +8282,7 @@
       "notes": "advertised from",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8323,7 +8323,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8364,7 +8364,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8405,7 +8405,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8446,7 +8446,7 @@
       "notes": "advertised from",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8487,7 +8487,7 @@
       "notes": "advertised from",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8528,7 +8528,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8569,7 +8569,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8610,7 +8610,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8651,7 +8651,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8692,7 +8692,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8733,7 +8733,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8774,7 +8774,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8815,7 +8815,7 @@
       "notes": "derived components",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8856,7 +8856,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8897,7 +8897,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8938,7 +8938,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -8979,7 +8979,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9020,7 +9020,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9061,7 +9061,7 @@
       "notes": "threshold conditions",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9102,7 +9102,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9143,7 +9143,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9184,7 +9184,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9225,7 +9225,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9266,7 +9266,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9307,7 +9307,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9348,7 +9348,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9389,7 +9389,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9430,7 +9430,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9471,7 +9471,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9512,7 +9512,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9553,7 +9553,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9594,7 +9594,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9635,7 +9635,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9676,7 +9676,7 @@
       "notes": "Official historical market average, not a current merchant offer.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9717,7 +9717,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9758,7 +9758,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9799,7 +9799,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9840,7 +9840,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9881,7 +9881,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9922,7 +9922,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -9963,7 +9963,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10004,7 +10004,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10045,7 +10045,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10086,7 +10086,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10127,7 +10127,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10168,7 +10168,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10209,7 +10209,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10250,7 +10250,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10291,7 +10291,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10332,7 +10332,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10373,7 +10373,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10414,7 +10414,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10455,7 +10455,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10496,7 +10496,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10537,7 +10537,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10578,7 +10578,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10619,7 +10619,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10660,7 +10660,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10701,7 +10701,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10742,7 +10742,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10783,7 +10783,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10824,7 +10824,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10865,7 +10865,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10906,7 +10906,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10947,7 +10947,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -10988,7 +10988,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11029,7 +11029,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11070,7 +11070,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11111,7 +11111,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11152,7 +11152,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11193,7 +11193,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11234,7 +11234,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11275,7 +11275,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11316,7 +11316,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11357,7 +11357,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11398,7 +11398,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11439,7 +11439,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11480,7 +11480,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11521,7 +11521,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11562,7 +11562,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11603,7 +11603,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11644,7 +11644,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11685,7 +11685,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11726,7 +11726,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11767,7 +11767,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11808,7 +11808,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11849,7 +11849,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11890,7 +11890,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11931,7 +11931,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -11972,7 +11972,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12013,7 +12013,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12054,7 +12054,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12095,7 +12095,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12136,7 +12136,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12177,7 +12177,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12218,7 +12218,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12259,7 +12259,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12300,7 +12300,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12341,7 +12341,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12382,7 +12382,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12423,7 +12423,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12464,7 +12464,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12505,7 +12505,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12546,7 +12546,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12587,7 +12587,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12628,7 +12628,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12669,7 +12669,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12710,7 +12710,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12751,7 +12751,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12792,7 +12792,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12833,7 +12833,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12874,7 +12874,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12915,7 +12915,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12956,7 +12956,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -12997,7 +12997,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13038,7 +13038,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13079,7 +13079,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13120,7 +13120,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13161,7 +13161,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13202,7 +13202,7 @@
       "notes": "Individuální/nezveřejněná sazba. Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13243,7 +13243,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13284,7 +13284,7 @@
       "notes": "Bancontact je dominantní belgická platební metoda (banky+karty). Paušální poplatek, žádné procento.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13325,7 +13325,7 @@
       "notes": "eps je dominantní rakouská bankovní platební metoda. Sazba záleží na objemu obchodníka (1,6-2,4 %), toto je konkrétní PSP (Payrexx), ne oficiální sazba eps konsorcia jako takového - ta se přímo nepublikuje.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13366,7 +13366,7 @@
       "notes": "Největší chorvatský IPG. Ceník existuje, ale konkrétní sazba se sjednává per banka/obchodník - není jedno veřejné číslo.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13407,7 +13407,7 @@
       "notes": "Založeno na interchange+ modelu: interchange 0,20 % (debetní) až 0,30 % (kreditní) domácí karty + scheme fee + individuální Viva Service Fee (sjednává se, není veřejné jedno číslo). Uvedené % je jen interchange složka, ne all-in.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-07-24T08:22:53+00:00",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_500_czk": {
@@ -13415,6 +13415,211 @@
         "fee_max_czk": 1.5,
         "effective_min_pct": 0.2,
         "effective_max_pct": 0.3
+      }
+    },
+    {
+      "id": "EE-montonio-eu-issued-commercial-cards-card-verified",
+      "country_iso2": "EE",
+      "country": "Estonsko",
+      "provider": "Montonio",
+      "provider_type": "PSP / gateway",
+      "product": "EU-issued commercial cards",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.39,
+      "variable_pct_max": 2.39,
+      "fixed_fee_min": 0.2,
+      "fixed_fee_max": 0.2,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://montonio.com/detailed-pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Dominantní pobaltský PSP (5000+ obchodů v EE/LV/LT/PL). Ceník má víc kategorií podle typu karty (EU/mimo EU, spotřebitel/firma) - tohle je konkrétně 'EU-issued commercial'; přesná spotřebitelská sazba nebyla v dostupném výřezu jednoznačná, stojí za dvojitou kontrolu.",
+      "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
+      "source_status": "seeded",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": 16.782,
+        "fee_max_czk": 16.782,
+        "effective_min_pct": 3.3564,
+        "effective_max_pct": 3.3564
+      }
+    },
+    {
+      "id": "LV-montonio-eu-issued-commercial-cards-card-verified",
+      "country_iso2": "LV",
+      "country": "Lotyšsko",
+      "provider": "Montonio",
+      "provider_type": "PSP / gateway",
+      "product": "EU-issued commercial cards",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.39,
+      "variable_pct_max": 2.39,
+      "fixed_fee_min": 0.2,
+      "fixed_fee_max": 0.2,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://montonio.com/detailed-pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Dominantní pobaltský PSP (5000+ obchodů v EE/LV/LT/PL). Ceník má víc kategorií podle typu karty (EU/mimo EU, spotřebitel/firma) - tohle je konkrétně 'EU-issued commercial'; přesná spotřebitelská sazba nebyla v dostupném výřezu jednoznačná, stojí za dvojitou kontrolu.",
+      "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
+      "source_status": "seeded",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": 16.782,
+        "fee_max_czk": 16.782,
+        "effective_min_pct": 3.3564,
+        "effective_max_pct": 3.3564
+      }
+    },
+    {
+      "id": "LT-montonio-eu-issued-commercial-cards-card-verified",
+      "country_iso2": "LT",
+      "country": "Litva",
+      "provider": "Montonio",
+      "provider_type": "PSP / gateway",
+      "product": "EU-issued commercial cards",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.39,
+      "variable_pct_max": 2.39,
+      "fixed_fee_min": 0.2,
+      "fixed_fee_max": 0.2,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://montonio.com/detailed-pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Dominantní pobaltský PSP (5000+ obchodů v EE/LV/LT/PL). Ceník má víc kategorií podle typu karty (EU/mimo EU, spotřebitel/firma) - tohle je konkrétně 'EU-issued commercial'; přesná spotřebitelská sazba nebyla v dostupném výřezu jednoznačná, stojí za dvojitou kontrolu.",
+      "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
+      "source_status": "seeded",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": 16.782,
+        "fee_max_czk": 16.782,
+        "effective_min_pct": 3.3564,
+        "effective_max_pct": 3.3564
+      }
+    },
+    {
+      "id": "SI-bankart-payment-gateway-card-verified",
+      "country_iso2": "SI",
+      "country": "Slovinsko",
+      "provider": "Bankart",
+      "provider_type": "PSP / gateway",
+      "product": "Payment Gateway",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Individual / IC+",
+      "variable_pct_min": null,
+      "variable_pct_max": null,
+      "fixed_fee_min": null,
+      "fixed_fee_max": null,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.bankart.si/en-payment-gateway/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Slovinský tržní lídr v procesování karet, ale sám explicitně uvádí, že sazbu určuje banka, se kterou obchodník podepíše smlouvu - Bankart je jen technický poskytovatel. Žádné veřejné číslo neexistuje.",
+      "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
+      "source_status": "seeded",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": null,
+        "fee_max_czk": null,
+        "effective_min_pct": null,
+        "effective_max_pct": null
+      }
+    },
+    {
+      "id": "CY-jcc-payment-systems-card-acquiring-card-verified",
+      "country_iso2": "CY",
+      "country": "Kypr",
+      "provider": "JCC Payment Systems",
+      "provider_type": "PSP / gateway",
+      "product": "Card acquiring",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Individual / IC+",
+      "variable_pct_min": null,
+      "variable_pct_max": null,
+      "fixed_fee_min": null,
+      "fixed_fee_max": null,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.centralbank.cy/en/financial-market-infrastructures-payments/financial-market-infrastructures-instruments/retail-payment-systems",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Kyperský tržní lídr v acquiringu karet (vlastněný bankami vč. Bank of Cyprus). Žádný veřejný ceník pro obchodníky nenalezen - sazby se sjednávají individuálně.",
+      "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
+      "source_status": "seeded",
+      "source_checked_at": "2026-07-24T08:26:06+00:00",
+      "source_hash": null,
+      "last_changed_at": null,
+      "calculation_500_czk": {
+        "fee_min_czk": null,
+        "fee_max_czk": null,
+        "effective_min_pct": null,
+        "effective_max_pct": null
       }
     }
   ],

@@ -87,6 +87,9 @@ button,input,select{font:inherit}
 .panelhead{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
 .panelhead h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:21px;color:var(--ink)}
 .panelhead p{margin:4px 0 0;color:var(--muted);font-size:12.5px}
+.heading-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.heading-row h2{white-space:nowrap}
+.heading-row p{margin:0;font-family:Georgia,serif;font-size:15px;font-weight:400;color:var(--muted)}
 .pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:rgba(255,255,255,.08);color:var(--ink);white-space:nowrap}
 .pill.pm-warn{background:rgba(227,171,76,.16);color:var(--amber);cursor:help}
 
@@ -225,7 +228,7 @@ tr.offerrow{cursor:pointer}
 
   <section class="panel panel-light" style="margin-top:18px">
     <div class="panelhead">
-      <div><h2>Srovnání nabídek</h2><p id="compareSub">Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.</p></div>
+      <div class="heading-row"><h2>Srovnání nabídek</h2><p id="compareSub">Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.</p></div>
       <span style="display:flex;align-items:center;gap:8px"><span class="pill" id="rowcount">—</span><button id="clearCountry" class="btn btn-ghost" style="display:none;height:auto;padding:5px 10px;font-size:11px">✕ zrušit filtr</button></span>
     </div>
     <div id="compareBody"></div>

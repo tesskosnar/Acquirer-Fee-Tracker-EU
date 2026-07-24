@@ -155,7 +155,11 @@ def write_csv(output:dict)->None:
 def main()->int:
     baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
     previous=load_previous(baseline)
-    offers=deepcopy(previous.get('offers') or baseline['offers'])
+    # DŮLEŽITÉ: vždy vycházet z čerstvého manual_offers.json, ne z minulého
+    # vygenerovaného latest.json - jinak by každý další běh jen dokola
+    # recykloval starý výstup a ignoroval jakékoliv ruční opravy v baseline.
+    # 'previous' slouží níž jen ke sledování změn (prev_by_id), ne jako zdroj dat.
+    offers=deepcopy(baseline['offers'])
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
     changes=list(previous.get('change_log',[]))[-250:]
     now=datetime.now(timezone.utc).isoformat(timespec='seconds')
@@ -180,7 +184,15 @@ def main()->int:
             log.warning('Source %s failed: %s',sid,exc)
 
     for o in offers:
-        sid=o['source_id']; src=fetched.get(sid,{})
+        sid=o.get('source_id')
+        # Ručně zadané nabídky (bez source_id, nebo výslovně auto_parse=False) se
+        # vůbec nezkoušejí automaticky kontrolovat - jejich verification text píše
+        # člověk, skript ho nemá přepisovat matoucím "source unavailable" hlášením.
+        if not sid or not o.get('parser',{}).get('auto_parse',True):
+            o['source_checked_at']=now
+            o['calculation_500_czk']=calc(o,fx)
+            continue
+        src=fetched.get(sid,{})
         o['source_checked_at']=now;o['source_status']=src.get('status','not checked')
         if src.get('hash'):o['source_hash']=src['hash']
         if src.get('status')!='ok':

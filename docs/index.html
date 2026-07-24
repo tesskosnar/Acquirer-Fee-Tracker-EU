@@ -476,9 +476,12 @@ function renderCompare() {
             : o.pricing_model === 'Benchmark'
             ? `<span class="pill pm-warn" title="Historický tržní průměr, ne aktuální nabídka konkrétního poskytovatele">historický průměr</span>`
             : '';
+          const monthlyBadge = (o.monthly_fee && o.monthly_fee > 0)
+            ? `<span class="pill pm-warn" title="K sazbě z tabulky se navíc počítá měsíční paušál bez ohledu na počet transakcí - u nízkého objemu výrazně zvedá efektivní cenu">+${esc(String(o.monthly_fee).replace('.', ','))} ${esc(o.monthly_currency || o.fee_currency)}/měs</span>`
+            : '';
           const nameCell = S.provider
             ? `<b>${esc(o.country_iso2)}</b><span class="sub">${esc(o.country)}</span>`
-            : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a> ${pmBadge}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}`;
+            : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a> ${pmBadge}${monthlyBadge}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}`;
           return `<tr class="offerrow" data-provider="${esc(o.provider)}">
             <td>${nameCell}</td>
             <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span></td>

@@ -92,12 +92,12 @@ button,input,select{font:inherit}
 
 /* ---------- Map - přesně podle vzoru: pevná šířka mapy, tmavá, s malým světlým detail panelem vedle ---------- */
 .map-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
-.map-svg-host{width:490px;max-width:100%;flex-shrink:0;background:var(--panel-alt);border-radius:16px;padding:14px}
+.map-svg-host{width:490px;max-width:100%;flex-shrink:0;background:var(--light-bg);border:1px solid var(--light-line);border-radius:16px;padding:14px}
 .map-svg-host svg{width:100%;height:auto;display:block}
-.country-shape{stroke:var(--panel-alt);stroke-width:1;transition:.15s}
-.country-shape.context{fill:#2a3f66;stroke:var(--panel-alt)}
+.country-shape{stroke:var(--light-bg);stroke-width:1;transition:.15s}
+.country-shape.context{fill:#e5e0cf;stroke:var(--light-bg)}
 .country-shape.active-country{cursor:pointer}
-.country-shape.active-country:hover{stroke:#fff;stroke-width:2}
+.country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
 .country-shape.selected{stroke:#e8543f;stroke-width:3}
 .country-shape.dimmed{opacity:.22}
 .legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:10px;flex-wrap:wrap}
@@ -216,7 +216,7 @@ tr.offerrow{cursor:pointer}
     </div>
     <div class="map-wrap">
       <div>
-        <div class="map-svg-host"><svg id="map" viewBox="0 0 600 800" aria-label="Mapa Evropy"></svg></div>
+        <div class="map-svg-host"><svg id="map" viewBox="0 0 600 700" aria-label="Mapa Evropy"></svg></div>
         <div class="legend"><span id="legendLo">—</span><span class="grad"></span><span id="legendHi">—</span></div>
       </div>
       <div class="map-detail" id="mapDetail"></div>
@@ -226,7 +226,7 @@ tr.offerrow{cursor:pointer}
   <section class="panel panel-light" style="margin-top:18px">
     <div class="panelhead">
       <div><h2>Srovnání nabídek</h2><p id="compareSub">Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.</p></div>
-      <span class="pill" id="rowcount">—</span>
+      <span style="display:flex;align-items:center;gap:8px"><span class="pill" id="rowcount">—</span><button id="clearCountry" class="btn btn-ghost" style="display:none;height:auto;padding:5px 10px;font-size:11px">✕ zrušit filtr</button></span>
     </div>
     <div id="compareBody"></div>
   </section>
@@ -372,12 +372,12 @@ function renderMap() {
     const hasData = v != null;
     const isSelected = S.country === p.iso2;
     const inRegion = !S.region || REGION_COUNTRIES[S.region].includes(p.iso2);
-    const fill = hasData ? scaleColor(v, mn, mx) : '#3a4a6b';
+    const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', !inRegion ? 'dimmed' : ''].filter(Boolean).join(' ');
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
-  svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 800'); // mapa se podle vzoru nezoomuje, jen dimuje mimo vybraný region
+  svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 700'); // mapa se podle vzoru nezoomuje, jen dimuje mimo vybraný region
 
   svg.querySelectorAll('.active-country').forEach(el => {
     el.onclick = () => {
@@ -393,24 +393,30 @@ function renderMap() {
 function renderMapDetail() {
   const host = document.getElementById('mapDetail');
   if (!S.country) {
-    host.innerHTML = `<p class="empty-hint">Klikni na zemi vlevo pro detail nabídek.</p>`;
+    host.innerHTML = `<p class="empty-hint">Klikni na zemi vlevo pro detail a rozmezí sazeb.</p>`;
     return;
   }
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
   const rows = allWithCalc().filter(o => o.country_iso2 === S.country && (!S.method || o.method === S.method));
   const withVal = rows.filter(o => o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
-  const best = withVal[0];
+  const lo = withVal[0], hi = withVal[withVal.length - 1];
+  const rangeText = withVal.length
+    ? (lo === hi ? fmtPct(lo._c.emin) : `${fmtPct(lo._c.emin)} – ${fmtPct(hi._c.emin)}`)
+    : '—';
   const links = rows.slice(0, 4).map(o => `<a class="source-link" href="${esc(o.source_url)}" target="_blank" rel="noopener">${esc(o.provider)} ↗</a>`).join('');
   host.innerHTML = `
     <p class="name">${esc(name)}</p>
     <p class="region">${esc(region)}</p>
-    <div class="label">Nejnižší dostupná sazba</div>
-    <div class="val" style="font-size:20px">${best ? fmtPct(best._c.emin) + ' · ' + esc(best.provider) : '—'}</div>
+    <div class="label">Rozmezí sazeb</div>
+    <div class="val" style="font-size:20px">${rangeText}</div>
+    <div class="label">Nejnižší nabídka</div>
+    <div class="val">${lo ? fmtPct(lo._c.emin) + ' · ' + esc(lo.provider) : '—'}</div>
     <div class="label">Počet nabídek</div>
     <div class="val">${rows.length}</div>
     <div class="label" style="margin-bottom:5px">Zdroje</div>
     <div style="display:flex; flex-direction:column; gap:4px">${links || '—'}</div>
+    <p style="font-size:11.5px; color:var(--light-muted); margin:14px 0 0; padding-top:12px; border-top:1px solid var(--light-line)">↓ Srovnání nabídek dole je teď filtrované jen na <b>${esc(name)}</b>.</p>
   `;
 }
 
@@ -429,6 +435,7 @@ function renderCompare() {
   const body = document.getElementById('compareBody');
   const rowcount = document.getElementById('rowcount');
   const sub = document.getElementById('compareSub');
+  const clearBtn = document.getElementById('clearCountry');
 
   const rows = sortRows(contextOffers());
   rowcount.textContent = `${rows.length} ${rows.length === 1 ? 'záznam' : rows.length < 5 ? 'záznamy' : 'záznamů'}`;
@@ -439,6 +446,7 @@ function renderCompare() {
     : S.region
     ? `Nabídky v regionu ${REGION_LABELS[S.region]} (${REGION_COUNTRIES[S.region].join(', ')}).`
     : 'Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.';
+  clearBtn.style.display = (S.country || S.provider) ? 'inline-block' : 'none';
 
   if (!rows.length) {
     body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus změnit metodu nebo region nahoře.</div>`;
@@ -567,6 +575,7 @@ async function init() {
     render();
   });
   document.getElementById('export').onclick = exportCsv;
+  document.getElementById('clearCountry').onclick = clearFocus;
 
   render();
 }

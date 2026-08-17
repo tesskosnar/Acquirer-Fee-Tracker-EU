@@ -11833,6 +11833,41 @@
       "source_checked_at": null,
       "source_hash": null,
       "last_changed_at": null
+    },
+    {
+      "id": "SK-shoptet-pay-enterprise-card",
+      "country_iso2": "SK",
+      "country": "Slovensko",
+      "provider": "Shoptet Pay",
+      "provider_type": "Veřejný ceník",
+      "product": "Enterprise tarif (nejlevnější ze 4)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 1.19,
+      "variable_pct_max": 1.19,
+      "fixed_fee_min": 0.08,
+      "fixed_fee_max": 0.08,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": null,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.shoptetpay.com/sk/cennik/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "ÚPLNOST srpen 2026, nalezeno stejnou metodou jako CZ (kompletní seznam Shoptet.sk doplňků) - Shoptet je \"najrozšírenejšia brána v Česku a na Slovensku\". Ceník ověřen přímo na shoptetpay.com/sk/cennik.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026)",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-17T20:24:06+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-17T20:24:06+00:00"
     }
   ]
 }

@@ -1,0 +1,102 @@
+{
+  "as_of": "2026-08-18",
+  "scope": "Independent discovery backlog for merchant acquirers and acquiring-linked providers outside the first CEE audit: remaining EU/EEA markets plus Switzerland and the United Kingdom. A name on this watchlist is not a verified price and is not automatically published in the dashboard.",
+  "methodology": "Business of Payments is used for discovery and market context. Every provider role, country availability and price must still be confirmed on the provider's own product page, FAQ, legal documents, tariff PDFs, calculators and local-language pages before publication.",
+  "discovery_sources": [
+    {"name":"Business of Payments","url":"https://businessofpayments.substack.com/","type":"industry_discovery"},
+    {"name":"Business of Payments blog","url":"https://businessofpayments.com/author/thebusinessofpayments/","type":"industry_discovery"}
+  ],
+  "roles": {
+    "acquiring_bank": "Bank directly contracting for merchant card acceptance.",
+    "direct_acquirer": "Non-bank or payment-institution acquirer.",
+    "acquirer_sales_channel": "Brand or bank channel reselling/packaging another acquirer's service; not counted as a separate acquiring network.",
+    "full_service_psp": "PSP with a bundled merchant price; acquiring may be supplied by a regulated partner.",
+    "gateway_or_processor": "Technical gateway/processor whose fee must not be presented as the complete acquiring price."
+  },
+  "providers": [
+    {"country_iso2":"GB","provider":"Barclaycard Payments","role":"direct_acquirer","official_url":"https://www.barclaycard.co.uk/business/accepting-payments","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Worldpay","role":"direct_acquirer","official_url":"https://www.worldpay.com/en-GB","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Lloyds Bank Cardnet","role":"acquiring_bank","official_url":"https://www.lloydsbank.com/business/take-payments-with-cardnet.html","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Dojo","role":"direct_acquirer","official_url":"https://dojo.tech/","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"DNA Payments","role":"direct_acquirer","official_url":"https://www.dnapayments.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Global Payments UK","role":"direct_acquirer","official_url":"https://www.globalpayments.com/en-gb","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Elavon UK","role":"direct_acquirer","official_url":"https://www.elavon.co.uk/","discovered_via":"market_scan"},
+    {"country_iso2":"GB","provider":"Tyl by NatWest","role":"acquirer_sales_channel","official_url":"https://www.tylbynatwest.com/","discovered_via":"market_scan"},
+    {"country_iso2":"GB","provider":"PayPoint / Handepay","role":"acquirer_sales_channel","official_url":"https://www.handepay.co.uk/","discovered_via":"Business of Payments","notes":"Handepay primarily resells Global Payments acquiring; do not double-count as an acquiring network."},
+    {"country_iso2":"GB","provider":"Shift4","role":"direct_acquirer","official_url":"https://www.shift4.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Flatpay","role":"full_service_psp","official_url":"https://www.flatpay.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"GB","provider":"Teya","role":"full_service_psp","official_url":"https://www.teya.com/","discovered_via":"Business of Payments"},
+
+    {"country_iso2":"CH","provider":"Worldline Switzerland","role":"direct_acquirer","official_url":"https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring","discovered_via":"official_market_scan"},
+    {"country_iso2":"CH","provider":"Nexi Switzerland","role":"direct_acquirer","official_url":"https://www.nexi.swiss/","discovered_via":"official_market_scan"},
+    {"country_iso2":"CH","provider":"Planet","role":"direct_acquirer","official_url":"https://www.weareplanet.com/","discovered_via":"Datatrans official acquirer list"},
+    {"country_iso2":"CH","provider":"Datatrans","role":"gateway_or_processor","official_url":"https://docs.datatrans.ch/docs/getting-started","discovered_via":"official_market_scan","notes":"Official documentation requires a separate acquirer contract."},
+    {"country_iso2":"CH","provider":"wallee","role":"full_service_psp","official_url":"https://en.wallee.com/","discovered_via":"official_market_scan"},
+    {"country_iso2":"LI","provider":"Worldline Switzerland","role":"direct_acquirer","official_url":"https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring","discovered_via":"official_market_scan"},
+
+    {"country_iso2":"DE","provider":"PAYONE","role":"direct_acquirer","official_url":"https://www.payone.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"DE","provider":"Unzer","role":"full_service_psp","official_url":"https://www.unzer.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"DE","provider":"Nexi Germany / Concardis","role":"direct_acquirer","official_url":"https://www.nexi.de/","discovered_via":"Business of Payments"},
+    {"country_iso2":"DE","provider":"VR Payment","role":"direct_acquirer","official_url":"https://www.vr-payment.de/","discovered_via":"market_scan"},
+
+    {"country_iso2":"FR","provider":"Worldline France","role":"direct_acquirer","official_url":"https://worldline.com/fr-fr/home","discovered_via":"Business of Payments"},
+    {"country_iso2":"FR","provider":"Crédit Agricole / CAWL","role":"acquiring_bank","official_url":"https://www.cawl.fr/","discovered_via":"Business of Payments"},
+    {"country_iso2":"FR","provider":"Axepta BNP Paribas","role":"acquiring_bank","official_url":"https://www.axepta.bnpparibas/","discovered_via":"market_scan"},
+    {"country_iso2":"FR","provider":"Société Générale","role":"acquiring_bank","official_url":"https://professionnels.sg.fr/","discovered_via":"Datatrans official acquirer list"},
+
+    {"country_iso2":"ES","provider":"Getnet / Santander Payment Solutions","role":"direct_acquirer","official_url":"https://www.getnetworld.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"ES","provider":"Comercia Global Payments / CaixaBank","role":"direct_acquirer","official_url":"https://www.comerciaglobalpayments.com/","discovered_via":"market_scan"},
+    {"country_iso2":"ES","provider":"Banco Sabadell Merchant Services / Nexi","role":"acquiring_bank","official_url":"https://www.nexigroup.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"ES","provider":"BBVA Merchant Services","role":"acquiring_bank","official_url":"https://www.bbva.es/empresas.html","discovered_via":"market_scan"},
+    {"country_iso2":"ES","provider":"Dojo Spain","role":"direct_acquirer","official_url":"https://www.dojo.tech/es/","discovered_via":"Business of Payments"},
+    {"country_iso2":"ES","provider":"Paycomet","role":"full_service_psp","official_url":"https://www.paycomet.com/","discovered_via":"Business of Payments"},
+
+    {"country_iso2":"IT","provider":"Nexi Italy","role":"direct_acquirer","official_url":"https://www.nexi.it/","discovered_via":"Business of Payments"},
+    {"country_iso2":"IT","provider":"Worldline / Axepta Italy","role":"direct_acquirer","official_url":"https://worldline.com/it-it/home","discovered_via":"Business of Payments"},
+    {"country_iso2":"IT","provider":"Banca Sella","role":"acquiring_bank","official_url":"https://www.sella.it/","discovered_via":"market_scan"},
+    {"country_iso2":"IT","provider":"Dojo Italy","role":"direct_acquirer","official_url":"https://www.dojo.tech/it/","discovered_via":"Business of Payments"},
+    {"country_iso2":"IT","provider":"Flatpay Italy","role":"full_service_psp","official_url":"https://www.flatpay.com/","discovered_via":"Business of Payments"},
+
+    {"country_iso2":"PT","provider":"Reduniq / Unicre","role":"direct_acquirer","official_url":"https://www.reduniq.pt/","discovered_via":"market_scan"},
+    {"country_iso2":"PT","provider":"SIBS","role":"gateway_or_processor","official_url":"https://www.sibs.com/","discovered_via":"market_scan"},
+    {"country_iso2":"PT","provider":"Getnet Portugal","role":"direct_acquirer","official_url":"https://www.getnetworld.com/","discovered_via":"market_scan"},
+
+    {"country_iso2":"AT","provider":"card complete","role":"direct_acquirer","official_url":"https://www.cardcomplete.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"AT","provider":"hobex","role":"direct_acquirer","official_url":"https://www.hobex.at/","discovered_via":"Datatrans official acquirer list"},
+    {"country_iso2":"AT","provider":"Global Payments Austria","role":"direct_acquirer","official_url":"https://www.globalpayments.at/","discovered_via":"market_scan"},
+
+    {"country_iso2":"BE","provider":"Worldline Belgium","role":"direct_acquirer","official_url":"https://worldline.com/en-be/home","discovered_via":"market_scan"},
+    {"country_iso2":"BE","provider":"Axepta BNP Paribas Fortis","role":"acquiring_bank","official_url":"https://www.axepta.be/","discovered_via":"market_scan"},
+    {"country_iso2":"NL","provider":"Adyen","role":"direct_acquirer","official_url":"https://www.adyen.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"NL","provider":"European Merchant Services","role":"direct_acquirer","official_url":"https://emspay.eu/","discovered_via":"Datatrans official acquirer list"},
+    {"country_iso2":"NL","provider":"CCV","role":"full_service_psp","official_url":"https://www.ccv.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"NL","provider":"Flatpay Netherlands","role":"full_service_psp","official_url":"https://www.flatpay.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"LU","provider":"Worldline Luxembourg","role":"direct_acquirer","official_url":"https://worldline.com/","discovered_via":"market_scan"},
+
+    {"country_iso2":"IE","provider":"Elavon Ireland","role":"direct_acquirer","official_url":"https://www.elavon.ie/","discovered_via":"market_scan"},
+    {"country_iso2":"IE","provider":"AIB Merchant Services","role":"acquiring_bank","official_url":"https://www.aibms.com/","discovered_via":"market_scan"},
+    {"country_iso2":"IE","provider":"BOI Payment Acceptance","role":"acquirer_sales_channel","official_url":"https://www.boipa.com/","discovered_via":"market_scan"},
+    {"country_iso2":"IE","provider":"Dojo Ireland","role":"direct_acquirer","official_url":"https://dojo.tech/ie/","discovered_via":"Business of Payments"},
+
+    {"country_iso2":"DK","provider":"Nets / Nexi Denmark","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"DK","provider":"Flatpay Denmark","role":"full_service_psp","official_url":"https://www.flatpay.com/","discovered_via":"Business of Payments"},
+    {"country_iso2":"DK","provider":"Clearhaus","role":"direct_acquirer","official_url":"https://www.clearhaus.com/","discovered_via":"market_scan"},
+    {"country_iso2":"SE","provider":"Swedbank Pay / PayEx","role":"direct_acquirer","official_url":"https://www.swedbankpay.com/","discovered_via":"market_scan"},
+    {"country_iso2":"SE","provider":"Worldline Sweden / Bambora","role":"direct_acquirer","official_url":"https://worldline.com/sv-se/home","discovered_via":"market_scan"},
+    {"country_iso2":"SE","provider":"Nets / Nexi Sweden","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"FI","provider":"Nets / Nexi Finland","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"FI","provider":"Worldline Finland","role":"direct_acquirer","official_url":"https://worldline.com/","discovered_via":"market_scan"},
+    {"country_iso2":"NO","provider":"Nets / Nexi Norway","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"NO","provider":"Worldline Norway / Bambora","role":"direct_acquirer","official_url":"https://worldline.com/","discovered_via":"market_scan"},
+    {"country_iso2":"NO","provider":"Elavon Norway","role":"direct_acquirer","official_url":"https://www.elavon.no/","discovered_via":"market_scan"},
+    {"country_iso2":"IS","provider":"Straumur","role":"direct_acquirer","official_url":"https://www.straumur.is/","discovered_via":"Business of Payments"},
+    {"country_iso2":"IS","provider":"Teya / Valitor","role":"direct_acquirer","official_url":"https://www.teya.com/","discovered_via":"market_scan"},
+
+    {"country_iso2":"GR","provider":"Worldline Greece","role":"direct_acquirer","official_url":"https://worldline.com/el-gr/home","discovered_via":"Business of Payments"},
+    {"country_iso2":"GR","provider":"Nexi Greece","role":"direct_acquirer","official_url":"https://www.nexi.gr/","discovered_via":"market_scan"},
+    {"country_iso2":"GR","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/","discovered_via":"market_scan"},
+    {"country_iso2":"CY","provider":"JCC Payment Systems","role":"direct_acquirer","official_url":"https://www.jcc.com.cy/","discovered_via":"market_scan"},
+    {"country_iso2":"MT","provider":"Bank of Valletta Merchant Services","role":"acquiring_bank","official_url":"https://www.bov.com/","discovered_via":"market_scan"},
+    {"country_iso2":"MT","provider":"APS / Worldline","role":"acquirer_sales_channel","official_url":"https://www.apsbank.com.mt/","discovered_via":"market_scan"}
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "as_of": "2026-08-18",
+  "methodology": "Independent country-by-country discovery of merchant acquirers and acquiring banks in CEE. Full-service PSPs are retained as secondary coverage. Gateway-only and processor-only companies are recorded so their technical fee is never mistaken for an all-in acquiring price.",
+  "discovered_provider_count": 73,
+  "discovered_acquirer_count": 41,
+  "countries": [
+    {
+      "country_iso2": "BG",
+      "discovered_providers": 9,
+      "discovered_acquirers": 8,
+      "matched_providers": 9,
+      "matched_acquirers": 8,
+      "missing_from_dataset": []
+    },
+    {
+      "country_iso2": "CZ",
+      "discovered_providers": 6,
+      "discovered_acquirers": 3,
+      "matched_providers": 6,
+      "matched_acquirers": 3,
+      "missing_from_dataset": []
+    },
+    {
+      "country_iso2": "EE",
+      "discovered_providers": 6,
+      "discovered_acquirers": 3,
+      "matched_providers": 5,
+      "matched_acquirers": 3,
+      "missing_from_dataset": [
+        "MakeCommerce"
+      ]
+    },
+    {
+      "country_iso2": "HR",
+      "discovered_providers": 5,
+      "discovered_acquirers": 2,
+      "matched_providers": 3,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Monri Payments",
+        "WSPay (Monri)"
+      ]
+    },
+    {
+      "country_iso2": "HU",
+      "discovered_providers": 5,
+      "discovered_acquirers": 4,
+      "matched_providers": 5,
+      "matched_acquirers": 4,
+      "missing_from_dataset": []
+    },
+    {
+      "country_iso2": "LT",
+      "discovered_providers": 7,
+      "discovered_acquirers": 3,
+      "matched_providers": 5,
+      "matched_acquirers": 3,
+      "missing_from_dataset": [
+        "OPAY",
+        "MakeCommerce"
+      ]
+    },
+    {
+      "country_iso2": "LV",
+      "discovered_providers": 6,
+      "discovered_acquirers": 3,
+      "matched_providers": 4,
+      "matched_acquirers": 3,
+      "missing_from_dataset": [
+        "MakeCommerce",
+        "OPAY"
+      ]
+    },
+    {
+      "country_iso2": "PL",
+      "discovered_providers": 11,
+      "discovered_acquirers": 4,
+      "matched_providers": 7,
+      "matched_acquirers": 4,
+      "missing_from_dataset": [
+        "PayU Poland",
+        "Paynow",
+        "Autopay",
+        "imoje"
+      ]
+    },
+    {
+      "country_iso2": "RO",
+      "discovered_providers": 6,
+      "discovered_acquirers": 3,
+      "matched_providers": 5,
+      "matched_acquirers": 3,
+      "missing_from_dataset": [
+        "PayU Romania"
+      ]
+    },
+    {
+      "country_iso2": "SI",
+      "discovered_providers": 5,
+      "discovered_acquirers": 3,
+      "matched_providers": 4,
+      "matched_acquirers": 3,
+      "missing_from_dataset": [
+        "Monri Slovenia"
+      ]
+    },
+    {
+      "country_iso2": "SK",
+      "discovered_providers": 7,
+      "discovered_acquirers": 5,
+      "matched_providers": 7,
+      "matched_acquirers": 5,
+      "missing_from_dataset": []
+    }
+  ]
+}

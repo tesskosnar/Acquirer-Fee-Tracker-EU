@@ -1,7 +1,16 @@
+import json
+from copy import deepcopy
+
 import scraper.update as update
 from scraper.update import (
+    BASELINE,
+    CEE_REGISTRY,
+    EUROPE_WATCHLIST,
+    apply_cee_verified_overlay,
     adyen_country_context,
+    build_cee_audit,
     calc,
+    normalize_revolut_cee_offers,
     parse_adyen_catalog,
     parse_adyen_fee_text,
     parse_cnb,
@@ -25,6 +34,59 @@ def test_500_czk_calculation():
     fx={'PLN':{'czk_per_unit':5.581}}
     x=calc(offer,fx,500)
     assert round(x['fee_min_czk'],4)==8.1243
+
+
+def test_minimum_fee_floor_is_applied_after_fx_conversion():
+    offer={'variable_pct_min':1.0,'variable_pct_max':1.0,'fixed_fee_min':0,'fixed_fee_max':0,'minimum_fee':0.50,'fee_currency':'EUR'}
+    fx={'EUR':{'czk_per_unit':25.0}}
+    x=calc(offer,fx,500)
+    assert x['fee_min_czk']==12.5
+    assert x['effective_min_pct']==2.5
+
+
+def test_cee_overlay_replaces_wrong_rows_and_adds_local_acquirers():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    by_id={item['id']:item for item in offers}
+    assert 'RO-netopia-payments-local-merchant-acquiring-acceptance-card' not in by_id
+    assert 'SK-thepay-standard-card-restored' not in by_id
+    assert 'EE-makecommerce-e-commerce-standard-card' not in by_id
+    assert by_id['CZ-gopay-standard-card-restored']['variable_pct_min']==0.95
+    assert by_id['BG-paypercut-eea-consumer-card']['variable_pct_min']==1.29
+    assert by_id['BG-paynetics-card-acquiring']['variable_pct_min'] is None
+
+
+def test_revolut_cee_normalization_keeps_cards_and_a2a_distinct():
+    rows=[
+        {'country_iso2':'CZ','provider':'Revolut','method':'card','fee_currency':'CZK','cap':5,'cap_currency':'EUR'},
+        {'country_iso2':'CZ','provider':'Revolut','method':'a2a','fee_currency':'CZK','cap':5,'cap_currency':'EUR'},
+    ]
+    card,a2a=normalize_revolut_cee_offers(rows)
+    assert card['provider_type']=='Acquirer'
+    assert card['product']=='Online EEA spotřebitelské karty'
+    assert a2a['provider_type']=='A2A poskytovatel'
+    assert a2a['cap'] is None and a2a['cap_currency'] is None
+
+
+def test_independent_cee_registry_reconciles_every_country_and_paypercut():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    audit=build_cee_audit(registry,offers)
+    assert len(audit['countries'])==11
+    assert audit['discovered_provider_count']>=72
+    bg=next(row for row in audit['countries'] if row['country_iso2']=='BG')
+    assert bg['matched_acquirers']>=7
+    assert 'Paypercut' not in bg['missing_from_dataset']
+
+
+def test_europe_watchlist_extends_to_switzerland_and_uk():
+    watchlist=json.loads(EUROPE_WATCHLIST.read_text(encoding='utf-8'))
+    countries={item['country_iso2'] for item in watchlist['providers']}
+    assert {'GB','CH'}.issubset(countries)
+    assert len(watchlist['providers'])>=70
+    paypoint=next(item for item in watchlist['providers'] if item['provider']=='PayPoint / Handepay')
+    assert paypoint['role']=='acquirer_sales_channel'
 
 # --- select_candidate: dřív netestováno, přidáno při reviewu 22.7.2026 ---
 
@@ -129,3 +191,22 @@ def test_adyen_catalog_classifies_a2a_from_official_type_not_name(monkeypatch):
     assert corrected['pricing_components']['interchange']['eea_consumer_debit_reference_pct']==0.2
     assert discovered['product']=='Bank Button (A2A)'
     assert discovered['fixed_fee_min']==0.11 and discovered['variable_pct_min']==2.0
+
+
+def test_calc_adyen_card_includes_reference_interchange_in_total():
+    offer={
+        'variable_pct_min':0.6,'variable_pct_max':0.6,
+        'fixed_fee_min':0.11,'fixed_fee_max':0.11,'fee_currency':'EUR',
+        'pricing_components':{'interchange':{
+            'eea_consumer_debit_reference_pct':0.2,
+            'eea_consumer_credit_reference_pct':0.3,
+        }},
+    }
+    result=update.calc(offer,{'EUR':{'czk_per_unit':25}},amount=1000)
+    assert result['effective_min_pct']==1.075
+    assert result['effective_max_pct']==1.175
+
+
+def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():
+    offers=[{'provider':'Clearhaus','method':'card','card_scheme':'domestic'}]
+    assert update.normalize_card_schemes(offers)[0]['card_scheme']=='intl'

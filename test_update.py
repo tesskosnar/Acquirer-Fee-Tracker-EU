@@ -5,8 +5,10 @@ import scraper.update as update
 from scraper.update import (
     BASELINE,
     CEE_REGISTRY,
+    EUROPE_REGISTRY,
     EUROPE_WATCHLIST,
     apply_cee_verified_overlay,
+    apply_europe_verified_overlay,
     adyen_country_context,
     build_cee_audit,
     calc,
@@ -193,7 +195,7 @@ def test_adyen_catalog_classifies_a2a_from_official_type_not_name(monkeypatch):
     assert discovered['fixed_fee_min']==0.11 and discovered['variable_pct_min']==2.0
 
 
-def test_calc_adyen_card_includes_reference_interchange_in_total():
+def test_calc_does_not_present_incomplete_icpp_components_as_total():
     offer={
         'variable_pct_min':0.6,'variable_pct_max':0.6,
         'fixed_fee_min':0.11,'fixed_fee_max':0.11,'fee_currency':'EUR',
@@ -201,10 +203,42 @@ def test_calc_adyen_card_includes_reference_interchange_in_total():
             'eea_consumer_debit_reference_pct':0.2,
             'eea_consumer_credit_reference_pct':0.3,
         }},
+        'all_in_complete':False,
     }
     result=update.calc(offer,{'EUR':{'czk_per_unit':25}},amount=1000)
-    assert result['effective_min_pct']==1.075
-    assert result['effective_max_pct']==1.175
+    assert result['effective_min_pct'] is None
+    assert result['effective_max_pct'] is None
+
+
+def test_europe_registry_overlay_covers_all_discovered_providers_and_new_countries():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8'))
+    offers=apply_europe_verified_overlay(
+        apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries']),
+        baseline['countries'],
+    )
+    audit=update.build_registry_audit(registry,offers)
+    assert len(audit['countries'])==21
+    assert audit['discovered_provider_count']>=100
+    assert all(not row['missing_from_dataset'] for row in audit['countries'])
+    assert {'GB','CH'}.issubset({offer['country_iso2'] for offer in offers})
+    numeric=[offer for offer in offers if offer['country_iso2'] in {'GB','CH'} and offer['variable_pct_min'] is not None]
+    assert len(numeric)>=8
+
+
+def test_gateway_and_acquirer_sales_channel_roles_stay_distinct():
+    assert update.provider_role({'provider':'Redsys','provider_type':'Brána / procesor (bez acquiringu)','method':'card'})=='gateway_processor'
+    assert update.provider_role({'provider':'Tyl by NatWest','provider_type':'Acquirer – distribuční kanál','method':'card'})=='acquirer_sales_channel'
+
+
+def test_ccv_netherlands_keeps_debit_and_credit_as_an_honest_range():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_europe_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    ccv=next(offer for offer in offers if offer['id']=='NL-ccv-debit-credit-card')
+    assert ccv['variable_pct_min']==0
+    assert ccv['variable_pct_max']==1.3
+    assert ccv['fixed_fee_min']==0.068
+    assert ccv['fixed_fee_max']==0
 
 
 def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():

@@ -173,7 +173,7 @@ tr.offerrow{cursor:pointer}
   <div class="wrap">
     <div class="eyebrow">EU merchant acceptance intelligence</div>
     <h1>Merchant Fee Tracker</h1>
-    <p>Veřejné ceny acquiringu, platebních bran a A2A řešení napříč EU/EHP. Pevné poplatky v cizích měnách se přepočítávají podle posledního dostupného kurzu ČNB.</p>
+    <p>Veřejné ceny acquiringu, platebních bran a A2A řešení napříč EU/EHP, Spojeným královstvím a Švýcarskem. Pevné poplatky v cizích měnách se přepočítávají podle posledního dostupného kurzu ČNB.</p>
     <div class="meta">
       <span>Aktualizace: <b id="generated">—</b></span>
       <span>Kurz ČNB k: <b id="fxdate">—</b></span>
@@ -188,7 +188,7 @@ tr.offerrow{cursor:pointer}
     <div class="control-primary">
       <div class="control country">
         <label>Země</label>
-        <select id="country"><option value="">Všechny země (30 EU/EHP)</option></select>
+        <select id="country"><option value="">Všechny země (EU/EHP + UK + CH)</option></select>
       </div>
       <div class="control">
         <label>Metoda</label>
@@ -209,7 +209,7 @@ tr.offerrow{cursor:pointer}
       <div class="control control-region">
         <label>Region</label>
         <div class="seg" id="region-seg">
-          <button data-v="" class="active">Celá EU/EHP</button>
+          <button data-v="" class="active">EU/EHP + UK + CH</button>
           <button data-v="CEE">CEE</button>
           <button data-v="Western">Western</button>
           <button data-v="Nordic">Nordic</button>
@@ -260,7 +260,7 @@ tr.offerrow{cursor:pointer}
 <script>
 const REGION_COUNTRIES = {
   CEE: ["PL","CZ","SK","HU","RO","BG","LT","LV","EE","HR","SI"],
-  Western: ["DE","FR","BE","NL","LU","IE","AT","LI"],
+  Western: ["DE","FR","BE","NL","LU","IE","AT","LI","GB","CH"],
   Nordic: ["SE","DK","FI","IS","NO"],
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
@@ -295,7 +295,7 @@ function scaleColor(v, min, max) {
 }
 
 function calc(o) {
-  if (o.variable_pct_min == null) return {min:null, max:null, emin:null, emax:null};
+  if (o.variable_pct_min == null || o.all_in_complete === false) return {min:null, max:null, emin:null, emax:null};
   const eurRate = S.data.fx.rates.EUR?.czk_per_unit ?? 24;
   const amountCzk = S.ccy === 'EUR' ? S.amount * eurRate : S.amount;
   const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
@@ -311,7 +311,7 @@ function calc(o) {
 
 function isFullyCalculable(o) {
   const model = o.pricing_model || '';
-  return o.variable_pct_min != null && (!model.includes('IC+') || Boolean(o.pricing_components?.interchange));
+  return o.variable_pct_min != null && o.all_in_complete !== false && !model.includes('IC+');
 }
 
 function isSourceReviewed(o) {
@@ -327,6 +327,7 @@ function isComparable(o) {
 function roleBadge(o) {
   const roles = {
     acquirer:['Acquirer','role-acquirer'],
+    acquirer_sales_channel:['kanál acquirera','role-acquirer'],
     psp:['PSP','role-psp'],
     gateway_processor:['jen brána','role-gateway'],
     a2a_provider:['A2A','role-a2a'],
@@ -353,7 +354,7 @@ function additionalFees(o) {
 }
 
 function published(o) {
-  if (o.variable_pct_min == null) return 'individuální';
+  if (o.variable_pct_min == null || o.all_in_complete === false) return 'individuální';
   const components = o.pricing_components;
   if ((o.pricing_model || '').includes('IC+') && components?.processing_fee) {
     const processing = components.processing_fee;
@@ -378,6 +379,7 @@ function pricingReference(o) {
 }
 
 function calculatedFee(o) {
+  if (o.all_in_complete === false) return 'individuální';
   const value = `${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}`;
   if (!(o.pricing_model || '').includes('IC+')) return value;
   return `${value}<span class="sub">jen processing + markup; celková cena je proměnlivá</span>`;

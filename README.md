@@ -1,14 +1,14 @@
 # Merchant Fee Tracker
 
-Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč celou EU/EHP.
+Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč EU/EHP, Spojeným královstvím a Švýcarskem.
 
 ## Původ dat
 
-Původní rozšířený dataset obsahoval řádky vytvořené AI, které nebyly všechny ověřeny jednotlivě a nelze je považovat za spolehlivý zdroj. Revize proto začíná znovu od CEE: nejprve vzniká nezávislý seznam lokálních acquirerů pro každou zemi a až potom se porovnává s databází.
+Původní rozšířený dataset obsahoval řádky vytvořené AI, které nebyly všechny ověřeny jednotlivě a nelze je považovat za spolehlivý zdroj. Revize proto začala znovu od CEE a stejným postupem už prošly i ostatní země EU/EHP, Spojené království a Švýcarsko: nejprve vznikne nezávislý seznam lokálních acquirerů pro každou zemi a až potom se porovnává s databází.
 
 Cena se doplní jen z oficiálního veřejného zdroje poskytovatele. Kontrola nekončí na stránce „Pricing“: prochází také FAQ, sazebníky a právní dokumenty, PDF, kalkulátory a lokální jazykové podstránky. Když skutečnou obchodní sazbu poskytovatel nezveřejňuje, zůstává jako `Individuální nabídka` bez vymyšleného čísla. Starší řádky, které touto revizí ještě neprošly, se ve veřejném dashboardu nezobrazují a nevstupují do mapy ani souhrnných statistik.
 
-Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zejména [Business of Payments](https://businessofpayments.substack.com/). Slouží pouze jako discovery zdroj: zařazení, země působnosti a sazba se vždy znovu potvrzují na oficiálních stránkách poskytovatele. Vedle prvního CEE registru existuje samostatný watchlist pro zbývající EU/EHP, Švýcarsko a Spojené království.
+Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zejména [Business of Payments](https://businessofpayments.substack.com/). Slouží pouze jako discovery zdroj: zařazení, země působnosti a sazba se vždy znovu potvrzují na oficiálních stránkách poskytovatele. Vedle CEE registru existuje samostatný ověřený registr pro zbývající EU/EHP, Švýcarsko a Spojené království.
 
 ## Jak se cena zobrazuje
 
@@ -21,7 +21,7 @@ Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zej
 ## Co dashboard obsahuje
 
 - karty a A2A převody jako oddělené řádky; karetní peněženky se nepovažují za A2A,
-- mapa celé EU/EHP obarvená podle sazby (paleta #003f5c → #ffa600, tmavá = levnější),
+- mapa EU/EHP, Spojeného království a Švýcarska obarvená podle sazby (paleta #003f5c → #ffa600, tmavá = levnější),
 - kontextové srovnání - klikneš na zemi nebo poskytovatele, teprve pak se rozbalí tabulka,
 - nastavitelná částka transakce (výchozí 1000 Kč), žádný zbytečný měsíční kalkulátor,
 - reálná sazba pro zadanou transakci: procentní poplatek plus pevná část převedená kurzem se vydělí částkou transakce a zobrazí jako jedno výsledné procento,
@@ -31,7 +31,7 @@ Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zej
 
 ## Jak se s dashboardem pracuje
 
-Mapa i srovnávací tabulka jsou **kontextové** - ve výchozím stavu vidíš jen mapu a KPI. Klikneš na zemi → tabulka se rozbalí pro tu zemi. Klikneš na jméno poskytovatele v tabulce → přepneš do srovnání toho poskytovatele napříč všemi zeměmi, kde působí (mapa zvýrazní jen ty). Tlačítko "zpět na přehled" nebo druhý klik na stejnou zemi tě vrátí na začátek.
+Mapa i srovnávací tabulka jsou **kontextové**. Ve výchozím stavu vidíš celkový přehled; kliknutí na zemi tabulku zúží na daný trh. Kliknutí na jméno poskytovatele přepne do srovnání tohoto poskytovatele napříč zeměmi, kde působí. Filtr lze zrušit tlačítkem nad tabulkou.
 
 ## Automatická aktualizace
 
@@ -53,7 +53,7 @@ Adyen je výjimka z obecného textového parseru. Jeho ceník mění processing 
 - oficiální typ metody (`Online banking`, `Direct debit`, `Cards`), takže A2A nezmizí jen proto, že její název neobsahuje „A2A“,
 - konkrétní payment-method fee z ceníkové tabulky.
 
-U karet se interně ukládají oddělené komponenty. Dashboard je ale nesype uživateli do tabulky: pro Adyen spojí processing fee, 0,60% acquiring markup a evropskou referenci 0,20 % pro spotřebitelskou debetní nebo 0,30 % pro kreditní kartu do jednoho výsledného rozmezí pro zadanou částku. Proměnlivé scheme fees zůstávají součástí metodické poznámky v datech, ne samostatným textem v přehledu; výsledné číslo je proto srovnávací reference, ne smluvní nabídka.
+U karet se interně ukládají oddělené komponenty. Adyen ale vedle processing fee a acquiring markup účtuje skutečný interchange a scheme fees, které bez konkrétní transakce nelze kompletně dopočítat. Dashboard proto tuto neúplnou IC++ cenu nevydává za celkové číslo a u karet zobrazí `individuální`. U A2A se zveřejní číslo jen tehdy, když lze z oficiálního ceníku sečíst processing fee a celou cenu konkrétní platební metody.
 
 ## Nahrání na GitHub
 

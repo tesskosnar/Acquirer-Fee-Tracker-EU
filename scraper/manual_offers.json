@@ -119,6 +119,14 @@
     "LI": {
       "name": "Lichtenštejnsko",
       "region": "DACH"
+    },
+    "GB": {
+      "name": "Spojené království",
+      "region": "Western"
+    },
+    "CH": {
+      "name": "Švýcarsko",
+      "region": "Western"
     }
   },
   "sources": {

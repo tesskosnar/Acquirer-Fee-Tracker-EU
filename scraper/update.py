@@ -9,6 +9,7 @@ import logging
 import re
 import sys
 import time
+import unicodedata
 import urllib.robotparser
 from copy import deepcopy
 from datetime import date, datetime, timezone
@@ -23,12 +24,31 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "docs" / "data"
 HISTORY = DATA / "history"
 BASELINE = Path(__file__).with_name("manual_offers.json")
+CEE_REGISTRY = Path(__file__).with_name("cee_acquirer_registry.json")
+CEE_VERIFIED = Path(__file__).with_name("cee_verified_offers.json")
+EUROPE_WATCHLIST = Path(__file__).with_name("europe_acquirer_watchlist.json")
 CNB_URL = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
 USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-only check of public pricing pages)"
 TIMEOUT = 30
 ADYEN_SOURCE_ID = "src_5"
 ADYEN_CEE_COUNTRIES = {"CZ", "SK", "PL", "HU", "RO", "BG", "HR", "SI", "EE", "LV", "LT"}
 ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
+
+# The registry is deliberately provider-led, while the dataset sometimes uses
+# a shorter commercial label.  These aliases make the reconciliation explicit
+# instead of relying on fuzzy matching that could merge two different firms.
+REGISTRY_DATASET_ALIASES = {
+    ("CZ", "Global Payments Czech Republic"): "Global Payments",
+    ("SK", "ČSOB Slovensko GP WebPay"): "ČSOB Slovensko",
+    ("HU", "CIB Bank eCommerce"): "CIB Bank",
+    ("RO", "Banca Transilvania eCommerce"): "Banca Transilvania",
+    ("RO", "Raiffeisen Romania eCommerce"): "Raiffeisen Romania",
+    ("BG", "DSK Bank Virtual POS"): "DSK Bank",
+    ("BG", "United Bulgarian Bank Virtual POS"): "United Bulgarian Bank",
+    ("BG", "Postbank Virtual POS"): "Postbank",
+    ("HR", "Zagrebačka banka eCommerce"): "Zagrebačka banka",
+    ("SI", "NLB E-Commerce"): "NLB",
+}
 
 # Poslední ručně ověřený stav slouží jako bezpečná záloha, pokud je Adyen API
 # dočasně nedostupné. Při každém běhu ho nahradí živá country-by-country data.
@@ -68,6 +88,64 @@ ADYEN_PROCESSING_PREFIX_RE = re.compile(
 
 def decimal(s: str | None) -> float | None:
     return None if s is None else float(s.replace(",", "."))
+
+
+def provider_key(value: str | None) -> str:
+    plain=unicodedata.normalize('NFKD',value or '').encode('ascii','ignore').decode('ascii')
+    return re.sub(r'[^a-z0-9]+','',plain.lower())
+
+
+def provider_role(offer: dict) -> str:
+    """Return a stable economic role for UI filtering and badges."""
+    kind=(offer.get('provider_type') or '').lower()
+    method=offer.get('method')
+    if method=='a2a':
+        return 'a2a_provider'
+    if any(token in kind for token in ('bez acquiringu','gateway only','brána / procesor','brana / procesor')):
+        return 'gateway_processor'
+    if ('acquirer' in kind and 's acquiringem' not in kind) or offer.get('provider') in {'Adyen','Clearhaus'}:
+        return 'acquirer'
+    if any(token in kind for token in ('psp','wallet','veřejný ceník','verejny cenik')):
+        return 'psp'
+    return 'other'
+
+
+def build_cee_audit(registry: dict, offers: list[dict]) -> dict:
+    """Compare independent CEE discovery with the publishable dataset."""
+    by_country: dict[str, list[dict]]={}
+    for offer in offers:
+        by_country.setdefault(offer.get('country_iso2',''),[]).append(offer)
+    rows=[]
+    providers=registry.get('providers',[])
+    for code in sorted({item['country_iso2'] for item in providers}):
+        discovered=[item for item in providers if item['country_iso2']==code]
+        dataset=by_country.get(code,[])
+        dataset_keys={provider_key(item.get('provider')) for item in dataset}
+        matched=[]; missing=[]
+        for item in discovered:
+            dataset_name=REGISTRY_DATASET_ALIASES.get((code,item['provider']),item['provider'])
+            (matched if provider_key(dataset_name) in dataset_keys else missing).append(item['provider'])
+        acquirers=[item for item in discovered if item['role'] in {'acquiring_bank','direct_acquirer'}]
+        matched_acquirers=[]
+        for item in acquirers:
+            dataset_name=REGISTRY_DATASET_ALIASES.get((code,item['provider']),item['provider'])
+            if provider_key(dataset_name) in dataset_keys:
+                matched_acquirers.append(item['provider'])
+        rows.append({
+            'country_iso2':code,
+            'discovered_providers':len(discovered),
+            'discovered_acquirers':len(acquirers),
+            'matched_providers':len(matched),
+            'matched_acquirers':len(matched_acquirers),
+            'missing_from_dataset':missing,
+        })
+    return {
+        'as_of':registry.get('as_of'),
+        'methodology':registry.get('scope'),
+        'discovered_provider_count':len(providers),
+        'discovered_acquirer_count':sum(1 for item in providers if item['role'] in {'acquiring_bank','direct_acquirer'}),
+        'countries':rows,
+    }
 
 
 def resolve_nuxt_payload(flat: list) -> object:
@@ -254,7 +332,7 @@ def build_adyen_a2a_offer(country_code: str, country_name: str, name: str, slug:
         "country_iso2": country_code,
         "country": country_name,
         "provider": "Adyen",
-        "provider_type": "Veřejný ceník",
+        "provider_type": "A2A poskytovatel",
         "product": f"{name} (A2A)",
         "channel": "online",
         "method": "a2a",
@@ -303,6 +381,7 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             continue
         processing = processing_by_country.get(code, default_processing)
         offer.update({
+            "provider_type": "Acquirer",
             "fixed_fee_min": processing["amount"],
             "fixed_fee_max": processing["amount"],
             "fee_currency": processing["currency"],
@@ -468,8 +547,14 @@ def calc(offer:dict,fx:dict,amount:float=500)->dict:
     if offer.get('variable_pct_min') is None:
         return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
     rate=fx.get(offer.get('fee_currency'),{'czk_per_unit':1})['czk_per_unit']
-    mn=amount*offer['variable_pct_min']/100+(offer.get('fixed_fee_min') or 0)*rate
-    mx=amount*offer['variable_pct_max']/100+(offer.get('fixed_fee_max') or 0)*rate
+    interchange=(offer.get('pricing_components') or {}).get('interchange') or {}
+    variable_min=offer['variable_pct_min']+(interchange.get('eea_consumer_debit_reference_pct') or 0)
+    variable_max=offer['variable_pct_max']+(interchange.get('eea_consumer_credit_reference_pct') or 0)
+    mn=amount*variable_min/100+(offer.get('fixed_fee_min') or 0)*rate
+    mx=amount*variable_max/100+(offer.get('fixed_fee_max') or 0)*rate
+    minimum=(offer.get('minimum_fee') or 0)*rate
+    mn=max(mn,minimum)
+    mx=max(mx,minimum)
     return {'fee_min_czk':round(mn,4),'fee_max_czk':round(mx,4),'effective_min_pct':round(mn/amount*100,4),'effective_max_pct':round(mx/amount*100,4)}
 
 
@@ -481,8 +566,98 @@ def load_previous(baseline:dict)->dict:
     return {'offers':deepcopy(baseline['offers']),'sources':baseline['sources'],'countries':baseline['countries'],'change_log':[]}
 
 
+def apply_cee_verified_overlay(offers:list[dict], countries:dict)->list[dict]:
+    """Apply source-reviewed CEE corrections without rewriting the legacy seed file.
+
+    The overlay is intentionally separate from the independently researched
+    provider registry.  This keeps discovery and reconciliation as two distinct
+    steps and makes every replacement/removal reviewable.
+    """
+    if not CEE_VERIFIED.exists():
+        return offers
+    overlay=json.loads(CEE_VERIFIED.read_text(encoding='utf-8'))
+    remove_ids=set(overlay.get('remove_ids',[]))
+    replacement_ids={item['id'] for item in overlay.get('offers',[])}
+    merged=[o for o in offers if o['id'] not in remove_ids and o['id'] not in replacement_ids]
+    for raw in overlay.get('offers',[]):
+        item=deepcopy(raw)
+        iso=item['country_iso2']
+        currency=item['fee_currency']
+        item.setdefault('country',countries[iso]['name'])
+        item.setdefault('channel','online')
+        item.setdefault('product','Standard')
+        item.setdefault('pricing_model','Blended')
+        item.setdefault('variable_pct_max',item.get('variable_pct_min'))
+        item.setdefault('fixed_fee_min',0 if item.get('variable_pct_min') is not None else None)
+        item.setdefault('fixed_fee_max',item.get('fixed_fee_min'))
+        item.setdefault('minimum_fee',None)
+        item.setdefault('cap',None)
+        item.setdefault('cap_currency',None)
+        item.setdefault('monthly_fee',0)
+        item.setdefault('monthly_currency',currency)
+        item.setdefault('condition','')
+        item.setdefault('promo',False)
+        item.setdefault('source_id',None)
+        item.setdefault('parser',{'anchor':'','auto_parse':False,'expected_currency':currency})
+        item.setdefault('notes','Country-by-country CEE acquirer review; official provider source.')
+        item.setdefault('verification','ručně ověřeno na oficiálním zdroji 18. 8. 2026')
+        item.setdefault('source_status','manual')
+        item.setdefault('source_checked_at',None)
+        item.setdefault('source_hash',None)
+        item.setdefault('last_changed_at',None)
+        item.setdefault('card_scheme',None)
+        merged.append(item)
+    ids=[o['id'] for o in merged]
+    if len(ids)!=len(set(ids)):
+        raise ValueError('Duplicate offer id after CEE verified overlay')
+    return merged
+
+
+def normalize_revolut_cee_offers(offers:list[dict])->list[dict]:
+    """Keep Revolut as a baseline, but use the current legal-table labels.
+
+    Country fixed fees remain those already stored in the country rows.  The
+    correction here is semantic: Revolut Pay retail A2A is not a generic wallet
+    or Pay-by-Bank product, and the old EUR 5 cap is absent from the current
+    legal price table.
+    """
+    for offer in offers:
+        if offer.get('provider')!='Revolut' or offer.get('country_iso2') not in ADYEN_CEE_COUNTRIES:
+            continue
+        offer['source_url']='https://www.revolut.com/en-CZ/legal/business-basic-fees/'
+        offer['source_id']=None
+        offer['parser']={'anchor':'','auto_parse':False,'expected_currency':offer.get('fee_currency')}
+        offer['source_status']='manual'
+        offer['verification']='ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026'
+        if offer.get('method')=='card':
+            offer['provider_type']='Acquirer'
+            offer['product']='Online EEA spotřebitelské karty'
+            offer['condition']='American Express 1,7 % + lokální fixní poplatek; ostatní karty 2,8 % + lokální fixní poplatek.'
+            offer['card_scheme']='intl'
+        elif offer.get('method')=='a2a':
+            offer['provider_type']='A2A poskytovatel'
+            offer['product']='Revolut Pay – A2A od retail zákazníka'
+            offer['condition']='Revolut Pay Account-to-account od retail zákazníka; Business/Pro zákazník 2,8 % + lokální fixní poplatek.'
+            offer['cap']=None
+            offer['cap_currency']=None
+            offer['card_scheme']=None
+    return offers
+
+
+def normalize_card_schemes(offers:list[dict])->list[dict]:
+    """Use card_scheme for the network, not for the cardholder's country.
+
+    Clearhaus calls EEA-issued consumer cards "domestic", but they are still
+    Visa/Mastercard.  True national schemes such as girocard remain domestic.
+    """
+    for offer in offers:
+        if offer.get('provider')=='Clearhaus' and offer.get('method')=='card':
+            offer['card_scheme']='intl'
+    return offers
+
+
 def write_csv(output:dict)->None:
-    cols=['country_iso2','country','provider','provider_type','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','fee_currency','fee_500_min_czk','fee_500_max_czk','effective_500_min_pct','effective_500_max_pct','condition','source_url','verification','source_status','source_checked_at']
+    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','fee_500_min_czk','fee_500_max_czk','effective_500_min_pct','effective_500_max_pct','condition','source_url','verification','source_status','source_checked_at']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         for o in output['offers']:
@@ -498,7 +673,9 @@ def main()->int:
     # vygenerovaného latest.json - jinak by každý další běh jen dokola
     # recykloval starý výstup a ignoroval jakékoliv ruční opravy v baseline.
     # 'previous' slouží níž jen ke sledování změn (prev_by_id), ne jako zdroj dat.
-    offers=deepcopy(baseline['offers'])
+    offers=normalize_card_schemes(normalize_revolut_cee_offers(
+        apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    ))
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
     changes=list(previous.get('change_log',[]))[-250:]
     now=datetime.now(timezone.utc).isoformat(timespec='seconds')
@@ -584,12 +761,22 @@ def main()->int:
             o['verification']=f'retained – review suggested ({conf:.0%}; {why})'
         o['calculation_500_czk']=calc(o,fx)
 
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_czk':500,'methodology_version':'1.1',
+    for o in offers:
+        o['provider_role']=provider_role(o)
+
+    registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8')) if CEE_REGISTRY.exists() else {'providers':[]}
+    watchlist=json.loads(EUROPE_WATCHLIST.read_text(encoding='utf-8')) if EUROPE_WATCHLIST.exists() else {'providers':[]}
+    cee_audit=build_cee_audit(registry,offers)
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_czk':500,'methodology_version':'1.2',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
+            'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},
+            'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},
+            'cee_audit':cee_audit,
             'fx':{'source':'Česká národní banka','source_url':CNB_URL,'date':fx_date,'rates':fx},'sources':baseline['sources'],'countries':baseline['countries'],'offers':offers,'change_log':changes[-250:]}
     DATA.mkdir(parents=True,exist_ok=True);HISTORY.mkdir(parents=True,exist_ok=True)
     (DATA/'latest.json').write_text(json.dumps(output,ensure_ascii=False,indent=2),encoding='utf-8')
     (DATA/'changes.json').write_text(json.dumps(changes[-250:],ensure_ascii=False,indent=2),encoding='utf-8')
+    (DATA/'cee_audit.json').write_text(json.dumps(cee_audit,ensure_ascii=False,indent=2),encoding='utf-8')
     today=date.today().isoformat();(HISTORY/f'{today}.json').write_text(json.dumps(output,ensure_ascii=False,indent=2),encoding='utf-8')
     idx=[]
     for p in sorted(HISTORY.glob('*.json')):

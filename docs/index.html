@@ -10,9 +10,7 @@
   --panel-alt:#0a2036; --navy:#2f6fb0; --navy-deep:#0b2339; --teal:#2fc9bd; --mint:#0f3a37;
   --amber:#e3ab4c; --red:#e37a72; --green:#3ddb96;
   --shadow:0 14px 36px rgba(0,0,0,.35);
-  /* Světlé karty (KPI, Srovnání nabídek) - kontrast na tmavé stránce, jako u vzoru */
   --light-bg:#f6f3ea; --light-ink:#1c2331; --light-muted:#6b7280; --light-line:#e4ddc9; --light-shadow:0 16px 34px rgba(0,0,0,.28);
-  /* Barevná škála pro mapu - zadaná paleta, index 0 = nejlevnější, 7 = nejdražší */
   --scale-0:#003f5c; --scale-1:#00546e; --scale-2:#006b71; --scale-3:#008162;
   --scale-4:#009446; --scale-5:#65a31c; --scale-6:#b1aa00; --scale-7:#ffa600;
 }
@@ -22,7 +20,6 @@ a{color:var(--teal)}
 button,input,select{font:inherit}
 .wrap{max-width:1480px;margin:auto;padding:0 28px 60px}
 
-/* ---------- Hero ---------- */
 .hero{background:linear-gradient(128deg,#050f1c 0%,#0b2b45 58%,#0e4a5f 130%);color:#fff;padding:30px 0 26px;border-bottom:1px solid rgba(255,255,255,.08)}
 .hero .wrap{padding-bottom:0}
 .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;color:#8fe0d4}
@@ -31,7 +28,6 @@ button,input,select{font:inherit}
 .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#c7dbe6}
 .meta b{color:#fff}
 
-/* ---------- Controls ---------- */
 .controls{
   margin-top:-1px;background:var(--panel);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;
   padding:16px 18px;box-shadow:var(--shadow);position:sticky;top:0;z-index:20;
@@ -42,7 +38,7 @@ button,input,select{font:inherit}
 .control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}
 .control select, .control input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:var(--panel-alt);color:var(--ink)}
 .control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
-.control-secondary{display:none} /* přesunuto do panelu Srovnání nabídek */
+.control-secondary{display:none}
 .control-region{flex:1 1 auto;min-width:280px}
 .seg{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--panel-alt);border:1px solid var(--line);border-radius:9px;padding:3px}
 .seg button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:12.5px;padding:7px 11px;border-radius:7px;cursor:pointer;white-space:nowrap}
@@ -59,7 +55,6 @@ button,input,select{font:inherit}
 .btn-ghost{border:1px solid var(--line);background:var(--panel-alt);color:var(--ink)}
 .btn-ghost:hover{background:rgba(255,255,255,.06)}
 
-/* ---------- KPIs ---------- */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
 .kpi{background:var(--light-bg);border:1px solid var(--light-line);border-radius:14px;padding:16px 18px;box-shadow:var(--light-shadow)}
 .kpi span{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--light-muted);font-weight:800}
@@ -71,7 +66,6 @@ button,input,select{font:inherit}
 .seg-ccy button{color:var(--light-muted)}
 .seg-ccy button.active{background:var(--navy);color:#fff}
 
-/* ---------- Grid / panels ---------- */
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
 .panel-light{
   --panel:var(--light-bg); --panel-alt:#efe8d5; --ink:var(--light-ink); --muted:var(--light-muted);
@@ -93,7 +87,6 @@ button,input,select{font:inherit}
 .pill{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:800;background:rgba(255,255,255,.08);color:var(--ink);white-space:nowrap}
 .pill.pm-warn{background:rgba(227,171,76,.16);color:var(--amber);cursor:help}
 
-/* ---------- Map - přesně podle vzoru: pevná šířka mapy, tmavá, s malým světlým detail panelem vedle ---------- */
 .map-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .map-svg-host{width:490px;max-width:100%;flex-shrink:0;background:var(--light-bg);border:1px solid var(--light-line);border-radius:16px;padding:14px}
 .map-svg-host svg{width:100%;height:auto;display:block}
@@ -113,7 +106,6 @@ button,input,select{font:inherit}
 .map-detail a.source-link{color:#4755cb;font-weight:600;text-decoration:none;border-bottom:1px dotted currentColor}
 .map-detail .empty-hint{color:var(--light-muted);font-size:13px;margin:0}
 
-/* ---------- Table / Srovnání nabídek ---------- */
 .compare-empty{padding:60px 24px;text-align:center;color:var(--muted)}
 .compare-empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:6px;font-family:Georgia,serif;font-weight:500}
 .tablewrap{overflow:auto;max-height:640px}
@@ -131,6 +123,7 @@ tr.offerrow{cursor:pointer}
 .source{font-size:11.5px;font-weight:700;white-space:nowrap}
 .pill.card{background:rgba(66,138,214,.18);color:#8fc0f0}
 .pill.a2a{background:rgba(61,219,150,.16);color:#7fe6bb}
+.pill.scheme{background:rgba(224,150,214,.18);color:#e096d6;cursor:help;margin-left:4px}
 .status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 .status-dot.ok{background:var(--green)}
 .status-dot.warn{background:var(--amber)}
@@ -141,7 +134,6 @@ tr.offerrow{cursor:pointer}
 .sortbtn.active .arrow{opacity:1;color:var(--teal)}
 .empty{padding:70px 20px;text-align:center;color:var(--muted)}
 
-/* ---------- Footer note ---------- */
 .fxnote{padding:16px 20px;color:var(--muted);font-size:12.5px;line-height:1.6}
 .fxnote a{font-weight:600}
 .footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
@@ -190,6 +182,14 @@ tr.offerrow{cursor:pointer}
           <button data-v="" class="active">Karty + A2A</button>
           <button data-v="card">Karta</button>
           <button data-v="a2a">A2A / wallet</button>
+        </div>
+      </div>
+      <div class="control" id="scheme-control" style="display:none">
+        <label>Kartové schéma</label>
+        <div class="seg" id="scheme-seg">
+          <button data-v="" class="active">Vše</button>
+          <button data-v="domestic">Národní / domácí</button>
+          <button data-v="intl">Mezinárodní (V/MC)</button>
         </div>
       </div>
       <div class="control control-region">
@@ -251,7 +251,13 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const S = { data:null, map:null, amount:1000, ccy:'CZK', country:'', provider:'', region:'', method:'', sortKey:'rate', sortAsc:true };
+const S = { data:null, map:null, amount:1000, ccy:'CZK', country:'', provider:'', region:'', method:'', scheme:'', sortKey:'rate', sortAsc:true };
+
+// card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl) - filtr a mapová
+// barva pracují jen se dvěma koši (domácí vs mezinárodní), badge v tabulce ukazuje plný popisek.
+function schemeBucket(cs) { return !cs ? null : cs === 'domestic' ? 'domestic' : cs.startsWith('intl') ? 'intl' : null; }
+function schemeLabel(cs) { return {domestic:'národní/girocard', intl_debit:'V/MC debetní', intl_credit:'V/MC kreditní', intl:'V/MC mezinárodní'}[cs] || null; }
+function matchScheme(o) { return !S.scheme || schemeBucket(o.card_scheme) === S.scheme; }
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:S.ccy, maximumFractionDigits:2}).format(n);
@@ -291,7 +297,6 @@ function published(o) {
   return p + f;
 }
 
-// Stav zdroje shrnutý do jednoho jasného stavu (místo syrového interního textu)
 function statusInfo(o) {
   const v = o.verification || '';
   if (o.source_status && o.source_status.startsWith('error')) {
@@ -316,9 +321,8 @@ function allWithCalc() {
   return S.data.offers.map(o => ({...o, _c: calc(o)}));
 }
 
-// Nabídky pro aktuální kontext (vybraná země NEBO vybraný poskytovatel), po aplikaci metody/typu
 function contextOffers() {
-  let rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)));
+  let rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o));
   if (S.provider) rows = rows.filter(o => o.provider === S.provider);
   else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
   return rows;
@@ -338,7 +342,7 @@ function render() {
 }
 
 function renderKpis() {
-  const rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)));
+  const rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o));
   const vals = rows.filter(o => o._c.emin != null).map(o => o._c);
   const byMin = [...rows.filter(o => o._c.emin != null)].sort((a,b) => a._c.emin - b._c.emin);
   const byMax = [...rows.filter(o => o._c.emin != null)].sort((a,b) => b._c.emin - a._c.emin);
@@ -355,9 +359,9 @@ function renderKpis() {
 
 function renderMap() {
   const svg = document.getElementById('map');
-  const base = allWithCalc().filter(o => (!S.method || o.method === S.method));
+  const base = allWithCalc().filter(o => (!S.method || o.method === S.method) && matchScheme(o));
 
-  let byCountry = {}; // iso2 -> nejlevnější emin, napříč VŠEMI daty (mapa se nezoomuje, jen dimuje)
+  let byCountry = {};
   for (const o of base) {
     if (o._c.emin == null) continue;
     byCountry[o.country_iso2] = Math.min(byCountry[o.country_iso2] ?? Infinity, o._c.emin);
@@ -380,7 +384,7 @@ function renderMap() {
     return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
-  svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 700'); // mapa se podle vzoru nezoomuje, jen dimuje mimo vybraný region
+  svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 700');
 
   svg.querySelectorAll('.active-country').forEach(el => {
     el.onclick = () => {
@@ -401,7 +405,7 @@ function renderMapDetail() {
   }
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
-  const rows = allWithCalc().filter(o => o.country_iso2 === S.country && (!S.method || o.method === S.method));
+  const rows = allWithCalc().filter(o => o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o));
   const withVal = rows.filter(o => o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
   const lo = withVal[0], hi = withVal[withVal.length - 1];
   const rangeText = withVal.length
@@ -476,6 +480,8 @@ function renderCompare() {
             : o.pricing_model === 'Benchmark'
             ? `<span class="pill pm-warn" title="Historický tržní průměr, ne aktuální nabídka konkrétního poskytovatele">historický průměr</span>`
             : '';
+          const schemeLbl = schemeLabel(o.card_scheme);
+          const schemeBadge = schemeLbl ? `<span class="pill scheme" title="Sazba platí jen pro toto kartové schéma, ne blended pro všechny karty">${esc(schemeLbl)}</span>` : '';
           const monthlyBadge = (o.monthly_fee && o.monthly_fee > 0)
             ? `<span class="pill pm-warn" title="K sazbě z tabulky se navíc počítá měsíční paušál bez ohledu na počet transakcí - u nízkého objemu výrazně zvedá efektivní cenu">+${esc(String(o.monthly_fee).replace('.', ','))} ${esc(o.monthly_currency || o.fee_currency)}/měs</span>`
             : '';
@@ -484,7 +490,7 @@ function renderCompare() {
             : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a> ${pmBadge}${monthlyBadge}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}${o.product && o.product !== 'Standard' ? `<span class="sub">${esc(o.product)}</span>` : ''}`;
           return `<tr class="offerrow" data-provider="${esc(o.provider)}">
             <td>${nameCell}</td>
-            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span></td>
+            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span>${schemeBadge}</td>
             <td class="rate">${esc(published(o))}</td>
             <td class="fee">${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}</td>
             <td>
@@ -519,11 +525,11 @@ function renderCompare() {
 
 function exportCsv() {
   const rows = contextOffers().length ? sortRows(contextOffers()) : sortRows(allWithCalc());
-  const head = ['country','provider','provider_type','product','method','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','source_url'];
+  const head = ['country','provider','provider_type','product','method','card_scheme','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','source_url'];
   const lines = [head.join(',')];
   for (const o of rows) {
     const c = o._c;
-    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, published(o), S.amount, c.min, c.max, c.emin, c.emax, o.source_url]
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, o.card_scheme || '', published(o), S.amount, c.min, c.max, c.emin, c.emax, o.source_url]
       .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
   }
   const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});
@@ -542,6 +548,10 @@ async function init() {
   document.getElementById('generated').textContent = new Date(S.data.generated_at).toLocaleString('cs-CZ');
   document.getElementById('fxdate').textContent = S.data.fx.date;
   document.getElementById('fxdate2').textContent = S.data.fx.date;
+
+  if (S.data.offers.some(o => o.card_scheme)) {
+    document.getElementById('scheme-control').style.display = '';
+  }
 
   const withData = new Set(S.data.offers.filter(o => o.variable_pct_min != null).map(o => o.country_iso2));
   const countries = Object.entries(S.data.countries).sort((a,b) => a[1].name.localeCompare(b[1].name, 'cs'));
@@ -570,6 +580,13 @@ async function init() {
     if (!btn) return;
     S.method = btn.dataset.v;
     document.querySelectorAll('#method-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    render();
+  });
+  document.getElementById('scheme-seg').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-v]');
+    if (!btn) return;
+    S.scheme = btn.dataset.v;
+    document.querySelectorAll('#scheme-seg button').forEach(b => b.classList.toggle('active', b === btn));
     render();
   });
   document.getElementById('region-seg').addEventListener('click', e => {

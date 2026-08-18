@@ -1,6 +1,6 @@
 # Merchant Fee Tracker
 
-Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč celou EU/EHP (všech 30 zemí má data - 276 nabídek, 59 poskytovatelů).
+Interaktivní GitHub Pages dashboard pro srovnání veřejných cen acquiringu a platební akceptace napříč celou EU/EHP.
 
 ## Původ dat
 
@@ -18,6 +18,7 @@ Základní dataset vznikl postupně (7 CEE zemí → 12 → 30), pak byl nahraze
 - mapa celé EU/EHP obarvená podle sazby (paleta #003f5c → #ffa600, tmavá = levnější),
 - kontextové srovnání - klikneš na zemi nebo poskytovatele, teprve pak se rozbalí tabulka,
 - nastavitelná částka transakce (výchozí 1000 Kč), žádný zbytečný měsíční kalkulátor,
+- reálná sazba pro zadanou transakci: procentní poplatek plus pevná část převedená kurzem se vydělí částkou transakce a zobrazí jako jedno výsledné procento,
 - veřejný zdroj u každého řádku s odkazem přímo na konkrétní ceník,
 - týdenní historii a export CSV,
 - bezpečný režim: při nefunkčním nebo nejistém parseru se zachová poslední ověřená sazba a označí se ke kontrole (v UI jako jednoduchý stavový puntík, ne syrový interní text).
@@ -47,6 +48,19 @@ Mapa i srovnávací tabulka jsou **kontextové** - ve výchozím stavu vidíš j
 4. nové hodnoty přijme pouze při dostatečné důvěře parseru,
 5. přepočítá náklady, uloží `latest.json`, CSV, change log a týdenní snapshot,
 6. změny commitne zpět do repozitáře.
+
+### Adyen: kontrola po zemích a podle skutečného typu metody
+
+Adyen je výjimka z obecného textového parseru. Jeho ceník mění processing fee a dostupné metody podle zvolené země, proto se už nekontroluje jedním globálním regulárním výrazem. Aktualizace kombinuje:
+
+- vložená country/region data oficiálního ceníku (např. Evropa = 0,11 EUR processing fee),
+- veřejný endpoint používaný samotnou stránkou Adyenu pro přesnou dostupnost metody v jednotlivých zemích,
+- oficiální typ metody (`Online banking`, `Direct debit`, `Cards`), takže A2A nezmizí jen proto, že její název neobsahuje „A2A“,
+- konkrétní payment-method fee z ceníkové tabulky.
+
+U karet se ukládají oddělené komponenty: processing fee, 0,60% Adyen acquiring markup, průchozí interchange a průchozí scheme fee. Referenční hodnoty 0,20 % pro EEA spotřebitelské debetní karty a 0,30 % pro kreditní karty se zobrazují jako interchange reference, nikoli jako pevná all-in cena.
+
+U IC++ nabídek se výsledné procento označuje jako minimální známá sazba, protože přesná interchange a scheme fee závisí na konkrétní kartě a nejsou v publikované ceně pevně dané. Tyto neúplné sazby se nezahrnují do mapy, minima, maxima ani mediánu plně porovnatelných nabídek.
 
 ## Nahrání na GitHub
 

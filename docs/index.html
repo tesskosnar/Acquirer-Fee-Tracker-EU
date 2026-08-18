@@ -119,6 +119,7 @@ tr.offerrow{cursor:pointer}
 .provider-link:hover{color:var(--teal);border-color:var(--teal)}
 .sub{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .fee{font-weight:800;white-space:nowrap}
+.effective{font-weight:800;white-space:nowrap;color:var(--teal)}
 .rate{white-space:nowrap;color:var(--ink)}
 .source{font-size:11.5px;font-weight:700;white-space:nowrap}
 .pill.card{background:rgba(66,138,214,.18);color:#8fc0f0}
@@ -288,13 +289,45 @@ function calc(o) {
   return { min: toDisplay(minCzk), max: toDisplay(maxCzk), emin: minCzk / amountCzk * 100, emax: maxCzk / amountCzk * 100 };
 }
 
+function isFullyCalculable(o) {
+  return o.variable_pct_min != null && !(o.pricing_model || '').includes('IC+');
+}
+
+function effectiveRate(o) {
+  if (o._c.emin == null) return 'individuální';
+  const value = o._c.emin === o._c.emax
+    ? fmtPct(o._c.emin)
+    : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
+  return isFullyCalculable(o) ? value : `min. ${value}`;
+}
+
 function published(o) {
   if (o.variable_pct_min == null) return 'individuální';
+  const components = o.pricing_components;
+  if ((o.pricing_model || '').includes('IC+') && components?.processing_fee) {
+    const processing = components.processing_fee;
+    const markup = components.adyen_markup_pct ?? o.variable_pct_min;
+    return `${processing.amount.toLocaleString('cs-CZ')} ${processing.currency} + interchange + scheme fee + ${markup.toLocaleString('cs-CZ')} %`;
+  }
   const p = o.variable_pct_min === o.variable_pct_max
     ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
     : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
   const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
   return p + f;
+}
+
+function pricingReference(o) {
+  const interchange = o.pricing_components?.interchange;
+  const parts = [];
+  if (interchange) parts.push(`EEA spotřebitelské karty: interchange reference debet ${esc(interchange.eea_consumer_debit_reference_pct)} %, kredit ${esc(interchange.eea_consumer_credit_reference_pct)} %; scheme fee navíc`);
+  if (o.condition) parts.push(esc(o.condition));
+  return parts.map(part => `<span class="sub">${part}</span>`).join('');
+}
+
+function calculatedFee(o) {
+  const value = `${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}`;
+  if (!(o.pricing_model || '').includes('IC+')) return value;
+  return `${value}<span class="sub">jen processing + markup; celková cena je proměnlivá</span>`;
 }
 
 function statusInfo(o) {
@@ -342,7 +375,7 @@ function render() {
 }
 
 function renderKpis() {
-  const rows = allWithCalc().filter(o => (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o));
+  const rows = allWithCalc().filter(o => isFullyCalculable(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o));
   const vals = rows.filter(o => o._c.emin != null).map(o => o._c);
   const byMin = [...rows.filter(o => o._c.emin != null)].sort((a,b) => a._c.emin - b._c.emin);
   const byMax = [...rows.filter(o => o._c.emin != null)].sort((a,b) => b._c.emin - a._c.emin);
@@ -359,7 +392,7 @@ function renderKpis() {
 
 function renderMap() {
   const svg = document.getElementById('map');
-  const base = allWithCalc().filter(o => (!S.method || o.method === S.method) && matchScheme(o));
+  const base = allWithCalc().filter(o => isFullyCalculable(o) && (!S.method || o.method === S.method) && matchScheme(o));
 
   let byCountry = {};
   for (const o of base) {
@@ -406,7 +439,7 @@ function renderMapDetail() {
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
   const rows = allWithCalc().filter(o => o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o));
-  const withVal = rows.filter(o => o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
+  const withVal = rows.filter(o => isFullyCalculable(o) && o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
   const lo = withVal[0], hi = withVal[withVal.length - 1];
   const rangeText = withVal.length
     ? (lo === hi ? fmtPct(lo._c.emin) : `${fmtPct(lo._c.emin)} – ${fmtPct(hi._c.emin)}`)
@@ -468,8 +501,9 @@ function renderCompare() {
       <thead><tr>
         <th>${S.provider ? 'Země' : 'Poskytovatel'}</th>
         <th>Metoda</th>
+        <th><button class="sortbtn ${activeCls('rate')}" data-sort="rate">Reálná sazba <span class="arrow">${arrow('rate')}</span></button></th>
         <th><button class="sortbtn ${activeCls('published')}" data-sort="published">Publikovaná sazba <span class="arrow">${arrow('published')}</span></button></th>
-        <th><button class="sortbtn ${activeCls('rate')}" data-sort="rate">Poplatek <span class="arrow">${arrow('rate')}</span></button></th>
+        <th><button class="sortbtn ${activeCls('fee')}" data-sort="fee">Poplatek <span class="arrow">${arrow('fee')}</span></button></th>
         <th>Zdroj</th>
       </tr></thead>
       <tbody>
@@ -491,8 +525,9 @@ function renderCompare() {
           return `<tr class="offerrow" data-provider="${esc(o.provider)}">
             <td>${nameCell}</td>
             <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A'}</span>${schemeBadge}</td>
-            <td class="rate">${esc(published(o))}</td>
-            <td class="fee">${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}</td>
+            <td class="effective">${effectiveRate(o)}</td>
+            <td class="rate">${esc(published(o))}${pricingReference(o)}</td>
+            <td class="fee">${calculatedFee(o)}</td>
             <td>
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">oficiální ceník ↗</a>
               ${st.cls === 'error' ? `<span class="sub"><span class="status-dot error" title="${esc(st.detail)}"></span><span class="status-label">nedostupné při poslední kontrole</span></span>` : ''}

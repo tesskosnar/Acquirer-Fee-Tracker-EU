@@ -1,8 +1,8 @@
 {
   "as_of": "2026-08-18",
   "methodology": "Independent country-by-country discovery of merchant acquirers and acquiring banks in CEE. Full-service PSPs are retained as secondary coverage. Gateway-only and processor-only companies are recorded so their technical fee is never mistaken for an all-in acquiring price.",
-  "discovered_provider_count": 73,
-  "discovered_acquirer_count": 41,
+  "discovered_provider_count": 76,
+  "discovered_acquirer_count": 44,
   "countries": [
     {
       "country_iso2": "BG",
@@ -14,10 +14,10 @@
     },
     {
       "country_iso2": "CZ",
-      "discovered_providers": 6,
-      "discovered_acquirers": 3,
-      "matched_providers": 6,
-      "matched_acquirers": 3,
+      "discovered_providers": 9,
+      "discovered_acquirers": 6,
+      "matched_providers": 9,
+      "matched_acquirers": 6,
       "missing_from_dataset": []
     },
     {

@@ -82,6 +82,32 @@ def test_independent_cee_registry_reconciles_every_country_and_paypercut():
     assert 'Paypercut' not in bg['missing_from_dataset']
 
 
+def test_czech_review_uses_all_in_rates_and_real_acquiring_entities():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    by_id={item['id']:item for item in offers}
+
+    csob=by_id['CZ-csob-start-visa-debit-card']
+    assert (csob['variable_pct_min'],csob['variable_pct_max'])==(0.75,1.04)
+    assert csob['fixed_fee_min']==0.5
+    assert by_id['CZ-csob-payment-button-a2a']['variable_pct_min']==0.89
+
+    shoptet=by_id['CZ-shoptet-pay-enterprise-card']
+    assert (shoptet['variable_pct_min'],shoptet['variable_pct_max'])==(1.19,2.16)
+    assert (shoptet['fixed_fee_min'],shoptet['fixed_fee_max'])==(1.9,3.08)
+    assert by_id['CZ-shoptet-pay-buttons-a2a']['variable_pct_max']==1.8
+
+    assert by_id['CZ-comgate-profi-card']['variable_pct_min']==0.67
+    assert by_id['CZ-comgate-profi-a2a']['variable_pct_min']==0.62
+    assert by_id['CZ-kb-smartpay-ecommerce-card']['provider']=='Worldline / KB SmartPay'
+
+    cz_roles={item['provider']:item['role'] for item in registry['providers'] if item['country_iso2']=='CZ'}
+    assert cz_roles['Comgate']=='direct_acquirer'
+    assert cz_roles['Worldline / KB SmartPay']=='direct_acquirer'
+    assert cz_roles['UniCredit Bank Czech Republic and Slovakia']=='acquiring_bank'
+
+
 def test_europe_watchlist_extends_to_switzerland_and_uk():
     watchlist=json.loads(EUROPE_WATCHLIST.read_text(encoding='utf-8'))
     countries={item['country_iso2'] for item in watchlist['providers']}

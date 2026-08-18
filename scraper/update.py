@@ -26,6 +26,22 @@ BASELINE = Path(__file__).with_name("manual_offers.json")
 CNB_URL = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
 USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-only check of public pricing pages)"
 TIMEOUT = 30
+ADYEN_SOURCE_ID = "src_5"
+ADYEN_CEE_COUNTRIES = {"CZ", "SK", "PL", "HU", "RO", "BG", "HR", "SI", "EE", "LV", "LT"}
+ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
+
+# Poslední ručně ověřený stav slouží jako bezpečná záloha, pokud je Adyen API
+# dočasně nedostupné. Při každém běhu ho nahradí živá country-by-country data.
+ADYEN_CEE_A2A_SEED = (
+    ("CZ", "Online banking Czech Republic", "online-banking-czech-republic", 2.0, 0.0),
+    ("SK", "Online banking Slovakia", "online-banking-slovakia", 2.0, 0.0),
+    ("SK", "SEPA Direct Debit", "sepa-direct-debit", 0.0, 0.27),
+    ("PL", "BLIK", "blik", 1.5, 0.0),
+    ("PL", "Online banking Poland", "online-banking-poland", 2.3, 0.0),
+    ("EE", "Trustly", "trustly", 0.0, 0.50),
+    ("LV", "Trustly", "trustly", 0.0, 0.50),
+    ("LT", "Trustly", "trustly", 0.0, 0.50),
+)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("update")
 
@@ -35,9 +51,320 @@ PCT_FIXED_RE = re.compile(
     re.I,
 )
 
+ADYEN_PERCENT_RE = re.compile(r"(\d+(?:[.,]\d+)?)\s*%", re.I)
+ADYEN_RANGE_RE = re.compile(
+    r"(?:from\s*)?(\d+(?:[.,]\d+)?)\s*%\s*(?:to|[–—-])\s*(\d+(?:[.,]\d+)?)\s*%",
+    re.I,
+)
+ADYEN_FIXED_RE = re.compile(
+    r"(?:(?P<symbol>€|\$|£)\s*(?P<before>\d+(?:[.,]\d+)?)|"
+    r"(?P<after>\d+(?:[.,]\d+)?)\s*(?P<code>EUR|USD|GBP))",
+    re.I,
+)
+ADYEN_PROCESSING_PREFIX_RE = re.compile(
+    r"^(?:€|\$|£)\s*\d+(?:[.,]\d+)?\s*\+\s*", re.I
+)
+
 
 def decimal(s: str | None) -> float | None:
     return None if s is None else float(s.replace(",", "."))
+
+
+def resolve_nuxt_payload(flat: list) -> object:
+    """Resolve Nuxt/devalue's flat array of numeric references."""
+    cache: dict[int, object] = {}
+
+    def resolve(ref: object) -> object:
+        if isinstance(ref, bool) or not isinstance(ref, int) or ref < 0 or ref >= len(flat):
+            return ref
+        if ref in cache:
+            return cache[ref]
+        raw = flat[ref]
+        if isinstance(raw, list):
+            target: list = []
+            cache[ref] = target
+            target.extend(resolve(item) for item in raw)
+            return target
+        if isinstance(raw, dict):
+            target_dict: dict = {}
+            cache[ref] = target_dict
+            target_dict.update({key: resolve(value) for key, value in raw.items()})
+            return target_dict
+        cache[ref] = raw
+        return raw
+
+    return resolve(0)
+
+
+def adyen_global_data(html: str) -> dict:
+    soup = BeautifulSoup(html, "html.parser")
+    payload = soup.find("script", id="__NUXT_DATA__")
+    if payload is None or not payload.string:
+        raise ValueError("Adyen __NUXT_DATA__ payload not found")
+    root = resolve_nuxt_payload(json.loads(payload.string))
+    state = root["state"]
+    if isinstance(state, list) and len(state) == 2 and state[0] in {"Reactive", "ShallowReactive"}:
+        state = state[1]
+    return state["$sglobalData"]["en"]
+
+
+def adyen_country_context(global_data: dict) -> tuple[dict[str, str], dict[str, dict]]:
+    currencies = {
+        item.get("sys", {}).get("id"): item.get("isoCode")
+        for item in global_data.get("globalDataCurrency", [])
+    }
+    regions = {
+        item.get("sys", {}).get("id"): item
+        for item in global_data.get("globalDataRegion", [])
+    }
+    country_id_to_code: dict[str, str] = {}
+    processing: dict[str, dict] = {}
+    for country in global_data.get("globalDataCountry", []):
+        code = country.get("countryCode")
+        country_id = country.get("sys", {}).get("id")
+        if not code or not country_id:
+            continue
+        country_id_to_code[country_id] = code
+        region = regions.get(country.get("region", {}).get("sys", {}).get("id"), {})
+        amount = country.get("processingFeeAmount")
+        currency_ref = country.get("processingFeeCurrency")
+        if amount is None:
+            amount = region.get("processingFeeAmount")
+            currency_ref = region.get("processingFeeCurrency")
+        currency_id = (currency_ref or {}).get("sys", {}).get("id")
+        if amount is not None and currencies.get(currency_id):
+            processing[code] = {"amount": float(amount), "currency": currencies[currency_id]}
+    return country_id_to_code, processing
+
+
+def parse_adyen_fee_text(text: str) -> dict | None:
+    clean = re.sub(r"\s+", " ", text.replace("\xa0", " ")).strip()
+    range_match = ADYEN_RANGE_RE.search(clean)
+    pct_match = ADYEN_PERCENT_RE.search(clean)
+    fixed_match = ADYEN_FIXED_RE.search(clean)
+    # A fixed base fee can be followed by explanatory text mentioning a
+    # surcharge (Trustly currently says that some sectors can be up to 3%).
+    # Without an explicit '+' this is not the published base percentage.
+    if fixed_match and fixed_match.start() == 0 and pct_match and "+" not in clean[:pct_match.start()]:
+        pct_match = None
+    if not pct_match and not fixed_match:
+        return None
+    pct_min = decimal(range_match.group(1)) if range_match else (decimal(pct_match.group(1)) if pct_match else 0.0)
+    pct_max = decimal(range_match.group(2)) if range_match else pct_min
+    fixed = 0.0
+    currency = None
+    if fixed_match:
+        fixed = decimal(fixed_match.group("before") or fixed_match.group("after")) or 0.0
+        symbol = fixed_match.group("symbol")
+        currency = (fixed_match.group("code") or {"€": "EUR", "$": "USD", "£": "GBP"}.get(symbol, "")).upper()
+    return {
+        "pct_min": pct_min,
+        "pct_max": pct_max,
+        "fixed": fixed,
+        "currency": currency,
+        "icpp": "interchange" in clean.lower(),
+        "raw": clean,
+    }
+
+
+def adyen_pricing_rows(html: str) -> dict[str, dict]:
+    soup = BeautifulSoup(html, "html.parser")
+    rows: dict[str, dict] = {}
+    for row in soup.select('[role="row"]'):
+        link = row.find("a", href=re.compile(r"^/payment-methods/"))
+        cells = row.find_all(attrs={"role": "cell"}, recursive=False)
+        if not link or len(cells) < 2:
+            continue
+        name = link.get_text(" ", strip=True)
+        fee_text = cells[-1].get_text(" ", strip=True)
+        # Server-side HTML combines the global processing fee and method fee in
+        # one mobile cell; after hydration they are separate desktop cells.
+        if len(cells) == 2:
+            fee_text = ADYEN_PROCESSING_PREFIX_RE.sub("", fee_text)
+        slug = link.get("href", "").rstrip("/").split("/")[-1]
+        rows[slug] = {
+            "name": name,
+            "slug": slug,
+            "fee": parse_adyen_fee_text(fee_text),
+            "raw_fee": fee_text,
+        }
+    return rows
+
+
+def parse_adyen_catalog(html: str, api_payload: dict) -> dict:
+    country_ids, processing = adyen_country_context(adyen_global_data(html))
+    price_rows = adyen_pricing_rows(html)
+    api_methods = api_payload.get("en", {}).get("paymentsMethodsData", [])
+    methods = []
+    for item in api_methods:
+        expected_slug = re.sub(r"[^a-z0-9]+", "-", (item.get("name") or "").lower()).strip("-")
+        row = price_rows.get(expected_slug)
+        types = {
+            method_type.get("name")
+            for method_type in item.get("paymentMethodTypeCollection", {}).get("items", [])
+        }
+        countries = {
+            country_ids.get(entry.get("country"))
+            for entry in item.get("countryData", [])
+        }
+        methods.append({
+            "name": item.get("name"),
+            "types": types,
+            "countries": {code for code in countries if code},
+            "slug": row.get("slug") if row else None,
+            "fee": row.get("fee") if row else None,
+            "raw_fee": row.get("raw_fee") if row else None,
+        })
+    return {"processing": processing, "methods": methods}
+
+
+def adyen_pricing_components(processing: dict, method_fee: dict | None, card: bool = False) -> dict:
+    components = {
+        "processing_fee": {"amount": processing["amount"], "currency": processing["currency"]},
+    }
+    if card:
+        components.update({
+            "adyen_markup_pct": 0.6,
+            "interchange": {
+                "model": "pass-through",
+                "eea_consumer_debit_reference_pct": 0.2,
+                "eea_consumer_credit_reference_pct": 0.3,
+            },
+            "scheme_fees": "pass-through; variable",
+        })
+    elif method_fee:
+        components["payment_method_fee"] = {
+            "pct_min": method_fee["pct_min"],
+            "pct_max": method_fee["pct_max"],
+            "fixed": method_fee["fixed"],
+            "currency": method_fee["currency"],
+            "raw_public_fee": method_fee.get("raw"),
+        }
+    return components
+
+
+def build_adyen_a2a_offer(country_code: str, country_name: str, name: str, slug: str,
+                          processing: dict, method_fee: dict, checked_at: str,
+                          source_hash: str | None, live: bool) -> dict:
+    if method_fee.get("currency") not in (None, processing["currency"]):
+        raise ValueError(f"Cannot aggregate Adyen {name}: mixed fee currencies")
+    total_fixed = processing["amount"] + method_fee["fixed"]
+    return {
+        "id": f"{country_code}-adyen-{slug}-a2a",
+        "country_iso2": country_code,
+        "country": country_name,
+        "provider": "Adyen",
+        "provider_type": "Veřejný ceník",
+        "product": f"{name} (A2A)",
+        "channel": "online",
+        "method": "a2a",
+        "pricing_model": "Blended",
+        "variable_pct_min": method_fee["pct_min"],
+        "variable_pct_max": method_fee["pct_max"],
+        "fixed_fee_min": round(total_fixed, 4),
+        "fixed_fee_max": round(total_fixed, 4),
+        "fee_currency": processing["currency"],
+        "cap": None,
+        "cap_currency": None,
+        "monthly_fee": 0,
+        "monthly_currency": processing["currency"],
+        "condition": method_fee.get("raw", "") if re.search(r"\b(additional|minimum|depending|from)\b", method_fee.get("raw", ""), re.I) else "",
+        "promo": False,
+        "source_id": ADYEN_SOURCE_ID,
+        "source_url": "https://www.adyen.com/pricing",
+        "parser": {
+            "type": "adyen_country_method",
+            "country_code": country_code,
+            "method_name": name,
+            "auto_parse": True,
+            "expected_currency": processing["currency"],
+        },
+        "pricing_components": adyen_pricing_components(processing, method_fee),
+        "notes": f"Adyen processing fee plus the public payment-method fee ({method_fee.get('raw','')}). Classified as A2A from Adyen's official payment-method type, not from the method name.",
+        "verification": "auto-checked by country and payment-method type" if live else "retained from last verified Adyen country audit",
+        "source_status": "ok" if live else "seeded",
+        "source_checked_at": checked_at,
+        "source_hash": source_hash,
+        "last_changed_at": None,
+        "card_scheme": None,
+    }
+
+
+def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
+                          catalog: dict | None = None, source_hash: str | None = None) -> list[dict]:
+    """Correct CEE cards and discover A2A from Adyen's official types and country IDs."""
+    processing_by_country = (catalog or {}).get("processing", {})
+    default_processing = {"amount": 0.11, "currency": "EUR"}
+    for offer in offers:
+        if offer.get("provider") != "Adyen" or offer.get("method") != "card":
+            continue
+        code = offer.get("country_iso2")
+        if code not in ADYEN_CEE_COUNTRIES:
+            continue
+        processing = processing_by_country.get(code, default_processing)
+        offer.update({
+            "fixed_fee_min": processing["amount"],
+            "fixed_fee_max": processing["amount"],
+            "fee_currency": processing["currency"],
+            "monthly_currency": processing["currency"],
+            "pricing_components": adyen_pricing_components(processing, None, card=True),
+            "notes": "Adyen processing fee + 0.60% acquiring markup. Interchange and scheme fees are passed through separately; EEA consumer-card reference caps are 0.20% debit and 0.30% credit.",
+            "verification": "auto-checked by country (Adyen pricing + payment-method API)" if catalog else "retained from last verified Adyen country audit",
+            "source_status": "ok" if catalog else "seeded",
+            "source_checked_at": checked_at,
+            "source_hash": source_hash,
+            "parser": {
+                "type": "adyen_country_method",
+                "country_code": code,
+                "method_name": "Visa / Mastercard",
+                "auto_parse": True,
+                "expected_currency": processing["currency"],
+            },
+        })
+
+    # The generated Adyen A2A rows are rebuilt deterministically on every run.
+    offers = [
+        offer for offer in offers
+        if not (offer.get("provider") == "Adyen" and offer.get("method") == "a2a"
+                and offer.get("country_iso2") in ADYEN_CEE_COUNTRIES)
+    ]
+    discovered: dict[tuple[str, str], tuple] = {}
+    if catalog:
+        for method in catalog.get("methods", []):
+            fee = method.get("fee")
+            if not fee or not method.get("slug") or not (method.get("types", set()) & ADYEN_A2A_TYPES):
+                continue
+            for code in sorted(method.get("countries", set()) & ADYEN_CEE_COUNTRIES):
+                processing = processing_by_country.get(code)
+                if processing:
+                    discovered[(code, method["slug"])] = (code, method["name"], method["slug"], processing, fee, True)
+        # If the official API still confirms a seeded method/country pair but
+        # its price row is temporarily unparsable, retain the last verified fee.
+        by_name = {method.get("name"): method for method in catalog.get("methods", [])}
+        for code, name, slug, pct, method_fixed in ADYEN_CEE_A2A_SEED:
+            method = by_name.get(name, {})
+            if code not in method.get("countries", set()) or (code, slug) in discovered:
+                continue
+            processing = processing_by_country.get(code, default_processing)
+            discovered[(code, slug)] = (code, name, slug, processing, {
+                "pct_min": pct, "pct_max": pct, "fixed": method_fixed,
+                "currency": processing["currency"] if method_fixed else None,
+                "icpp": False, "raw": "seeded",
+            }, False)
+    else:
+        for code, name, slug, pct, method_fixed in ADYEN_CEE_A2A_SEED:
+            processing = default_processing
+            discovered[(code, slug)] = (code, name, slug, processing, {
+                "pct_min": pct, "pct_max": pct, "fixed": method_fixed,
+                "currency": processing["currency"] if method_fixed else None,
+                "icpp": False, "raw": "seeded",
+            }, False)
+    for code, name, slug, processing, fee, live in discovered.values():
+        offers.append(build_adyen_a2a_offer(
+            code, countries[code]["name"], name, slug, processing, fee,
+            checked_at, source_hash, live=live,
+        ))
+    return offers
 
 
 def parse_fee_candidates(text: str) -> list[dict]:
@@ -84,7 +411,7 @@ def robots_allowed(url: str) -> bool:
         return True
 
 
-def fetch_source(url: str, fmt: str) -> tuple[str, str]:
+def fetch_source(url: str, fmt: str) -> tuple[str, str, str]:
     if not robots_allowed(url): raise PermissionError('robots.txt disallows this URL')
     r=requests.get(url,headers={'User-Agent':USER_AGENT,'Accept':'*/*'},timeout=TIMEOUT)
     if r.status_code in (401,403,429): raise PermissionError(f'HTTP {r.status_code}')
@@ -95,11 +422,23 @@ def fetch_source(url: str, fmt: str) -> tuple[str, str]:
         with pdfplumber.open(io.BytesIO(r.content)) as pdf:
             for page in pdf.pages: chunks.append(page.extract_text() or '')
         text='\n'.join(chunks)
+        raw=text
     else:
+        raw=r.text
         soup=BeautifulSoup(r.text,'html.parser')
         for el in soup(['script','style','noscript']): el.decompose()
         text=' '.join(soup.stripped_strings)
-    return re.sub(r'\s+',' ',text),content_hash
+    return re.sub(r'\s+',' ',text),content_hash,raw
+
+
+def fetch_json(url: str) -> dict:
+    if not robots_allowed(url):
+        raise PermissionError('robots.txt disallows this URL')
+    r=requests.get(url,headers={'User-Agent':USER_AGENT,'Accept':'application/json'},timeout=TIMEOUT)
+    if r.status_code in (401,403,429):
+        raise PermissionError(f'HTTP {r.status_code}')
+    r.raise_for_status()
+    return r.json()
 
 
 def select_candidate(offer: dict, text: str) -> tuple[dict|None,float,str]:
@@ -145,7 +484,7 @@ def load_previous(baseline:dict)->dict:
 def write_csv(output:dict)->None:
     cols=['country_iso2','country','provider','provider_type','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','fee_currency','fee_500_min_czk','fee_500_max_czk','effective_500_min_pct','effective_500_max_pct','condition','source_url','verification','source_status','source_checked_at']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
-        w=csv.DictWriter(f,fieldnames=cols);w.writeheader()
+        w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         for o in output['offers']:
             c=o.get('calculation_500_czk',{})
             row={k:o.get(k) for k in cols};row.update({'fee_500_min_czk':c.get('fee_min_czk'),'fee_500_max_czk':c.get('fee_max_czk'),'effective_500_min_pct':c.get('effective_min_pct'),'effective_500_max_pct':c.get('effective_max_pct')})
@@ -176,15 +515,48 @@ def main()->int:
     fetched={}
     for sid,s in baseline['sources'].items():
         try:
-            text,h=fetch_source(s['url'],s.get('format','html'))
-            fetched[sid]={'text':text,'hash':h,'status':'ok','checked_at':now}
+            text,h,raw=fetch_source(s['url'],s.get('format','html'))
+            fetched[sid]={'text':text,'raw':raw,'hash':h,'status':'ok','checked_at':now}
+            if s.get('api_url'):
+                fetched[sid]['api_payload']=fetch_json(s['api_url'])
             log.info('Fetched %s (%d chars)',sid,len(text))
         except Exception as exc:
-            fetched[sid]={'text':'','hash':None,'status':f'error: {exc}','checked_at':now}
+            fetched[sid]={'text':'','raw':'','hash':None,'status':f'error: {exc}','checked_at':now}
             log.warning('Source %s failed: %s',sid,exc)
+
+    adyen_source=fetched.get(ADYEN_SOURCE_ID,{})
+    adyen_catalog=None
+    if adyen_source.get('status')=='ok' and adyen_source.get('api_payload'):
+        try:
+            adyen_catalog=parse_adyen_catalog(adyen_source['raw'],adyen_source['api_payload'])
+            log.info('Parsed Adyen country catalog: %d methods',len(adyen_catalog['methods']))
+        except Exception as exc:
+            adyen_source['status']=f'error: Adyen country parser: {exc}'
+            log.exception('Adyen country parser failed; using verified fallback')
+    offers=sync_adyen_cee_offers(
+        offers,baseline['countries'],now,adyen_catalog,adyen_source.get('hash')
+    )
 
     for o in offers:
         sid=o.get('source_id')
+        if o.get('parser',{}).get('type')=='adyen_country_method':
+            src=fetched.get(sid,{})
+            o['source_checked_at']=now
+            if src.get('hash'):o['source_hash']=src['hash']
+            if not adyen_catalog:
+                o['source_status']=src.get('status','not checked')
+                o['verification']='retained – Adyen country/method source unavailable'
+            old=prev_by_id.get(o['id'])
+            if old:
+                for field in ('variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','fee_currency'):
+                    if old.get(field)!=o.get(field):
+                        changes.append({'detected_at':now,'offer_id':o['id'],'field':field,'old':old.get(field),'new':o.get(field),'source_url':o['source_url'],'confidence':0.99,'raw_match':'Adyen country + payment-method API'})
+                        o['last_changed_at']=now
+            else:
+                changes.append({'detected_at':now,'offer_id':o['id'],'field':'offer','old':None,'new':'added','source_url':o['source_url'],'confidence':0.99,'raw_match':'Adyen country + payment-method API'})
+                o['last_changed_at']=now
+            o['calculation_500_czk']=calc(o,fx)
+            continue
         # Ručně zadané nabídky (bez source_id, nebo výslovně auto_parse=False) se
         # vůbec nezkoušejí automaticky kontrolovat - jejich verification text píše
         # člověk, skript ho nemá přepisovat matoucím "source unavailable" hlášením.
@@ -212,7 +584,7 @@ def main()->int:
             o['verification']=f'retained – review suggested ({conf:.0%}; {why})'
         o['calculation_500_czk']=calc(o,fx)
 
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_czk':500,'methodology_version':'1.0',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_czk':500,'methodology_version':'1.1',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
             'fx':{'source':'Česká národní banka','source_url':CNB_URL,'date':fx_date,'rates':fx},'sources':baseline['sources'],'countries':baseline['countries'],'offers':offers,'change_log':changes[-250:]}
     DATA.mkdir(parents=True,exist_ok=True);HISTORY.mkdir(parents=True,exist_ok=True)

@@ -1,4 +1,15 @@
-from scraper.update import calc, parse_cnb, parse_fee_candidates, select_candidate
+import scraper.update as update
+from scraper.update import (
+    adyen_country_context,
+    calc,
+    parse_adyen_catalog,
+    parse_adyen_fee_text,
+    parse_cnb,
+    parse_fee_candidates,
+    resolve_nuxt_payload,
+    select_candidate,
+    sync_adyen_cee_offers,
+)
 
 def test_fee_expression():
     c=parse_fee_candidates('Cena 2,1–4,4 % + 0,58 PLN za transakci')[0]
@@ -41,3 +52,80 @@ def test_select_candidate_manual_only_source_skips_parsing():
     offer={'variable_pct_min':1.0,'fee_currency':'CZK','parser':{'auto_parse':False}}
     cand,conf,why=select_candidate(offer,'sazba 5 % kdekoliv na stránce')
     assert cand is None and conf==0.0 and why=='manual-only source'
+
+
+def test_resolve_nuxt_payload_preserves_reactive_wrapper():
+    flat=[{'state':1},[2,3],'Reactive',{'answer':4},0.11]
+    assert resolve_nuxt_payload(flat)=={'state':['Reactive',{'answer':0.11}]}
+
+
+def test_adyen_country_processing_fee_inherits_europe_region():
+    global_data={
+        'globalDataCurrency':[{'sys':{'id':'eur'},'isoCode':'EUR'}],
+        'globalDataRegion':[{
+            'sys':{'id':'europe'},'processingFeeAmount':0.11,
+            'processingFeeCurrency':{'sys':{'id':'eur'}},
+        }],
+        'globalDataCountry':[{
+            'sys':{'id':'cz-id'},'countryCode':'CZ','region':{'sys':{'id':'europe'}},
+            'processingFeeAmount':None,'processingFeeCurrency':None,
+        }],
+    }
+    ids,fees=adyen_country_context(global_data)
+    assert ids=={'cz-id':'CZ'}
+    assert fees['CZ']=={'amount':0.11,'currency':'EUR'}
+
+
+def test_parse_adyen_fee_keeps_components_separate():
+    card=parse_adyen_fee_text('Interchange+ + 0.60%')
+    banking=parse_adyen_fee_text('2.30%')
+    trustly=parse_adyen_fee_text('€ 0.50')
+    trustly_note=parse_adyen_fee_text('€ 0.50 For gaming, gambling and travel additional rates up 3% can apply')
+    ranged=parse_adyen_fee_text('from 1% to 2%')
+    assert card['icpp'] is True and card['pct_min']==0.6 and card['fixed']==0
+    assert banking['pct_min']==2.3 and banking['currency'] is None
+    assert trustly['pct_min']==0 and trustly['fixed']==0.5 and trustly['currency']=='EUR'
+    assert trustly_note['pct_min']==0 and trustly_note['fixed']==0.5
+    assert ranged['pct_min']==1 and ranged['pct_max']==2
+
+
+def test_adyen_catalog_classifies_a2a_from_official_type_not_name(monkeypatch):
+    global_data={
+        'globalDataCurrency':[{'sys':{'id':'eur'},'isoCode':'EUR'}],
+        'globalDataRegion':[{
+            'sys':{'id':'europe'},'processingFeeAmount':0.11,
+            'processingFeeCurrency':{'sys':{'id':'eur'}},
+        }],
+        'globalDataCountry':[{
+            'sys':{'id':'cz-id'},'countryCode':'CZ','region':{'sys':{'id':'europe'}},
+        }],
+    }
+    monkeypatch.setattr(update,'adyen_global_data',lambda _html:global_data)
+    monkeypatch.setattr(update,'adyen_pricing_rows',lambda _html:{
+        'bank-button':{
+            'name':'Bank Button','slug':'bank-button','raw_fee':'2%',
+            'fee':parse_adyen_fee_text('2%'),
+        },
+    })
+    payload={'en':{'paymentsMethodsData':[{
+        'name':'Bank Button',
+        'countryData':[{'country':'cz-id','region':'europe'}],
+        'paymentMethodTypeCollection':{'items':[{'name':'Online banking'}]},
+    }]}}
+    catalog=parse_adyen_catalog('<html></html>',payload)
+    assert catalog['methods'][0]['types']=={'Online banking'}
+    assert catalog['methods'][0]['countries']=={'CZ'}
+
+    card={
+        'id':'CZ-adyen-visa-mastercard-markup-card','country_iso2':'CZ',
+        'country':'Česko','provider':'Adyen','method':'card',
+        'variable_pct_min':0.6,'variable_pct_max':0.6,
+        'fixed_fee_min':0.13,'fixed_fee_max':0.13,'fee_currency':'USD',
+    }
+    offers=sync_adyen_cee_offers([card],{'CZ':{'name':'Česko'}},'2026-08-18T00:00:00+00:00',catalog,'hash')
+    corrected=next(o for o in offers if o['method']=='card')
+    discovered=next(o for o in offers if o['method']=='a2a')
+    assert corrected['fixed_fee_min']==0.11 and corrected['fee_currency']=='EUR'
+    assert corrected['pricing_components']['interchange']['eea_consumer_debit_reference_pct']==0.2
+    assert discovered['product']=='Bank Button (A2A)'
+    assert discovered['fixed_fee_min']==0.11 and discovered['variable_pct_min']==2.0

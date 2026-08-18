@@ -1,18 +1,29 @@
 {
   "as_of": "2026-08-18",
   "scope": "Independent country-by-country discovery of merchant acquirers and acquiring banks in CEE. Full-service PSPs are retained as secondary coverage. Gateway-only and processor-only companies are recorded so their technical fee is never mistaken for an all-in acquiring price.",
+  "discovery_sources": [
+    {"name":"The Paypers","url":"https://thepaypers.com/","use":"provider discovery only; role and pricing require primary-source verification"},
+    {"name":"Business of Payments","url":"https://businessofpayments.com/newsletter/","use":"provider discovery only; role and pricing require primary-source verification"},
+    {"name":"Connecting the Dots in Payments","url":"https://www.connectingthedotsinpayments.com/","use":"provider discovery only; role and pricing require primary-source verification"},
+    {"name":"Měšec.cz","url":"https://www.mesec.cz/","use":"Czech-market discovery and historical leads only"},
+    {"name":"Peníze.cz","url":"https://www.penize.cz/","use":"Czech-market discovery and historical leads only"}
+  ],
   "roles": {
     "acquiring_bank": "Bank contracting with and settling card transactions for the merchant.",
     "direct_acquirer": "Non-bank or payment-institution acquirer contracting with the merchant.",
+    "acquirer_sales_channel": "Bank or brand distributing an acquiring service whose actual provider is named separately; not counted as another acquiring network.",
     "full_service_psp": "PSP offering the merchant a bundled acceptance price; secondary to acquirers.",
     "gateway_or_processor": "Technical gateway/processor without a standalone all-in acquiring offer; excluded from rate comparison unless the acquiring component is explicitly included."
   },
   "providers": [
     {"country_iso2":"CZ","provider":"ČSOB","role":"acquiring_bank","official_url":"https://platbakartou.csob.cz/platebni-brana/cenik/","pricing_visibility":"public"},
-    {"country_iso2":"CZ","provider":"Global Payments Czech Republic","role":"direct_acquirer","official_url":"https://www.globalpayments.cz/online-platby/gp-webpay","pricing_visibility":"public"},
-    {"country_iso2":"CZ","provider":"KB SmartPay","role":"direct_acquirer","official_url":"https://www.kbsmartpay.cz/platebni-brana/","pricing_visibility":"quote"},
-    {"country_iso2":"CZ","provider":"Comgate","role":"full_service_psp","official_url":"https://www.comgate.eu/cs/ceniky-platebni-brany","pricing_visibility":"public"},
+    {"country_iso2":"CZ","provider":"Global Payments s.r.o.","role":"direct_acquirer","official_url":"https://www.globalpayments.cz/online-platby/gp-webpay","pricing_visibility":"public"},
+    {"country_iso2":"CZ","provider":"Worldline / KB SmartPay","role":"direct_acquirer","official_url":"https://kbsmartpay.cz/cs-cz/home/top-navigation/aboutus","pricing_visibility":"quote"},
+    {"country_iso2":"CZ","provider":"Comgate","role":"direct_acquirer","official_url":"https://www.comgate.eu/cs","pricing_visibility":"public"},
+    {"country_iso2":"CZ","provider":"UniCredit Bank Czech Republic and Slovakia","role":"acquiring_bank","official_url":"https://www.unicreditbank.cz/cs/popupeditpages/svobodna-povolani/ucty/platby-prostrednictvim-internetu.modal.html","pricing_visibility":"quote"},
+    {"country_iso2":"CZ","provider":"EVO Payments / REVO","role":"direct_acquirer","official_url":"https://www.rb.cz/firmy/transakcni-bankovnictvi/akceptace-platebnich-karet/akceptace-na-internetu","pricing_visibility":"quote"},
     {"country_iso2":"CZ","provider":"GoPay","role":"full_service_psp","official_url":"https://www.gopay.com/cs/platebni-brana/","pricing_visibility":"public"},
+    {"country_iso2":"CZ","provider":"Shoptet Pay","role":"full_service_psp","official_url":"https://www.shoptetpay.com/cs/podrobny-cenik/","pricing_visibility":"public"},
     {"country_iso2":"CZ","provider":"ThePay","role":"full_service_psp","official_url":"https://www.thepay.eu/cs/cenik/","pricing_visibility":"public"},
 
     {"country_iso2":"SK","provider":"Tatra banka CardPay","role":"acquiring_bank","official_url":"https://www.tatrabanka.sk/sk/business/ucty-platby/prijimanie-platieb/cardpay/","pricing_visibility":"quote"},

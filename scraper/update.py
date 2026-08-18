@@ -41,7 +41,7 @@ ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank
 # a shorter commercial label.  These aliases make the reconciliation explicit
 # instead of relying on fuzzy matching that could merge two different firms.
 REGISTRY_DATASET_ALIASES = {
-    ("CZ", "Global Payments Czech Republic"): "Global Payments",
+    ("CZ", "Global Payments s.r.o."): "Global Payments",
     ("SK", "ČSOB Slovensko GP WebPay"): "ČSOB Slovensko",
     ("HU", "CIB Bank eCommerce"): "CIB Bank",
     ("RO", "Banca Transilvania eCommerce"): "Banca Transilvania",

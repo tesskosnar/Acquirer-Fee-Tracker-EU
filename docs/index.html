@@ -324,6 +324,10 @@ function isComparable(o) {
   return isFullyCalculable(o) && isSourceReviewed(o);
 }
 
+function sourceLabel(o) {
+  return isFullyCalculable(o) ? 'oficiální ceník ↗' : 'ověření služby ↗';
+}
+
 function roleBadge(o) {
   const roles = {
     acquirer:['Acquirer','role-acquirer'],
@@ -589,7 +593,7 @@ function renderCompare() {
             <td class="effective">${effectiveRate(o)}</td>
             <td class="rate">${additionalFees(o)}</td>
             <td>
-              <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">oficiální zdroj ↗</a>
+              <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">${sourceLabel(o)}</a>
               ${st.cls === 'error' ? `<span class="status-dot error" title="${esc(st.detail)}"></span>` : ''}
             </td>
           </tr>`;

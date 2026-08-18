@@ -632,7 +632,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-card-complete-local-merchant-acquiring-acceptance-card",
@@ -667,7 +668,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-clearhaus-ic-merchant-acquiring-card",
@@ -702,7 +704,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "AT-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "AT",
+      "country": "Rakousko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "AT-mollie-eea-consumer-cards-card",
@@ -737,7 +776,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-payrexx-eps-überweisung-a2a-verified",
@@ -772,7 +812,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-revolut-merchant-eea-consumer-cards-card",
@@ -807,7 +848,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-revolut-pay-by-bank-a2a",
@@ -842,7 +884,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-stripe-eps-a2a",
@@ -877,7 +920,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-stripe-standard-eea-consumer-cards-card",
@@ -912,7 +956,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "AT-hobex-local-merchant-acquiring-acceptance-card",
@@ -947,7 +992,44 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "AT-readypay-flat-card",
+      "country_iso2": "AT",
+      "country": "Rakousko",
+      "provider": "readyPay",
+      "provider_type": "Veřejný ceník",
+      "product": "Flat sazba (všechny karty stejně)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 1.23,
+      "variable_pct_max": 1.23,
+      "fixed_fee_min": 0,
+      "fixed_fee_max": 0,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": null,
+      "monthly_currency": "EUR",
+      "condition": "NEOVĚŘENO přímo na webu poskytovatele - jen ze srovnávacího webu ready2order.com!",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://ready2order.com/at/kartenzahlung-gebuehren/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "ÚPLNOST srpen 2026: nový nález, dřív v datech nebyl. \"1,23 % flat, nezávisle na výši platby\" - ale zdroj je srovnávací web (ready2order.com), NE přímo readyPay. Než se zapíše s jistotou, chce to ověřit napřímo. AT navíc nemá vlastní národní schéma jako DE Girocard - potvrzeno (\"In Österreich gibt es keine Girocard, daher sind Transaktionsgebühren generell höher\") - takže štěpení V/MC vs národní tady není relevantní.",
+      "verification": "NEJISTÉ - jen sekundární zdroj, ne přímo od poskytovatele (srpen 2026)",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-17T20:44:27+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-17T20:44:27+00:00",
+      "card_scheme": null
     },
     {
       "id": "BE-adyen-visa-mastercard-markup-card",
@@ -982,7 +1064,44 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "BE-ccv-online-payments-individual-card",
+      "country_iso2": "BE",
+      "country": "Belgie",
+      "provider": "CCV Online Payments",
+      "provider_type": "Individuální nabídka",
+      "product": "Card acceptance (via Elavon/Valitor/Amex/Bancontact backend)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Individual",
+      "variable_pct_min": null,
+      "variable_pct_max": null,
+      "fixed_fee_min": null,
+      "fixed_fee_max": null,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": null,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.ccvshop.be/ccv-online-payments",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "ÚPLNOST srpen 2026 - stejný nález jako NL (CCV Shop je aktivní v obou zemích), viz poznámka u NL.",
+      "verification": "ověřeno přímým vyhledáním primárního zdroje (srpen 2026)",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-17T20:36:56+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-17T20:36:56+00:00",
+      "card_scheme": null
     },
     {
       "id": "BE-clearhaus-ic-merchant-acquiring-card",
@@ -1017,7 +1136,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "BE-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "BE",
+      "country": "Belgie",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "BE-europabank-local-merchant-acquiring-acceptance-card",
@@ -1052,7 +1208,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-mollie-bancontact-a2a-verified",
@@ -1087,7 +1244,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-mollie-eea-consumer-cards-card",
@@ -1122,7 +1280,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-revolut-merchant-eea-consumer-cards-card",
@@ -1157,7 +1316,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-revolut-pay-by-bank-a2a",
@@ -1192,7 +1352,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-stripe-bancontact-card",
@@ -1227,7 +1388,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-stripe-standard-eea-consumer-cards-card",
@@ -1262,7 +1424,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BE-worldline-local-merchant-acquiring-acceptance-card",
@@ -1297,7 +1460,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-adyen-visa-mastercard-markup-card",
@@ -1332,7 +1496,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-clearhaus-ic-merchant-acquiring-card",
@@ -1367,7 +1532,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "BG-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "BG",
+      "country": "Bulharsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "BG-mollie-eea-consumer-cards-card",
@@ -1402,7 +1604,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-revolut-merchant-eea-consumer-cards-card",
@@ -1437,7 +1640,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-revolut-pay-by-bank-a2a",
@@ -1472,7 +1676,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-stripe-standard-eea-consumer-cards-card",
@@ -1507,7 +1712,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-icard-local-merchant-acquiring-acceptance-card",
@@ -1542,7 +1748,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "BG-mypos-local-merchant-acquiring-acceptance-card",
@@ -1577,7 +1784,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-adyen-visa-mastercard-markup-card",
@@ -1612,7 +1820,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-clearhaus-ic-merchant-acquiring-card",
@@ -1647,7 +1856,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "CY-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "CY",
+      "country": "Kypr",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "CY-jcc-payment-systems-card-acquiring-card-verified",
@@ -1682,7 +1928,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-jcc-payment-systems-local-merchant-acquiring-acceptance-card",
@@ -1717,7 +1964,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-mollie-eea-consumer-cards-card",
@@ -1752,7 +2000,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-revolut-merchant-eea-consumer-cards-card",
@@ -1787,7 +2036,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-revolut-pay-by-bank-a2a",
@@ -1822,7 +2072,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-stripe-standard-eea-consumer-cards-card",
@@ -1857,7 +2108,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CY-viva-com-local-merchant-acquiring-acceptance-card",
@@ -1892,7 +2144,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-adyen-visa-mastercard-markup-card",
@@ -1927,7 +2180,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-barion-standard-a2a-restored",
@@ -1962,7 +2216,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-barion-standard-card-restored",
@@ -1997,7 +2252,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-clearhaus-ic-merchant-acquiring-card",
@@ -2032,7 +2288,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "CZ-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "CZ",
+      "country": "Česko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "CZK",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "CZK"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "CZ-comgate-easy-card",
@@ -2067,7 +2360,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": "2026-08-17T14:37:18+00:00"
+      "last_changed_at": "2026-08-17T14:37:18+00:00",
+      "card_scheme": null
     },
     {
       "id": "CZ-comgate-profi-a2a",
@@ -2102,7 +2396,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:08:19+00:00"
+      "last_changed_at": "2026-08-12T19:08:19+00:00",
+      "card_scheme": null
     },
     {
       "id": "CZ-comgate-profi-card",
@@ -2137,7 +2432,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:08:19+00:00"
+      "last_changed_at": "2026-08-12T19:08:19+00:00",
+      "card_scheme": null
     },
     {
       "id": "CZ-globalpayments-gp-webpay-card-restored",
@@ -2172,7 +2468,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
@@ -2207,7 +2504,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-gopay-standard-a2a-restored",
@@ -2242,7 +2540,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-gopay-standard-card-restored",
@@ -2277,7 +2576,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-mollie-eea-consumer-cards-card",
@@ -2312,7 +2612,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-payu-po-3-měsících-a2a-restored",
@@ -2347,7 +2648,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-payu-po-3-měsících-card-restored",
@@ -2382,7 +2684,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-payu-standardní-(první-3-měsíce)-a2a-restored",
@@ -2417,7 +2720,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-payu-standardní-(první-3-měsíce)-card-restored",
@@ -2452,7 +2756,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-pays-individual-card",
@@ -2487,7 +2792,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-17T14:36:17+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-17T14:36:17+00:00"
+      "last_changed_at": "2026-08-17T14:36:17+00:00",
+      "card_scheme": null
     },
     {
       "id": "CZ-revolut-merchant-eea-consumer-cards-card",
@@ -2522,7 +2828,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-revolut-pay-by-bank-a2a",
@@ -2557,7 +2864,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-shoptet-pay-enterprise-card",
@@ -2592,7 +2900,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-17T14:36:17+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-17T14:36:17+00:00"
+      "last_changed_at": "2026-08-17T14:36:17+00:00",
+      "card_scheme": null
     },
     {
       "id": "CZ-stripe-standard-eea-consumer-cards-card",
@@ -2627,7 +2936,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-sumup-online-payments-card",
@@ -2662,7 +2972,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-thepay-standard-a2a-restored",
@@ -2697,7 +3008,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-thepay-standard-card-restored",
@@ -2732,7 +3044,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "CZ-čsob-local-merchant-acquiring-acceptance-card",
@@ -2767,7 +3080,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-adyen-visa-mastercard-markup-card",
@@ -2802,7 +3116,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-clearhaus-ic-merchant-acquiring-card",
@@ -2837,7 +3152,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "DE-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "DE",
+      "country": "Německo",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "DE-mollie-eea-consumer-cards-card",
@@ -2872,7 +3224,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-payone-local-merchant-acquiring-acceptance-card",
@@ -2907,7 +3260,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:43:25+00:00"
+      "last_changed_at": "2026-08-12T18:43:25+00:00",
+      "card_scheme": null
     },
     {
       "id": "DE-poscash-business-girocard-card",
@@ -2942,7 +3296,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:43:25+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:43:25+00:00"
+      "last_changed_at": "2026-08-12T18:43:25+00:00",
+      "card_scheme": "domestic"
     },
     {
       "id": "DE-poscash-business-vmc-credit-card",
@@ -2977,7 +3332,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:43:25+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:43:25+00:00"
+      "last_changed_at": "2026-08-12T18:43:25+00:00",
+      "card_scheme": "intl_credit"
     },
     {
       "id": "DE-poscash-business-vmc-debit-card",
@@ -3012,7 +3368,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:43:25+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:43:25+00:00"
+      "last_changed_at": "2026-08-12T18:43:25+00:00",
+      "card_scheme": "intl_debit"
     },
     {
       "id": "DE-poscashservice-girocard-individual-card",
@@ -3047,7 +3404,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:43:25+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:43:25+00:00"
+      "last_changed_at": "2026-08-12T18:43:25+00:00",
+      "card_scheme": "domestic"
     },
     {
       "id": "DE-revolut-merchant-eea-consumer-cards-card",
@@ -3082,7 +3440,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-revolut-pay-by-bank-a2a",
@@ -3117,7 +3476,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-stripe-standard-eea-consumer-cards-card",
@@ -3152,7 +3512,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-sumup-online-store-card",
@@ -3187,7 +3548,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-unzer-local-merchant-acquiring-acceptance-card",
@@ -3222,7 +3584,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DE-zahlo-sepa-instant-a2a",
@@ -3257,7 +3620,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:43:25+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:43:25+00:00"
+      "last_changed_at": "2026-08-12T18:43:25+00:00",
+      "card_scheme": null
     },
     {
       "id": "DK-adyen-visa-mastercard-markup-card",
@@ -3292,7 +3656,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-clearhaus-ic-merchant-acquiring-card",
@@ -3327,7 +3692,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "DK-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "DK",
+      "country": "Dánsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "DKK",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "DKK"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "DK-mobilepay-standard-a2a-restored",
@@ -3362,7 +3764,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-mollie-eea-consumer-cards-card",
@@ -3397,7 +3800,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-nets-nexi-local-merchant-acquiring-acceptance-card",
@@ -3432,7 +3836,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-quickpay-merchant-account-advertised-from-rate-card",
@@ -3467,7 +3872,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-revolut-merchant-eea-consumer-cards-card",
@@ -3502,7 +3908,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-revolut-pay-by-bank-a2a",
@@ -3537,7 +3944,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-stripe-standard-eea-consumer-cards-card",
@@ -3572,7 +3980,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-swedbank-pay-local-merchant-acquiring-acceptance-card",
@@ -3607,7 +4016,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "DK-vipps-mobilepay-payment-integration-a2a",
@@ -3642,7 +4052,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-adyen-visa-mastercard-markup-card",
@@ -3677,7 +4088,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-clearhaus-ic-merchant-acquiring-card",
@@ -3712,7 +4124,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "EE-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "EE",
+      "country": "Estonsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "EE-everypay-local-merchant-acquiring-acceptance-card",
@@ -3747,7 +4196,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-makecommerce-e-commerce-standard-a2a",
@@ -3782,7 +4232,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-makecommerce-e-commerce-standard-card",
@@ -3817,7 +4268,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-mollie-eea-consumer-cards-card",
@@ -3852,7 +4304,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-montonio-eu-issued-commercial-cards-card-verified",
@@ -3887,7 +4340,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-revolut-merchant-eea-consumer-cards-card",
@@ -3922,7 +4376,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-revolut-pay-by-bank-a2a",
@@ -3957,7 +4412,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-stripe-standard-eea-consumer-cards-card",
@@ -3992,7 +4448,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "EE-swedbank-pay-local-merchant-acquiring-acceptance-card",
@@ -4027,7 +4484,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-adyen-visa-mastercard-markup-card",
@@ -4062,7 +4520,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-clearhaus-ic-merchant-acquiring-card",
@@ -4097,7 +4556,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "ES-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "ES",
+      "country": "Španělsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "ES-getnet-local-merchant-acquiring-acceptance-card",
@@ -4132,7 +4628,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-mollie-eea-consumer-cards-card",
@@ -4167,7 +4664,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-paycomet-above-eur-2-000-month-card",
@@ -4202,7 +4700,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-redsys-local-merchant-acquiring-acceptance-card",
@@ -4237,7 +4736,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-revolut-merchant-eea-consumer-cards-card",
@@ -4272,7 +4772,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-revolut-pay-by-bank-a2a",
@@ -4307,7 +4808,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-stripe-bizum-a2a",
@@ -4342,7 +4844,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "ES-stripe-standard-eea-consumer-cards-card",
@@ -4377,7 +4880,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-adyen-visa-mastercard-markup-card",
@@ -4412,7 +4916,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-clearhaus-ic-merchant-acquiring-card",
@@ -4447,7 +4952,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "FI-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "FI",
+      "country": "Finsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "FI-mollie-eea-consumer-cards-card",
@@ -4482,7 +5024,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-nets-nexi-local-merchant-acquiring-acceptance-card",
@@ -4517,7 +5060,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-paytrail-m-plan-card",
@@ -4552,7 +5096,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-paytrail-s-plan-card",
@@ -4587,7 +5132,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-revolut-merchant-eea-consumer-cards-card",
@@ -4622,7 +5168,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-revolut-pay-by-bank-a2a",
@@ -4657,7 +5204,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-stripe-standard-eea-consumer-cards-card",
@@ -4692,7 +5240,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FI-vipps-mobilepay-payment-integration-a2a",
@@ -4727,7 +5276,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-adyen-visa-mastercard-markup-card",
@@ -4762,7 +5312,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-bnp-paribas-local-merchant-acquiring-acceptance-card",
@@ -4797,7 +5348,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-clearhaus-ic-merchant-acquiring-card",
@@ -4832,7 +5384,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "FR-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "FR",
+      "country": "Francie",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "FR-mollie-eea-consumer-cards-card",
@@ -4867,7 +5456,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-payplug-1-2pct-card-verified",
@@ -4902,7 +5492,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-payplug-1-9pct-card-verified",
@@ -4937,7 +5528,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-payplug-2-5pct-card-verified",
@@ -4972,7 +5564,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-revolut-merchant-eea-consumer-cards-card",
@@ -5007,7 +5600,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-revolut-pay-by-bank-a2a",
@@ -5042,7 +5636,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-stripe-standard-eea-consumer-cards-card",
@@ -5077,7 +5672,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-sumup-online-payments-card",
@@ -5112,7 +5708,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "FR-worldline-local-merchant-acquiring-acceptance-card",
@@ -5147,7 +5744,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-adyen-visa-mastercard-markup-card",
@@ -5182,7 +5780,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-clearhaus-ic-merchant-acquiring-card",
@@ -5217,7 +5816,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "GR-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "GR",
+      "country": "Řecko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "GR-mollie-eea-consumer-cards-card",
@@ -5252,7 +5888,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-nexi-local-merchant-acquiring-acceptance-card",
@@ -5287,7 +5924,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-revolut-merchant-eea-consumer-cards-card",
@@ -5322,7 +5960,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-revolut-pay-by-bank-a2a",
@@ -5357,7 +5996,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-stripe-standard-eea-consumer-cards-card",
@@ -5392,7 +6032,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-viva-com-domaci-ehp-karta-ic-plus-plus-card-verified",
@@ -5427,7 +6068,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "GR-viva.com-iris-online-payments-a2a-verified",
@@ -5462,7 +6104,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-adyen-visa-mastercard-markup-card",
@@ -5497,7 +6140,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-clearhaus-ic-merchant-acquiring-card",
@@ -5532,7 +6176,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "HR-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "HR",
+      "country": "Chorvatsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "HR-corvuspay-standard-card-verified",
@@ -5567,7 +6248,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-mollie-eea-consumer-cards-card",
@@ -5602,7 +6284,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-nexi-local-merchant-acquiring-acceptance-card",
@@ -5637,7 +6320,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-revolut-merchant-eea-consumer-cards-card",
@@ -5672,7 +6356,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-revolut-pay-by-bank-a2a",
@@ -5707,7 +6392,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HR-stripe-standard-eea-consumer-cards-card",
@@ -5742,7 +6428,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-adyen-visa-mastercard-markup-card",
@@ -5777,7 +6464,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-barion-fixed-advanced-first-tier-card",
@@ -5812,7 +6500,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-barion-fixed-starter-first-tier-card",
@@ -5847,7 +6536,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-clearhaus-ic-merchant-acquiring-card",
@@ -5882,7 +6572,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "HU-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "HU",
+      "country": "Maďarsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "HUF",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "HUF"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "HU-gopay-standard-a2a-restored",
@@ -5917,7 +6644,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-gopay-standard-card-restored",
@@ -5952,7 +6680,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-mollie-eea-consumer-cards-card",
@@ -5987,7 +6716,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-otp-bank-local-merchant-acquiring-acceptance-card",
@@ -6022,7 +6752,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-revolut-merchant-eea-consumer-cards-card",
@@ -6057,7 +6788,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-revolut-pay-by-bank-a2a",
@@ -6092,7 +6824,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-simplepay-otp-huf-card",
@@ -6127,7 +6860,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:21:39+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:21:39+00:00"
+      "last_changed_at": "2026-08-12T19:21:39+00:00",
+      "card_scheme": null
     },
     {
       "id": "HU-stripe-standard-eea-consumer-cards-card",
@@ -6162,7 +6896,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-thepay-standard-a2a-restored",
@@ -6197,7 +6932,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "HU-thepay-standard-card-restored",
@@ -6232,7 +6968,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-aib-merchant-services-local-merchant-acquiring-acceptance-card",
@@ -6267,7 +7004,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-adyen-visa-mastercard-markup-card",
@@ -6302,7 +7040,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-clearhaus-ic-merchant-acquiring-card",
@@ -6337,7 +7076,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "IE-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "IE",
+      "country": "Irsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "IE-elavon-local-merchant-acquiring-acceptance-card",
@@ -6372,7 +7148,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-mollie-eea-consumer-cards-card",
@@ -6407,7 +7184,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-revolut-merchant-eea-consumer-cards-card",
@@ -6442,7 +7220,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-revolut-pay-by-bank-a2a",
@@ -6477,7 +7256,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IE-stripe-standard-eea-consumer-cards-card",
@@ -6512,7 +7292,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IS-clearhaus-ic-merchant-acquiring-card",
@@ -6547,7 +7328,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "IS-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "IS",
+      "country": "Island",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "ISK",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "ISK"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "IS-mollie-eea-consumer-cards-card",
@@ -6582,7 +7400,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IS-revolut-merchant-eea-consumer-cards-card",
@@ -6617,7 +7436,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IS-revolut-pay-by-bank-a2a",
@@ -6652,7 +7472,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IS-teya-iceland-local-merchant-acquiring-acceptance-card",
@@ -6687,7 +7508,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IS-valitor-card-acquiring-card-verified",
@@ -6722,7 +7544,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-adyen-visa-mastercard-markup-card",
@@ -6757,7 +7580,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-axerve-local-merchant-acquiring-acceptance-card",
@@ -6792,7 +7616,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-clearhaus-ic-merchant-acquiring-card",
@@ -6827,7 +7652,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "IT-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "IT",
+      "country": "Itálie",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "IT-mollie-eea-consumer-cards-card",
@@ -6862,7 +7724,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-nexi-local-merchant-acquiring-acceptance-card",
@@ -6897,7 +7760,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-revolut-merchant-eea-consumer-cards-card",
@@ -6932,7 +7796,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-revolut-pay-by-bank-a2a",
@@ -6967,7 +7832,44 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "IT-satispay-business-ecommerce-wallet",
+      "country_iso2": "IT",
+      "country": "Itálie",
+      "provider": "Satispay Business",
+      "provider_type": "Veřejný ceník",
+      "product": "E-commerce (QR/app, NE karta)",
+      "channel": "online",
+      "method": "a2a",
+      "pricing_model": "Blended",
+      "variable_pct_min": 1.0,
+      "variable_pct_max": 1.0,
+      "fixed_fee_min": 0,
+      "fixed_fee_max": 0,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": null,
+      "monthly_currency": "EUR",
+      "condition": "Transakce do 10 € zdarma. Zákazník MUSÍ mít Satispay appku - není to karta.",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.webeconomia.it/satispay-recensione/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "ÚPLNOST srpen 2026: chybělo úplně, potvrzeno 5+ nezávislými italskými zdroji shodně na 1% pro e-commerce (fyzické obchody mají jinou strukturu - do 10€ zdarma, nad 10€ paušál 0,20€, ne %). Aktivní i v AT/BE/CZ/DE/DK/EE/FI/FR/GR/HU/IE/LT/LU/LV/NL/NO/PL/PT/SE/SI/SK/ES - stálo by za doplnění i jinam, zatím jen IT. Je to QR/appka, ne karta - proto A2A/wallet kategorie, ne přímá náhrada za kartový acquiring.",
+      "verification": "ověřeno 5x nezávisle (srpen 2026)",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-17T20:58:22+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-17T20:58:22+00:00",
+      "card_scheme": null
     },
     {
       "id": "IT-stripe-satispay-a2a",
@@ -7002,7 +7904,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "IT-stripe-standard-eea-consumer-cards-card",
@@ -7037,7 +7940,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LI-adyen-visa-mastercard-markup-card",
@@ -7072,7 +7976,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LI-clearhaus-ic-merchant-acquiring-card",
@@ -7107,7 +8012,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "LI-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "LI",
+      "country": "Lichtenštejnsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "CHF",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "CHF"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "LI-mollie-eea-consumer-cards-card",
@@ -7142,7 +8084,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LI-stripe-standard-eea-consumer-cards-card",
@@ -7177,7 +8120,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LI-stripe-twint-a2a",
@@ -7212,7 +8156,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LI-worldline-switzerland-local-merchant-acquiring-acceptance-card",
@@ -7247,7 +8192,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-adyen-visa-mastercard-markup-card",
@@ -7282,7 +8228,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-clearhaus-ic-merchant-acquiring-card",
@@ -7317,7 +8264,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "LT-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "LT",
+      "country": "Litva",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "LT-everypay-local-merchant-acquiring-acceptance-card",
@@ -7352,7 +8336,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-makecommerce-e-commerce-standard-a2a",
@@ -7387,7 +8372,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-makecommerce-e-commerce-standard-card",
@@ -7422,7 +8408,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-mollie-eea-consumer-cards-card",
@@ -7457,7 +8444,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-montonio-eu-issued-commercial-cards-card-verified",
@@ -7492,7 +8480,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-paysera-local-merchant-acquiring-acceptance-card",
@@ -7527,7 +8516,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-revolut-merchant-eea-consumer-cards-card",
@@ -7562,7 +8552,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-revolut-pay-by-bank-a2a",
@@ -7597,7 +8588,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LT-stripe-standard-eea-consumer-cards-card",
@@ -7632,7 +8624,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LU-adyen-visa-mastercard-markup-card",
@@ -7667,7 +8660,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LU-clearhaus-ic-merchant-acquiring-card",
@@ -7702,7 +8696,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "LU-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "LU",
+      "country": "Lucembursko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "LU-mollie-eea-consumer-cards-card",
@@ -7737,7 +8768,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LU-revolut-merchant-eea-consumer-cards-card",
@@ -7772,7 +8804,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LU-revolut-pay-by-bank-a2a",
@@ -7807,7 +8840,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LU-stripe-standard-eea-consumer-cards-card",
@@ -7842,7 +8876,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LU-worldline-local-merchant-acquiring-acceptance-card",
@@ -7877,7 +8912,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-adyen-visa-mastercard-markup-card",
@@ -7912,7 +8948,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-clearhaus-ic-merchant-acquiring-card",
@@ -7947,7 +8984,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "LV-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "LV",
+      "country": "Lotyšsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "LV-everypay-local-merchant-acquiring-acceptance-card",
@@ -7982,7 +9056,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-makecommerce-e-commerce-standard-a2a",
@@ -8017,7 +9092,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-makecommerce-e-commerce-standard-card",
@@ -8052,7 +9128,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-mollie-eea-consumer-cards-card",
@@ -8087,7 +9164,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-montonio-eu-issued-commercial-cards-card-verified",
@@ -8122,7 +9200,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-paysera-local-merchant-acquiring-acceptance-card",
@@ -8157,7 +9236,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-revolut-merchant-eea-consumer-cards-card",
@@ -8192,7 +9272,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-revolut-pay-by-bank-a2a",
@@ -8227,7 +9308,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "LV-stripe-standard-eea-consumer-cards-card",
@@ -8262,7 +9344,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "MT-adyen-visa-mastercard-markup-card",
@@ -8297,7 +9380,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "MT-bov-merchant-services-individual-card",
@@ -8332,7 +9416,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:21:39+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:21:39+00:00"
+      "last_changed_at": "2026-08-12T19:21:39+00:00",
+      "card_scheme": null
     },
     {
       "id": "MT-clearhaus-ic-merchant-acquiring-card",
@@ -8367,7 +9452,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "MT-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "MT",
+      "country": "Malta",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "MT-mollie-eea-consumer-cards-card",
@@ -8402,7 +9524,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "MT-revolut-merchant-eea-consumer-cards-card",
@@ -8437,7 +9560,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "MT-revolut-pay-by-bank-a2a",
@@ -8472,7 +9596,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "MT-stripe-standard-eea-consumer-cards-card",
@@ -8507,7 +9632,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "MT-trust-payments-local-merchant-acquiring-acceptance-card",
@@ -8542,7 +9668,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-adyen-visa-mastercard-markup-card",
@@ -8577,7 +9704,44 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "NL-ccv-online-payments-individual-card",
+      "country_iso2": "NL",
+      "country": "Nizozemsko",
+      "provider": "CCV Online Payments",
+      "provider_type": "Individuální nabídka",
+      "product": "Card acceptance (via Elavon/Valitor/Amex/Bancontact backend)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Individual",
+      "variable_pct_min": null,
+      "variable_pct_max": null,
+      "fixed_fee_min": null,
+      "fixed_fee_max": null,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": null,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.ccv.eu/en/payment-solutions/services/online-payments",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "ÚPLNOST srpen 2026 (metoda: kompletní přehled NL/BE e-shop platforem - CCV Shop): CCV Online Payments je vlastní PSP CCV Shopu (obdoba Shoptet Pay), v datech chyběl úplně. Jejich vlastní pricing stránka ale nedává jedno číslo - \"model can include fixed + %, depends on payment brand\", pro konkrétní nabídku odkazují na \"maatwerktarief\" (individuální nabídka). Genuinně individuální, ne nedodělané hledání.",
+      "verification": "ověřeno přímým vyhledáním primárního zdroje (srpen 2026)",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-17T20:36:56+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-17T20:36:56+00:00",
+      "card_scheme": null
     },
     {
       "id": "NL-clearhaus-ic-merchant-acquiring-card",
@@ -8612,7 +9776,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "NL-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "NL",
+      "country": "Nizozemsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "NL-mollie-eea-consumer-cards-card",
@@ -8647,7 +9848,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-multisafepay-local-merchant-acquiring-acceptance-card",
@@ -8682,7 +9884,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-pay-local-merchant-acquiring-acceptance-card",
@@ -8717,7 +9920,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-revolut-merchant-eea-consumer-cards-card",
@@ -8752,7 +9956,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-revolut-pay-by-bank-a2a",
@@ -8787,7 +9992,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-stripe-ideal-wero-a2a",
@@ -8822,7 +10028,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NL-stripe-standard-eea-consumer-cards-card",
@@ -8857,7 +10064,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-adyen-visa-mastercard-markup-card",
@@ -8892,7 +10100,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-clearhaus-ic-merchant-acquiring-card",
@@ -8927,7 +10136,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "NO-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "NO",
+      "country": "Norsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "NOK",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "NOK"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "NO-mollie-eea-consumer-cards-card",
@@ -8962,7 +10208,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-nets-nexi-local-merchant-acquiring-acceptance-card",
@@ -8997,7 +10244,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-quickpay-merchant-account-advertised-from-rate-card",
@@ -9032,7 +10280,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-revolut-merchant-eea-consumer-cards-card",
@@ -9067,7 +10316,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-revolut-pay-by-bank-a2a",
@@ -9102,7 +10352,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-stripe-standard-eea-consumer-cards-card",
@@ -9137,7 +10388,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-swedbank-pay-local-merchant-acquiring-acceptance-card",
@@ -9172,7 +10424,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "NO-vipps-mobilepay-payment-links-card",
@@ -9207,7 +10460,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-adyen-visa-mastercard-markup-card",
@@ -9242,7 +10496,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-barion-standard-a2a-restored",
@@ -9277,7 +10532,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-barion-standard-card-restored",
@@ -9312,7 +10568,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-clearhaus-ic-merchant-acquiring-card",
@@ -9347,7 +10604,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "PL-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "PL",
+      "country": "Polsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "PLN",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "PLN"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "PL-fiserv-polcard-local-merchant-acquiring-acceptance-card",
@@ -9382,7 +10676,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-gopay-standard-a2a-restored",
@@ -9417,7 +10712,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-gopay-standard-card-restored",
@@ -9452,7 +10748,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-mollie-eea-consumer-cards-card",
@@ -9487,7 +10784,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-payu-promo-(zaváděcí-sazba)-a2a-restored",
@@ -9522,7 +10820,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-payu-promo-(zaváděcí-sazba)-card-restored",
@@ -9557,7 +10856,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-payu-standard-(po-zaváděcím-období)-a2a-restored",
@@ -9592,7 +10892,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-payu-standard-(po-zaváděcím-období)-card-restored",
@@ -9627,7 +10928,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-przelewy24-standard-a2a",
@@ -9662,7 +10964,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-przelewy24-standard-card",
@@ -9697,7 +11000,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-revolut-merchant-eea-consumer-cards-card",
@@ -9732,7 +11036,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-revolut-pay-by-bank-a2a",
@@ -9767,7 +11072,44 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "PL-shoper-platnosci-standard-card",
+      "country_iso2": "PL",
+      "country": "Polsko",
+      "provider": "Shoper Płatności (Autopay/Przelewy24)",
+      "provider_type": "Veřejný ceník",
+      "product": "Standard balíček (nejlevnější, ne Starter)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 1.58,
+      "variable_pct_max": 1.58,
+      "fixed_fee_min": 0.3,
+      "fixed_fee_max": 0.3,
+      "fee_currency": "PLN",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": null,
+      "monthly_currency": "PLN",
+      "condition": "Starter balíček je dražší: 1,98%+0,30 zł",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.shoper.pl/pelny-cennik-uslug-shoper",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "PLN"
+      },
+      "notes": "ÚPLNOST srpen 2026 (metoda: kompletní přehled Shoper - dominantní PL e-shop platforma). Shoper Płatności je vlastní branding nad Autopay S.A. (dřív Blue Media) nebo Przelewy24 - není jisté, jestli je to totožné s už trackovaným Przelewy24 přímým vztahem nebo samostatná sazba přes Shoper. Potvrzeno 2x nezávisle (Shoper vlastní ceník + třetí blog shodně 1,58%+0,30 zł pro Standard).",
+      "verification": "ověřeno přímým vyhledáním, 2x nezávisle potvrzeno (srpen 2026)",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-17T20:43:48+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-17T20:43:48+00:00",
+      "card_scheme": null
     },
     {
       "id": "PL-stripe-standard-eea-consumer-cards-card",
@@ -9802,7 +11144,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PL-tpay-local-merchant-acquiring-acceptance-card",
@@ -9837,7 +11180,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-adyen-visa-mastercard-markup-card",
@@ -9872,7 +11216,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-clearhaus-ic-merchant-acquiring-card",
@@ -9907,7 +11252,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "PT-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "PT",
+      "country": "Portugalsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "PT-eupago-e-commerce-a2a",
@@ -9942,7 +11324,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-eupago-e-commerce-a2a-2",
@@ -9977,7 +11360,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-eupago-e-commerce-card",
@@ -10012,7 +11396,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-mollie-eea-consumer-cards-card",
@@ -10047,7 +11432,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-revolut-merchant-eea-consumer-cards-card",
@@ -10082,7 +11468,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-revolut-pay-by-bank-a2a",
@@ -10117,7 +11504,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-sibs-reduniq-local-merchant-acquiring-acceptance-card",
@@ -10152,7 +11540,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-stripe-standard-eea-consumer-cards-card",
@@ -10187,7 +11576,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "PT-ifthenpay-local-merchant-acquiring-acceptance-card",
@@ -10222,7 +11612,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:54:36+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T18:54:36+00:00"
+      "last_changed_at": "2026-08-12T18:54:36+00:00",
+      "card_scheme": null
     },
     {
       "id": "RO-adyen-visa-mastercard-markup-card",
@@ -10257,7 +11648,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-clearhaus-ic-merchant-acquiring-card",
@@ -10292,7 +11684,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "RO-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "RO",
+      "country": "Rumunsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "RON",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "RON"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "RO-euplatesc-local-merchant-acquiring-acceptance-card",
@@ -10327,7 +11756,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-gopay-standard-a2a-restored",
@@ -10362,7 +11792,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-gopay-standard-card-restored",
@@ -10397,7 +11828,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-mollie-eea-consumer-cards-card",
@@ -10432,7 +11864,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-netopia-card-consumer-card",
@@ -10467,7 +11900,8 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T18:54:36+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:04:07+00:00"
+      "last_changed_at": "2026-08-12T19:04:07+00:00",
+      "card_scheme": null
     },
     {
       "id": "RO-netopia-payments-local-merchant-acquiring-acceptance-card",
@@ -10502,7 +11936,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-payu-standard-card-restored",
@@ -10537,7 +11972,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-revolut-merchant-eea-consumer-cards-card",
@@ -10572,7 +12008,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-revolut-pay-by-bank-a2a",
@@ -10607,7 +12044,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-stripe-standard-eea-consumer-cards-card",
@@ -10642,7 +12080,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-thepay-standard-a2a-restored",
@@ -10677,7 +12116,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "RO-thepay-standard-card-restored",
@@ -10712,7 +12152,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-adyen-visa-mastercard-markup-card",
@@ -10747,7 +12188,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-clearhaus-ic-merchant-acquiring-card",
@@ -10782,7 +12224,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "SE-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "SE",
+      "country": "Švédsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "SEK",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "SEK"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "SE-mollie-eea-consumer-cards-card",
@@ -10817,7 +12296,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-quickpay-merchant-account-advertised-from-rate-card",
@@ -10852,7 +12332,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-revolut-merchant-eea-consumer-cards-card",
@@ -10887,7 +12368,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-revolut-pay-by-bank-a2a",
@@ -10922,7 +12404,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-stripe-standard-eea-consumer-cards-card",
@@ -10957,7 +12440,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-swedbank-pay-local-merchant-acquiring-acceptance-card",
@@ -10992,7 +12476,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SE-swish-standard-a2a-restored",
@@ -11027,7 +12512,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-adyen-visa-mastercard-markup-card",
@@ -11062,7 +12548,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-bankart-local-merchant-acquiring-acceptance-card",
@@ -11097,7 +12584,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-bankart-payment-gateway-card-verified",
@@ -11132,7 +12620,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-clearhaus-ic-merchant-acquiring-card",
@@ -11167,7 +12656,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "SI-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "SI",
+      "country": "Slovinsko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "SI-mollie-eea-consumer-cards-card",
@@ -11202,7 +12728,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-revolut-merchant-eea-consumer-cards-card",
@@ -11237,7 +12764,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-revolut-pay-by-bank-a2a",
@@ -11272,7 +12800,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-stripe-standard-eea-consumer-cards-card",
@@ -11307,7 +12836,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SI-worldline-local-merchant-acquiring-acceptance-card",
@@ -11342,7 +12872,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-adyen-visa-mastercard-markup-card",
@@ -11377,7 +12908,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-barion-standard-a2a-restored",
@@ -11412,7 +12944,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-barion-standard-card-restored",
@@ -11447,7 +12980,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-besteron-local-merchant-acquiring-acceptance-card",
@@ -11482,7 +13016,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-clearhaus-ic-merchant-acquiring-card",
@@ -11517,7 +13052,44 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-12T19:16:32+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-12T19:16:32+00:00"
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "domestic"
+    },
+    {
+      "id": "SK-clearhaus-ic-merchant-acquiring-intl-card",
+      "country_iso2": "SK",
+      "country": "Slovensko",
+      "provider": "Clearhaus",
+      "provider_type": "Veřejný ceník",
+      "product": "Zahraničně vydané / podnikatelské karty (foreign)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 2.75,
+      "variable_pct_max": 2.75,
+      "fixed_fee_min": 0.4,
+      "fixed_fee_max": 0.4,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_6",
+      "source_url": "https://www.clearhaus.com/pricing/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
+      "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
+      "source_status": "manual",
+      "source_checked_at": "2026-08-12T19:16:32+00:00",
+      "source_hash": null,
+      "last_changed_at": "2026-08-12T19:16:32+00:00",
+      "card_scheme": "intl"
     },
     {
       "id": "SK-gopay-standard-a2a-restored",
@@ -11552,7 +13124,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-gopay-standard-card-restored",
@@ -11587,7 +13160,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-mollie-eea-consumer-cards-card",
@@ -11622,7 +13196,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-revolut-merchant-eea-consumer-cards-card",
@@ -11657,7 +13232,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-revolut-pay-by-bank-a2a",
@@ -11692,147 +13268,8 @@
       "source_status": "seeded",
       "source_checked_at": null,
       "source_hash": null,
-      "last_changed_at": null
-    },
-    {
-      "id": "SK-stripe-standard-eea-consumer-cards-card",
-      "country_iso2": "SK",
-      "country": "Slovensko",
-      "provider": "Stripe",
-      "provider_type": "Veřejný ceník",
-      "product": "Standard EEA consumer cards (Card)",
-      "channel": "online",
-      "method": "card",
-      "pricing_model": "Blended",
-      "variable_pct_min": 1.5,
-      "variable_pct_max": 1.5,
-      "fixed_fee_min": 0.25,
-      "fixed_fee_max": 0.25,
-      "fee_currency": "EUR",
-      "cap": null,
-      "cap_currency": null,
-      "monthly_fee": 0,
-      "monthly_currency": "EUR",
-      "condition": "",
-      "promo": false,
-      "source_id": "src_29",
-      "source_url": "https://stripe.com/en-sk/pricing",
-      "parser": {
-        "anchor": "",
-        "auto_parse": false,
-        "expected_currency": "EUR"
-      },
-      "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
-      "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
-      "source_status": "seeded",
-      "source_checked_at": null,
-      "source_hash": null,
-      "last_changed_at": null
-    },
-    {
-      "id": "SK-thepay-standard-a2a-restored",
-      "country_iso2": "SK",
-      "country": "Slovensko",
-      "provider": "ThePay",
-      "provider_type": "PSP / gateway",
-      "product": "Standard",
-      "channel": "online",
-      "method": "a2a",
-      "pricing_model": "Blended",
-      "variable_pct_min": 0.99,
-      "variable_pct_max": 0.99,
-      "fixed_fee_min": 0,
-      "fixed_fee_max": 0,
-      "fee_currency": "EUR",
-      "cap": null,
-      "cap_currency": null,
-      "monthly_fee": 0,
-      "monthly_currency": "EUR",
-      "condition": "",
-      "promo": false,
-      "source_id": null,
-      "source_url": "https://www.thepay.eu/nwm-upload/2023/06/sazebnik_poplatku_15_6_2023_.pdf",
-      "parser": {
-        "anchor": "",
-        "auto_parse": false,
-        "expected_currency": "EUR"
-      },
-      "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
-      "verification": "obnoveno z původního zdroje uživatele",
-      "source_status": "seeded",
-      "source_checked_at": null,
-      "source_hash": null,
-      "last_changed_at": null
-    },
-    {
-      "id": "SK-thepay-standard-card-restored",
-      "country_iso2": "SK",
-      "country": "Slovensko",
-      "provider": "ThePay",
-      "provider_type": "PSP / gateway",
-      "product": "Standard",
-      "channel": "online",
-      "method": "card",
-      "pricing_model": "Blended",
-      "variable_pct_min": 0.99,
-      "variable_pct_max": 0.99,
-      "fixed_fee_min": 0,
-      "fixed_fee_max": 0,
-      "fee_currency": "EUR",
-      "cap": null,
-      "cap_currency": null,
-      "monthly_fee": 0,
-      "monthly_currency": "EUR",
-      "condition": "",
-      "promo": false,
-      "source_id": null,
-      "source_url": "https://www.thepay.eu/nwm-upload/2023/06/sazebnik_poplatku_15_6_2023_.pdf",
-      "parser": {
-        "anchor": "",
-        "auto_parse": false,
-        "expected_currency": "EUR"
-      },
-      "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
-      "verification": "obnoveno z původního zdroje uživatele",
-      "source_status": "seeded",
-      "source_checked_at": null,
-      "source_hash": null,
-      "last_changed_at": null
-    },
-    {
-      "id": "SK-trustpay-local-merchant-acquiring-acceptance-card",
-      "country_iso2": "SK",
-      "country": "Slovensko",
-      "provider": "TrustPay",
-      "provider_type": "Individuální nabídka",
-      "product": "Local merchant acquiring / acceptance (Card)",
-      "channel": "online",
-      "method": "card",
-      "pricing_model": "Individual",
-      "variable_pct_min": null,
-      "variable_pct_max": null,
-      "fixed_fee_min": null,
-      "fixed_fee_max": null,
-      "fee_currency": "EUR",
-      "cap": null,
-      "cap_currency": null,
-      "monthly_fee": 0,
-      "monthly_currency": "EUR",
-      "condition": "",
-      "promo": false,
-      "source_id": "src_91",
-      "source_url": "https://www.trustpay.eu/",
-      "parser": {
-        "anchor": "",
-        "auto_parse": false,
-        "expected_currency": "EUR"
-      },
-      "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
-      "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
-      "source_status": "seeded",
-      "source_checked_at": null,
-      "source_hash": null,
-      "last_changed_at": null
+      "last_changed_at": null,
+      "card_scheme": null
     },
     {
       "id": "SK-shoptet-pay-enterprise-card",
@@ -11867,7 +13304,152 @@
       "source_status": "manual",
       "source_checked_at": "2026-08-17T20:24:06+00:00",
       "source_hash": null,
-      "last_changed_at": "2026-08-17T20:24:06+00:00"
+      "last_changed_at": "2026-08-17T20:24:06+00:00",
+      "card_scheme": null
+    },
+    {
+      "id": "SK-stripe-standard-eea-consumer-cards-card",
+      "country_iso2": "SK",
+      "country": "Slovensko",
+      "provider": "Stripe",
+      "provider_type": "Veřejný ceník",
+      "product": "Standard EEA consumer cards (Card)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 1.5,
+      "variable_pct_max": 1.5,
+      "fixed_fee_min": 0.25,
+      "fixed_fee_max": 0.25,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_29",
+      "source_url": "https://stripe.com/en-sk/pricing",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
+      "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
+      "source_status": "seeded",
+      "source_checked_at": null,
+      "source_hash": null,
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "SK-thepay-standard-a2a-restored",
+      "country_iso2": "SK",
+      "country": "Slovensko",
+      "provider": "ThePay",
+      "provider_type": "PSP / gateway",
+      "product": "Standard",
+      "channel": "online",
+      "method": "a2a",
+      "pricing_model": "Blended",
+      "variable_pct_min": 0.99,
+      "variable_pct_max": 0.99,
+      "fixed_fee_min": 0,
+      "fixed_fee_max": 0,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.thepay.eu/nwm-upload/2023/06/sazebnik_poplatku_15_6_2023_.pdf",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
+      "verification": "obnoveno z původního zdroje uživatele",
+      "source_status": "seeded",
+      "source_checked_at": null,
+      "source_hash": null,
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "SK-thepay-standard-card-restored",
+      "country_iso2": "SK",
+      "country": "Slovensko",
+      "provider": "ThePay",
+      "provider_type": "PSP / gateway",
+      "product": "Standard",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Blended",
+      "variable_pct_min": 0.99,
+      "variable_pct_max": 0.99,
+      "fixed_fee_min": 0,
+      "fixed_fee_max": 0,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": null,
+      "source_url": "https://www.thepay.eu/nwm-upload/2023/06/sazebnik_poplatku_15_6_2023_.pdf",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
+      "verification": "obnoveno z původního zdroje uživatele",
+      "source_status": "seeded",
+      "source_checked_at": null,
+      "source_hash": null,
+      "last_changed_at": null,
+      "card_scheme": null
+    },
+    {
+      "id": "SK-trustpay-local-merchant-acquiring-acceptance-card",
+      "country_iso2": "SK",
+      "country": "Slovensko",
+      "provider": "TrustPay",
+      "provider_type": "Individuální nabídka",
+      "product": "Local merchant acquiring / acceptance (Card)",
+      "channel": "online",
+      "method": "card",
+      "pricing_model": "Individual",
+      "variable_pct_min": null,
+      "variable_pct_max": null,
+      "fixed_fee_min": null,
+      "fixed_fee_max": null,
+      "fee_currency": "EUR",
+      "cap": null,
+      "cap_currency": null,
+      "monthly_fee": 0,
+      "monthly_currency": "EUR",
+      "condition": "",
+      "promo": false,
+      "source_id": "src_91",
+      "source_url": "https://www.trustpay.eu/",
+      "parser": {
+        "anchor": "",
+        "auto_parse": false,
+        "expected_currency": "EUR"
+      },
+      "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
+      "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
+      "source_status": "seeded",
+      "source_checked_at": null,
+      "source_hash": null,
+      "last_changed_at": null,
+      "card_scheme": null
     }
   ]
 }

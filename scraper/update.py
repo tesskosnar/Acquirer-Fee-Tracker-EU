@@ -35,7 +35,17 @@ USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-o
 TIMEOUT = 30
 ADYEN_SOURCE_ID = "src_5"
 ADYEN_CEE_COUNTRIES = {"CZ", "SK", "PL", "HU", "RO", "BG", "HR", "SI", "EE", "LV", "LT"}
+ADYEN_EUROPE_COUNTRIES = {
+    "AT", "BE", "CH", "CY", "DE", "DK", "ES", "FI", "FR", "GB", "GR",
+    "IE", "IS", "IT", "LI", "LU", "MT", "NL", "NO", "PT", "SE",
+}
+ADYEN_CARD_COUNTRIES = ADYEN_CEE_COUNTRIES | ADYEN_EUROPE_COUNTRIES
+ADYEN_ICPP_REFERENCE_COUNTRIES = ADYEN_CARD_COUNTRIES - {"CH"}
 ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
+REFERENCE_TRANSACTION_EUR = 20.0
+ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT = 0.20
+ICPP_EEA_SCHEME_FEE_REFERENCE_PCT = 0.15
+ICPP_SCHEME_FEE_SOURCE_URL = "https://www.paybyrd.com/pricing/scheme-fees"
 
 # The registry is deliberately provider-led, while the dataset sometimes uses
 # a shorter commercial label.  These aliases make the reconciliation explicit
@@ -126,6 +136,29 @@ def provider_role(offer: dict) -> str:
     if 'a2a poskytovatel' in kind or method=='a2a':
         return 'a2a_provider'
     return 'other'
+
+
+def assign_provider_roles(offers: list[dict]) -> list[dict]:
+    """Keep one organisation role across its card and A2A rows in a country."""
+    priority={
+        'other':0,
+        'a2a_provider':1,
+        'gateway_processor':2,
+        'psp':3,
+        'acquirer_sales_channel':4,
+        'acquirer':5,
+    }
+    roles:dict[tuple[str,str],str]={}
+    for offer in offers:
+        key=(offer.get('country_iso2',''),provider_key(offer.get('provider')))
+        candidate=provider_role(offer)
+        current=roles.get(key,'other')
+        if priority[candidate]>priority[current]:
+            roles[key]=candidate
+    for offer in offers:
+        key=(offer.get('country_iso2',''),provider_key(offer.get('provider')))
+        offer['provider_role']=roles.get(key,provider_role(offer))
+    return offers
 
 
 def build_registry_audit(registry: dict, offers: list[dict], aliases: dict | None = None) -> dict:
@@ -328,10 +361,21 @@ def adyen_pricing_components(processing: dict, method_fee: dict | None, card: bo
             "adyen_markup_pct": 0.6,
             "interchange": {
                 "model": "pass-through",
-                "eea_consumer_debit_reference_pct": 0.2,
+                "eea_consumer_debit_reference_pct": ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,
                 "eea_consumer_credit_reference_pct": 0.3,
             },
             "scheme_fees": "pass-through; variable",
+            "comparison_reference": {
+                "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
+                "interchange_pct": ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,
+                "scheme_fee_pct": ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,
+                "total_addon_pct": round(
+                    ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT
+                    + ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,
+                    4,
+                ),
+                "scheme_fee_source_url": ICPP_SCHEME_FEE_SOURCE_URL,
+            },
         })
     elif method_fee:
         components["payment_method_fee"] = {
@@ -393,29 +437,85 @@ def build_adyen_a2a_offer(country_code: str, country_name: str, name: str, slug:
 
 def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
                           catalog: dict | None = None, source_hash: str | None = None) -> list[dict]:
-    """Correct CEE cards and discover A2A from Adyen's official types and country IDs."""
+    """Model Adyen cards across Europe and discover CEE A2A by official country IDs."""
     processing_by_country = (catalog or {}).get("processing", {})
     default_processing = {"amount": 0.11, "currency": "EUR"}
+    existing_card_countries = {
+        offer.get("country_iso2") for offer in offers
+        if offer.get("provider") == "Adyen" and offer.get("method") == "card"
+    }
+    for code in sorted(ADYEN_CARD_COUNTRIES - existing_card_countries):
+        if code not in countries:
+            continue
+        processing = processing_by_country.get(
+            code,
+            {"amount": 0.11, "currency": "GBP" if code == "GB" else "EUR"},
+        )
+        offers.append({
+            "id": f"{code}-adyen-visa-mastercard-markup-card",
+            "country_iso2": code,
+            "country": countries[code]["name"],
+            "provider": "Adyen",
+            "provider_type": "Acquirer",
+            "product": "Visa/Mastercard",
+            "channel": "online",
+            "method": "card",
+            "pricing_model": "IC++",
+            "variable_pct_min": 0.6,
+            "variable_pct_max": 0.6,
+            "fixed_fee_min": processing["amount"],
+            "fixed_fee_max": processing["amount"],
+            "fee_currency": processing["currency"],
+            "monthly_fee": 0,
+            "monthly_currency": processing["currency"],
+            "card_scheme": "intl",
+            "source_id": ADYEN_SOURCE_ID,
+            "source_url": "https://www.adyen.com/pricing",
+        })
     for offer in offers:
         if offer.get("provider") != "Adyen" or offer.get("method") != "card":
             continue
         code = offer.get("country_iso2")
-        if code not in ADYEN_CEE_COUNTRIES:
+        if code not in ADYEN_CARD_COUNTRIES:
             continue
-        processing = processing_by_country.get(code, default_processing)
+        processing = processing_by_country.get(
+            code,
+            {"amount": 0.11, "currency": "GBP" if code == "GB" else "EUR"},
+        )
+        components = adyen_pricing_components(processing, None, card=True)
+        has_reference = code in ADYEN_ICPP_REFERENCE_COUNTRIES
+        if code == "GB":
+            components["comparison_reference"]["profile"] = "UK domestic consumer debit card, authenticated Visa/Mastercard"
+        if not has_reference:
+            components.pop("comparison_reference", None)
+        product = (
+            "UK domácí spotřebitelská debetní karta (IC++ srovnávací odhad)"
+            if code == "GB" else
+            "Visa/Mastercard IC++ (srovnávací odhad zatím nedostupný)"
+            if code == "CH" else
+            "EEA spotřebitelská debetní karta (IC++ srovnávací odhad)"
+        )
         offer.update({
             "provider_type": "Acquirer",
+            "product": product,
             "fixed_fee_min": processing["amount"],
             "fixed_fee_max": processing["amount"],
             "fee_currency": processing["currency"],
             "monthly_currency": processing["currency"],
-            "pricing_components": adyen_pricing_components(processing, None, card=True),
+            "pricing_components": components,
             "all_in_complete": False,
-            "notes": "Adyen processing fee + 0.60% acquiring markup. Interchange and scheme fees are passed through separately; EEA consumer-card reference caps are 0.20% debit and 0.30% credit.",
+            "comparison_estimate": has_reference,
+            "notes": (
+                "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote."
+                if has_reference else
+                "Adyen processing fee + 0.60% acquiring markup. No all-in comparison is shown for Switzerland until a suitable domestic interchange reference is verified."
+            ),
             "verification": "auto-checked by country (Adyen pricing + payment-method API)" if catalog else "retained from last verified Adyen country audit",
             "source_status": "ok" if catalog else "seeded",
             "source_checked_at": checked_at,
             "source_hash": source_hash,
+            "source_id": ADYEN_SOURCE_ID,
+            "source_url": "https://www.adyen.com/pricing",
             "parser": {
                 "type": "adyen_country_method",
                 "country_code": code,
@@ -423,6 +523,13 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
                 "auto_parse": True,
                 "expected_currency": processing["currency"],
             },
+            "minimum_fee": None,
+            "cap": None,
+            "cap_currency": None,
+            "condition": "",
+            "promo": False,
+            "last_changed_at": offer.get("last_changed_at"),
+            "card_scheme": "intl",
         })
 
     # The generated Adyen A2A rows are rebuilt deterministically on every run.
@@ -445,6 +552,8 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
         # its price row is temporarily unparsable, retain the last verified fee.
         by_name = {method.get("name"): method for method in catalog.get("methods", [])}
         for code, name, slug, pct, method_fixed in ADYEN_CEE_A2A_SEED:
+            if code not in countries:
+                continue
             method = by_name.get(name, {})
             if code not in method.get("countries", set()) or (code, slug) in discovered:
                 continue
@@ -456,6 +565,8 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             }, False)
     else:
         for code, name, slug, pct, method_fixed in ADYEN_CEE_A2A_SEED:
+            if code not in countries:
+                continue
             processing = default_processing
             discovered[(code, slug)] = (code, name, slug, processing, {
                 "pct_min": pct, "pct_max": pct, "fixed": method_fixed,
@@ -567,13 +678,17 @@ def select_candidate(offer: dict, text: str) -> tuple[dict|None,float,str]:
     return best,confidence,best['raw'] if best else 'none'
 
 
-def calc(offer:dict,fx:dict,amount:float=500)->dict:
-    if offer.get('variable_pct_min') is None or offer.get('all_in_complete') is False:
+def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
+    if amount is None:
+        amount=REFERENCE_TRANSACTION_EUR*fx.get('EUR',{'czk_per_unit':1})['czk_per_unit']
+    is_estimate=offer.get('comparison_estimate') is True
+    if offer.get('variable_pct_min') is None or (offer.get('all_in_complete') is False and not is_estimate):
         return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
     rate=fx.get(offer.get('fee_currency'),{'czk_per_unit':1})['czk_per_unit']
-    interchange=(offer.get('pricing_components') or {}).get('interchange') or {}
-    variable_min=offer['variable_pct_min']+(interchange.get('eea_consumer_debit_reference_pct') or 0)
-    variable_max=offer['variable_pct_max']+(interchange.get('eea_consumer_credit_reference_pct') or 0)
+    comparison=(offer.get('pricing_components') or {}).get('comparison_reference') or {}
+    addon=comparison.get('total_addon_pct') or 0
+    variable_min=offer['variable_pct_min']+addon
+    variable_max=offer['variable_pct_max']+addon
     mn=amount*variable_min/100+(offer.get('fixed_fee_min') or 0)*rate
     mx=amount*variable_max/100+(offer.get('fixed_fee_max') or 0)*rate
     minimum=(offer.get('minimum_fee') or 0)*rate
@@ -764,12 +879,12 @@ def normalize_card_schemes(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','fee_500_min_czk','fee_500_max_czk','effective_500_min_pct','effective_500_max_pct','condition','source_url','verification','source_status','source_checked_at']
+    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','source_status','source_checked_at']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         for o in output['offers']:
-            c=o.get('calculation_500_czk',{})
-            row={k:o.get(k) for k in cols};row.update({'fee_500_min_czk':c.get('fee_min_czk'),'fee_500_max_czk':c.get('fee_max_czk'),'effective_500_min_pct':c.get('effective_min_pct'),'effective_500_max_pct':c.get('effective_max_pct')})
+            c=o.get('calculation_reference',{})
+            row={k:o.get(k) for k in cols};row.update({'reference_transaction_eur':REFERENCE_TRANSACTION_EUR,'fee_reference_min_czk':c.get('fee_min_czk'),'fee_reference_max_czk':c.get('fee_max_czk'),'effective_reference_min_pct':c.get('effective_min_pct'),'effective_reference_max_pct':c.get('effective_max_pct')})
             w.writerow(row)
 
 
@@ -856,14 +971,14 @@ def main()->int:
             else:
                 changes.append({'detected_at':now,'offer_id':o['id'],'field':'offer','old':None,'new':'added','source_url':o['source_url'],'confidence':0.99,'raw_match':'Adyen country + payment-method API'})
                 o['last_changed_at']=now
-            o['calculation_500_czk']=calc(o,fx)
+            o['calculation_reference']=calc(o,fx)
             continue
         # Ručně zadané nabídky (bez source_id, nebo výslovně auto_parse=False) se
         # vůbec nezkoušejí automaticky kontrolovat - jejich verification text píše
         # člověk, skript ho nemá přepisovat matoucím "source unavailable" hlášením.
         if not sid or not o.get('parser',{}).get('auto_parse',True):
             o['source_checked_at']=now
-            o['calculation_500_czk']=calc(o,fx)
+            o['calculation_reference']=calc(o,fx)
             continue
         src=fetched.get(sid,{})
         o['source_checked_at']=now;o['source_status']=src.get('status','not checked')
@@ -875,7 +990,7 @@ def main()->int:
                     o[field]=old.get(field)
             else:
                 o['verification']='retained – source unavailable'
-            o['calculation_500_czk']=calc(o,fx);continue
+            o['calculation_reference']=calc(o,fx);continue
         old=prev_by_id.get(o['id'],o)
         cand,conf,why=select_candidate(o,src['text'])
         if cand and conf>=0.88:
@@ -889,18 +1004,18 @@ def main()->int:
             if changed:o['last_changed_at']=now
         else:
             o['verification']=f'retained – review suggested ({conf:.0%}; {why})'
-        o['calculation_500_czk']=calc(o,fx)
+        o['calculation_reference']=calc(o,fx)
 
-    for o in offers:
-        o['provider_role']=provider_role(o)
+    assign_provider_roles(offers)
 
     registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8')) if CEE_REGISTRY.exists() else {'providers':[]}
     europe_registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8')) if EUROPE_REGISTRY.exists() else {'providers':[]}
     watchlist=json.loads(EUROPE_WATCHLIST.read_text(encoding='utf-8')) if EUROPE_WATCHLIST.exists() else {'providers':[]}
     cee_audit=build_cee_audit(registry,offers)
     europe_audit=build_registry_audit(europe_registry,offers)
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_czk':500,'methodology_version':'1.3',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'1.4',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
+            'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},
             'europe_acquirer_registry':{'as_of':europe_registry.get('as_of'),'provider_count':len(europe_registry.get('providers',[])),'country_count':len({item.get('country_iso2') for item in europe_registry.get('providers',[])})},
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},

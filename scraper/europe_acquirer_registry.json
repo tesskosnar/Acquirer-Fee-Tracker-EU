@@ -39,7 +39,7 @@
     {"country_iso2":"DE","provider":"VR Payment","role":"direct_acquirer","methods":["card"],"official_url":"https://www.vr-payment.de/"},
     {"country_iso2":"DE","provider":"secupay","role":"direct_acquirer","methods":["card"],"official_url":"https://secupay.com/unternehmen/pressecenter/presseberichte/pressemitteilungen/secupay-wird-principal-member-von-visa-und-mastercard"},
     {"country_iso2":"DE","provider":"POS-cash / secupay","role":"acquirer_sales_channel","methods":["card"],"official_url":"https://pos-cash.de/tarifvergleich/"},
-    {"country_iso2":"DE","provider":"Zahlo","role":"a2a_provider","methods":["a2a"],"official_url":"https://zahlo.eu/"},
+    {"country_iso2":"DE","provider":"Zahlo","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://zahlo.eu/pricing"},
     {"country_iso2":"DE","provider":"RS2","role":"direct_acquirer","methods":["card"],"official_url":"https://www.rs2.com/press_and_media/rs2-launches-its-own-acquiring-business/"},
 
     {"country_iso2":"FR","provider":"Worldline France","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/fr-fr/home"},
@@ -73,6 +73,7 @@
     {"country_iso2":"PT","provider":"ifthenpay","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.ifthenpay.com/assets/files/CONTRACT-IFTHENPAY-EN.pdf"},
     {"country_iso2":"PT","provider":"Eupago","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.eupago.pt/setores/meios-de-pagamento-para-o-e-commerce"},
     {"country_iso2":"PT","provider":"PAYCOMET","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.paycomet.com/en/pricing/payment-methods"},
+    {"country_iso2":"PT","provider":"Paybyrd","role":"full_service_psp","methods":["card"],"official_url":"https://www.paybyrd.com/pricing"},
 
     {"country_iso2":"AT","provider":"card complete","role":"direct_acquirer","methods":["card"],"official_url":"https://www.cardcomplete.com/fuer-unternehmen/"},
     {"country_iso2":"AT","provider":"hobex","role":"direct_acquirer","methods":["card"],"official_url":"https://www.hobex.at/"},

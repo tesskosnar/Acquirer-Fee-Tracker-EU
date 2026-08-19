@@ -23,7 +23,7 @@ Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zej
 - karty a A2A převody jako oddělené řádky; karetní peněženky se nepovažují za A2A,
 - mapa EU/EHP, Spojeného království a Švýcarska obarvená podle sazby (paleta #003f5c → #ffa600, tmavá = levnější),
 - kontextové srovnání - klikneš na zemi nebo poskytovatele, teprve pak se rozbalí tabulka,
-- nastavitelná částka transakce (výchozí 1000 Kč), žádný zbytečný měsíční kalkulátor,
+- jednotná referenční transakce 20 EUR; fixní poplatek se rovnou promítá do výsledné procentní sazby,
 - reálná sazba pro zadanou transakci: procentní poplatek plus pevná část převedená kurzem se vydělí částkou transakce a zobrazí jako jedno výsledné procento,
 - veřejný zdroj u každého řádku s odkazem přímo na konkrétní oficiální stránku,
 - týdenní historii a export CSV,
@@ -53,7 +53,9 @@ Adyen je výjimka z obecného textového parseru. Jeho ceník mění processing 
 - oficiální typ metody (`Online banking`, `Direct debit`, `Cards`), takže A2A nezmizí jen proto, že její název neobsahuje „A2A“,
 - konkrétní payment-method fee z ceníkové tabulky.
 
-U karet se interně ukládají oddělené komponenty. Adyen ale vedle processing fee a acquiring markup účtuje skutečný interchange a scheme fees, které bez konkrétní transakce nelze kompletně dopočítat. Dashboard proto tuto neúplnou IC++ cenu nevydává za celkové číslo a u karet zobrazí `individuální`. U A2A se zveřejní číslo jen tehdy, když lze z oficiálního ceníku sečíst processing fee a celou cenu konkrétní platební metody.
+U karet se interně ukládají oddělené komponenty. Pro srovnání IC++ nabídky používá dashboard jednotný profil autentizované EEA spotřebitelské debetní karty (a domácí UK debetní karty): `0,20 %` interchange a konzervativní referenci `0,15 %` scheme fee. Scheme-fee reference vychází z [veřejné tabulky Paybyrd](https://www.paybyrd.com/pricing/scheme-fees), která pro autentizované EEA transakce uvádí pozorované hodnoty přibližně `0,11–0,15 %`. Výsledek je označen `≈`, protože jde o srovnávací odhad, nikoli garantovanou cenu konkrétní transakce. Nepřidává se žádná plošná přirážka za CEE nebo ne-eurovou měnu; případné non-local settlement poplatky jsou podmíněné konkrétním nastavením. Pro Švýcarsko se tento odhad nepoužije, dokud nebude ověřena vhodná domácí interchange reference.
+
+Fixní transakční poplatky se převádějí do výsledné efektivní procentní sazby na jednotné referenční transakci `20 EUR`. U A2A se zveřejní číslo jen tehdy, když lze z oficiálního ceníku sečíst processing fee a celou cenu konkrétní platební metody.
 
 ## Nahrání na GitHub
 

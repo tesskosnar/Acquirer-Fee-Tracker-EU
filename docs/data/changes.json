@@ -408,5 +408,225 @@
     "source_url": "https://www.adyen.com/pricing",
     "confidence": 0.99,
     "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "NL-adyen-card-registry",
+    "field": "fixed_fee_min",
+    "old": null,
+    "new": 0.11,
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "NL-adyen-card-registry",
+    "field": "fixed_fee_max",
+    "old": null,
+    "new": 0.11,
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "AT-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "BE-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "CH-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "CY-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "DE-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "DK-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "ES-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "FI-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "FR-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "GB-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "GR-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "IE-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "IS-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "IT-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "LI-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "LU-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "MT-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "NO-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "PT-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
+  },
+  {
+    "detected_at": "2026-08-19T11:07:28+00:00",
+    "offer_id": "SE-adyen-visa-mastercard-markup-card",
+    "field": "offer",
+    "old": null,
+    "new": "added",
+    "source_url": "https://www.adyen.com/pricing",
+    "confidence": 0.99,
+    "raw_match": "Adyen country + payment-method API"
   }
 ]

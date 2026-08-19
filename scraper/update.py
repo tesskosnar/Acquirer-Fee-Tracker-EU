@@ -146,6 +146,16 @@ def provider_role(offer: dict) -> str:
     return 'other'
 
 
+def is_source_reviewed_offer(offer: dict) -> bool:
+    """Mirror the dashboard rule that decides whether a row is publishable."""
+    verification=(offer.get('verification') or '').lower()
+    excluded=('částečně','namátkově','rozšířeného datasetu','obnoveno z původního')
+    if any(token in verification for token in excluded):
+        return False
+    accepted=('ručně ověř','ověřen','last verified adyen','adyen country/method')
+    return verification.startswith('auto-checked') or any(token in verification for token in accepted)
+
+
 def assign_provider_roles(offers: list[dict]) -> list[dict]:
     """Keep one organisation role across its card and A2A rows in a country."""
     priority={
@@ -1060,6 +1070,18 @@ def main()->int:
     master_crosscheck=json.loads(PROVIDER_MASTER_CROSSCHECK.read_text(encoding='utf-8')) if PROVIDER_MASTER_CROSSCHECK.exists() else {'regulatory_master':{},'verified_country_additions':[]}
     cee_audit=build_cee_audit(registry,offers)
     europe_audit=build_registry_audit(europe_registry,offers)
+    unpriced=[offer for offer in offers if offer.get('variable_pct_min') is None]
+    data_quality={
+        'offer_row_count':len(offers),
+        'numeric_price_row_count':len(offers)-len(unpriced),
+        'no_numeric_price_row_count':len(unpriced),
+        'quote_or_individual_price_row_count':sum(1 for offer in unpriced if offer.get('pricing_model')=='Individual'),
+        'no_public_price_row_count':sum(1 for offer in unpriced if offer.get('pricing_model')=='Not public'),
+        'source_reviewed_row_count':sum(1 for offer in offers if is_source_reviewed_offer(offer)),
+        'unpriced_source_reviewed_row_count':sum(1 for offer in unpriced if is_source_reviewed_offer(offer)),
+        'unpriced_needs_individual_source_review_row_count':sum(1 for offer in unpriced if not is_source_reviewed_offer(offer)),
+        'counting_note':'Dashboard counts compact provider/country/method/scheme rows after source-review and active filters; the export keeps every tariff row.',
+    }
     output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'1.5',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
             'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
@@ -1067,6 +1089,7 @@ def main()->int:
             'europe_acquirer_registry':{'as_of':europe_registry.get('as_of'),'provider_count':len(europe_registry.get('providers',[])),'country_count':len({item.get('country_iso2') for item in europe_registry.get('providers',[])})},
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},
             'provider_master_crosscheck':{'as_of':master_crosscheck.get('as_of'),'normalised_group_count':master_crosscheck.get('regulatory_master',{}).get('normalised_group_count',0),'new_candidate_group_count':len(master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])),'verified_country_addition_count':len(master_crosscheck.get('verified_country_additions',[]))},
+            'data_quality':data_quality,
             'cee_audit':cee_audit,
             'europe_audit':europe_audit,
             'fx':{'source':'Česká národní banka','source_url':CNB_URL,'date':fx_date,'rates':fx},'sources':baseline['sources'],'countries':baseline['countries'],'offers':offers,'change_log':changes[-250:]}

@@ -112,11 +112,9 @@ def provider_key(value: str | None) -> str:
 
 
 def provider_role(offer: dict) -> str:
-    """Return a stable economic role for UI filtering and badges."""
+    """Return the provider's economic role, independently of payment method."""
     kind=(offer.get('provider_type') or '').lower()
     method=offer.get('method')
-    if method=='a2a':
-        return 'a2a_provider'
     if any(token in kind for token in ('bez acquiringu','gateway only','brána / procesor','brana / procesor')):
         return 'gateway_processor'
     if any(token in kind for token in ('distribuční kanál','distribucni kanal','sales channel')):
@@ -125,6 +123,8 @@ def provider_role(offer: dict) -> str:
         return 'acquirer'
     if any(token in kind for token in ('psp','wallet','veřejný ceník','verejny cenik')):
         return 'psp'
+    if 'a2a poskytovatel' in kind or method=='a2a':
+        return 'a2a_provider'
     return 'other'
 
 

@@ -8,97 +8,135 @@
       "country_iso2": "AT",
       "discovered_providers": 12,
       "discovered_acquirers": 6,
-      "matched_providers": 12,
-      "matched_acquirers": 6,
-      "missing_from_dataset": []
+      "matched_providers": 8,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Global Payments Austria",
+        "Unzer Austria",
+        "PAYONE Austria",
+        "Fiserv Austria"
+      ]
     },
     {
       "country_iso2": "BE",
       "discovered_providers": 5,
       "discovered_acquirers": 3,
-      "matched_providers": 5,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 3,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Worldline Belgium",
+        "CCV Belgium"
+      ]
     },
     {
       "country_iso2": "CH",
       "discovered_providers": 6,
       "discovered_acquirers": 4,
-      "matched_providers": 6,
-      "matched_acquirers": 4,
-      "missing_from_dataset": []
+      "matched_providers": 4,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Worldline Switzerland",
+        "Nexi Switzerland"
+      ]
     },
     {
       "country_iso2": "CY",
       "discovered_providers": 3,
       "discovered_acquirers": 3,
-      "matched_providers": 3,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 2,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Viva.com Cyprus"
+      ]
     },
     {
       "country_iso2": "DE",
       "discovered_providers": 11,
       "discovered_acquirers": 9,
-      "matched_providers": 11,
-      "matched_acquirers": 9,
-      "missing_from_dataset": []
+      "matched_providers": 9,
+      "matched_acquirers": 7,
+      "missing_from_dataset": [
+        "Nexi Germany / Concardis",
+        "Elavon Germany"
+      ]
     },
     {
       "country_iso2": "DK",
       "discovered_providers": 8,
       "discovered_acquirers": 2,
-      "matched_providers": 8,
-      "matched_acquirers": 2,
-      "missing_from_dataset": []
+      "matched_providers": 6,
+      "matched_acquirers": 1,
+      "missing_from_dataset": [
+        "Nets / Nexi Denmark",
+        "Flatpay Denmark"
+      ]
     },
     {
       "country_iso2": "ES",
       "discovered_providers": 7,
       "discovered_acquirers": 5,
-      "matched_providers": 7,
-      "matched_acquirers": 5,
-      "missing_from_dataset": []
+      "matched_providers": 6,
+      "matched_acquirers": 4,
+      "missing_from_dataset": [
+        "Dojo Spain"
+      ]
     },
     {
       "country_iso2": "FI",
       "discovered_providers": 4,
       "discovered_acquirers": 2,
-      "matched_providers": 4,
-      "matched_acquirers": 2,
-      "missing_from_dataset": []
+      "matched_providers": 2,
+      "matched_acquirers": 0,
+      "missing_from_dataset": [
+        "Nets / Nexi Finland",
+        "Worldline Finland"
+      ]
     },
     {
       "country_iso2": "FR",
       "discovered_providers": 9,
       "discovered_acquirers": 6,
-      "matched_providers": 9,
-      "matched_acquirers": 6,
-      "missing_from_dataset": []
+      "matched_providers": 8,
+      "matched_acquirers": 5,
+      "missing_from_dataset": [
+        "Worldline France"
+      ]
     },
     {
       "country_iso2": "GB",
       "discovered_providers": 20,
       "discovered_acquirers": 11,
-      "matched_providers": 20,
-      "matched_acquirers": 11,
-      "missing_from_dataset": []
+      "matched_providers": 16,
+      "matched_acquirers": 7,
+      "missing_from_dataset": [
+        "Global Payments UK",
+        "Elavon UK",
+        "Trust Payments UK",
+        "Fiserv UK"
+      ]
     },
     {
       "country_iso2": "GR",
       "discovered_providers": 6,
       "discovered_acquirers": 5,
-      "matched_providers": 6,
-      "matched_acquirers": 5,
-      "missing_from_dataset": []
+      "matched_providers": 3,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Worldline Greece",
+        "Nexi Greece",
+        "Viva.com Greece"
+      ]
     },
     {
       "country_iso2": "IE",
       "discovered_providers": 7,
       "discovered_acquirers": 3,
-      "matched_providers": 7,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 5,
+      "matched_acquirers": 1,
+      "missing_from_dataset": [
+        "Elavon Ireland",
+        "Dojo Ireland"
+      ]
     },
     {
       "country_iso2": "IS",
@@ -112,65 +150,90 @@
       "country_iso2": "IT",
       "discovered_providers": 8,
       "discovered_acquirers": 5,
-      "matched_providers": 8,
-      "matched_acquirers": 5,
-      "missing_from_dataset": []
+      "matched_providers": 4,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Nexi Italy",
+        "Worldline / Axepta Italy",
+        "Dojo Italy",
+        "Flatpay Italy"
+      ]
     },
     {
       "country_iso2": "LI",
       "discovered_providers": 1,
       "discovered_acquirers": 1,
-      "matched_providers": 1,
-      "matched_acquirers": 1,
-      "missing_from_dataset": []
+      "matched_providers": 0,
+      "matched_acquirers": 0,
+      "missing_from_dataset": [
+        "Worldline Switzerland"
+      ]
     },
     {
       "country_iso2": "LU",
       "discovered_providers": 1,
       "discovered_acquirers": 1,
-      "matched_providers": 1,
-      "matched_acquirers": 1,
-      "missing_from_dataset": []
+      "matched_providers": 0,
+      "matched_acquirers": 0,
+      "missing_from_dataset": [
+        "Worldline Luxembourg"
+      ]
     },
     {
       "country_iso2": "MT",
       "discovered_providers": 4,
       "discovered_acquirers": 3,
-      "matched_providers": 4,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 3,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "Trust Payments Malta"
+      ]
     },
     {
       "country_iso2": "NL",
       "discovered_providers": 7,
       "discovered_acquirers": 3,
-      "matched_providers": 7,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 4,
+      "matched_acquirers": 2,
+      "missing_from_dataset": [
+        "CCV Netherlands",
+        "Flatpay Netherlands",
+        "Worldline Netherlands"
+      ]
     },
     {
       "country_iso2": "NO",
       "discovered_providers": 4,
       "discovered_acquirers": 3,
-      "matched_providers": 4,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 1,
+      "matched_acquirers": 0,
+      "missing_from_dataset": [
+        "Nets / Nexi Norway",
+        "Worldline Norway / Bambora",
+        "Elavon Norway"
+      ]
     },
     {
       "country_iso2": "PT",
       "discovered_providers": 8,
       "discovered_acquirers": 3,
-      "matched_providers": 8,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 6,
+      "matched_acquirers": 1,
+      "missing_from_dataset": [
+        "Getnet Portugal",
+        "Teya Portugal"
+      ]
     },
     {
       "country_iso2": "SE",
       "discovered_providers": 7,
       "discovered_acquirers": 3,
-      "matched_providers": 7,
-      "matched_acquirers": 3,
-      "missing_from_dataset": []
+      "matched_providers": 5,
+      "matched_acquirers": 1,
+      "missing_from_dataset": [
+        "Worldline Sweden / Bambora",
+        "Nets / Nexi Sweden"
+      ]
     }
   ]
 }

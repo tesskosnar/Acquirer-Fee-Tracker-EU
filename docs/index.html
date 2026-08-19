@@ -36,6 +36,8 @@ button,input,select{font:inherit}
 }
 .control-primary{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
 .control-primary .control{min-width:200px}
+.control-search{min-width:260px;flex:1 1 300px}
+.control-search input{padding-left:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2393a7c0' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:11px center}
 .control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}
 .control select, .control input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:var(--panel-alt);color:var(--ink)}
 .control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
@@ -188,6 +190,10 @@ tr.offerrow{cursor:pointer}
 
   <section class="controls">
     <div class="control-primary">
+      <div class="control control-search">
+        <label for="search">Hledat</label>
+        <input id="search" type="search" placeholder="Poskytovatel, země nebo produkt…" autocomplete="off">
+      </div>
       <div class="control country">
         <label>Země</label>
         <select id="country"><option value="">Všechny země (EU/EHP + UK + CH)</option></select>
@@ -276,7 +282,7 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const S = { data:null, map:null, amount:20, ccy:'EUR', country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', sortKey:'rate', sortAsc:true };
+const S = { data:null, map:null, amount:20, ccy:'EUR', country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', search:'', sortKey:'rate', sortAsc:true };
 
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
 // ale uživatelské rozhraní záměrně používá jen dva srozumitelné koše.
@@ -286,6 +292,12 @@ function schemeBucket(cs, provider='') {
 }
 function schemeLabel(o) { return schemeBucket(o.card_scheme, o.provider) === 'domestic' ? 'Národní' : schemeBucket(o.card_scheme, o.provider) === 'intl' ? 'Visa/MC' : null; }
 function matchScheme(o) { return !S.scheme || schemeBucket(o.card_scheme, o.provider) === S.scheme; }
+function searchText(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+function matchSearch(o) {
+  const query=searchText(S.search).trim();
+  if (!query) return true;
+  return searchText([o.provider,o.country,o.country_iso2,o.product,o.method,o.provider_type].join(' ')).includes(query);
+}
 function matchRole(o) {
   if (S.role === 'all') return true;
   if (S.role === 'acquirer') return o.provider_role === 'acquirer';
@@ -446,7 +458,7 @@ function allWithCalc() {
 }
 
 function contextOffers() {
-  let rows = allWithCalc().filter(o => isSourceReviewed(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o) && matchRole(o));
+  let rows = allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o) && matchRole(o));
   if (S.provider) rows = rows.filter(o => o.provider === S.provider);
   else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
   return rows;
@@ -497,7 +509,7 @@ function renderKpis() {
 
 function renderMap() {
   const svg = document.getElementById('map');
-  const base = allWithCalc().filter(o => isComparable(o) && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o));
+  const base = allWithCalc().filter(o => isComparable(o) && matchSearch(o) && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o));
 
   let byCountry = {};
   for (const o of base) {
@@ -547,7 +559,7 @@ function renderMapDetail() {
   }
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
-  const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
+  const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
   const withVal = rows.filter(o => isComparable(o) && o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
   const lo = withVal[0], hi = withVal[withVal.length - 1];
   const rangeText = withVal.length
@@ -604,7 +616,7 @@ function renderCompare() {
   clearBtn.style.display = (S.country || S.provider) ? 'inline-block' : 'none';
 
   if (!rows.length) {
-    body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus změnit metodu nebo region nahoře.</div>`;
+    body.innerHTML = `<div class="compare-empty"><b>Žádná nabídka neodpovídá filtrům</b>Zkus upravit hledání nebo ostatní filtry nahoře.</div>`;
     return;
   }
 
@@ -716,6 +728,11 @@ async function init() {
 
   document.getElementById('country').onchange = e => {
     S.country = e.target.value; S.provider = ''; S.region = ''; resetRegionButtons(); render();
+  };
+  document.getElementById('search').oninput = e => {
+    S.search = e.target.value;
+    S.provider = '';
+    render();
   };
   document.getElementById('method-seg').addEventListener('click', e => {
     const btn = e.target.closest('button[data-v]');

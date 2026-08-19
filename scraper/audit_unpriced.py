@@ -10,9 +10,11 @@ import argparse
 import io
 import json
 import re
+import sys
 import time
 import urllib.robotparser
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urldefrag, urljoin, urlparse
@@ -38,6 +40,12 @@ PAYMENT_CONTEXT_RE = re.compile(
     r"merchant|acquir|card|payment|transaction|checkout|online|e-?commerce|"
     r"fee|commission|pricing|accept|betal|zahlung|paiement|pagament|platb|"
     r"kart|tranzac|transak|obchod|trgov|schem|interchange|direct debit|a2a",
+    re.I,
+)
+FEE_CONTEXT_RE = re.compile(
+    r"fee|commission|pricing|price|cost|charge|tariff|tarif|rate|markup|"
+    r"poplatek|proviz|cena|sazb|geb[uü]hr|entgelt|kost|frais|co[uû]t|"
+    r"comisi|comiss|taxa|op[lł]at|d[ií]j|naknada|cijen|такс|комиси|цена",
     re.I,
 )
 FEE_EXPRESSION_RE = re.compile(
@@ -70,7 +78,7 @@ def same_host(left: str, right: str) -> bool:
     return host(left) == host(right)
 
 
-def extract_price_leads(text: str, limit: int = 12) -> list[str]:
+def extract_price_leads(text: str, page_url: str = "", limit: int = 12) -> list[str]:
     leads: list[str] = []
     for regex in (FEE_EXPRESSION_RE, MONEY_PLUS_PERCENT_RE):
         for match in regex.finditer(text):
@@ -78,6 +86,8 @@ def extract_price_leads(text: str, limit: int = 12) -> list[str]:
             end = min(len(text), match.end() + 120)
             context = clean_text(text[start:end])
             if not PAYMENT_CONTEXT_RE.search(context):
+                continue
+            if not FEE_CONTEXT_RE.search(context) and not PRICE_LINK_RE.search(page_url):
                 continue
             if context not in leads:
                 leads.append(context)
@@ -161,9 +171,10 @@ class OfficialSiteScanner:
 
         evidence = []
         for page in pages:
-            leads = extract_price_leads(page.get("text", ""))
+            page_url = page.get("final_url", page["url"])
+            leads = extract_price_leads(page.get("text", ""), page_url)
             if leads:
-                evidence.append({"url": page.get("final_url", page["url"]), "price_leads": leads})
+                evidence.append({"url": page_url, "price_leads": leads})
 
         statuses = {page["status"] for page in pages}
         if evidence:
@@ -193,6 +204,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=0, help="Scan only the first N unique official URLs (for tests).")
     parser.add_argument("--linked-page-limit", type=int, default=3)
+    parser.add_argument("--workers", type=int, default=8, help="Parallel official domains; requests within one domain remain sequential.")
     args = parser.parse_args()
 
     dataset = json.loads(LATEST.read_text(encoding="utf-8"))
@@ -205,8 +217,23 @@ def main() -> int:
     urls = sorted(by_url)
     if args.limit:
         urls = urls[: args.limit]
-    scanner = OfficialSiteScanner()
-    scans = {url: scanner.scan(url, args.linked_page_limit) for url in urls}
+    urls_by_origin: dict[str, list[str]] = defaultdict(list)
+    for url in urls:
+        urls_by_origin[origin(url)].append(url)
+
+    def scan_origin(group_urls: list[str]) -> dict[str, dict]:
+        scanner = OfficialSiteScanner()
+        return {url: scanner.scan(url, args.linked_page_limit) for url in group_urls}
+
+    scans: dict[str, dict] = {}
+    completed_urls = 0
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as executor:
+        futures = {executor.submit(scan_origin, group): site for site, group in urls_by_origin.items()}
+        for future in as_completed(futures):
+            group_scans = future.result()
+            scans.update(group_scans)
+            completed_urls += len(group_scans)
+            print(f"audited {completed_urls}/{len(urls)} official URLs", file=sys.stderr, flush=True)
 
     audited_rows = []
     for url in urls:

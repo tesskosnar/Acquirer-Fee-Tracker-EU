@@ -115,7 +115,13 @@ def test_czech_review_uses_all_in_rates_and_real_acquiring_entities():
     assert by_id['CZ-kb-smartpay-ecommerce-card']['provider']=='Worldline / KB SmartPay'
     assert by_id['CZ-revolut-pay-by-bank-a2a']['fixed_fee_min']==0
     assert 'CZ-payu-po-3-měsících-card-restored' not in by_id
-    assert by_id['CZ-payu-ecommerce-card']['variable_pct_min'] is None
+    assert by_id['CZ-payu-ecommerce-card']['variable_pct_min']==1
+    assert by_id['CZ-payu-ecommerce-card']['fixed_fee_min']==1
+    assert by_id['CZ-payu-online-transfer-a2a']['variable_pct_min']==1
+    assert (by_id['PL-payu-current-card']['variable_pct_min'],by_id['PL-payu-current-card']['fixed_fee_min'])==(1.1,0.3)
+    assert (by_id['PL-payu-current-a2a']['variable_pct_min'],by_id['PL-payu-current-a2a']['fixed_fee_min'])==(1.1,0.3)
+    assert by_id['PL-payu-blik-a2a']['fixed_fee_min']==0.32
+    assert by_id['HU-payu-online-card']['variable_pct_min'] is None
 
     cz_roles={item['provider']:item['role'] for item in registry['providers'] if item['country_iso2']=='CZ'}
     assert cz_roles['Comgate']=='direct_acquirer'
@@ -434,8 +440,33 @@ def test_unpriced_audit_only_flags_fee_expressions_in_payment_context():
     leads=extract_price_leads(text)
     assert len(leads)==1
     assert '1.5% + 0.20 EUR' in leads[0]
+    assert extract_price_leads('Card transaction volumes increased by 31% during the year.')==[]
 
 
 def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():
     offers=[{'provider':'Clearhaus','method':'card','card_scheme':'domestic'}]
     assert update.normalize_card_schemes(offers)[0]['card_scheme']=='intl'
+
+
+def test_clearhaus_minimum_is_not_treated_as_fixed_addon():
+    offers=[{
+        'provider':'Clearhaus','method':'card','provider_type':'Veřejný ceník',
+        'variable_pct_min':1.45,'fixed_fee_min':0.2,'fixed_fee_max':0.2,
+        'minimum_fee':None,
+    }]
+    normalized=update.normalize_clearhaus_minimum_fees(offers)[0]
+    assert normalized['provider_type']=='Acquirer'
+    assert normalized['fixed_fee_min']==0
+    assert normalized['fixed_fee_max']==0
+    assert normalized['minimum_fee']==0.2
+
+
+def test_country_suffix_is_removed_from_provider_display_name():
+    offers=[
+        {'provider':'PayU Czech'}, {'provider':'PayU Poland'}, {'provider':'PayU'},
+        {'provider':'Flatpay Denmark'}, {'provider':'Elavon UK'},
+        {'provider':'Worldline Norway / Bambora'},
+    ]
+    assert [o['provider'] for o in update.normalize_provider_names(offers)]==[
+        'PayU', 'PayU', 'PayU', 'Flatpay', 'Elavon', 'Worldline / Bambora',
+    ]

@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-18",
+  "as_of": "2026-08-19",
   "scope": "Independent country-by-country discovery of merchant acquirers and acquiring banks in CEE. Full-service PSPs are retained as secondary coverage. Gateway-only and processor-only companies are recorded so their technical fee is never mistaken for an all-in acquiring price.",
   "discovery_sources": [
     {"name":"The Paypers","url":"https://thepaypers.com/","use":"provider discovery only; role and pricing require primary-source verification"},
@@ -101,6 +101,56 @@
     {"country_iso2":"LT","provider":"Paysera","role":"full_service_psp","official_url":"https://www.paysera.lt/v2/en-LT/fees/payment-gateway-fees","pricing_visibility":"public"},
     {"country_iso2":"LT","provider":"OPAY","role":"full_service_psp","official_url":"https://opay.eu/en/pricing","pricing_visibility":"public"},
     {"country_iso2":"LT","provider":"MakeCommerce","role":"full_service_psp","official_url":"https://makecommerce.lt/kainos/","pricing_visibility":"public"},
-    {"country_iso2":"LT","provider":"Montonio","role":"full_service_psp","official_url":"https://www.montonio.com/pricing?market=lt","pricing_visibility":"public"}
+    {"country_iso2":"LT","provider":"Montonio","role":"full_service_psp","official_url":"https://www.montonio.com/pricing?market=lt","pricing_visibility":"public"},
+
+    {"country_iso2":"CZ","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-cz/pricing","pricing_visibility":"public"},
+    {"country_iso2":"CZ","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/cs-cz/ceny/","pricing_visibility":"public"},
+    {"country_iso2":"CZ","provider":"PayU Czech","role":"direct_acquirer","official_url":"https://czech.payu.com/en/news/payu-gpo-czechia-wins-ecommerce-acquirer-award/","pricing_visibility":"current_price_not_found"},
+    {"country_iso2":"CZ","provider":"Pays","role":"full_service_psp","official_url":"https://www.pays.cz/cenik-poplatky.asp","pricing_visibility":"public_example_and_negotiated_range"},
+
+    {"country_iso2":"SK","provider":"VÚB eCard","role":"acquiring_bank","official_url":"https://www.vub.sk/firmy-a-podnikatelia/platby/ecard.html","pricing_visibility":"quote"},
+    {"country_iso2":"SK","provider":"UniCredit Bank Slovakia","role":"acquiring_bank","official_url":"https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/uzitocne_informacie/Pokyny_pro_obchodnika_A5_SK_v03.pdf","pricing_visibility":"quote"},
+    {"country_iso2":"SK","provider":"Worldline Slovakia","role":"direct_acquirer","official_url":"https://worldline.com/sk-sk/home/main-navigation/solutions/merchants/our-offer","pricing_visibility":"quote"},
+    {"country_iso2":"SK","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-sk/pricing","pricing_visibility":"public"},
+    {"country_iso2":"SK","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/sk-sk/cennik/","pricing_visibility":"public"},
+    {"country_iso2":"SK","provider":"Barion","role":"full_service_psp","official_url":"https://www.barion.com/en/prices-and-conditions/","pricing_visibility":"public"},
+
+    {"country_iso2":"PL","provider":"Worldline Poland","role":"direct_acquirer","official_url":"https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments","pricing_visibility":"public"},
+    {"country_iso2":"PL","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/pl-pl/pricing","pricing_visibility":"public"},
+    {"country_iso2":"PL","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/pl-pl/cennik/","pricing_visibility":"public"},
+    {"country_iso2":"PL","provider":"Barion","role":"full_service_psp","official_url":"https://www.barion.com/en/prices-and-conditions/","pricing_visibility":"public"},
+
+    {"country_iso2":"HU","provider":"UniCredit Bank Hungary","role":"acquiring_bank","official_url":"https://www.unicreditbank.hu/hu/urlapok/posappform.html","pricing_visibility":"quote"},
+    {"country_iso2":"HU","provider":"Global Payments Hungary","role":"direct_acquirer","official_url":"https://www.globalpayments.com/hu-hu","pricing_visibility":"quote"},
+    {"country_iso2":"HU","provider":"Worldline Hungary","role":"direct_acquirer","official_url":"https://worldline.com/hu-hu/home","pricing_visibility":"quote"},
+    {"country_iso2":"HU","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/hu-hu/pricing","pricing_visibility":"public"},
+    {"country_iso2":"HU","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/hu-hu/arkepzes/","pricing_visibility":"public"},
+
+    {"country_iso2":"RO","provider":"UniCredit Bank Romania","role":"acquiring_bank","official_url":"https://www.unicredit.ro/content/dam/cee2020-pws-ro/DocumentePDF/Conditii-generale-de-afaceri/Contract-pentru-serviciul-de-acceptare-la-plata-a-cardurilor.pdf","pricing_visibility":"quote"},
+    {"country_iso2":"RO","provider":"Global Payments Romania","role":"direct_acquirer","official_url":"https://www.bcr.ro/ro/business/general/conturi-si-servicii/solutii-de-plata-si-colectare/servicii-acceptare-carduri","pricing_visibility":"quote"},
+    {"country_iso2":"RO","provider":"myPOS","role":"direct_acquirer","official_url":"https://www.mypos.com/ro-ro/pricing-and-fees","pricing_visibility":"public"},
+    {"country_iso2":"RO","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/ro-ro/pricing","pricing_visibility":"public"},
+    {"country_iso2":"RO","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/ro-ro/preturi/","pricing_visibility":"public"},
+
+    {"country_iso2":"BG","provider":"Fibank","role":"acquiring_bank","official_url":"https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal","pricing_visibility":"quote"},
+    {"country_iso2":"BG","provider":"Central Cooperative Bank","role":"acquiring_bank","official_url":"https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals","pricing_visibility":"quote"},
+    {"country_iso2":"BG","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-bg/pricing","pricing_visibility":"public"},
+    {"country_iso2":"BG","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/bg-bg/tseni/","pricing_visibility":"public"},
+
+    {"country_iso2":"HR","provider":"Worldline Croatia","role":"direct_acquirer","official_url":"https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments","pricing_visibility":"public"},
+    {"country_iso2":"HR","provider":"Raiffeisenbank Austria Croatia","role":"acquiring_bank","official_url":"https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/opci-uvjeti-za-prihvat-kartica-na-internet-prodajnom-mjestu/Opci-uvjeti-za-prihvat-kartica-na-Internet-prodajnom-mjestu.pdf.coredownload.inline.pdf","pricing_visibility":"quote"},
+    {"country_iso2":"HR","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/hr-hr/pricing","pricing_visibility":"public"},
+    {"country_iso2":"HR","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/hr-hr/cijene/","pricing_visibility":"public"},
+
+    {"country_iso2":"SI","provider":"OTP banka Slovenia","role":"acquiring_bank","official_url":"https://www.otpbanka.si/najem-spletno-mesto","pricing_visibility":"quote"},
+    {"country_iso2":"SI","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-si/pricing","pricing_visibility":"public"},
+    {"country_iso2":"SI","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/sl-si/cene/","pricing_visibility":"public"},
+
+    {"country_iso2":"EE","provider":"Nets","role":"direct_acquirer","official_url":"https://www.nexigroup.com/en/group/brands/nets/","pricing_visibility":"quote"},
+    {"country_iso2":"EE","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-ee/pricing","pricing_visibility":"public"},
+    {"country_iso2":"LV","provider":"Nets","role":"direct_acquirer","official_url":"https://payments.nets.eu/lv-LV/acquiring","pricing_visibility":"quote"},
+    {"country_iso2":"LV","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-lv/pricing","pricing_visibility":"public"},
+    {"country_iso2":"LT","provider":"Nets","role":"direct_acquirer","official_url":"https://payments.nets.eu/lt-LT/acquiring","pricing_visibility":"quote"},
+    {"country_iso2":"LT","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-lt/pricing","pricing_visibility":"public"}
   ]
 }

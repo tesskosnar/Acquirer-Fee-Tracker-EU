@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-18",
+  "as_of": "2026-08-19",
   "scope": "Nezávislý registr skutečných merchant acquirerů, acquiringových bank, jejich lokálních distribučních kanálů a několika cenově relevantních PSP/A2A poskytovatelů ve zbývajících státech EU/EHP, Spojeném království a Švýcarsku. Registr vznikl před kontrolou původního datasetu; uvedení poskytovatele samo o sobě neznamená veřejnou číselnou sazbu.",
   "methodology": "Role a dostupnost se potvrzují na oficiálním webu poskytovatele. Číselná cena se publikuje jen tehdy, když oficiální lokální ceník, FAQ, smluvní dokument nebo produktová stránka uvádí kompletní merchant cenu. Interchange, scheme fee, processing nebo gateway fee bez zbytku ceny se převádí na individuální sazbu.",
   "roles": {
@@ -125,6 +125,31 @@
     {"country_iso2":"CY","provider":"Viva.com Cyprus","role":"direct_acquirer","methods":["card"],"official_url":"https://www.viva.com/en-cy/pricing"},
     {"country_iso2":"MT","provider":"Bank of Valletta Merchant Services","role":"acquiring_bank","methods":["card"],"official_url":"https://www.bov.com/meta/downloads/bov-ecommerce-application-form"},
     {"country_iso2":"MT","provider":"APS / Worldline","role":"acquirer_sales_channel","methods":["card"],"official_url":"https://www.apsbank.com.mt/"},
-    {"country_iso2":"MT","provider":"Trust Payments Malta","role":"direct_acquirer","methods":["card"],"official_url":"https://trustpayments.com/products/acquiring/"}
+    {"country_iso2":"MT","provider":"Trust Payments Malta","role":"direct_acquirer","methods":["card"],"official_url":"https://trustpayments.com/products/acquiring/"},
+
+    {"country_iso2":"DE","provider":"Fiserv / TeleCash","role":"direct_acquirer","methods":["card"],"official_url":"https://www.telecash.de/terminals/bezahlloesungen-kartenakzeptanz/"},
+    {"country_iso2":"DE","provider":"Elavon Germany","role":"direct_acquirer","methods":["card"],"official_url":"https://www.elavon.de/zahlungsmetoden/online-zahlungen.html"},
+    {"country_iso2":"DE","provider":"Commerz Globalpay","role":"direct_acquirer","methods":["card"],"official_url":"https://www.commerz-globalpay.com/de-de/impressum"},
+
+    {"country_iso2":"AT","provider":"PAYONE Austria","role":"direct_acquirer","methods":["card"],"official_url":"https://www.payone.com/AT-de"},
+    {"country_iso2":"AT","provider":"Fiserv Austria","role":"direct_acquirer","methods":["card"],"official_url":"https://merchants.fiserv.com/en-europe/"},
+
+    {"country_iso2":"FR","provider":"HiPay","role":"full_service_psp","methods":["card"],"official_url":"https://www.hipay.com/fr/a-propos/"},
+    {"country_iso2":"FR","provider":"Market Pay","role":"direct_acquirer","methods":["card"],"official_url":"https://market-pay.com/en"},
+
+    {"country_iso2":"IT","provider":"Numia","role":"direct_acquirer","methods":["card"],"official_url":"https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx"},
+
+    {"country_iso2":"NL","provider":"Worldline Netherlands","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/nl-nl/home"},
+
+    {"country_iso2":"GR","provider":"epay / Euronet Merchant Services","role":"direct_acquirer","methods":["card"],"official_url":"https://www.epayworldwide.gr/en/about-us/"},
+    {"country_iso2":"GR","provider":"NBG Pay","role":"direct_acquirer","methods":["card"],"official_url":"https://www.nbg.gr/en/lp/nbg-pay"},
+    {"country_iso2":"GR","provider":"NBG Pay / IRIS Commerce","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.nbg.gr/en/lp/iris-commerce"},
+
+    {"country_iso2":"CY","provider":"payabl.","role":"direct_acquirer","methods":["card"],"official_url":"https://payabl.com/payabl-gateway"},
+
+    {"country_iso2":"MT","provider":"Shift4 / Finaro","role":"direct_acquirer","methods":["card"],"official_url":"https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-25-000011/0001794669-25-000011.pdf"},
+
+    {"country_iso2":"GB","provider":"Cashflows","role":"direct_acquirer","methods":["card"],"official_url":"https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services"},
+    {"country_iso2":"GB","provider":"Fiserv UK","role":"direct_acquirer","methods":["card"],"official_url":"https://merchants.fiserv.com/en-europe/"}
   ]
 }

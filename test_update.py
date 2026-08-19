@@ -260,6 +260,33 @@ def test_gateway_and_acquirer_sales_channel_roles_stay_distinct():
     assert update.provider_role({'provider':'Tyl by NatWest','provider_type':'Acquirer – distribuční kanál','method':'card'})=='acquirer_sales_channel'
 
 
+def test_external_ai_leads_are_added_only_as_verified_acquirers():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    cee_registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8'))
+    europe_registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8'))
+    offers=apply_europe_verified_overlay(
+        apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries']),
+        baseline['countries'],
+    )
+
+    cee={(item['country_iso2'],item['provider']):item for item in cee_registry['providers']}
+    assert cee[('HU','MBH Bank')]['role']=='acquiring_bank'
+    assert cee[('SK','DanubePay')]['role']=='direct_acquirer'
+    assert cee[('HR','Global Payments Croatia')]['role']=='direct_acquirer'
+    assert cee[('LT','PAYSTRAX')]['role']=='direct_acquirer'
+
+    europe={(item['country_iso2'],item['provider']):item for item in europe_registry['providers']}
+    assert europe[('DE','Fiserv / TeleCash')]['role']=='direct_acquirer'
+    assert europe[('IT','Numia')]['role']=='direct_acquirer'
+    assert europe[('GB','Cashflows')]['role']=='direct_acquirer'
+    assert europe[('GR','NBG Pay / IRIS Commerce')]['methods']==['a2a']
+
+    by_provider={(item['country_iso2'],item['provider'],item['method']):item for item in offers}
+    assert by_provider[('SK','SKPAY','card')]['variable_pct_min'] is None
+    assert by_provider[('SK','SKPAY','card')]['all_in_complete'] is False
+    assert by_provider[('GR','NBG Pay / IRIS Commerce','a2a')]['variable_pct_min'] is None
+
+
 def test_ccv_netherlands_keeps_debit_and_credit_as_an_honest_range():
     baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
     offers=apply_europe_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])

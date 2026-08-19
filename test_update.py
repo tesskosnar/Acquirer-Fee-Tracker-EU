@@ -2,6 +2,7 @@ import json
 from copy import deepcopy
 
 import scraper.update as update
+from scraper.audit_unpriced import extract_price_leads
 from scraper.update import (
     BASELINE,
     CEE_REGISTRY,
@@ -15,6 +16,7 @@ from scraper.update import (
     calc,
     normalize_revolut_cee_offers,
     normalize_unpriced_pricing_models,
+    is_source_reviewed_offer,
     parse_adyen_catalog,
     parse_adyen_fee_text,
     parse_cnb,
@@ -419,6 +421,19 @@ def test_unpriced_rows_distinguish_quote_only_from_no_public_price():
     normalized=normalize_unpriced_pricing_models(offers)
     assert normalized[0]['pricing_model']=='Individual'
     assert normalized[1]['pricing_model']=='Not public'
+
+
+def test_source_reviewed_rule_distinguishes_missing_price_from_missing_review():
+    assert is_source_reviewed_offer({'verification':'ověřena lokální nabídka; veřejná sazba nenalezena 19. 8. 2026'})
+    assert is_source_reviewed_offer({'verification':'ručně ověřeno v oficiálním ceníku'})
+    assert not is_source_reviewed_offer({'verification':'z rozšířeného datasetu'})
+
+
+def test_unpriced_audit_only_flags_fee_expressions_in_payment_context():
+    text='Online card transaction fee from 1.5% + 0.20 EUR. VAT rate is 21%.'
+    leads=extract_price_leads(text)
+    assert len(leads)==1
+    assert '1.5% + 0.20 EUR' in leads[0]
 
 
 def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():

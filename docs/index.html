@@ -588,7 +588,8 @@ function renderCompare() {
   const clearBtn = document.getElementById('clearCountry');
 
   const rows = sortRows(compactOffers(contextOffers()));
-  rowcount.textContent = `${rows.length} ${rows.length === 1 ? 'záznam' : rows.length < 5 ? 'záznamy' : 'záznamů'}`;
+  rowcount.textContent = `${rows.length} zobrazených · ${S.data.offers.length} v exportu`;
+  rowcount.title = 'Tabulka zobrazuje zdrojově zkontrolované nabídky a slučuje tarifní varianty stejného poskytovatele, země, metody a karetního schématu. Export obsahuje všechny tarifní řádky.';
   const countryName = S.country ? (S.data.countries[S.country]?.name || S.country) : '';
   title.innerHTML = S.country && !S.provider
     ? `Srovnání nabídek <strong style="color:var(--accent)">pro ${esc(countryName)}</strong>`

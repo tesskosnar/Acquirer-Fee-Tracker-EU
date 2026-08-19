@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T16:47:14+00:00",
+  "generated_at": "2026-08-19T19:58:31+00:00",
   "update_frequency": "weekly",
   "default_transaction_eur": 20.0,
   "methodology_version": "1.5",
@@ -37,6 +37,17 @@
     "normalised_group_count": 63,
     "new_candidate_group_count": 39,
     "verified_country_addition_count": 21
+  },
+  "data_quality": {
+    "offer_row_count": 440,
+    "numeric_price_row_count": 255,
+    "no_numeric_price_row_count": 185,
+    "quote_or_individual_price_row_count": 40,
+    "no_public_price_row_count": 145,
+    "source_reviewed_row_count": 392,
+    "unpriced_source_reviewed_row_count": 177,
+    "unpriced_needs_individual_source_review_row_count": 8,
+    "counting_note": "Dashboard counts compact provider/country/method/scheme rows after source-review and active filters; the export keeps every tariff row."
   },
   "cee_audit": {
     "as_of": "2026-08-19",
@@ -1201,7 +1212,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -1244,7 +1255,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -1287,7 +1298,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1330,7 +1341,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -1373,7 +1384,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1416,7 +1427,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1527,7 +1538,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -1570,7 +1581,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -1613,7 +1624,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1656,7 +1667,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1699,7 +1710,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1742,7 +1753,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1785,7 +1796,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -1896,7 +1907,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -1939,7 +1950,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -1982,7 +1993,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2025,7 +2036,7 @@
       "notes": "Dominantní pobaltský PSP (5000+ obchodů v EE/LV/LT/PL). Ceník má víc kategorií podle typu karty (EU/mimo EU, spotřebitel/firma) - tohle je konkrétně 'EU-issued commercial'; přesná spotřebitelská sazba nebyla v dostupném výřezu jednoznačná, stojí za dvojitou kontrolu. POZOR: k tomu navíc měsíční paušál 11,99-19,99 € (podle zvoleného tarifu) - u nízkého objemu transakcí to výrazně zvedá efektivní sazbu.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2068,7 +2079,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -2111,7 +2122,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2154,7 +2165,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2265,7 +2276,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -2308,7 +2319,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -2351,7 +2362,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2394,7 +2405,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -2437,7 +2448,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2480,7 +2491,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2591,7 +2602,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -2634,7 +2645,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -2677,7 +2688,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2720,7 +2731,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2763,7 +2774,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2806,7 +2817,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -2849,7 +2860,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -2892,7 +2903,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3003,7 +3014,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -3046,7 +3057,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -3089,7 +3100,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3132,7 +3143,7 @@
       "notes": "Dominantní pobaltský PSP (5000+ obchodů v EE/LV/LT/PL). Ceník má víc kategorií podle typu karty (EU/mimo EU, spotřebitel/firma) - tohle je konkrétně 'EU-issued commercial'; přesná spotřebitelská sazba nebyla v dostupném výřezu jednoznačná, stojí za dvojitou kontrolu. POZOR: k tomu navíc měsíční paušál 11,99-19,99 € (podle zvoleného tarifu) - u nízkého objemu transakcí to výrazně zvedá efektivní sazbu.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3175,7 +3186,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -3218,7 +3229,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3261,7 +3272,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3372,7 +3383,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -3415,7 +3426,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -3458,7 +3469,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3501,7 +3512,7 @@
       "notes": "Dominantní pobaltský PSP (5000+ obchodů v EE/LV/LT/PL). Ceník má víc kategorií podle typu karty (EU/mimo EU, spotřebitel/firma) - tohle je konkrétně 'EU-issued commercial'; přesná spotřebitelská sazba nebyla v dostupném výřezu jednoznačná, stojí za dvojitou kontrolu. POZOR: k tomu navíc měsíční paušál 11,99-19,99 € (podle zvoleného tarifu) - u nízkého objemu transakcí to výrazně zvedá efektivní sazbu.",
       "verification": "ověřeno přímým vyhledáním (kolo kritického přehodnocení 23 zemí)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3544,7 +3555,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3587,7 +3598,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -3630,7 +3641,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3673,7 +3684,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3784,7 +3795,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -3827,7 +3838,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -3870,7 +3881,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3913,7 +3924,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3956,7 +3967,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -3999,7 +4010,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4042,7 +4053,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4085,7 +4096,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4128,7 +4139,7 @@
       "notes": "Ověřeno přímo na oficiálním ceníku (fáze kritického review). Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4171,7 +4182,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4214,7 +4225,7 @@
       "notes": "",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4257,7 +4268,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -4300,7 +4311,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4343,7 +4354,7 @@
       "notes": "ÚPLNOST srpen 2026 (metoda: kompletní přehled Shoper - dominantní PL e-shop platforma). Shoper Płatności je vlastní branding nad Autopay S.A. (dřív Blue Media) nebo Przelewy24 - není jisté, jestli je to totožné s už trackovaným Przelewy24 přímým vztahem nebo samostatná sazba přes Shoper. Potvrzeno 2x nezávisle (Shoper vlastní ceník + třetí blog shodně 1,58%+0,30 zł pro Standard).",
       "verification": "ověřeno přímým vyhledáním, 2x nezávisle potvrzeno (srpen 2026)",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-17T20:43:48+00:00",
       "card_scheme": null,
@@ -4386,7 +4397,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4497,7 +4508,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -4540,7 +4551,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -4583,7 +4594,7 @@
       "notes": "Relevant local or regional provider; comparable public standard merchant price not found.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4626,7 +4637,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4669,7 +4680,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4712,7 +4723,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4755,7 +4766,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4798,7 +4809,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -4841,7 +4852,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4884,7 +4895,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -4995,7 +5006,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -5038,7 +5049,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -5081,7 +5092,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5124,7 +5135,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -5167,7 +5178,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5210,7 +5221,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5321,7 +5332,7 @@
       "notes": "ZÁSADNÍ OPRAVA srpen 2026: bylo \"Individuální\", ve skutečnosti mají vlastní veřejnou ceníkovou stránku s výběrem země - přímo fetchnuto z clearhaus.com/pricing/. Sazba 1,45 %+min. 0,2 € platí pro LOKÁLNĚ VYDANÉ karty (ne obecně \"EEA spotřebitelské\" jako u Stripe/Mollie/Revolut) - pro zahraničně vydané karty z jiné země EU/EHP je to dražší (2,75 %+min. 0,4 €). Není to tedy 1:1 srovnatelné se Stripe/Mollie/Revolut, pokud obchodník má hodně zahraničních zákazníků. Přesnou minimální fixní částku v lokální měně jsem ověřil jen pro DE (0,2 €) - pro ostatní měny (CZK, PLN, HUF...) použito totéž 0,2 € přepočtené přes ČNB kurz jako aproximace, NE jejich přesné lokální zaokrouhlené číslo ze selektoru - to by šlo doladit kontrolou selektoru pro každou měnu zvlášť.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -5364,7 +5375,7 @@
       "notes": "Druhá polovina Clearhaus rozpadu podle schématu (viz domácí sazba u sesterského řádku) - zahraničně vydané/podnikatelské karty, vyšší tarif.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026) - % jistý, přesná lokální min. částka aproximovaná",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-12T19:16:32+00:00",
       "card_scheme": "intl",
@@ -5407,7 +5418,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5450,7 +5461,7 @@
       "notes": "Obnoveno z tvého původního zdrojového souboru Poplatky_acquirers_v_CEE_2026.xlsx - v mezikroku se ztratilo při nahrazení datasetem od jiné AI.",
       "verification": "obnoveno z původního zdroje uživatele",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5493,7 +5504,7 @@
       "notes": "Generic European public price; tailored/local terms may differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5536,7 +5547,7 @@
       "notes": "Fixed fee follows account base currency.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": "intl",
@@ -5579,7 +5590,7 @@
       "notes": "1% plus local flat fee, capped at EUR 5; availability depends on account and market.",
       "verification": "ručně ověřeno v oficiálním ceníku Revolut Business 18. 8. 2026",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5622,7 +5633,7 @@
       "notes": "ÚPLNOST srpen 2026, nalezeno stejnou metodou jako CZ (kompletní seznam Shoptet.sk doplňků) - Shoptet je \"najrozšírenejšia brána v Česku a na Slovensku\". Ceník ověřen přímo na shoptetpay.com/sk/cennik.",
       "verification": "ověřeno přímým fetchem primárního zdroje (srpen 2026)",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": "2026-08-17T20:24:06+00:00",
       "card_scheme": null,
@@ -5665,7 +5676,7 @@
       "notes": "Standard online EEA consumer cards; corporate and non-EEA cards differ.",
       "verification": "z rozšířeného datasetu (kontrola datována 22.7.2026 - jde o datum sestavení, ne nutně živé prověření každého zdroje jednotlivě)",
       "source_status": "seeded",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5710,7 +5721,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -5753,7 +5764,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5798,7 +5809,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -5841,7 +5852,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5886,7 +5897,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -5929,7 +5940,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -5974,7 +5985,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6017,7 +6028,7 @@
         "expected_currency": "CZK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6062,7 +6073,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6106,7 +6117,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6150,7 +6161,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6194,7 +6205,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6237,7 +6248,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6282,7 +6293,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6325,7 +6336,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6370,7 +6381,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6414,7 +6425,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6457,7 +6468,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6501,7 +6512,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6546,7 +6557,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6590,7 +6601,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6633,7 +6644,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6678,7 +6689,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6721,7 +6732,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6766,7 +6777,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6810,7 +6821,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6854,7 +6865,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6898,7 +6909,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -6941,7 +6952,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -6986,7 +6997,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7030,7 +7041,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7073,7 +7084,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -7118,7 +7129,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7162,7 +7173,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7206,7 +7217,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7250,7 +7261,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7294,7 +7305,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7338,7 +7349,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7381,7 +7392,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -7426,7 +7437,7 @@
         "expected_currency": "RON"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7470,7 +7481,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7514,7 +7525,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7558,7 +7569,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7602,7 +7613,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7646,7 +7657,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7690,7 +7701,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7734,7 +7745,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7778,7 +7789,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7822,7 +7833,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7866,7 +7877,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7910,7 +7921,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7954,7 +7965,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -7998,7 +8009,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8042,7 +8053,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8086,7 +8097,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8129,7 +8140,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -8174,7 +8185,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8218,7 +8229,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8262,7 +8273,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8306,7 +8317,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8350,7 +8361,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8394,7 +8405,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8438,7 +8449,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8482,7 +8493,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8525,7 +8536,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -8570,7 +8581,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8613,7 +8624,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -8658,7 +8669,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8701,7 +8712,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -8746,7 +8757,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8790,7 +8801,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8834,7 +8845,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8878,7 +8889,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8922,7 +8933,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -8966,7 +8977,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9009,7 +9020,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -9053,7 +9064,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -9098,7 +9109,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9142,7 +9153,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9185,7 +9196,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -9229,7 +9240,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -9274,7 +9285,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9318,7 +9329,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9362,7 +9373,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9406,7 +9417,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9450,7 +9461,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9494,7 +9505,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9538,7 +9549,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9581,7 +9592,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -9626,7 +9637,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9670,7 +9681,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9714,7 +9725,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9758,7 +9769,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9802,7 +9813,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9846,7 +9857,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9889,7 +9900,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -9934,7 +9945,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -9978,7 +9989,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10022,7 +10033,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10066,7 +10077,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10110,7 +10121,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10154,7 +10165,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10198,7 +10209,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10242,7 +10253,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10286,7 +10297,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10330,7 +10341,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10374,7 +10385,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10418,7 +10429,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10462,7 +10473,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10506,7 +10517,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10550,7 +10561,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10594,7 +10605,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10638,7 +10649,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10682,7 +10693,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10726,7 +10737,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10770,7 +10781,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10814,7 +10825,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10858,7 +10869,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10902,7 +10913,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10946,7 +10957,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -10990,7 +11001,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11034,7 +11045,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11078,7 +11089,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11121,7 +11132,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -11166,7 +11177,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11210,7 +11221,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11254,7 +11265,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11298,7 +11309,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11342,7 +11353,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11386,7 +11397,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11430,7 +11441,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11474,7 +11485,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11519,7 +11530,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11564,7 +11575,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11609,7 +11620,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11654,7 +11665,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11699,7 +11710,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11744,7 +11755,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11789,7 +11800,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11834,7 +11845,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11879,7 +11890,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11924,7 +11935,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -11969,7 +11980,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -12014,7 +12025,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -12059,7 +12070,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -12104,7 +12115,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -12149,7 +12160,7 @@
       },
       "notes": "Country-by-country CEE acquirer review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -12193,7 +12204,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12238,7 +12249,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12283,7 +12294,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12328,7 +12339,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12373,7 +12384,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12418,7 +12429,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12463,7 +12474,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12507,7 +12518,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -12553,7 +12564,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12598,7 +12609,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12643,7 +12654,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12688,7 +12699,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12733,7 +12744,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12778,7 +12789,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12823,7 +12834,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12867,7 +12878,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -12913,7 +12924,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -12958,7 +12969,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13003,7 +13014,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13048,7 +13059,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13092,7 +13103,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13138,7 +13149,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13183,7 +13194,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13228,7 +13239,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13272,7 +13283,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13318,7 +13329,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13363,7 +13374,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13407,7 +13418,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13453,7 +13464,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13498,7 +13509,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13543,7 +13554,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13588,7 +13599,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13633,7 +13644,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13677,7 +13688,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13723,7 +13734,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13767,7 +13778,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13813,7 +13824,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13857,7 +13868,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13903,7 +13914,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -13947,7 +13958,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -13993,7 +14004,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14038,7 +14049,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14083,7 +14094,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14128,7 +14139,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14173,7 +14184,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14218,7 +14229,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14262,7 +14273,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -14307,7 +14318,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -14352,7 +14363,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -14398,7 +14409,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "all_in_complete": true,
@@ -14442,7 +14453,7 @@
       },
       "notes": "Independent country review; official provider source.",
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "card_scheme": null,
@@ -14489,7 +14500,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14534,7 +14545,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14579,7 +14590,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14624,7 +14635,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14669,7 +14680,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14714,7 +14725,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14759,7 +14770,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14804,7 +14815,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14849,7 +14860,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14894,7 +14905,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14939,7 +14950,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -14984,7 +14995,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15029,7 +15040,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15074,7 +15085,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15119,7 +15130,7 @@
         "expected_currency": "CHF"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15164,7 +15175,7 @@
         "expected_currency": "CHF"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15209,7 +15220,7 @@
         "expected_currency": "CHF"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15254,7 +15265,7 @@
         "expected_currency": "CHF"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15299,7 +15310,7 @@
         "expected_currency": "CHF"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15344,7 +15355,7 @@
         "expected_currency": "CHF"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15389,7 +15400,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15434,7 +15445,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15479,7 +15490,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15524,7 +15535,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15569,7 +15580,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15614,7 +15625,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15659,7 +15670,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15704,7 +15715,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15749,7 +15760,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15794,7 +15805,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15839,7 +15850,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15884,7 +15895,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15929,7 +15940,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -15974,7 +15985,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16019,7 +16030,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16064,7 +16075,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16109,7 +16120,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16154,7 +16165,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16199,7 +16210,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16244,7 +16255,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16289,7 +16300,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16334,7 +16345,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16379,7 +16390,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16424,7 +16435,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16469,7 +16480,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16514,7 +16525,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16559,7 +16570,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16604,7 +16615,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16649,7 +16660,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16694,7 +16705,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16739,7 +16750,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16784,7 +16795,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16829,7 +16840,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16874,7 +16885,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16919,7 +16930,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -16964,7 +16975,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17009,7 +17020,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17122,7 +17133,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17167,7 +17178,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17212,7 +17223,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17257,7 +17268,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17302,7 +17313,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17347,7 +17358,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17392,7 +17403,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17437,7 +17448,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17482,7 +17493,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17527,7 +17538,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17572,7 +17583,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17617,7 +17628,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17662,7 +17673,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17707,7 +17718,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17752,7 +17763,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17797,7 +17808,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17842,7 +17853,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17887,7 +17898,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17932,7 +17943,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -17977,7 +17988,7 @@
         "expected_currency": "DKK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18022,7 +18033,7 @@
         "expected_currency": "SEK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18067,7 +18078,7 @@
         "expected_currency": "SEK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18112,7 +18123,7 @@
         "expected_currency": "SEK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18157,7 +18168,7 @@
         "expected_currency": "SEK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18202,7 +18213,7 @@
         "expected_currency": "SEK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18247,7 +18258,7 @@
         "expected_currency": "SEK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18292,7 +18303,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18337,7 +18348,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18382,7 +18393,7 @@
         "expected_currency": "NOK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18427,7 +18438,7 @@
         "expected_currency": "NOK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18472,7 +18483,7 @@
         "expected_currency": "NOK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18517,7 +18528,7 @@
         "expected_currency": "ISK"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18562,7 +18573,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18607,7 +18618,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18652,7 +18663,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18697,7 +18708,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18742,7 +18753,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18787,7 +18798,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18832,7 +18843,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18877,7 +18888,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18922,7 +18933,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -18967,7 +18978,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19012,7 +19023,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19057,7 +19068,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19102,7 +19113,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19147,7 +19158,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19192,7 +19203,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19237,7 +19248,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19282,7 +19293,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19327,7 +19338,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19372,7 +19383,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19417,7 +19428,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19462,7 +19473,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19507,7 +19518,7 @@
         "expected_currency": "EUR"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19552,7 +19563,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {
@@ -19597,7 +19608,7 @@
         "expected_currency": "GBP"
       },
       "source_status": "manual",
-      "source_checked_at": "2026-08-19T16:47:14+00:00",
+      "source_checked_at": "2026-08-19T19:58:31+00:00",
       "source_hash": null,
       "last_changed_at": null,
       "calculation_reference": {

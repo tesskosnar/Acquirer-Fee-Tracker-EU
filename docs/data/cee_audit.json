@@ -1,7 +1,7 @@
 {
   "as_of": "2026-08-19",
   "methodology": "Independent country-by-country discovery of merchant acquirers and acquiring banks in CEE. Full-service PSPs are retained as secondary coverage. Gateway-only and processor-only companies are recorded so their technical fee is never mistaken for an all-in acquiring price.",
-  "discovered_provider_count": 133,
+  "discovered_provider_count": 134,
   "discovered_acquirer_count": 90,
   "countries": [
     {
@@ -16,17 +16,22 @@
       "country_iso2": "CZ",
       "discovered_providers": 14,
       "discovered_acquirers": 9,
-      "matched_providers": 14,
-      "matched_acquirers": 9,
-      "missing_from_dataset": []
+      "matched_providers": 12,
+      "matched_acquirers": 7,
+      "missing_from_dataset": [
+        "UniCredit Bank Czech Republic and Slovakia",
+        "Nexi Czech Republic"
+      ]
     },
     {
       "country_iso2": "EE",
       "discovered_providers": 8,
       "discovered_acquirers": 5,
-      "matched_providers": 7,
-      "matched_acquirers": 5,
+      "matched_providers": 5,
+      "matched_acquirers": 3,
       "missing_from_dataset": [
+        "SEB Estonia",
+        "Swedbank Estonia",
         "MakeCommerce"
       ]
     },
@@ -34,28 +39,42 @@
       "country_iso2": "HR",
       "discovered_providers": 12,
       "discovered_acquirers": 8,
-      "matched_providers": 10,
-      "matched_acquirers": 8,
+      "matched_providers": 6,
+      "matched_acquirers": 4,
       "missing_from_dataset": [
+        "Nexi Croatia",
         "Monri Payments",
-        "WSPay (Monri)"
+        "WSPay (Monri)",
+        "Worldline Croatia",
+        "Global Payments Croatia",
+        "OTP banka Croatia"
       ]
     },
     {
       "country_iso2": "HU",
-      "discovered_providers": 13,
+      "discovered_providers": 14,
       "discovered_acquirers": 11,
-      "matched_providers": 13,
-      "matched_acquirers": 11,
-      "missing_from_dataset": []
+      "matched_providers": 8,
+      "matched_acquirers": 5,
+      "missing_from_dataset": [
+        "Raiffeisen Hungary",
+        "UniCredit Bank Hungary",
+        "Global Payments Hungary",
+        "Worldline Hungary",
+        "Nexi Hungary",
+        "Teya Hungary"
+      ]
     },
     {
       "country_iso2": "LT",
       "discovered_providers": 12,
       "discovered_acquirers": 8,
-      "matched_providers": 9,
-      "matched_acquirers": 7,
+      "matched_providers": 6,
+      "matched_acquirers": 4,
       "missing_from_dataset": [
+        "Swedbank Lithuania",
+        "Citadele Lithuania / Klix",
+        "SEB Lithuania",
         "ConnectPay",
         "OPAY",
         "MakeCommerce"
@@ -65,9 +84,12 @@
       "country_iso2": "LV",
       "discovered_providers": 8,
       "discovered_acquirers": 5,
-      "matched_providers": 6,
-      "matched_acquirers": 5,
+      "matched_providers": 3,
+      "matched_acquirers": 2,
       "missing_from_dataset": [
+        "Swedbank Latvia",
+        "Citadele Latvia / Klix",
+        "SEB Latvia",
         "MakeCommerce",
         "OPAY"
       ]
@@ -76,42 +98,53 @@
       "country_iso2": "PL",
       "discovered_providers": 15,
       "discovered_acquirers": 6,
-      "matched_providers": 11,
-      "matched_acquirers": 6,
+      "matched_providers": 10,
+      "matched_acquirers": 4,
       "missing_from_dataset": [
-        "PayU Poland",
+        "Elavon Poland",
         "Paynow",
         "Autopay",
-        "imoje"
+        "imoje",
+        "Worldline Poland"
       ]
     },
     {
       "country_iso2": "RO",
       "discovered_providers": 13,
       "discovered_acquirers": 9,
-      "matched_providers": 12,
-      "matched_acquirers": 9,
+      "matched_providers": 10,
+      "matched_acquirers": 6,
       "missing_from_dataset": [
-        "PayU Romania"
+        "Raiffeisen Romania eCommerce",
+        "UniCredit Bank Romania",
+        "Global Payments Romania"
       ]
     },
     {
       "country_iso2": "SI",
       "discovered_providers": 9,
       "discovered_acquirers": 6,
-      "matched_providers": 8,
-      "matched_acquirers": 6,
+      "matched_providers": 4,
+      "matched_acquirers": 2,
       "missing_from_dataset": [
-        "Monri Slovenia"
+        "UniCredit Bank Slovenia",
+        "Worldline Slovenia",
+        "Monri Slovenia",
+        "OTP banka Slovenia",
+        "Intesa Sanpaolo Bank Slovenia"
       ]
     },
     {
       "country_iso2": "SK",
       "discovered_providers": 16,
       "discovered_acquirers": 12,
-      "matched_providers": 16,
-      "matched_acquirers": 12,
-      "missing_from_dataset": []
+      "matched_providers": 13,
+      "matched_acquirers": 9,
+      "missing_from_dataset": [
+        "Global Payments Slovakia",
+        "UniCredit Bank Slovakia",
+        "Worldline Slovakia"
+      ]
     }
   ]
 }

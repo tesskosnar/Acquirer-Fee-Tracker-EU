@@ -40,7 +40,7 @@
     {"country_iso2":"PL","provider":"eService","role":"direct_acquirer","official_url":"https://www.eservice.pl/platnosci-internetowe","pricing_visibility":"partial"},
     {"country_iso2":"PL","provider":"Elavon Poland","role":"direct_acquirer","official_url":"https://www.elavon.pl/przyjmuj-platnosci/platnosci-online.html","pricing_visibility":"quote"},
     {"country_iso2":"PL","provider":"Przelewy24","role":"full_service_psp","official_url":"https://www.przelewy24.pl/oferta/tabela-prowizji-i-oplat","pricing_visibility":"public"},
-    {"country_iso2":"PL","provider":"PayU Poland","role":"full_service_psp","official_url":"https://poland.payu.com/pricing/","pricing_visibility":"public"},
+    {"country_iso2":"PL","provider":"PayU","role":"full_service_psp","official_url":"https://poland.payu.com/commercial-offer/","pricing_visibility":"public"},
     {"country_iso2":"PL","provider":"Tpay","role":"full_service_psp","official_url":"https://tpay.com/","pricing_visibility":"public"},
     {"country_iso2":"PL","provider":"Paynow","role":"full_service_psp","official_url":"https://www.paynow.pl/","pricing_visibility":"public"},
     {"country_iso2":"PL","provider":"Autopay","role":"full_service_psp","official_url":"https://autopay.pl/oferta/platnosci-online","pricing_visibility":"public"},
@@ -52,13 +52,14 @@
     {"country_iso2":"HU","provider":"CIB Bank eCommerce","role":"acquiring_bank","official_url":"https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html","pricing_visibility":"quote"},
     {"country_iso2":"HU","provider":"Raiffeisen Hungary","role":"acquiring_bank","official_url":"https://fizetesimegoldasok.raiffeisen.hu/","pricing_visibility":"quote"},
     {"country_iso2":"HU","provider":"Barion","role":"full_service_psp","official_url":"https://www.barion.com/en/prices-and-conditions/","pricing_visibility":"public"},
+    {"country_iso2":"HU","provider":"PayU","role":"full_service_psp","official_url":"https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/","pricing_visibility":"current_price_not_found"},
 
     {"country_iso2":"RO","provider":"Banca Transilvania eCommerce","role":"acquiring_bank","official_url":"https://btepos.ro/e-commerce","pricing_visibility":"quote"},
     {"country_iso2":"RO","provider":"Raiffeisen Romania eCommerce","role":"acquiring_bank","official_url":"https://www.raiffeisen.ro/ro/imm/produse-si-servicii/acceptare-carduri/acceptare-carduri-prin-internet-e-commerce.html","pricing_visibility":"quote"},
     {"country_iso2":"RO","provider":"LibraPay","role":"acquiring_bank","official_url":"https://www.librapay.ro/faq-comercianti/","pricing_visibility":"quote"},
     {"country_iso2":"RO","provider":"NETOPIA Payments","role":"full_service_psp","official_url":"https://support.netopia-payments.com/hc/ro/articles/44127944202129--OFERT%C4%82-procesare-pl%C4%83%C8%9Bi-prin-CARD-NETOPIA-Payments","pricing_visibility":"public"},
-    {"country_iso2":"RO","provider":"EuPlatesc","role":"full_service_psp","official_url":"https://www.euplatesc.ro/","pricing_visibility":"quote"},
-    {"country_iso2":"RO","provider":"PayU Romania","role":"full_service_psp","official_url":"https://romania.payu.com/en/commercial-offer/","pricing_visibility":"public"},
+    {"country_iso2":"RO","provider":"EuPlatesc","role":"full_service_psp","official_url":"https://www.euplatesc.ro/acasa/comisioane/","pricing_visibility":"public_from"},
+    {"country_iso2":"RO","provider":"PayU","role":"full_service_psp","official_url":"https://romania.payu.com/en/commercial-offer/","pricing_visibility":"public"},
 
     {"country_iso2":"BG","provider":"UniCredit Bulbank","role":"acquiring_bank","official_url":"https://www.unicreditbulbank.bg/en/small-business/banking/terminals/virtual-pos-terminal/","pricing_visibility":"public"},
     {"country_iso2":"BG","provider":"DSK Bank Virtual POS","role":"acquiring_bank","official_url":"https://dskbank.bg/en/business-clients/small-and-medium-business/pos-offers/virtual-pos/faq-virtual-pos","pricing_visibility":"quote"},
@@ -72,7 +73,7 @@
 
     {"country_iso2":"HR","provider":"Nexi Croatia","role":"direct_acquirer","official_url":"https://www.nexi.hr/hr/rjesenja-za-trgovce/ecommerce/ugovaranje-prihvacanja/","pricing_visibility":"quote"},
     {"country_iso2":"HR","provider":"Zagrebačka banka eCommerce","role":"acquiring_bank","official_url":"https://www.zaba.hr/home/mali-poduzetnici/e-commerce","pricing_visibility":"quote"},
-    {"country_iso2":"HR","provider":"CorvusPay","role":"gateway_or_processor","official_url":"https://www.corvuspay.com/cjenik/","pricing_visibility":"gateway_fee_only"},
+    {"country_iso2":"HR","provider":"CorvusPay","role":"full_service_psp","official_url":"https://www.corvuspay.com/cjenik/","pricing_visibility":"public"},
     {"country_iso2":"HR","provider":"Monri Payments","role":"gateway_or_processor","official_url":"https://monri.hr/proizvodi/online-placanja/","pricing_visibility":"gateway_fee_only"},
     {"country_iso2":"HR","provider":"WSPay (Monri)","role":"gateway_or_processor","official_url":"https://www.wspay.eu/cd/185/frequently-asked-questions-for-monri-wspay","pricing_visibility":"gateway_fee_only"},
 
@@ -107,7 +108,7 @@
 
     {"country_iso2":"CZ","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-cz/pricing","pricing_visibility":"public"},
     {"country_iso2":"CZ","provider":"SumUp","role":"full_service_psp","official_url":"https://www.sumup.com/cs-cz/ceny/","pricing_visibility":"public"},
-    {"country_iso2":"CZ","provider":"PayU Czech","role":"direct_acquirer","official_url":"https://czech.payu.com/en/news/payu-gpo-czechia-wins-ecommerce-acquirer-award/","pricing_visibility":"current_price_not_found"},
+    {"country_iso2":"CZ","provider":"PayU","role":"direct_acquirer","official_url":"https://czech.payu.com/en/activate-payments/","pricing_visibility":"public"},
     {"country_iso2":"CZ","provider":"Pays","role":"full_service_psp","official_url":"https://www.pays.cz/cenik-poplatky.asp","pricing_visibility":"public_example_and_negotiated_range"},
 
     {"country_iso2":"SK","provider":"VÚB eCard","role":"acquiring_bank","official_url":"https://www.vub.sk/firmy-a-podnikatelia/platby/ecard.html","pricing_visibility":"quote"},

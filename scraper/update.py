@@ -915,6 +915,113 @@ def normalize_card_schemes(offers:list[dict])->list[dict]:
     return offers
 
 
+def normalize_clearhaus_minimum_fees(offers:list[dict])->list[dict]:
+    """Treat Clearhaus' ``min.`` amount as a floor, never a fixed add-on.
+
+    The legacy seed stored e.g. ``1.45% / min. EUR 0.20`` as
+    ``1.45% + EUR 0.20``.  That materially overstates the 20 EUR comparison.
+    Local verified overlays can provide an exact local-currency minimum; the
+    older rows retain their published EUR floor but no longer add it twice.
+    """
+    for offer in offers:
+        if offer.get('provider')!='Clearhaus' or offer.get('method')!='card':
+            continue
+        if offer.get('minimum_fee') is None and offer.get('fixed_fee_min') in (0.2,0.4):
+            offer['minimum_fee']=offer['fixed_fee_min']
+        if offer.get('fixed_fee_min') in (0.2,0.4):
+            offer['fixed_fee_min']=0
+        if offer.get('fixed_fee_max') in (0.2,0.4):
+            offer['fixed_fee_max']=0
+        offer['provider_type']='Acquirer'
+    return offers
+
+
+def normalize_provider_names(offers:list[dict])->list[dict]:
+    """Use one display name when a provider only appends a country branch."""
+    aliases={
+        'CCV Belgium':'CCV',
+        'CCV Netherlands':'CCV',
+        'Citadele Latvia / Klix':'Citadele / Klix',
+        'Citadele Lithuania / Klix':'Citadele / Klix',
+        'Dojo Ireland':'Dojo',
+        'Dojo Italy':'Dojo',
+        'Dojo Spain':'Dojo',
+        'Elavon Germany':'Elavon',
+        'Elavon Ireland':'Elavon',
+        'Elavon Norway':'Elavon',
+        'Elavon Poland':'Elavon',
+        'Elavon UK':'Elavon',
+        'Fiserv Austria':'Fiserv',
+        'Fiserv UK':'Fiserv',
+        'Flatpay Denmark':'Flatpay',
+        'Flatpay Italy':'Flatpay',
+        'Flatpay Netherlands':'Flatpay',
+        'Getnet Portugal':'Getnet',
+        'Global Payments Austria':'Global Payments',
+        'Global Payments Croatia':'Global Payments',
+        'Global Payments Hungary':'Global Payments',
+        'Global Payments Romania':'Global Payments',
+        'Global Payments Slovakia':'Global Payments',
+        'Global Payments UK':'Global Payments',
+        'Intesa Sanpaolo Bank Slovenia':'Intesa Sanpaolo Bank',
+        'Nets / Nexi Denmark':'Nets / Nexi',
+        'Nets / Nexi Finland':'Nets / Nexi',
+        'Nets / Nexi Norway':'Nets / Nexi',
+        'Nets / Nexi Sweden':'Nets / Nexi',
+        'Nexi Croatia':'Nexi',
+        'Nexi Czech Republic':'Nexi',
+        'Nexi Germany / Concardis':'Nexi / Concardis',
+        'Nexi Greece':'Nexi',
+        'Nexi Hungary':'Nexi',
+        'Nexi Italy':'Nexi',
+        'Nexi Switzerland':'Nexi',
+        'OTP banka Croatia':'OTP banka',
+        'OTP banka Slovenia':'OTP banka',
+        'PAYONE Austria':'PAYONE',
+        'PayU Czech':'PayU',
+        'PayU Poland':'PayU',
+        'PayU Romania':'PayU',
+        'Raiffeisen Hungary':'Raiffeisen',
+        'Raiffeisen Romania':'Raiffeisen',
+        'SEB Estonia':'SEB',
+        'SEB Latvia':'SEB',
+        'SEB Lithuania':'SEB',
+        'Swedbank Estonia':'Swedbank',
+        'Swedbank Latvia':'Swedbank',
+        'Swedbank Lithuania':'Swedbank',
+        'Teya Hungary':'Teya',
+        'Teya Portugal':'Teya',
+        'Trust Payments Malta':'Trust Payments',
+        'Trust Payments UK':'Trust Payments',
+        'UniCredit Bank Czech Republic and Slovakia':'UniCredit Bank',
+        'UniCredit Bank Hungary':'UniCredit Bank',
+        'UniCredit Bank Romania':'UniCredit Bank',
+        'UniCredit Bank Slovakia':'UniCredit Bank',
+        'UniCredit Bank Slovenia':'UniCredit Bank',
+        'Unzer Austria':'Unzer',
+        'Viva.com Cyprus':'Viva.com',
+        'Viva.com Greece':'Viva.com',
+        'Worldline / Axepta Italy':'Worldline / Axepta',
+        'Worldline Belgium':'Worldline',
+        'Worldline Croatia':'Worldline',
+        'Worldline Finland':'Worldline',
+        'Worldline France':'Worldline',
+        'Worldline Greece':'Worldline',
+        'Worldline Hungary':'Worldline',
+        'Worldline Luxembourg':'Worldline',
+        'Worldline Netherlands':'Worldline',
+        'Worldline Norway / Bambora':'Worldline / Bambora',
+        'Worldline Poland':'Worldline',
+        'Worldline Slovakia':'Worldline',
+        'Worldline Slovenia':'Worldline',
+        'Worldline Sweden / Bambora':'Worldline / Bambora',
+        'Worldline Switzerland':'Worldline',
+    }
+    for offer in offers:
+        offer['provider']=aliases.get(offer.get('provider'),offer.get('provider'))
+    return offers
+
+
 def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
     """Distinguish an explicit quote-only price from a price we did not find.
 
@@ -951,12 +1058,12 @@ def main()->int:
     # vygenerovaného latest.json - jinak by každý další běh jen dokola
     # recykloval starý výstup a ignoroval jakékoliv ruční opravy v baseline.
     # 'previous' slouží níž jen ke sledování změn (prev_by_id), ne jako zdroj dat.
-    offers=normalize_unpriced_pricing_models(normalize_card_schemes(normalize_revolut_cee_offers(
+    offers=normalize_unpriced_pricing_models(normalize_provider_names(normalize_clearhaus_minimum_fees(normalize_card_schemes(normalize_revolut_cee_offers(
         apply_europe_verified_overlay(
             apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries']),
             baseline['countries'],
         )
-    )))
+    )))))
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
     changes=list(previous.get('change_log',[]))[-250:]
     now=datetime.now(timezone.utc).isoformat(timespec='seconds')

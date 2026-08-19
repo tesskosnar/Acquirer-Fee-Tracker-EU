@@ -151,6 +151,28 @@
     {"country_iso2":"LV","provider":"Nets","role":"direct_acquirer","official_url":"https://payments.nets.eu/lv-LV/acquiring","pricing_visibility":"quote"},
     {"country_iso2":"LV","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-lv/pricing","pricing_visibility":"public"},
     {"country_iso2":"LT","provider":"Nets","role":"direct_acquirer","official_url":"https://payments.nets.eu/lt-LT/acquiring","pricing_visibility":"quote"},
-    {"country_iso2":"LT","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-lt/pricing","pricing_visibility":"public"}
+    {"country_iso2":"LT","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/en-lt/pricing","pricing_visibility":"public"},
+
+    {"country_iso2":"CZ","provider":"Nexi Czech Republic","role":"direct_acquirer","official_url":"https://www.nexicentraleurope.com/en/about-us/","pricing_visibility":"quote"},
+
+    {"country_iso2":"SK","provider":"Nexi Central Europe","role":"direct_acquirer","official_url":"https://www.nexicentraleurope.com/sk/o-nas/","pricing_visibility":"quote"},
+    {"country_iso2":"SK","provider":"DanubePay","role":"direct_acquirer","official_url":"https://www.danubepay.com/service/acquiring","pricing_visibility":"quote"},
+    {"country_iso2":"SK","provider":"SKPAY","role":"direct_acquirer","official_url":"https://mojapos.skpay.sk/","pricing_visibility":"interchange_plus_only"},
+
+    {"country_iso2":"HU","provider":"Nexi Hungary","role":"direct_acquirer","official_url":"https://www.nexicentraleurope.com/hu/menedzsment/","pricing_visibility":"quote"},
+    {"country_iso2":"HU","provider":"MBH Bank","role":"acquiring_bank","official_url":"https://www.mbhbank.hu/sw/static/file/Elfogadoi_kezikonyv__MBH_0425.pdf","pricing_visibility":"quote"},
+    {"country_iso2":"HU","provider":"Teya Hungary","role":"direct_acquirer","official_url":"https://www.teya.com/hu/legal/payment-terms","pricing_visibility":"individual"},
+
+    {"country_iso2":"RO","provider":"BRD Groupe Société Générale","role":"acquiring_bank","official_url":"https://www.brd.ro/en/companies/sme/current-activity/receipt-and-collection","pricing_visibility":"quote"},
+    {"country_iso2":"RO","provider":"CEC Bank","role":"acquiring_bank","official_url":"https://cloud.cec.ro/sites/default/files/2025-05/Raportul%20Consiliului%20de%20Administratie_CEC%20Bank_31.12.2024.pdf","pricing_visibility":"quote"},
+
+    {"country_iso2":"HR","provider":"Global Payments Croatia","role":"direct_acquirer","official_url":"https://www.globalpayments.hr/","pricing_visibility":"quote"},
+    {"country_iso2":"HR","provider":"OTP banka Croatia","role":"acquiring_bank","official_url":"https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025.pdf","pricing_visibility":"quote"},
+    {"country_iso2":"HR","provider":"Hrvatska poštanska banka","role":"acquiring_bank","official_url":"https://www.hpb.hr/hr/ecommerce-5570/5570","pricing_visibility":"quote"},
+
+    {"country_iso2":"SI","provider":"Intesa Sanpaolo Bank Slovenia","role":"acquiring_bank","official_url":"https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html","pricing_visibility":"quote"},
+
+    {"country_iso2":"LT","provider":"PAYSTRAX","role":"direct_acquirer","official_url":"https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf","pricing_visibility":"quote"},
+    {"country_iso2":"LT","provider":"European Merchant Bank","role":"acquiring_bank","official_url":"https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/","pricing_visibility":"quote"}
   ]
 }

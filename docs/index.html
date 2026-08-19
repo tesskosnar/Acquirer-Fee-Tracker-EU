@@ -111,11 +111,12 @@ button,input,select{font:inherit}
 .compare-empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:6px;font-family:Georgia,serif;font-weight:500}
 .tablewrap{overflow-y:auto;overflow-x:hidden;max-height:640px}
 table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}
-th:nth-child(1),td:nth-child(1){width:29%}
-th:nth-child(2),td:nth-child(2){width:18%}
-th:nth-child(3),td:nth-child(3){width:22%}
-th:nth-child(4),td:nth-child(4){width:16%}
-th:nth-child(5),td:nth-child(5){width:15%}
+th:nth-child(1),td:nth-child(1){width:22%}
+th:nth-child(2),td:nth-child(2){width:14%}
+th:nth-child(3),td:nth-child(3){width:23%}
+th:nth-child(4),td:nth-child(4){width:14%}
+th:nth-child(5),td:nth-child(5){width:13%}
+th:nth-child(6),td:nth-child(6){width:14%}
 th{position:sticky;top:0;background:var(--panel-alt);color:var(--muted);text-align:left;padding:11px 11px;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.07em;z-index:2}
 td{padding:11px 11px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
 tr:hover td{background:rgba(255,255,255,.03)}
@@ -125,6 +126,7 @@ tr.offerrow{cursor:pointer}
 .provider-link:hover{color:var(--teal);border-color:var(--teal)}
 .sub{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .fee{font-weight:800;white-space:nowrap}
+.published-rate{color:var(--ink);overflow-wrap:anywhere}
 .effective{font-weight:800;color:var(--ink)}
 .rate{color:var(--ink);overflow-wrap:anywhere}
 .source{font-size:11.5px;font-weight:700;white-space:normal}
@@ -362,9 +364,7 @@ function roleBadge(o) {
 
 function effectiveRate(o) {
   const model = (o.pricing_model || '').toLowerCase();
-  if (o._c.emin == null) {
-    return model.includes('individual') ? 'cena na vyžádání' : 'veřejná cena nenalezena';
-  }
+  if (o._c.emin == null) return '—';
   const hasRange = o._c.emin !== o._c.emax;
   const value = !hasRange
     ? fmtPct(o._c.emin)
@@ -400,10 +400,7 @@ function published(o) {
   if (o.comparison_estimate === true && components?.processing_fee) {
     const processing = components.processing_fee;
     const markup = components.adyen_markup_pct ?? o.variable_pct_min;
-    const addon = components.comparison_reference?.total_addon_pct || 0;
-    const fixedAddon = components.comparison_reference?.fixed_addon;
-    const fixed = fixedAddon ? ` + ${fixedAddon.amount.toLocaleString('cs-CZ')} ${fixedAddon.currency}` : '';
-    return `≈ ${(markup + addon).toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency}${fixed}`;
+    return `${markup.toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency} + IC++`;
   }
   const p = o.variable_pct_min === o.variable_pct_max
     ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
@@ -618,6 +615,7 @@ function renderCompare() {
       <thead><tr>
         <th>${S.provider ? 'Země' : 'Poskytovatel'}</th>
         <th>Metoda</th>
+        <th title="Sazba z veřejného ceníku bez přepočtu na referenční transakci">Publikovaná sazba</th>
         <th><button class="sortbtn ${activeCls('rate')}" data-sort="rate">Celková sazba <span class="arrow">${arrow('rate')}</span></button></th>
         <th>Další poplatky</th>
         <th>Zdroj</th>
@@ -634,6 +632,7 @@ function renderCompare() {
           return `<tr class="offerrow" data-provider="${esc(o.provider)}">
             <td>${nameCell}</td>
             <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}</td>
+            <td class="published-rate">${published(o)}</td>
             <td class="effective">${effectiveRate(o)}</td>
             <td class="rate">${additionalFees(o)}</td>
             <td>

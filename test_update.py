@@ -101,6 +101,9 @@ def test_czech_review_uses_all_in_rates_and_real_acquiring_entities():
     assert by_id['CZ-comgate-profi-card']['variable_pct_min']==0.67
     assert by_id['CZ-comgate-profi-a2a']['variable_pct_min']==0.62
     assert by_id['CZ-kb-smartpay-ecommerce-card']['provider']=='Worldline / KB SmartPay'
+    assert by_id['CZ-revolut-pay-by-bank-a2a']['fixed_fee_min']==0
+    assert 'CZ-payu-po-3-měsících-card-restored' not in by_id
+    assert by_id['CZ-payu-ecommerce-card']['variable_pct_min'] is None
 
     cz_roles={item['provider']:item['role'] for item in registry['providers'] if item['country_iso2']=='CZ'}
     assert cz_roles['Comgate']=='direct_acquirer'

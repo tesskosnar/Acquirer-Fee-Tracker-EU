@@ -6,7 +6,8 @@
     {"name":"Business of Payments","url":"https://businessofpayments.com/newsletter/","use":"provider discovery only; role and pricing require primary-source verification"},
     {"name":"Connecting the Dots in Payments","url":"https://www.connectingthedotsinpayments.com/","use":"provider discovery only; role and pricing require primary-source verification"},
     {"name":"Měšec.cz","url":"https://www.mesec.cz/","use":"Czech-market discovery and historical leads only"},
-    {"name":"Peníze.cz","url":"https://www.penize.cz/","use":"Czech-market discovery and historical leads only"}
+    {"name":"Peníze.cz","url":"https://www.penize.cz/","use":"Czech-market discovery and historical leads only"},
+    {"name":"Regulační master seznam dodaný uživatelkou","use":"candidate and legal-entity discovery only; passporting is not treated as proof of an active local acquiring offer"}
   ],
   "roles": {
     "acquiring_bank": "Bank contracting with and settling card transactions for the merchant.",
@@ -98,6 +99,7 @@
     {"country_iso2":"LT","provider":"Swedbank Lithuania","role":"acquiring_bank","official_url":"https://www.swedbank.lt/business/useful/more/pricelist?language=ENG","pricing_visibility":"partial"},
     {"country_iso2":"LT","provider":"Citadele Lithuania / Klix","role":"acquiring_bank","official_url":"https://www.citadele.lt/en/business/e-commerce/","pricing_visibility":"public"},
     {"country_iso2":"LT","provider":"SEB Lithuania","role":"acquiring_bank","official_url":"https://www.seb.lt/verslui/lesu-surinkimas/mokejimu-surinkimas-internetu","pricing_visibility":"partial"},
+    {"country_iso2":"LT","provider":"ConnectPay","role":"direct_acquirer","official_url":"https://connectpay.com/card-acquiring/","pricing_visibility":"public_from"},
     {"country_iso2":"LT","provider":"Paysera","role":"full_service_psp","official_url":"https://www.paysera.lt/v2/en-LT/fees/payment-gateway-fees","pricing_visibility":"public"},
     {"country_iso2":"LT","provider":"OPAY","role":"full_service_psp","official_url":"https://opay.eu/en/pricing","pricing_visibility":"public"},
     {"country_iso2":"LT","provider":"MakeCommerce","role":"full_service_psp","official_url":"https://makecommerce.lt/kainos/","pricing_visibility":"public"},

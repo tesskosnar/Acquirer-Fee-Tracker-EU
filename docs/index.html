@@ -330,21 +330,23 @@ function sourceLabel(o) {
 
 function roleBadge(o) {
   const roles = {
-    acquirer:['Acquirer','role-acquirer'],
-    acquirer_sales_channel:['kanál acquirera','role-acquirer'],
-    psp:['PSP','role-psp'],
-    gateway_processor:['jen brána','role-gateway'],
-    a2a_provider:['A2A','role-a2a'],
+    acquirer:['Acquirer','role-acquirer','Poskytovatel uzavírá acquiringovou smlouvu a vypořádá karetní platby obchodníkovi.'],
+    acquirer_sales_channel:['kanál acquirera','role-acquirer','Lokální značka nebo banka prodává acquiring jiného poskytovatele.'],
+    psp:['PSP (ne acquirer)','role-psp','PSP nabízí obchodníkovi balíček plateb, ale není v tomto přehledu veden jako samostatný acquirer.'],
+    gateway_processor:['jen brána','role-gateway','Technická brána nebo procesor bez samostatné acquiringové nabídky.'],
+    a2a_provider:['A2A poskytovatel','role-a2a','Poskytovatel platby z účtu na účet; nejde o karetní acquiring.'],
   };
   const role = roles[o.provider_role];
-  return role ? `<span class="pill role ${role[1]}">${role[0]}</span>` : '';
+  return role ? `<span class="pill role ${role[1]}" title="${esc(role[2])}">${role[0]}</span>` : '';
 }
 
 function effectiveRate(o) {
   if (o._c.emin == null) return 'individuální';
-  const value = o._c.emin === o._c.emax
+  const hasRange = o._c.emin !== o._c.emax;
+  const value = !hasRange
     ? fmtPct(o._c.emin)
     : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
+  if (!hasRange) return value;
   const model = (o.pricing_model || '').toLowerCase();
   if (model.includes('from')) return `od ${value}`;
   if (model.includes('up to')) return `max. ${value}`;
@@ -370,7 +372,8 @@ function published(o) {
     : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
   const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
   const minimum = o.minimum_fee ? ` (min. ${o.minimum_fee.toLocaleString('cs-CZ')} ${o.fee_currency})` : '';
-  const prefix = (o.pricing_model || '').toLowerCase().includes('up to') ? 'max. ' : '';
+  const hasRange = o.variable_pct_min !== o.variable_pct_max || o.fixed_fee_min !== o.fixed_fee_max;
+  const prefix = hasRange && (o.pricing_model || '').toLowerCase().includes('up to') ? 'max. ' : '';
   return prefix + p + f + minimum;
 }
 
@@ -491,6 +494,10 @@ function renderMap() {
     el.onclick = () => {
       const iso = el.dataset.iso;
       S.country = S.country === iso ? '' : iso;
+      S.provider = '';
+      S.region = '';
+      resetRegionButtons();
+      document.getElementById('country').value = S.country;
       render();
     };
   });

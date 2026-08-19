@@ -260,6 +260,12 @@ def test_gateway_and_acquirer_sales_channel_roles_stay_distinct():
     assert update.provider_role({'provider':'Tyl by NatWest','provider_type':'Acquirer – distribuční kanál','method':'card'})=='acquirer_sales_channel'
 
 
+def test_provider_role_does_not_change_with_payment_method():
+    assert update.provider_role({'provider':'GoPay','provider_type':'PSP s acquiringem','method':'card'})=='psp'
+    assert update.provider_role({'provider':'GoPay','provider_type':'PSP s acquiringem','method':'a2a'})=='psp'
+    assert update.provider_role({'provider':'Comgate','provider_type':'A2A poskytovatel / acquirer','method':'a2a'})=='acquirer'
+
+
 def test_external_ai_leads_are_added_only_as_verified_acquirers():
     baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
     cee_registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8'))

@@ -13,6 +13,7 @@ from scraper.update import (
     build_cee_audit,
     calc,
     normalize_revolut_cee_offers,
+    normalize_unpriced_pricing_models,
     parse_adyen_catalog,
     parse_adyen_fee_text,
     parse_cnb,
@@ -252,6 +253,21 @@ def test_calc_presents_icpp_as_a_clearly_modelled_debit_reference():
     assert result['effective_max_pct']==1.5
 
 
+def test_swiss_icpp_reference_includes_domestic_cnp_interchange_and_fixed_scheme_fee():
+    countries={'CH':{'name':'Švýcarsko'}}
+    offers=sync_adyen_cee_offers([],countries,'2026-08-19T00:00:00+00:00')
+    offer=next(item for item in offers if item['country_iso2']=='CH' and item['method']=='card')
+    reference=offer['pricing_components']['comparison_reference']
+    assert offer['variable_pct_min']==0.6
+    assert offer['comparison_estimate'] is True
+    assert reference['interchange_pct']==0.28
+    assert reference['scheme_fee_pct']==0.138
+    assert reference['fixed_addon']=={'amount':0.052,'currency':'CHF'}
+    result=update.calc(offer,{'EUR':{'czk_per_unit':25},'CHF':{'czk_per_unit':26}},amount=500)
+    assert result['fee_min_czk']==9.192
+    assert result['effective_min_pct']==1.8384
+
+
 def test_adyen_card_reference_is_added_outside_cee_with_country_currency():
     countries={'DE':{'name':'Německo'},'GB':{'name':'Spojené království'}}
     offers=sync_adyen_cee_offers([],countries,'2026-08-19T00:00:00+00:00')
@@ -342,10 +358,34 @@ def test_german_and_portuguese_public_price_corrections_are_kept():
     by_id={offer['id']:offer for offer in offers}
     assert by_id['DE-poscash-girocard-card']['variable_pct_min']==0.23
     assert by_id['DE-poscash-girocard-card']['fixed_fee_min']==0
+    assert by_id['DE-poscash-girocard-card']['provider']=='POS-cashservice'
+    assert by_id['DE-poscash-visa-mastercard-card']['provider']=='POS-cash / secupay'
+    assert by_id['DE-fiserv-telecash-spring-card']['variable_pct_min']==0.89
+    assert by_id['DE-fiserv-telecash-spring-card']['monthly_fee']==0
     assert by_id['DE-zahlo-eea-consumer-card']['variable_pct_min']==1
     assert by_id['DE-zahlo-eea-consumer-card']['fixed_fee_min']==0.05
     assert by_id['DE-payone-visa-mastercard-card']['variable_pct_min']==1.9
     assert by_id['PT-paybyrd-essential-eea-card']['variable_pct_min']==1.25
+
+
+def test_cee_public_tariffs_replace_individual_placeholders():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    by_id={offer['id']:offer for offer in offers}
+    assert by_id['LT-paysera-local-merchant-acquiring-acceptance-card']['variable_pct_min']==1.45
+    assert by_id['LT-paysera-local-merchant-acquiring-acceptance-card']['minimum_fee']==0.15
+    assert by_id['PL-tpay-local-merchant-acquiring-acceptance-card']['fixed_fee_min']==0.39
+    assert by_id['SK-besteron-local-merchant-acquiring-acceptance-card']['variable_pct_min']==1.4
+
+
+def test_unpriced_rows_distinguish_quote_only_from_no_public_price():
+    offers=[
+        {'variable_pct_min':None,'pricing_model':'Individual','verification':'cena na poptávku'},
+        {'variable_pct_min':None,'pricing_model':'Individual','verification':'veřejná kompletní sazba nenalezena'},
+    ]
+    normalized=normalize_unpriced_pricing_models(offers)
+    assert normalized[0]['pricing_model']=='Individual'
+    assert normalized[1]['pricing_model']=='Not public'
 
 
 def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():

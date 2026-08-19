@@ -316,11 +316,14 @@ function calc(o) {
   const amountCzk = S.ccy === 'EUR' ? S.amount * eurRate : S.amount;
   const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
   const comparisonAddon = o.pricing_components?.comparison_reference?.total_addon_pct || 0;
+  const fixedAddon = o.pricing_components?.comparison_reference?.fixed_addon;
+  const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
+  const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const variableMin = o.variable_pct_min + comparisonAddon;
   const variableMax = o.variable_pct_max + comparisonAddon;
   const minimumCzk = (o.minimum_fee || 0) * fx;
-  const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx, minimumCzk);
-  const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx, minimumCzk);
+  const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
+  const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
   const toDisplay = v => S.ccy === 'EUR' ? v / eurRate : v;
   return { min: toDisplay(minCzk), max: toDisplay(maxCzk), emin: minCzk / amountCzk * 100, emax: maxCzk / amountCzk * 100 };
 }
@@ -358,13 +361,20 @@ function roleBadge(o) {
 }
 
 function effectiveRate(o) {
-  if (o._c.emin == null) return 'individuální';
+  const model = (o.pricing_model || '').toLowerCase();
+  if (o._c.emin == null) {
+    return model.includes('individual') ? 'cena na vyžádání' : 'veřejná cena nenalezena';
+  }
   const hasRange = o._c.emin !== o._c.emax;
   const value = !hasRange
     ? fmtPct(o._c.emin)
     : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
-  if (!hasRange) return o.comparison_estimate === true ? `≈ ${value}` : value;
-  const model = (o.pricing_model || '').toLowerCase();
+  if (!hasRange) {
+    if (o.comparison_estimate === true) return `≈ ${value}`;
+    if (model.includes('from')) return `od ${value}`;
+    if (model.includes('up to')) return `max. ${value}`;
+    return value;
+  }
   if (model.includes('from')) return `od ${value}`;
   if (model.includes('up to')) return `max. ${value}`;
   return isFullyCalculable(o) ? value : `min. ${value}`;
@@ -372,18 +382,28 @@ function effectiveRate(o) {
 
 function additionalFees(o) {
   const fees = [];
-  if (o.monthly_fee > 0) fees.push(`${o.monthly_fee.toLocaleString('cs-CZ')} ${o.monthly_currency || o.fee_currency} / měsíc`);
+  if (o.monthly_fee > 0) {
+    const prefix = (o.pricing_model || '').toLowerCase().includes('from') ? 'od ' : '';
+    fees.push(`${prefix}${o.monthly_fee.toLocaleString('cs-CZ')} ${o.monthly_currency || o.fee_currency} / měsíc`);
+  }
   return fees.length ? fees.join('<br>') : '—';
 }
 
 function published(o) {
-  if (o.variable_pct_min == null || (o.all_in_complete === false && o.comparison_estimate !== true)) return 'individuální';
+  const model = (o.pricing_model || '').toLowerCase();
+  if (o.variable_pct_min == null) return model.includes('individual') ? 'cena na vyžádání' : 'veřejná cena nenalezena';
+  if (o.all_in_complete === false && o.comparison_estimate !== true) {
+    const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
+    return `${o.variable_pct_min.toLocaleString('cs-CZ')} %${f} + IC++`;
+  }
   const components = o.pricing_components;
   if (o.comparison_estimate === true && components?.processing_fee) {
     const processing = components.processing_fee;
     const markup = components.adyen_markup_pct ?? o.variable_pct_min;
     const addon = components.comparison_reference?.total_addon_pct || 0;
-    return `≈ ${(markup + addon).toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency}`;
+    const fixedAddon = components.comparison_reference?.fixed_addon;
+    const fixed = fixedAddon ? ` + ${fixedAddon.amount.toLocaleString('cs-CZ')} ${fixedAddon.currency}` : '';
+    return `≈ ${(markup + addon).toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency}${fixed}`;
   }
   const p = o.variable_pct_min === o.variable_pct_max
     ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
@@ -391,7 +411,7 @@ function published(o) {
   const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
   const minimum = o.minimum_fee ? ` (min. ${o.minimum_fee.toLocaleString('cs-CZ')} ${o.fee_currency})` : '';
   const hasRange = o.variable_pct_min !== o.variable_pct_max || o.fixed_fee_min !== o.fixed_fee_max;
-  const prefix = hasRange && (o.pricing_model || '').toLowerCase().includes('up to') ? 'max. ' : '';
+  const prefix = model.includes('from') ? 'od ' : hasRange && model.includes('up to') ? 'max. ' : '';
   return prefix + p + f + minimum;
 }
 
@@ -606,7 +626,7 @@ function renderCompare() {
         ${rows.map(o => {
           const st = statusInfo(o);
           const schemeLbl = schemeLabel(o);
-          const schemeBadge = schemeLbl ? `<span class="pill scheme" title="Sazba platí jen pro toto kartové schéma, ne blended pro všechny karty">${esc(schemeLbl)}</span>` : '';
+          const schemeBadge = schemeLbl ? `<span class="pill scheme" title="Sazba platí jen pro toto kartové schéma. Jeden poskytovatel proto může mít samostatný řádek pro národní schéma a pro Visa/MC.">${esc(schemeLbl)}</span>` : '';
           const providerRole = roleBadge(o);
           const nameCell = S.provider
             ? `<b>${esc(o.country_iso2)}</b>${providerRole}<span class="sub">${esc(o.country)}</span>`
@@ -620,6 +640,9 @@ function renderCompare() {
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">${sourceLabel(o)}</a>
               ${o.comparison_estimate === true && o.pricing_components?.comparison_reference?.scheme_fee_source_url
                 ? `<a class="sub source" target="_blank" rel="noopener" href="${esc(o.pricing_components.comparison_reference.scheme_fee_source_url)}">zdroj scheme fee ↗</a>`
+                : ''}
+              ${o.comparison_estimate === true && o.pricing_components?.comparison_reference?.interchange_source_url
+                ? `<a class="sub source" target="_blank" rel="noopener" href="${esc(o.pricing_components.comparison_reference.interchange_source_url)}">zdroj interchange ↗</a>`
                 : ''}
               ${st.cls === 'error' ? `<span class="status-dot error" title="${esc(st.detail)}"></span>` : ''}
             </td>

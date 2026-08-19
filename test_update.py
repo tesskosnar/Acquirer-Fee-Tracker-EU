@@ -7,6 +7,7 @@ from scraper.update import (
     CEE_REGISTRY,
     EUROPE_REGISTRY,
     EUROPE_WATCHLIST,
+    PROVIDER_MASTER_CROSSCHECK,
     apply_cee_verified_overlay,
     apply_europe_verified_overlay,
     adyen_country_context,
@@ -127,6 +128,38 @@ def test_europe_watchlist_extends_to_switzerland_and_uk():
     assert len(watchlist['providers'])>=70
     paypoint=next(item for item in watchlist['providers'] if item['provider']=='PayPoint / Handepay')
     assert paypoint['role']=='acquirer_sales_channel'
+
+
+def test_master_crosscheck_keeps_passporting_and_facilitators_out_of_country_registry():
+    crosscheck=json.loads(PROVIDER_MASTER_CROSSCHECK.read_text(encoding='utf-8'))
+    master=crosscheck['regulatory_master']
+    assert len(master['already_represented_or_promoted']) + len(master['new_candidate_groups']) == master['normalised_group_count'] == 63
+    candidates={item['provider'] for item in master['new_candidate_groups']}
+    assert {'Checkout.com','Stripe','Yapily','BlueSnap','Paynt','Kevin EU'}.issubset(candidates)
+    decisions={item['name']:item['decision'] for item in crosscheck['source_assessment']}
+    assert decisions['Mastercard registered payment facilitators']=='discovery_only'
+    assert decisions['Visa Singapore acquirers']=='excluded_from_europe_crosscheck'
+
+
+def test_a2a_country_coverage_is_verified_for_reported_gaps():
+    registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8'))
+    a2a={}
+    for item in registry['providers']:
+        if 'a2a' in item.get('methods',[]):
+            a2a.setdefault(item['country_iso2'],set()).add(item['provider'])
+    assert {'eps-Überweisung','GoCardless','TrueLayer','Volt','Trustly'}.issubset(a2a['AT'])
+    assert {'Vipps MobilePay','GoCardless','TrueLayer','Volt','Trustly'}.issubset(a2a['DK'])
+    assert {'Swish','GoCardless','Volt','Trustly'}.issubset(a2a['SE'])
+    assert {'GoCardless','TrueLayer','Volt','Trustly','Banked'}.issubset(a2a['GB'])
+    assert {'GoCardless','TrueLayer','Volt'}.issubset(a2a['IE'])
+    assert 'TrueLayer' not in a2a['SE']
+
+
+def test_connectpay_is_added_from_its_official_acquiring_page():
+    registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8'))
+    connectpay=next(item for item in registry['providers'] if item['country_iso2']=='LT' and item['provider']=='ConnectPay')
+    assert connectpay['role']=='direct_acquirer'
+    assert connectpay['official_url']=='https://connectpay.com/card-acquiring/'
 
 # --- select_candidate: dřív netestováno, přidáno při reviewu 22.7.2026 ---
 

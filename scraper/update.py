@@ -30,6 +30,7 @@ CEE_VERIFIED = Path(__file__).with_name("cee_verified_offers.json")
 EUROPE_WATCHLIST = Path(__file__).with_name("europe_acquirer_watchlist.json")
 EUROPE_REGISTRY = Path(__file__).with_name("europe_acquirer_registry.json")
 EUROPE_VERIFIED = Path(__file__).with_name("europe_verified_offers.json")
+PROVIDER_MASTER_CROSSCHECK = Path(__file__).with_name("provider_master_crosscheck.json")
 CNB_URL = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
 USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-only check of public pricing pages)"
 TIMEOUT = 30
@@ -813,6 +814,7 @@ def _registry_individual_offer(provider: dict, countries: dict) -> dict:
     currency=COUNTRY_FEE_CURRENCIES.get(iso,'EUR')
     method=provider['method']
     role=provider['role']
+    verified_on=provider.get('verified_on','18. 8. 2026')
     return _normalise_verified_offer({
         'id':f"{iso}-{provider_key(provider['provider'])}-{method}-registry",
         'country_iso2':iso,
@@ -827,7 +829,7 @@ def _registry_individual_offer(provider: dict, countries: dict) -> dict:
         'monthly_fee':0,
         'card_scheme':'intl' if method=='card' else None,
         'source_url':provider['official_url'],
-        'verification':'ověřena role a lokální nabídka na oficiálním zdroji 18. 8. 2026; veřejná kompletní sazba nenalezena',
+        'verification':f'ověřena role a lokální nabídka na oficiálním zdroji {verified_on}; veřejná kompletní sazba nenalezena',
         'notes':'Role a lokální dostupnost ověřeny; číselná cena se nezobrazuje, protože nebyla zveřejněna jako kompletní merchant sazba.',
         'all_in_complete':False,
     },countries)
@@ -1055,6 +1057,7 @@ def main()->int:
     registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8')) if CEE_REGISTRY.exists() else {'providers':[]}
     europe_registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8')) if EUROPE_REGISTRY.exists() else {'providers':[]}
     watchlist=json.loads(EUROPE_WATCHLIST.read_text(encoding='utf-8')) if EUROPE_WATCHLIST.exists() else {'providers':[]}
+    master_crosscheck=json.loads(PROVIDER_MASTER_CROSSCHECK.read_text(encoding='utf-8')) if PROVIDER_MASTER_CROSSCHECK.exists() else {'regulatory_master':{},'verified_country_additions':[]}
     cee_audit=build_cee_audit(registry,offers)
     europe_audit=build_registry_audit(europe_registry,offers)
     output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'1.5',
@@ -1063,6 +1066,7 @@ def main()->int:
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},
             'europe_acquirer_registry':{'as_of':europe_registry.get('as_of'),'provider_count':len(europe_registry.get('providers',[])),'country_count':len({item.get('country_iso2') for item in europe_registry.get('providers',[])})},
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},
+            'provider_master_crosscheck':{'as_of':master_crosscheck.get('as_of'),'normalised_group_count':master_crosscheck.get('regulatory_master',{}).get('normalised_group_count',0),'new_candidate_group_count':len(master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])),'verified_country_addition_count':len(master_crosscheck.get('verified_country_additions',[]))},
             'cee_audit':cee_audit,
             'europe_audit':europe_audit,
             'fx':{'source':'Česká národní banka','source_url':CNB_URL,'date':fx_date,'rates':fx},'sources':baseline['sources'],'countries':baseline['countries'],'offers':offers,'change_log':changes[-250:]}

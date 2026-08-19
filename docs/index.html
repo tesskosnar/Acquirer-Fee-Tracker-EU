@@ -193,9 +193,18 @@ tr.offerrow{cursor:pointer}
       <div class="control">
         <label>Metoda</label>
         <div class="seg" id="method-seg">
-          <button data-v="" class="active">Karta + A2A převod</button>
-          <button data-v="card">Karta</button>
+          <button data-v="">Karta + A2A převod</button>
+          <button data-v="card" class="active">Karta</button>
           <button data-v="a2a">A2A převod</button>
+        </div>
+      </div>
+      <div class="control">
+        <label>Typ poskytovatele</label>
+        <div class="seg" id="role-seg">
+          <button data-v="merchant" class="active">Acquirer + PSP</button>
+          <button data-v="acquirer">Přímí acquireři</button>
+          <button data-v="psp">PSP</button>
+          <button data-v="all">Vše</button>
         </div>
       </div>
       <div class="control" id="scheme-control" style="display:none">
@@ -224,7 +233,7 @@ tr.offerrow{cursor:pointer}
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
-    <div class="kpi kpi-amount"><span>Přepočet pro platbu</span><div class="kpi-amount-row"><input id="amount" type="number" min="1" value="1000"><div class="seg seg-ccy" id="ccy-seg"><button data-v="CZK" class="active">Kč</button><button data-v="EUR">€</button></div></div></div>
+    <div class="kpi"><span>Srovnávací transakce</span><strong>20 €</strong><small>fixní poplatek je zahrnutý ve výsledném %</small></div>
   </section>
 
   <section class="panel" style="padding:19px 21px">
@@ -265,7 +274,7 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const S = { data:null, map:null, amount:1000, ccy:'CZK', country:'', provider:'', region:'', method:'', scheme:'', sortKey:'rate', sortAsc:true };
+const S = { data:null, map:null, amount:20, ccy:'EUR', country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', sortKey:'rate', sortAsc:true };
 
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
 // ale uživatelské rozhraní záměrně používá jen dva srozumitelné koše.
@@ -275,6 +284,12 @@ function schemeBucket(cs, provider='') {
 }
 function schemeLabel(o) { return schemeBucket(o.card_scheme, o.provider) === 'domestic' ? 'Národní' : schemeBucket(o.card_scheme, o.provider) === 'intl' ? 'Visa/MC' : null; }
 function matchScheme(o) { return !S.scheme || schemeBucket(o.card_scheme, o.provider) === S.scheme; }
+function matchRole(o) {
+  if (S.role === 'all') return true;
+  if (S.role === 'acquirer') return o.provider_role === 'acquirer';
+  if (S.role === 'psp') return o.provider_role === 'psp';
+  return ['acquirer','acquirer_sales_channel','psp'].includes(o.provider_role);
+}
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:S.ccy, maximumFractionDigits:2}).format(n);
@@ -295,13 +310,14 @@ function scaleColor(v, min, max) {
 }
 
 function calc(o) {
-  if (o.variable_pct_min == null || o.all_in_complete === false) return {min:null, max:null, emin:null, emax:null};
+  const isEstimate = o.comparison_estimate === true;
+  if (o.variable_pct_min == null || (o.all_in_complete === false && !isEstimate)) return {min:null, max:null, emin:null, emax:null};
   const eurRate = S.data.fx.rates.EUR?.czk_per_unit ?? 24;
   const amountCzk = S.ccy === 'EUR' ? S.amount * eurRate : S.amount;
   const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
-  const interchange = o.pricing_components?.interchange;
-  const variableMin = o.variable_pct_min + (interchange?.eea_consumer_debit_reference_pct || 0);
-  const variableMax = o.variable_pct_max + (interchange?.eea_consumer_credit_reference_pct || 0);
+  const comparisonAddon = o.pricing_components?.comparison_reference?.total_addon_pct || 0;
+  const variableMin = o.variable_pct_min + comparisonAddon;
+  const variableMax = o.variable_pct_max + comparisonAddon;
   const minimumCzk = (o.minimum_fee || 0) * fx;
   const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx, minimumCzk);
   const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx, minimumCzk);
@@ -310,8 +326,7 @@ function calc(o) {
 }
 
 function isFullyCalculable(o) {
-  const model = o.pricing_model || '';
-  return o.variable_pct_min != null && o.all_in_complete !== false && !model.includes('IC+');
+  return o.variable_pct_min != null && (o.all_in_complete !== false || o.comparison_estimate === true);
 }
 
 function isSourceReviewed(o) {
@@ -325,6 +340,8 @@ function isComparable(o) {
 }
 
 function sourceLabel(o) {
+  if (o.comparison_estimate === true) return 'ceník + odhad ↗';
+  if ((o.verification || '').toLowerCase().includes('faq')) return 'oficiální FAQ ↗';
   return isFullyCalculable(o) ? 'oficiální ceník ↗' : 'ověření služby ↗';
 }
 
@@ -332,7 +349,7 @@ function roleBadge(o) {
   const roles = {
     acquirer:['Acquirer','role-acquirer','Poskytovatel uzavírá acquiringovou smlouvu a vypořádá karetní platby obchodníkovi.'],
     acquirer_sales_channel:['kanál acquirera','role-acquirer','Lokální značka nebo banka prodává acquiring jiného poskytovatele.'],
-    psp:['PSP (ne acquirer)','role-psp','PSP nabízí obchodníkovi balíček plateb, ale není v tomto přehledu veden jako samostatný acquirer.'],
+    psp:['PSP','role-psp','PSP nabízí obchodníkovi balíček plateb; acquiring může zajišťovat licencovaný partner.'],
     gateway_processor:['jen brána','role-gateway','Technická brána nebo procesor bez samostatné acquiringové nabídky.'],
     a2a_provider:['A2A poskytovatel','role-a2a','Poskytovatel platby z účtu na účet; nejde o karetní acquiring.'],
   };
@@ -346,7 +363,7 @@ function effectiveRate(o) {
   const value = !hasRange
     ? fmtPct(o._c.emin)
     : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
-  if (!hasRange) return value;
+  if (!hasRange) return o.comparison_estimate === true ? `≈ ${value}` : value;
   const model = (o.pricing_model || '').toLowerCase();
   if (model.includes('from')) return `od ${value}`;
   if (model.includes('up to')) return `max. ${value}`;
@@ -360,12 +377,13 @@ function additionalFees(o) {
 }
 
 function published(o) {
-  if (o.variable_pct_min == null || o.all_in_complete === false) return 'individuální';
+  if (o.variable_pct_min == null || (o.all_in_complete === false && o.comparison_estimate !== true)) return 'individuální';
   const components = o.pricing_components;
-  if ((o.pricing_model || '').includes('IC+') && components?.processing_fee) {
+  if (o.comparison_estimate === true && components?.processing_fee) {
     const processing = components.processing_fee;
     const markup = components.adyen_markup_pct ?? o.variable_pct_min;
-    return `${processing.amount.toLocaleString('cs-CZ')} ${processing.currency} + interchange + scheme fee + ${markup.toLocaleString('cs-CZ')} %`;
+    const addon = components.comparison_reference?.total_addon_pct || 0;
+    return `≈ ${(markup + addon).toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency}`;
   }
   const p = o.variable_pct_min === o.variable_pct_max
     ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
@@ -378,18 +396,17 @@ function published(o) {
 }
 
 function pricingReference(o) {
-  const interchange = o.pricing_components?.interchange;
+  const reference = o.pricing_components?.comparison_reference;
   const parts = [];
-  if (interchange) parts.push(`EEA spotřebitelské karty: interchange reference debet ${esc(interchange.eea_consumer_debit_reference_pct)} %, kredit ${esc(interchange.eea_consumer_credit_reference_pct)} %; scheme fee navíc`);
+  if (reference) parts.push(`Srovnávací EEA debet: ${esc(reference.interchange_pct)} % interchange + ${esc(reference.scheme_fee_pct)} % scheme fee`);
   if (o.condition) parts.push(esc(o.condition));
   return parts.map(part => `<span class="sub">${part}</span>`).join('');
 }
 
 function calculatedFee(o) {
-  if (o.all_in_complete === false) return 'individuální';
+  if (o.all_in_complete === false && o.comparison_estimate !== true) return 'individuální';
   const value = `${fmtCzk(o._c.min)}${o._c.min !== o._c.max ? '–' + fmtCzk(o._c.max) : ''}`;
-  if (!(o.pricing_model || '').includes('IC+')) return value;
-  return `${value}<span class="sub">jen processing + markup; celková cena je proměnlivá</span>`;
+  return o.comparison_estimate === true ? `≈ ${value}` : value;
 }
 
 function statusInfo(o) {
@@ -412,7 +429,7 @@ function allWithCalc() {
 }
 
 function contextOffers() {
-  let rows = allWithCalc().filter(o => isSourceReviewed(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o));
+  let rows = allWithCalc().filter(o => isSourceReviewed(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o) && matchRole(o));
   if (S.provider) rows = rows.filter(o => o.provider === S.provider);
   else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
   return rows;
@@ -446,7 +463,7 @@ function render() {
 }
 
 function renderKpis() {
-  const rows = allWithCalc().filter(o => isComparable(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o));
+  const rows = compactOffers(contextOffers()).filter(o => isComparable(o));
   const vals = rows.filter(o => o._c.emin != null).map(o => o._c);
   const byMin = [...rows.filter(o => o._c.emin != null)].sort((a,b) => a._c.emin - b._c.emin);
   const byMax = [...rows.filter(o => o._c.emin != null)].sort((a,b) => b._c.emin - a._c.emin);
@@ -463,7 +480,7 @@ function renderKpis() {
 
 function renderMap() {
   const svg = document.getElementById('map');
-  const base = allWithCalc().filter(o => isComparable(o) && (!S.method || o.method === S.method) && matchScheme(o));
+  const base = allWithCalc().filter(o => isComparable(o) && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o));
 
   let byCountry = {};
   for (const o of base) {
@@ -513,7 +530,7 @@ function renderMapDetail() {
   }
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
-  const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o)));
+  const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
   const withVal = rows.filter(o => isComparable(o) && o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
   const lo = withVal[0], hi = withVal[withVal.length - 1];
   const rangeText = withVal.length
@@ -601,6 +618,9 @@ function renderCompare() {
             <td class="rate">${additionalFees(o)}</td>
             <td>
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">${sourceLabel(o)}</a>
+              ${o.comparison_estimate === true && o.pricing_components?.comparison_reference?.scheme_fee_source_url
+                ? `<a class="sub source" target="_blank" rel="noopener" href="${esc(o.pricing_components.comparison_reference.scheme_fee_source_url)}">zdroj scheme fee ↗</a>`
+                : ''}
               ${st.cls === 'error' ? `<span class="status-dot error" title="${esc(st.detail)}"></span>` : ''}
             </td>
           </tr>`;
@@ -631,11 +651,11 @@ function renderCompare() {
 
 function exportCsv() {
   const rows = contextOffers().length ? sortRows(contextOffers()) : sortRows(allWithCalc());
-  const head = ['country','provider','provider_type','product','method','card_scheme','published_rate','transaction_czk','fee_min_czk','fee_max_czk','effective_min_pct','effective_max_pct','source_url'];
+  const head = ['country','provider','provider_type','product','method','card_scheme','published_rate','reference_transaction','reference_currency','effective_min_pct','effective_max_pct','comparison_estimate','source_url','comparison_source_url'];
   const lines = [head.join(',')];
   for (const o of rows) {
     const c = o._c;
-    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, o.card_scheme || '', published(o), S.amount, c.min, c.max, c.emin, c.emax, o.source_url]
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, o.card_scheme || '', published(o), S.amount, S.ccy, c.emin, c.emax, o.comparison_estimate === true, o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '']
       .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
   }
   const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});
@@ -654,6 +674,8 @@ async function init() {
   document.getElementById('generated').textContent = new Date(S.data.generated_at).toLocaleString('cs-CZ');
   document.getElementById('fxdate').textContent = S.data.fx.date;
   document.getElementById('fxdate2').textContent = S.data.fx.date;
+  S.amount = S.data.default_transaction_eur || 20;
+  S.ccy = 'EUR';
 
   if (S.data.offers.some(o => o.card_scheme)) {
     document.getElementById('scheme-control').style.display = '';
@@ -669,15 +691,6 @@ async function init() {
     `<optgroup label="Zatím bez dat (${noData.length})">${noData.map(opt).join('')}</optgroup>`
   );
 
-  const amount = document.getElementById('amount');
-  amount.oninput = () => { S.amount = Math.max(1, +amount.value || 1000); render(); };
-  document.getElementById('ccy-seg').addEventListener('click', e => {
-    const btn = e.target.closest('button[data-v]');
-    if (!btn) return;
-    S.ccy = btn.dataset.v;
-    document.querySelectorAll('#ccy-seg button').forEach(b => b.classList.toggle('active', b === btn));
-    render();
-  });
   document.getElementById('country').onchange = e => {
     S.country = e.target.value; S.provider = ''; S.region = ''; resetRegionButtons(); render();
   };
@@ -686,6 +699,21 @@ async function init() {
     if (!btn) return;
     S.method = btn.dataset.v;
     document.querySelectorAll('#method-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    if (S.method !== 'card') {
+      S.role = 'all';
+      document.querySelectorAll('#role-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === 'all'));
+    }
+    render();
+  });
+  document.getElementById('role-seg').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-v]');
+    if (!btn) return;
+    S.role = btn.dataset.v;
+    document.querySelectorAll('#role-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    if (S.role !== 'all') {
+      S.method = 'card';
+      document.querySelectorAll('#method-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === 'card'));
+    }
     render();
   });
   document.getElementById('scheme-seg').addEventListener('click', e => {

@@ -1,7 +1,7 @@
 {
   "as_of": "2026-08-19",
   "methodology": "Nezávislý registr skutečných merchant acquirerů, acquiringových bank, jejich lokálních distribučních kanálů a několika cenově relevantních PSP/A2A poskytovatelů ve zbývajících státech EU/EHP, Spojeném království a Švýcarsku. Registr vznikl před kontrolou původního datasetu; uvedení poskytovatele samo o sobě neznamená veřejnou číselnou sazbu.",
-  "discovered_provider_count": 119,
+  "discovered_provider_count": 120,
   "discovered_acquirer_count": 83,
   "countries": [
     {
@@ -158,9 +158,9 @@
     },
     {
       "country_iso2": "PT",
-      "discovered_providers": 7,
+      "discovered_providers": 8,
       "discovered_acquirers": 3,
-      "matched_providers": 7,
+      "matched_providers": 8,
       "matched_acquirers": 3,
       "missing_from_dataset": []
     },

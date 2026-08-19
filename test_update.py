@@ -38,6 +38,14 @@ def test_500_czk_calculation():
     assert round(x['fee_min_czk'],4)==8.1243
 
 
+def test_default_calculation_uses_twenty_euro_reference_transaction():
+    offer={'variable_pct_min':1.0,'variable_pct_max':1.0,'fixed_fee_min':0.05,'fixed_fee_max':0.05,'fee_currency':'EUR'}
+    fx={'EUR':{'czk_per_unit':25.0}}
+    x=calc(offer,fx)
+    assert x['fee_min_czk']==6.25
+    assert x['effective_min_pct']==1.25
+
+
 def test_minimum_fee_floor_is_applied_after_fx_conversion():
     offer={'variable_pct_min':1.0,'variable_pct_max':1.0,'fixed_fee_min':0,'fixed_fee_max':0,'minimum_fee':0.50,'fee_currency':'EUR'}
     fx={'EUR':{'czk_per_unit':25.0}}
@@ -220,23 +228,39 @@ def test_adyen_catalog_classifies_a2a_from_official_type_not_name(monkeypatch):
     discovered=next(o for o in offers if o['method']=='a2a')
     assert corrected['fixed_fee_min']==0.11 and corrected['fee_currency']=='EUR'
     assert corrected['pricing_components']['interchange']['eea_consumer_debit_reference_pct']==0.2
+    assert corrected['pricing_components']['comparison_reference']['scheme_fee_pct']==0.15
+    assert corrected['pricing_components']['comparison_reference']['total_addon_pct']==0.35
+    assert corrected['comparison_estimate'] is True
     assert discovered['product']=='Bank Button (A2A)'
     assert discovered['fixed_fee_min']==0.11 and discovered['variable_pct_min']==2.0
 
 
-def test_calc_does_not_present_incomplete_icpp_components_as_total():
+def test_calc_presents_icpp_as_a_clearly_modelled_debit_reference():
     offer={
         'variable_pct_min':0.6,'variable_pct_max':0.6,
         'fixed_fee_min':0.11,'fixed_fee_max':0.11,'fee_currency':'EUR',
         'pricing_components':{'interchange':{
             'eea_consumer_debit_reference_pct':0.2,
             'eea_consumer_credit_reference_pct':0.3,
-        }},
+        },'comparison_reference':{'total_addon_pct':0.35}},
         'all_in_complete':False,
+        'comparison_estimate':True,
     }
-    result=update.calc(offer,{'EUR':{'czk_per_unit':25}},amount=1000)
-    assert result['effective_min_pct'] is None
-    assert result['effective_max_pct'] is None
+    result=update.calc(offer,{'EUR':{'czk_per_unit':25}},amount=500)
+    assert result['fee_min_czk']==7.5
+    assert result['effective_min_pct']==1.5
+    assert result['effective_max_pct']==1.5
+
+
+def test_adyen_card_reference_is_added_outside_cee_with_country_currency():
+    countries={'DE':{'name':'Německo'},'GB':{'name':'Spojené království'}}
+    offers=sync_adyen_cee_offers([],countries,'2026-08-19T00:00:00+00:00')
+    by_country={offer['country_iso2']:offer for offer in offers if offer['method']=='card'}
+    assert by_country['DE']['fixed_fee_min']==0.11
+    assert by_country['DE']['fee_currency']=='EUR'
+    assert by_country['GB']['fixed_fee_min']==0.11
+    assert by_country['GB']['fee_currency']=='GBP'
+    assert all(offer['comparison_estimate'] is True for offer in by_country.values())
 
 
 def test_europe_registry_overlay_covers_all_discovered_providers_and_new_countries():
@@ -264,6 +288,15 @@ def test_provider_role_does_not_change_with_payment_method():
     assert update.provider_role({'provider':'GoPay','provider_type':'PSP s acquiringem','method':'card'})=='psp'
     assert update.provider_role({'provider':'GoPay','provider_type':'PSP s acquiringem','method':'a2a'})=='psp'
     assert update.provider_role({'provider':'Comgate','provider_type':'A2A poskytovatel / acquirer','method':'a2a'})=='acquirer'
+
+
+def test_provider_role_is_stable_across_card_and_a2a_rows():
+    offers=[
+        {'country_iso2':'FR','provider':'Mollie','provider_type':'PSP s acquiringem','method':'card'},
+        {'country_iso2':'FR','provider':'Mollie','provider_type':'A2A poskytovatel','method':'a2a'},
+    ]
+    update.assign_provider_roles(offers)
+    assert {offer['provider_role'] for offer in offers}=={'psp'}
 
 
 def test_external_ai_leads_are_added_only_as_verified_acquirers():
@@ -301,6 +334,18 @@ def test_ccv_netherlands_keeps_debit_and_credit_as_an_honest_range():
     assert ccv['variable_pct_max']==1.3
     assert ccv['fixed_fee_min']==0.068
     assert ccv['fixed_fee_max']==0
+
+
+def test_german_and_portuguese_public_price_corrections_are_kept():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_europe_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    by_id={offer['id']:offer for offer in offers}
+    assert by_id['DE-poscash-girocard-card']['variable_pct_min']==0.23
+    assert by_id['DE-poscash-girocard-card']['fixed_fee_min']==0
+    assert by_id['DE-zahlo-eea-consumer-card']['variable_pct_min']==1
+    assert by_id['DE-zahlo-eea-consumer-card']['fixed_fee_min']==0.05
+    assert by_id['DE-payone-visa-mastercard-card']['variable_pct_min']==1.9
+    assert by_id['PT-paybyrd-essential-eea-card']['variable_pct_min']==1.25
 
 
 def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():

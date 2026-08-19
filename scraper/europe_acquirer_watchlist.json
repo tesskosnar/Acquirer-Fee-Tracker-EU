@@ -1,10 +1,11 @@
 {
-  "as_of": "2026-08-18",
+  "as_of": "2026-08-19",
   "scope": "Independent discovery backlog for merchant acquirers and acquiring-linked providers outside the first CEE audit: remaining EU/EEA markets plus Switzerland and the United Kingdom. A name on this watchlist is not a verified price and is not automatically published in the dashboard.",
   "methodology": "Business of Payments is used for discovery and market context. Every provider role, country availability and price must still be confirmed on the provider's own product page, FAQ, legal documents, tariff PDFs, calculators and local-language pages before publication.",
   "discovery_sources": [
     {"name":"Business of Payments","url":"https://businessofpayments.substack.com/","type":"industry_discovery"},
-    {"name":"Business of Payments blog","url":"https://businessofpayments.com/author/thebusinessofpayments/","type":"industry_discovery"}
+    {"name":"Business of Payments blog","url":"https://businessofpayments.com/author/thebusinessofpayments/","type":"industry_discovery"},
+    {"name":"Paybyrd scheme-fee schedule","url":"https://www.paybyrd.com/pricing/scheme-fees","type":"official_methodology"}
   ],
   "roles": {
     "acquiring_bank": "Bank directly contracting for merchant card acceptance.",
@@ -60,6 +61,7 @@
     {"country_iso2":"PT","provider":"Reduniq / Unicre","role":"direct_acquirer","official_url":"https://www.reduniq.pt/","discovered_via":"market_scan"},
     {"country_iso2":"PT","provider":"SIBS","role":"gateway_or_processor","official_url":"https://www.sibs.com/","discovered_via":"market_scan"},
     {"country_iso2":"PT","provider":"Getnet Portugal","role":"direct_acquirer","official_url":"https://www.getnetworld.com/","discovered_via":"market_scan"},
+    {"country_iso2":"PT","provider":"Paybyrd","role":"full_service_psp","official_url":"https://www.paybyrd.com/pricing","discovered_via":"user lead + official pricing"},
 
     {"country_iso2":"AT","provider":"card complete","role":"direct_acquirer","official_url":"https://www.cardcomplete.com/","discovered_via":"Business of Payments"},
     {"country_iso2":"AT","provider":"hobex","role":"direct_acquirer","official_url":"https://www.hobex.at/","discovered_via":"Datatrans official acquirer list"},

@@ -96,6 +96,14 @@ ADYEN_CEE_A2A_SEED = (
     ("LV", "Trustly", "trustly", 0.0, 0.50),
     ("LT", "Trustly", "trustly", 0.0, 0.50),
 )
+ADYEN_METHOD_SOURCE_URLS = {
+    "online-banking-czech-republic": "https://www.adyen.com/en_SG/payment-methods/online-banking-czech-republic",
+    "online-banking-slovakia": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
+    "sepa-direct-debit": "https://www.adyen.com/payment-methods/sepa-direct-debit",
+    "blik": "https://www.adyen.com/en_GB/payment-methods/blik",
+    "online-banking-poland": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
+    "trustly": "https://www.adyen.com/en_SG/payment-methods/trustly",
+}
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("update")
 
@@ -448,7 +456,7 @@ def build_adyen_a2a_offer(country_code: str, country_name: str, name: str, slug:
         "condition": method_fee.get("raw", "") if re.search(r"\b(additional|minimum|depending|from)\b", method_fee.get("raw", ""), re.I) else "",
         "promo": False,
         "source_id": ADYEN_SOURCE_ID,
-        "source_url": "https://www.adyen.com/pricing",
+        "source_url": ADYEN_METHOD_SOURCE_URLS.get(slug, "https://www.adyen.com/pricing"),
         "parser": {
             "type": "adyen_country_method",
             "country_code": country_code,
@@ -838,9 +846,11 @@ def _registry_individual_offer(provider: dict, countries: dict) -> dict:
         'fee_currency':currency,
         'monthly_fee':0,
         'card_scheme':'intl' if method=='card' else None,
-        'source_url':provider['official_url'],
-        'verification':f'ověřena role a lokální nabídka na oficiálním zdroji {verified_on}; veřejná kompletní sazba nenalezena',
-        'notes':'Role a lokální dostupnost ověřeny; číselná cena se nezobrazuje, protože nebyla zveřejněna jako kompletní merchant sazba.',
+        'source_url':provider.get('pricing_url',provider['official_url']),
+        'condition':provider.get('pricing_evidence',''),
+        'price_lead_review':provider.get('price_lead_review'),
+        'verification':provider.get('pricing_verification',f'ručně ověřena role a lokální nabídka na oficiálním zdroji {verified_on}; poskytovatel na něm neuvádí kompletní merchant sazbu'),
+        'notes':'Role a lokální dostupnost jsou ověřené. Záznam zůstává bez čísla, protože oficiální zdroj kompletní merchant sazbu veřejně neuvádí; nejde o uzavřený nebo vyřazený výsledek.',
         'all_in_complete':False,
     },countries)
 
@@ -1029,9 +1039,10 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
     unpriced row "individual" overstates what the source actually says.
     """
     quote_markers=(
-        'individuální', 'individualni', 'na poptávku', 'podle obchodníka',
+        'individuální', 'individuálně', 'individualni', 'na poptávku', 'podle obchodníka',
         'podle potřeb', 'vyžaduje nabídku', 'cenovou nabídku', 'smluvní cenový model',
-        'negotiable', 'upon agreement', 'personal offer', 'as agreed',
+        'sjednáv', 'dohodnut', 'negotiable', 'upon agreement', 'personal offer', 'as agreed',
+        'tailored pricing', 'rates independently', 'order form', 'merchant agreement',
     )
     for offer in offers:
         if offer.get('variable_pct_min') is not None:

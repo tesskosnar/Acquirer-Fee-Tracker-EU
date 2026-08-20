@@ -25,6 +25,9 @@ button,input,select{font:inherit}
 .hero .wrap{padding-bottom:0}
 .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;color:#8fe0d4}
 .hero h1{font-family:Georgia,serif;font-size:clamp(30px,4.4vw,52px);line-height:1.05;margin:9px 0 11px;font-weight:500;max-width:960px}
+.home-reset{color:inherit;text-decoration:none;border-radius:8px;cursor:pointer}
+.home-reset:hover{color:#fff;text-shadow:0 0 24px rgba(143,224,212,.35)}
+.home-reset:focus-visible{outline:2px solid var(--teal);outline-offset:5px}
 .hero p{max-width:850px;color:#b9cddc;font-size:15px;line-height:1.6;margin:0}
 .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#c7dbe6}
 .meta b{color:#fff}
@@ -140,6 +143,8 @@ tr.offerrow{cursor:pointer}
 .pill.role-psp{background:#ece7f5;color:#5c467e}
 .pill.role-gateway{background:#eee8df;color:#785e3d}
 .pill.role-a2a{background:#e1eff0;color:#285d62}
+.scheme-tooltip{position:fixed;z-index:1000;max-width:240px;padding:8px 11px;border:1px solid #315575;border-radius:8px;background:#071627;color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.38);font-size:12px;font-weight:800;line-height:1.3;pointer-events:none}
+.scheme-tooltip[hidden]{display:none}
 .status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 .status-dot.ok{background:var(--green)}
 .status-dot.warn{background:var(--amber)}
@@ -176,7 +181,7 @@ tr.offerrow{cursor:pointer}
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">EU merchant acceptance intelligence</div>
-    <h1>Merchant Fee Tracker</h1>
+    <h1><a href="#" id="homeReset" class="home-reset" title="Obnovit výchozí přehled" aria-label="Merchant Fee Tracker – vymazat filtry a vrátit výchozí přehled">Merchant Fee Tracker</a></h1>
     <p>Veřejné ceny acquiringu, platebních bran a A2A řešení napříč EU/EHP, Spojeným královstvím a Švýcarskem. Pevné poplatky v cizích měnách se přepočítávají podle posledního dostupného kurzu ČNB.</p>
     <div class="meta">
       <span>Aktualizace: <b id="generated">—</b></span>
@@ -274,6 +279,8 @@ tr.offerrow{cursor:pointer}
   <div class="footer">Merchant Fee Tracker · data se nepublikují bez zdrojového odkazu · automatizované změny používají fail-safe kontrolu důvěry parseru</div>
 </main>
 
+<div id="schemeTooltip" class="scheme-tooltip" role="tooltip" hidden></div>
+
 <script>
 const REGION_COUNTRIES = {
   CEE: ["PL","CZ","SK","HU","RO","BG","LT","LV","EE","HR","SI"],
@@ -282,7 +289,16 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const S = { data:null, map:null, amount:20, ccy:'EUR', country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', search:'', sortKey:'rate', sortAsc:true };
+const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', search:'', sortKey:'rate', sortAsc:true});
+const NATIONAL_SCHEME_BY_COUNTRY = Object.freeze({
+  BE:'Bancontact',
+  CH:'PostFinance Card',
+  DE:'Girocard',
+  DK:'Dankort',
+  FR:'Cartes Bancaires (CB)',
+  IT:'PagoBANCOMAT',
+});
+const S = { data:null, map:null, amount:20, ccy:'EUR', ...DEFAULT_FILTERS };
 
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
 // ale uživatelské rozhraní záměrně používá jen dva srozumitelné koše.
@@ -291,6 +307,10 @@ function schemeBucket(cs, provider='') {
   return !cs ? null : cs === 'domestic' ? 'domestic' : cs.startsWith('intl') ? 'intl' : null;
 }
 function schemeLabel(o) { return schemeBucket(o.card_scheme, o.provider) === 'domestic' ? 'Národní' : schemeBucket(o.card_scheme, o.provider) === 'intl' ? 'Visa/MC' : null; }
+function nationalSchemeName(o) {
+  if (schemeBucket(o.card_scheme, o.provider) !== 'domestic') return null;
+  return o.national_scheme_name || NATIONAL_SCHEME_BY_COUNTRY[o.country_iso2] || null;
+}
 function matchScheme(o) { return !S.scheme || schemeBucket(o.card_scheme, o.provider) === S.scheme; }
 function searchText(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
 function matchSearch(o) {
@@ -403,7 +423,7 @@ function additionalFees(o) {
 
 function published(o) {
   const model = (o.pricing_model || '').toLowerCase();
-  if (o.variable_pct_min == null) return model.includes('individual') ? 'cena na vyžádání' : 'veřejná cena nenalezena';
+  if (o.variable_pct_min == null) return model.includes('individual') ? 'cena na vyžádání' : 'cena není veřejně uvedena';
   if (o.all_in_complete === false && o.comparison_estimate !== true) {
     const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
     return `${o.variable_pct_min.toLocaleString('cs-CZ')} %${f} + IC++`;
@@ -588,11 +608,54 @@ function clearFocus() {
   render();
 }
 
+function setActiveSegment(id, value) {
+  document.querySelectorAll(`#${id} button[data-v]`).forEach(button => {
+    button.classList.toggle('active', button.dataset.v === value);
+  });
+}
+
+function hideSchemeTooltip() {
+  const tooltip = document.getElementById('schemeTooltip');
+  tooltip.hidden = true;
+  tooltip.textContent = '';
+}
+
+function showSchemeTooltip(badge) {
+  const name = badge.dataset.schemeTooltip;
+  if (!name) return;
+  const tooltip = document.getElementById('schemeTooltip');
+  tooltip.textContent = name;
+  tooltip.hidden = false;
+  const badgeRect = badge.getBoundingClientRect();
+  const tooltipRect = tooltip.getBoundingClientRect();
+  const left = Math.max(10, Math.min(window.innerWidth - tooltipRect.width - 10, badgeRect.left + (badgeRect.width - tooltipRect.width) / 2));
+  let top = badgeRect.top - tooltipRect.height - 9;
+  if (top < 10) top = badgeRect.bottom + 9;
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function resetDashboard() {
+  Object.assign(S, DEFAULT_FILTERS);
+  S.amount = S.data?.default_transaction_eur || 20;
+  S.ccy = 'EUR';
+  document.getElementById('search').value = '';
+  document.getElementById('country').value = '';
+  setActiveSegment('method-seg', S.method);
+  setActiveSegment('role-seg', S.role);
+  setActiveSegment('scheme-seg', S.scheme);
+  setActiveSegment('region-seg', S.region);
+  hideSchemeTooltip();
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
 function resetRegionButtons() {
   document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === ''));
 }
 
 function renderCompare() {
+  hideSchemeTooltip();
   const body = document.getElementById('compareBody');
   const rowcount = document.getElementById('rowcount');
   const title = document.getElementById('compareTitle');
@@ -637,7 +700,12 @@ function renderCompare() {
         ${rows.map(o => {
           const st = statusInfo(o);
           const schemeLbl = schemeLabel(o);
-          const schemeBadge = schemeLbl ? `<span class="pill scheme" title="Sazba platí jen pro toto kartové schéma. Jeden poskytovatel proto může mít samostatný řádek pro národní schéma a pro Visa/MC.">${esc(schemeLbl)}</span>` : '';
+          const nationalScheme = nationalSchemeName(o);
+          const schemeBadge = nationalScheme
+            ? `<span class="pill scheme" tabindex="0" data-scheme-tooltip="${esc(nationalScheme)}" aria-label="Národní karetní schéma: ${esc(nationalScheme)}">${esc(schemeLbl)}</span>`
+            : schemeLbl
+            ? `<span class="pill scheme" title="Sazba platí pro Visa nebo Mastercard.">${esc(schemeLbl)}</span>`
+            : '';
           const providerRole = roleBadge(o);
           const nameCell = S.provider
             ? `<b>${esc(o.country_iso2)}</b>${providerRole}<span class="sub">${esc(o.country)}</span>`
@@ -773,6 +841,27 @@ async function init() {
   });
   document.getElementById('export').onclick = exportCsv;
   document.getElementById('clearCountry').onclick = clearFocus;
+  document.getElementById('homeReset').onclick = event => {
+    event.preventDefault();
+    resetDashboard();
+  };
+  document.getElementById('compareBody').addEventListener('mouseover', event => {
+    const badge = event.target.closest('[data-scheme-tooltip]');
+    if (badge) showSchemeTooltip(badge);
+  });
+  document.getElementById('compareBody').addEventListener('mouseout', event => {
+    const badge = event.target.closest('[data-scheme-tooltip]');
+    if (badge && !badge.contains(event.relatedTarget)) hideSchemeTooltip();
+  });
+  document.getElementById('compareBody').addEventListener('focusin', event => {
+    const badge = event.target.closest('[data-scheme-tooltip]');
+    if (badge) showSchemeTooltip(badge);
+  });
+  document.getElementById('compareBody').addEventListener('focusout', event => {
+    if (event.target.closest('[data-scheme-tooltip]')) hideSchemeTooltip();
+  });
+  window.addEventListener('scroll', hideSchemeTooltip, {passive:true});
+  window.addEventListener('resize', hideSchemeTooltip);
 
   render();
 }

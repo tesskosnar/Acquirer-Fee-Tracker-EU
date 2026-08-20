@@ -17,30 +17,29 @@
     "a2a_provider": "Poskytovatel platby z účtu na účet nebo lokální bankovní/QR metody."
   },
   "providers": [
-    {"country_iso2":"GB","provider":"Barclaycard Payments","role":"direct_acquirer","methods":["card"],"official_url":"https://www.barclaycard.co.uk/business/accepting-payments"},
+    {"country_iso2":"GB","provider":"Barclaycard Payments","role":"direct_acquirer","methods":["card"],"official_url":"https://www.barclaycard.co.uk/business/accepting-payments","pricing_evidence":"Oficiální stránka označuje 0,7 % + 0,03 GBP pouze jako reprezentativní příklad a při žádosti připravuje individuální cenový plán.","pricing_verification":"ručně ověřena acquiringová role a reprezentativní, nikoli garantovaná sazba na oficiálním webu 20. 8. 2026"},
     {"country_iso2":"GB","provider":"Worldpay","role":"direct_acquirer","methods":["card"],"official_url":"https://www.worldpay.com/en-GB/products/worldpay-ecommerce"},
     {"country_iso2":"GB","provider":"Lloyds Bank Cardnet","role":"acquiring_bank","methods":["card"],"official_url":"https://www.lloydsbank.com/business/take-payments-with-cardnet.html"},
     {"country_iso2":"GB","provider":"Dojo","role":"direct_acquirer","methods":["card"],"official_url":"https://dojo.tech/pricing/"},
-    {"country_iso2":"GB","provider":"DNA Payments","role":"direct_acquirer","methods":["card"],"official_url":"https://www.dnapayments.com/"},
-    {"country_iso2":"GB","provider":"Global Payments UK","role":"direct_acquirer","methods":["card"],"official_url":"https://www.globalpayments.com/en-gb"},
+    {"country_iso2":"GB","provider":"DNA Payments","role":"direct_acquirer","methods":["card"],"official_url":"https://www.dnapayments.com/","pricing_url":"https://dnapayments.com/storage/app/media/Zash%20Bundle%20Campaign%20Terms%20and%20Conditions_2.pdf","pricing_evidence":"Oficiální podmínky uvádějí tailored pricing a individuální cenovou dohodu během žádosti; veřejná jednotná merchant sazba není.","pricing_verification":"ručně ověřena acquiringová role a individuální cenový model v oficiálních podmínkách 20. 8. 2026"},
+    {"country_iso2":"GB","provider":"Global Payments UK","role":"direct_acquirer","methods":["card"],"official_url":"https://www.globalpayments.com/en-gb","pricing_url":"https://www.globalpayments.com/en-gb/online-quotation-tool","pricing_evidence":"Oficiální kalkulátor připravuje individuální cenovou nabídku podle obratu, průměrné transakce a oboru.","pricing_verification":"ručně ověřena acquiringová role a cenová nabídka na oficiálním kalkulátoru 20. 8. 2026"},
     {"country_iso2":"GB","provider":"Elavon UK","role":"direct_acquirer","methods":["card"],"official_url":"https://www.elavon.co.uk/"},
     {"country_iso2":"GB","provider":"Tyl by NatWest","role":"acquirer_sales_channel","methods":["card"],"official_url":"https://www.tylbynatwest.com/card-machines/pricing-fees"},
     {"country_iso2":"GB","provider":"PayPoint / Handepay","role":"acquirer_sales_channel","methods":["card"],"official_url":"https://www.handepay.co.uk/"},
     {"country_iso2":"GB","provider":"Shift4","role":"direct_acquirer","methods":["card"],"official_url":"https://www.shift4.com/"},
-    {"country_iso2":"GB","provider":"Trust Payments UK","role":"direct_acquirer","methods":["card"],"official_url":"https://trustpayments.com/products/acquiring/"},
+    {"country_iso2":"GB","provider":"Trust Payments UK","role":"direct_acquirer","methods":["card"],"official_url":"https://trustpayments.com/products/acquiring/","pricing_url":"https://help.trustpayments.com/hc/en-us/articles/19157739389713-How-do-I-perform-reconciliation-on-my-acquiring-account","pricing_evidence":"Oficiální nápověda potvrzuje, že merchant poplatky odpovídají individuálně dohodnutým sazbám v merchant agreement.","pricing_verification":"ručně ověřena acquiringová role a smluvní cenový model v oficiální nápovědě 20. 8. 2026"},
     {"country_iso2":"GB","provider":"Flatpay","role":"full_service_psp","methods":["card"],"official_url":"https://www.flatpay.com/en-gb/pricing"},
     {"country_iso2":"GB","provider":"Teya","role":"full_service_psp","methods":["card"],"official_url":"https://www.teya.com/"},
     {"country_iso2":"GB","provider":"GoCardless","role":"a2a_provider","methods":["a2a"],"official_url":"https://support.gocardless.com/hc/en-au/articles/17133306652572-Countries-you-can-collect-from","verified_on":"19. 8. 2026"},
     {"country_iso2":"GB","provider":"TrueLayer","role":"a2a_provider","methods":["a2a"],"official_url":"https://docs.truelayer.com/docs/get-information-about-banking-providers","verified_on":"19. 8. 2026"},
-    {"country_iso2":"GB","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","verified_on":"19. 8. 2026"},
+    {"country_iso2":"GB","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","pricing_url":"https://www.volt.io/legal/uk-msa/","pricing_evidence":"Oficiální UK smlouva stanoví processing a transaction fees v individuálním Order Form; veřejná jednotná sazba není.","pricing_verification":"ručně ověřena UK A2A služba a smluvní cenový model v oficiální smlouvě 20. 8. 2026","verified_on":"19. 8. 2026"},
     {"country_iso2":"GB","provider":"Trustly","role":"a2a_provider","methods":["a2a"],"official_url":"https://developers.trustly.com/","verified_on":"19. 8. 2026"},
-    {"country_iso2":"GB","provider":"Banked","role":"a2a_provider","methods":["a2a"],"official_url":"https://banked.com/faqs","verified_on":"19. 8. 2026"},
+    {"country_iso2":"GB","provider":"Banked","role":"a2a_provider","methods":["a2a"],"official_url":"https://banked.com/faqs","pricing_evidence":"Aktuální oficiální FAQ odkazuje obchodníka na sales a cenovou nabídku; starších veřejných 0,1 % proto není použito jako dnešní sazba.","pricing_verification":"ručně ověřena UK A2A služba a aktuální cenová nabídka v oficiálním FAQ 20. 8. 2026","verified_on":"19. 8. 2026"},
 
     {"country_iso2":"CH","provider":"Worldline Switzerland","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring"},
     {"country_iso2":"CH","provider":"Nexi Switzerland","role":"direct_acquirer","methods":["card"],"official_url":"https://www.nexi.swiss/"},
     {"country_iso2":"CH","provider":"Planet","role":"direct_acquirer","methods":["card"],"official_url":"https://www.weareplanet.com/"},
     {"country_iso2":"CH","provider":"PostFinance","role":"acquiring_bank","methods":["card","a2a"],"official_url":"https://www.postfinance.ch/en/business/products/payment-collection/payment-solutions/combo-payment-methods.html"},
-    {"country_iso2":"CH","provider":"Datatrans","role":"gateway_or_processor","methods":["card"],"official_url":"https://docs.datatrans.ch/docs/getting-started"},
     {"country_iso2":"CH","provider":"wallee","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://en.wallee.com/"},
     {"country_iso2":"LI","provider":"Worldline Switzerland","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring"},
 
@@ -67,7 +66,6 @@
     {"country_iso2":"ES","provider":"BBVA Merchant Services","role":"acquiring_bank","methods":["card"],"official_url":"https://www.bbva.es/empresas.html"},
     {"country_iso2":"ES","provider":"Dojo Spain","role":"direct_acquirer","methods":["card"],"official_url":"https://dojo.tech/es/"},
     {"country_iso2":"ES","provider":"PAYCOMET","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.paycomet.com/en/pricing"},
-    {"country_iso2":"ES","provider":"Redsys","role":"gateway_or_processor","methods":["card"],"official_url":"https://www.redsys.es/"},
 
     {"country_iso2":"IT","provider":"Nexi Italy","role":"direct_acquirer","methods":["card"],"official_url":"https://www.nexi.it/shop/it"},
     {"country_iso2":"IT","provider":"Worldline / Axepta Italy","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/it-it/home"},
@@ -78,9 +76,8 @@
     {"country_iso2":"IT","provider":"Mollie","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.mollie.com/it/pricing"},
 
     {"country_iso2":"PT","provider":"Reduniq / Unicre","role":"direct_acquirer","methods":["card"],"official_url":"https://www.reduniq.pt/"},
-    {"country_iso2":"PT","provider":"SIBS","role":"gateway_or_processor","methods":["card"],"official_url":"https://www.sibs.com/"},
-    {"country_iso2":"PT","provider":"Getnet Portugal","role":"direct_acquirer","methods":["card"],"official_url":"https://www.getnetworld.com/"},
-    {"country_iso2":"PT","provider":"Teya Portugal","role":"direct_acquirer","methods":["card"],"official_url":"https://www.teya.com/pt/pricing"},
+    {"country_iso2":"PT","provider":"Getnet","role":"direct_acquirer","methods":["card"],"official_url":"https://www.getnet.net/pt/tarifas"},
+    {"country_iso2":"PT","provider":"Teya Portugal","role":"direct_acquirer","methods":["card"],"official_url":"https://www.teya.com/pt/pricing","pricing_evidence":"Aktuální portugalský ceník uvádí personalizovanou nabídku; 19,99 EUR je pouze nízkoobjemový měsíční poplatek, nikoli transakční sazba.","pricing_verification":"ručně ověřena acquiringová nabídka a individuální cenový model na oficiálním portugalském ceníku 20. 8. 2026"},
     {"country_iso2":"PT","provider":"ifthenpay","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.ifthenpay.com/assets/files/CONTRACT-IFTHENPAY-EN.pdf"},
     {"country_iso2":"PT","provider":"Eupago","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.eupago.pt/setores/meios-de-pagamento-para-o-e-commerce"},
     {"country_iso2":"PT","provider":"PAYCOMET","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.paycomet.com/en/pricing/payment-methods"},
@@ -88,13 +85,12 @@
 
     {"country_iso2":"AT","provider":"card complete","role":"direct_acquirer","methods":["card"],"official_url":"https://www.cardcomplete.com/fuer-unternehmen/"},
     {"country_iso2":"AT","provider":"hobex","role":"direct_acquirer","methods":["card"],"official_url":"https://www.hobex.at/"},
-    {"country_iso2":"AT","provider":"Global Payments Austria","role":"direct_acquirer","methods":["card"],"official_url":"https://www.globalpayments.at/"},
+    {"country_iso2":"AT","provider":"Global Payments","role":"direct_acquirer","methods":["card"],"official_url":"https://www.globalpayments.at/"},
     {"country_iso2":"AT","provider":"readyPay / hobex","role":"acquirer_sales_channel","methods":["card"],"official_url":"https://ready2order.com/at/funktionen/kartenzahlung/"},
-    {"country_iso2":"AT","provider":"Unzer Austria","role":"direct_acquirer","methods":["card"],"official_url":"https://www.unzer.com/at/"},
-    {"country_iso2":"AT","provider":"eps-Überweisung","role":"a2a_provider","methods":["a2a"],"official_url":"https://eps-ueberweisung.at/de/haendler","verified_on":"19. 8. 2026"},
+    {"country_iso2":"AT","provider":"Unzer","role":"direct_acquirer","methods":["card"],"official_url":"https://www.unzer.com/at/"},
     {"country_iso2":"AT","provider":"GoCardless","role":"a2a_provider","methods":["a2a"],"official_url":"https://support.gocardless.com/hc/en-au/articles/17133306652572-Countries-you-can-collect-from","verified_on":"19. 8. 2026"},
     {"country_iso2":"AT","provider":"TrueLayer","role":"a2a_provider","methods":["a2a"],"official_url":"https://docs.truelayer.com/docs/get-information-about-banking-providers","verified_on":"19. 8. 2026"},
-    {"country_iso2":"AT","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","verified_on":"19. 8. 2026"},
+    {"country_iso2":"AT","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","pricing_url":"https://www.volt.io/legal/eu-msa/","pricing_evidence":"Oficiální EU smlouva stanoví processing a transaction fees v individuálním Order Form; veřejná jednotná sazba není.","pricing_verification":"ručně ověřena A2A služba a smluvní cenový model v oficiální EU smlouvě 20. 8. 2026","verified_on":"19. 8. 2026"},
     {"country_iso2":"AT","provider":"Trustly","role":"a2a_provider","methods":["a2a"],"official_url":"https://developers.trustly.com/","verified_on":"19. 8. 2026"},
 
     {"country_iso2":"BE","provider":"Worldline Belgium","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/en-be/home"},
@@ -117,22 +113,23 @@
     {"country_iso2":"IE","provider":"Dojo Ireland","role":"direct_acquirer","methods":["card"],"official_url":"https://dojo.tech/ie/pricing/"},
     {"country_iso2":"IE","provider":"GoCardless","role":"a2a_provider","methods":["a2a"],"official_url":"https://support.gocardless.com/hc/en-au/articles/17133306652572-Countries-you-can-collect-from","verified_on":"19. 8. 2026"},
     {"country_iso2":"IE","provider":"TrueLayer","role":"a2a_provider","methods":["a2a"],"official_url":"https://docs.truelayer.com/docs/get-information-about-banking-providers","verified_on":"19. 8. 2026"},
-    {"country_iso2":"IE","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","verified_on":"19. 8. 2026"},
+    {"country_iso2":"IE","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","pricing_url":"https://www.volt.io/legal/eu-msa/","pricing_evidence":"Oficiální EU smlouva stanoví processing a transaction fees v individuálním Order Form; veřejná jednotná sazba není.","pricing_verification":"ručně ověřena A2A služba a smluvní cenový model v oficiální EU smlouvě 20. 8. 2026","verified_on":"19. 8. 2026"},
 
     {"country_iso2":"DK","provider":"Nets / Nexi Denmark","role":"direct_acquirer","methods":["card"],"official_url":"https://www.nets.eu/"},
+    {"country_iso2":"DK","provider":"Worldline Denmark / Bambora","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/da-dk/campaigns/new-cash-register-act"},
     {"country_iso2":"DK","provider":"Flatpay Denmark","role":"full_service_psp","methods":["card","a2a"],"official_url":"https://www.flatpay.com/da/priser"},
     {"country_iso2":"DK","provider":"Clearhaus","role":"direct_acquirer","methods":["card"],"official_url":"https://www.clearhaus.com/"},
     {"country_iso2":"DK","provider":"Vipps MobilePay","role":"a2a_provider","methods":["a2a"],"official_url":"https://vippsmobilepay.com/da-dk/priser"},
     {"country_iso2":"DK","provider":"GoCardless","role":"a2a_provider","methods":["a2a"],"official_url":"https://support.gocardless.com/hc/en-au/articles/17133306652572-Countries-you-can-collect-from","verified_on":"19. 8. 2026"},
     {"country_iso2":"DK","provider":"TrueLayer","role":"a2a_provider","methods":["a2a"],"official_url":"https://docs.truelayer.com/docs/get-information-about-banking-providers","verified_on":"19. 8. 2026"},
-    {"country_iso2":"DK","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","verified_on":"19. 8. 2026"},
+    {"country_iso2":"DK","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","pricing_url":"https://www.volt.io/legal/eu-msa/","pricing_evidence":"Oficiální EU smlouva stanoví processing a transaction fees v individuálním Order Form; veřejná jednotná sazba není.","pricing_verification":"ručně ověřena A2A služba a smluvní cenový model v oficiální EU smlouvě 20. 8. 2026","verified_on":"19. 8. 2026"},
     {"country_iso2":"DK","provider":"Trustly","role":"a2a_provider","methods":["a2a"],"official_url":"https://developers.trustly.com/","verified_on":"19. 8. 2026"},
     {"country_iso2":"SE","provider":"Swedbank Pay / PayEx","role":"direct_acquirer","methods":["card"],"official_url":"https://www.swedbankpay.com/"},
     {"country_iso2":"SE","provider":"Worldline Sweden / Bambora","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/sv-se/campaigns/ms/Move-5000"},
     {"country_iso2":"SE","provider":"Nets / Nexi Sweden","role":"direct_acquirer","methods":["card"],"official_url":"https://www.nets.eu/"},
     {"country_iso2":"SE","provider":"Swish","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.swish.nu/faq/company/is-there-a-fee-to-use-swish"},
     {"country_iso2":"SE","provider":"GoCardless","role":"a2a_provider","methods":["a2a"],"official_url":"https://support.gocardless.com/hc/en-au/articles/17133306652572-Countries-you-can-collect-from","verified_on":"19. 8. 2026"},
-    {"country_iso2":"SE","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","verified_on":"19. 8. 2026"},
+    {"country_iso2":"SE","provider":"Volt","role":"a2a_provider","methods":["a2a"],"official_url":"https://www.volt.io/market-coverage/","pricing_url":"https://www.volt.io/legal/eu-msa/","pricing_evidence":"Oficiální EU smlouva stanoví processing a transaction fees v individuálním Order Form; veřejná jednotná sazba není.","pricing_verification":"ručně ověřena A2A služba a smluvní cenový model v oficiální EU smlouvě 20. 8. 2026","verified_on":"19. 8. 2026"},
     {"country_iso2":"SE","provider":"Trustly","role":"a2a_provider","methods":["a2a"],"official_url":"https://developers.trustly.com/","verified_on":"19. 8. 2026"},
     {"country_iso2":"FI","provider":"Nets / Nexi Finland","role":"direct_acquirer","methods":["card"],"official_url":"https://www.nets.eu/"},
     {"country_iso2":"FI","provider":"Worldline Finland","role":"direct_acquirer","methods":["card"],"official_url":"https://worldline.com/"},
@@ -174,9 +171,9 @@
 
     {"country_iso2":"CY","provider":"payabl.","role":"direct_acquirer","methods":["card"],"official_url":"https://payabl.com/payabl-gateway"},
 
-    {"country_iso2":"MT","provider":"Shift4 / Finaro","role":"direct_acquirer","methods":["card"],"official_url":"https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-25-000011/0001794669-25-000011.pdf"},
+    {"country_iso2":"MT","provider":"Shift4 / Finaro","role":"direct_acquirer","methods":["card"],"official_url":"https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-25-000011/0001794669-25-000011.pdf","price_lead_review":"non_merchant_or_incomplete"},
 
-    {"country_iso2":"GB","provider":"Cashflows","role":"direct_acquirer","methods":["card"],"official_url":"https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services"},
-    {"country_iso2":"GB","provider":"Fiserv UK","role":"direct_acquirer","methods":["card"],"official_url":"https://merchants.fiserv.com/en-europe/"}
+    {"country_iso2":"GB","provider":"Cashflows","role":"direct_acquirer","methods":["card"],"official_url":"https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services","pricing_evidence":"Oficiální dokumentace uvádí poplatky podle pricing plánu sjednaného s merchantem; veřejná jednotná sazba není.","pricing_verification":"ručně ověřena acquiringová role a smluvní cenový model na oficiálním webu 20. 8. 2026"},
+    {"country_iso2":"GB","provider":"Fiserv UK","role":"direct_acquirer","methods":["card"],"official_url":"https://merchants.fiserv.com/en-europe/","pricing_url":"https://merchants.fiserv.com/en-uk/resources/faqs/","pricing_evidence":"Oficiální FAQ výslovně uvádí, že Fiserv/Clover nemá pevné sazby a rates independently nastavuje pro každý podnik.","pricing_verification":"ručně ověřena acquiringová role a individuální sazby v oficiálním FAQ 20. 8. 2026"}
   ]
 }

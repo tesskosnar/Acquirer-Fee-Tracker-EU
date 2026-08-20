@@ -60,12 +60,12 @@
 
     {"country_iso2":"PT","provider":"Reduniq / Unicre","role":"direct_acquirer","official_url":"https://www.reduniq.pt/","discovered_via":"market_scan"},
     {"country_iso2":"PT","provider":"SIBS","role":"gateway_or_processor","official_url":"https://www.sibs.com/","discovered_via":"market_scan"},
-    {"country_iso2":"PT","provider":"Getnet Portugal","role":"direct_acquirer","official_url":"https://www.getnetworld.com/","discovered_via":"market_scan"},
+    {"country_iso2":"PT","provider":"Getnet","role":"direct_acquirer","official_url":"https://www.getnet.net/pt/tarifas","discovered_via":"market_scan"},
     {"country_iso2":"PT","provider":"Paybyrd","role":"full_service_psp","official_url":"https://www.paybyrd.com/pricing","discovered_via":"user lead + official pricing"},
 
     {"country_iso2":"AT","provider":"card complete","role":"direct_acquirer","official_url":"https://www.cardcomplete.com/","discovered_via":"Business of Payments"},
     {"country_iso2":"AT","provider":"hobex","role":"direct_acquirer","official_url":"https://www.hobex.at/","discovered_via":"Datatrans official acquirer list"},
-    {"country_iso2":"AT","provider":"Global Payments Austria","role":"direct_acquirer","official_url":"https://www.globalpayments.at/","discovered_via":"market_scan"},
+    {"country_iso2":"AT","provider":"Global Payments","role":"direct_acquirer","official_url":"https://www.globalpayments.at/","discovered_via":"market_scan"},
 
     {"country_iso2":"BE","provider":"Worldline Belgium","role":"direct_acquirer","official_url":"https://worldline.com/en-be/home","discovered_via":"market_scan"},
     {"country_iso2":"BE","provider":"Axepta BNP Paribas Fortis","role":"acquiring_bank","official_url":"https://www.axepta.be/","discovered_via":"market_scan"},

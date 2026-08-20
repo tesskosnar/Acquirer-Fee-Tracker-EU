@@ -1,18 +1,16 @@
 {
   "as_of": "2026-08-19",
   "methodology": "Nezávislý registr skutečných merchant acquirerů, acquiringových bank, jejich lokálních distribučních kanálů a několika cenově relevantních PSP/A2A poskytovatelů ve zbývajících státech EU/EHP, Spojeném království a Švýcarsku. Registr vznikl před kontrolou původního datasetu; uvedení poskytovatele samo o sobě neznamená veřejnou číselnou sazbu.",
-  "discovered_provider_count": 140,
-  "discovered_acquirer_count": 83,
+  "discovered_provider_count": 137,
+  "discovered_acquirer_count": 84,
   "countries": [
     {
       "country_iso2": "AT",
-      "discovered_providers": 12,
+      "discovered_providers": 11,
       "discovered_acquirers": 6,
-      "matched_providers": 8,
-      "matched_acquirers": 2,
+      "matched_providers": 9,
+      "matched_acquirers": 4,
       "missing_from_dataset": [
-        "Global Payments Austria",
-        "Unzer Austria",
         "PAYONE Austria",
         "Fiserv Austria"
       ]
@@ -30,9 +28,9 @@
     },
     {
       "country_iso2": "CH",
-      "discovered_providers": 6,
+      "discovered_providers": 5,
       "discovered_acquirers": 4,
-      "matched_providers": 4,
+      "matched_providers": 3,
       "matched_acquirers": 2,
       "missing_from_dataset": [
         "Worldline Switzerland",
@@ -62,10 +60,10 @@
     },
     {
       "country_iso2": "DK",
-      "discovered_providers": 8,
-      "discovered_acquirers": 2,
-      "matched_providers": 6,
-      "matched_acquirers": 1,
+      "discovered_providers": 9,
+      "discovered_acquirers": 3,
+      "matched_providers": 7,
+      "matched_acquirers": 2,
       "missing_from_dataset": [
         "Nets / Nexi Denmark",
         "Flatpay Denmark"
@@ -73,9 +71,9 @@
     },
     {
       "country_iso2": "ES",
-      "discovered_providers": 7,
+      "discovered_providers": 6,
       "discovered_acquirers": 5,
-      "matched_providers": 6,
+      "matched_providers": 5,
       "matched_acquirers": 4,
       "missing_from_dataset": [
         "Dojo Spain"
@@ -215,12 +213,11 @@
     },
     {
       "country_iso2": "PT",
-      "discovered_providers": 8,
+      "discovered_providers": 7,
       "discovered_acquirers": 3,
       "matched_providers": 6,
-      "matched_acquirers": 1,
+      "matched_acquirers": 2,
       "missing_from_dataset": [
-        "Getnet Portugal",
         "Teya Portugal"
       ]
     },

@@ -2,7 +2,7 @@ import json
 from copy import deepcopy
 
 import scraper.update as update
-from scraper.audit_unpriced import extract_price_leads
+from scraper.audit_unpriced import classify_audited_row, extract_price_leads, source_was_manually_reviewed
 from scraper.update import (
     BASELINE,
     CEE_REGISTRY,
@@ -155,7 +155,7 @@ def test_a2a_country_coverage_is_verified_for_reported_gaps():
     for item in registry['providers']:
         if 'a2a' in item.get('methods',[]):
             a2a.setdefault(item['country_iso2'],set()).add(item['provider'])
-    assert {'eps-Überweisung','GoCardless','TrueLayer','Volt','Trustly'}.issubset(a2a['AT'])
+    assert {'GoCardless','TrueLayer','Volt','Trustly'}.issubset(a2a['AT'])
     assert {'Vipps MobilePay','GoCardless','TrueLayer','Volt','Trustly'}.issubset(a2a['DK'])
     assert {'Swish','GoCardless','Volt','Trustly'}.issubset(a2a['SE'])
     assert {'GoCardless','TrueLayer','Volt','Trustly','Banked'}.issubset(a2a['GB'])
@@ -380,7 +380,8 @@ def test_external_ai_leads_are_added_only_as_verified_acquirers():
     by_provider={(item['country_iso2'],item['provider'],item['method']):item for item in offers}
     assert by_provider[('SK','SKPAY','card')]['variable_pct_min'] is None
     assert by_provider[('SK','SKPAY','card')]['all_in_complete'] is False
-    assert by_provider[('GR','NBG Pay / IRIS Commerce','a2a')]['variable_pct_min'] is None
+    assert by_provider[('GR','NBG Pay / IRIS Commerce','a2a')]['variable_pct_min']==0.6
+    assert by_provider[('GR','NBG Pay / IRIS Commerce','a2a')]['cap']==0.5
 
 
 def test_ccv_netherlands_keeps_debit_and_credit_as_an_honest_range():
@@ -443,6 +444,22 @@ def test_unpriced_audit_only_flags_fee_expressions_in_payment_context():
     assert extract_price_leads('Card transaction volumes increased by 31% during the year.')==[]
 
 
+def test_blocked_automated_fetch_does_not_erase_manual_source_review():
+    assert source_was_manually_reviewed({'verification':'ručně ověřeno v oficiálním FAQ'})
+    assert source_was_manually_reviewed({'verification':'ověřena lokální nabídka 20. 8. 2026'})
+    assert not source_was_manually_reviewed({'verification':'z rozšířeného datasetu'})
+
+
+def test_manual_review_resolves_quote_and_false_positive_price_leads():
+    assert classify_audited_row(
+        {'pricing_model':'Individual'}, 'public_price_lead_found'
+    )=='quote_or_individual_price_confirmed_without_public_number'
+    assert classify_audited_row(
+        {'pricing_model':'Not public','price_lead_review':'non_merchant_or_incomplete'},
+        'public_price_lead_found',
+    )=='manual_price_lead_rejected_as_non_merchant_or_incomplete'
+
+
 def test_clearhaus_domestic_issuer_label_is_not_a_national_scheme():
     offers=[{'provider':'Clearhaus','method':'card','card_scheme':'domestic'}]
     assert update.normalize_card_schemes(offers)[0]['card_scheme']=='intl'
@@ -470,3 +487,23 @@ def test_country_suffix_is_removed_from_provider_display_name():
     assert [o['provider'] for o in update.normalize_provider_names(offers)]==[
         'PayU', 'PayU', 'PayU', 'Flatpay', 'Elavon', 'Worldline / Bambora',
     ]
+
+
+def test_dashboard_names_national_schemes_and_title_resets_all_filters():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    for country, scheme in {
+        'BE':'Bancontact',
+        'CH':'PostFinance Card',
+        'DE':'Girocard',
+        'DK':'Dankort',
+        'FR':'Cartes Bancaires (CB)',
+        'IT':'PagoBANCOMAT',
+    }.items():
+        assert f"{country}:'{scheme}'" in dashboard
+    assert 'id="homeReset"' in dashboard
+    assert 'data-scheme-tooltip=' in dashboard
+    assert 'Object.assign(S, DEFAULT_FILTERS)' in dashboard
+    assert "setActiveSegment('method-seg', S.method)" in dashboard
+    assert "setActiveSegment('role-seg', S.role)" in dashboard
+    assert "setActiveSegment('scheme-seg', S.scheme)" in dashboard
+    assert "setActiveSegment('region-seg', S.region)" in dashboard

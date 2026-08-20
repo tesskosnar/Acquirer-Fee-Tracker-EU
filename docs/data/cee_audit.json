@@ -27,11 +27,12 @@
       "country_iso2": "EE",
       "discovered_providers": 8,
       "discovered_acquirers": 5,
-      "matched_providers": 5,
+      "matched_providers": 4,
       "matched_acquirers": 3,
       "missing_from_dataset": [
         "SEB Estonia",
         "Swedbank Estonia",
+        "EveryPay",
         "MakeCommerce"
       ]
     },
@@ -69,14 +70,13 @@
       "country_iso2": "LT",
       "discovered_providers": 12,
       "discovered_acquirers": 8,
-      "matched_providers": 6,
+      "matched_providers": 7,
       "matched_acquirers": 4,
       "missing_from_dataset": [
         "Swedbank Lithuania",
         "Citadele Lithuania / Klix",
         "SEB Lithuania",
         "ConnectPay",
-        "OPAY",
         "MakeCommerce"
       ]
     },
@@ -84,14 +84,13 @@
       "country_iso2": "LV",
       "discovered_providers": 8,
       "discovered_acquirers": 5,
-      "matched_providers": 3,
+      "matched_providers": 4,
       "matched_acquirers": 2,
       "missing_from_dataset": [
         "Swedbank Latvia",
         "Citadele Latvia / Klix",
         "SEB Latvia",
-        "MakeCommerce",
-        "OPAY"
+        "MakeCommerce"
       ]
     },
     {
@@ -124,11 +123,12 @@
       "country_iso2": "SI",
       "discovered_providers": 9,
       "discovered_acquirers": 6,
-      "matched_providers": 4,
+      "matched_providers": 3,
       "matched_acquirers": 2,
       "missing_from_dataset": [
         "UniCredit Bank Slovenia",
         "Worldline Slovenia",
+        "Bankart",
         "Monri Slovenia",
         "OTP banka Slovenia",
         "Intesa Sanpaolo Bank Slovenia"
@@ -138,12 +138,14 @@
       "country_iso2": "SK",
       "discovered_providers": 16,
       "discovered_acquirers": 12,
-      "matched_providers": 13,
-      "matched_acquirers": 9,
+      "matched_providers": 11,
+      "matched_acquirers": 7,
       "missing_from_dataset": [
+        "Tatra banka CardPay",
         "Global Payments Slovakia",
         "UniCredit Bank Slovakia",
-        "Worldline Slovakia"
+        "Worldline Slovakia",
+        "Nexi Central Europe"
       ]
     }
   ]

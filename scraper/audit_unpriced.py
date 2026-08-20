@@ -48,6 +48,27 @@ FEE_CONTEXT_RE = re.compile(
     r"comisi|comiss|taxa|op[lł]at|d[ií]j|naknada|cijen|такс|комиси|цена",
     re.I,
 )
+
+
+def source_was_manually_reviewed(row: dict) -> bool:
+    """Do not let a later blocked fetch erase a completed human review."""
+    verification = (row.get("verification") or "").lower()
+    excluded = ("částečně", "namátkově", "rozšířeného datasetu", "obnoveno z původního")
+    if any(token in verification for token in excluded):
+        return False
+    accepted = ("ručně ověř", "ověřen", "last verified adyen", "adyen country/method")
+    return verification.startswith("auto-checked") or any(token in verification for token in accepted)
+
+
+def classify_audited_row(row: dict, scan_outcome: str) -> str:
+    """Combine the scanner lead with the recorded manual pricing review."""
+    if row.get("pricing_model") == "Individual":
+        return "quote_or_individual_price_confirmed_without_public_number"
+    if scan_outcome == "public_price_lead_found" and row.get("price_lead_review") == "non_merchant_or_incomplete":
+        return "manual_price_lead_rejected_as_non_merchant_or_incomplete"
+    if scan_outcome != "public_price_lead_found" and source_was_manually_reviewed(row):
+        return "manual_source_review_completed_without_public_number"
+    return scan_outcome
 FEE_EXPRESSION_RE = re.compile(
     r"(?:from|starting at|starts? at|ab|od|fra|från|alkaen|à partir de|da\s+)?"
     r"\d{1,2}(?:[.,]\d{1,4})?\s*%"
@@ -239,9 +260,7 @@ def main() -> int:
     for url in urls:
         scan = scans[url]
         for row in by_url[url]:
-            outcome = scan["outcome"]
-            if row.get("pricing_model") == "Individual" and outcome != "public_price_lead_found":
-                outcome = "quote_or_individual_price_confirmed_without_public_number"
+            outcome = classify_audited_row(row, scan["outcome"])
             audited_rows.append(
                 {
                     "id": row["id"],

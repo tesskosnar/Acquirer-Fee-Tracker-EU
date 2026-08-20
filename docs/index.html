@@ -32,9 +32,15 @@ button,input,select{font:inherit}
 .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#c7dbe6}
 .meta b{color:#fff}
 
+.sticky-home{position:sticky;top:0;z-index:35;background:#071627;border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.sticky-home .wrap{min-height:42px;padding-top:0;padding-bottom:0;display:flex;align-items:center}
+.sticky-home-reset{font-family:Georgia,serif;color:var(--ink);font-size:16px;font-weight:600;text-decoration:none;border-radius:6px}
+.sticky-home-reset:hover{color:var(--teal)}
+.sticky-home-reset:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+
 .controls{
   margin-top:-1px;background:var(--panel);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;
-  padding:16px 18px;box-shadow:var(--shadow);position:sticky;top:0;z-index:20;
+  padding:16px 18px;box-shadow:var(--shadow);position:sticky;top:42px;z-index:20;
   display:flex; align-items:flex-end; gap:22px; flex-wrap:wrap;
 }
 .control-primary{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
@@ -157,6 +163,9 @@ tr.offerrow{cursor:pointer}
 
 .fxnote{padding:16px 20px;color:var(--muted);font-size:12.5px;line-height:1.6}
 .fxnote a{font-weight:600}
+.footer-action{border:0;background:transparent;padding:0;color:var(--teal);font-size:11.5px;font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.footer-action:hover{color:var(--ink)}
+.footer-action:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
 .footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
 
 @media(max-width:1150px){
@@ -190,6 +199,12 @@ tr.offerrow{cursor:pointer}
     </div>
   </div>
 </header>
+
+<nav class="sticky-home" aria-label="Návrat na výchozí přehled">
+  <div class="wrap">
+    <a href="#" id="stickyHomeReset" class="sticky-home-reset" data-reset-dashboard>Merchant Fee Tracker</a>
+  </div>
+</nav>
 
 <main class="wrap">
 
@@ -239,7 +254,6 @@ tr.offerrow{cursor:pointer}
         </div>
       </div>
     </div>
-    <button id="export" class="btn btn-ghost">Export CSV</button>
   </section>
 
   <section class="kpis">
@@ -272,7 +286,7 @@ tr.offerrow{cursor:pointer}
 
   <section class="panel" style="margin-top:18px">
     <div class="fxnote">
-      Přepočteno dle kurzu ČNB ze dne <b id="fxdate2">—</b>. <a href="data/latest.csv" download>Stáhnout plný datový export</a> · <a href="data/changes.json">Change log</a>
+      Přepočteno dle kurzu ČNB ze dne <b id="fxdate2">—</b>. <a href="data/latest.csv" download>Stáhnout plný datový export</a> · <a href="data/changes.json">Change log</a> · <button id="export" class="footer-action">Export CSV</button>
     </div>
   </section>
 
@@ -841,10 +855,12 @@ async function init() {
   });
   document.getElementById('export').onclick = exportCsv;
   document.getElementById('clearCountry').onclick = clearFocus;
-  document.getElementById('homeReset').onclick = event => {
-    event.preventDefault();
-    resetDashboard();
-  };
+  document.querySelectorAll('#homeReset, [data-reset-dashboard]').forEach(link => {
+    link.onclick = event => {
+      event.preventDefault();
+      resetDashboard();
+    };
+  });
   document.getElementById('compareBody').addEventListener('mouseover', event => {
     const badge = event.target.closest('[data-scheme-tooltip]');
     if (badge) showSchemeTooltip(badge);

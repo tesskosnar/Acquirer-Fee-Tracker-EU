@@ -507,3 +507,14 @@ def test_dashboard_names_national_schemes_and_title_resets_all_filters():
     assert "setActiveSegment('role-seg', S.role)" in dashboard
     assert "setActiveSegment('scheme-seg', S.scheme)" in dashboard
     assert "setActiveSegment('region-seg', S.region)" in dashboard
+
+
+def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert 'class="sticky-home"' in dashboard
+    assert 'id="stickyHomeReset"' in dashboard
+    assert 'data-reset-dashboard' in dashboard
+    assert '.sticky-home{position:sticky;top:0' in dashboard
+    assert dashboard.index('class="fxnote"') < dashboard.index('id="export"')
+    controls=dashboard[dashboard.index('<section class="controls">'):dashboard.index('</section>',dashboard.index('<section class="controls">'))]
+    assert 'id="export"' not in controls

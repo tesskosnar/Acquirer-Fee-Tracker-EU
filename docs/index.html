@@ -190,6 +190,12 @@ tr.offerrow{cursor:pointer}
 .audit-details summary{cursor:pointer;font-weight:800;color:var(--ink);padding:14px 18px}
 .audit-content{border-top:1px solid var(--line);padding:14px 18px;color:var(--muted);font-size:12.5px;line-height:1.55}
 .audit-content ul{margin:8px 0 0;padding-left:18px}
+.glossary-details{margin-top:18px;text-align:left}
+.glossary-details summary{cursor:pointer;font-weight:800;color:var(--ink);padding:14px 18px}
+.glossary-grid{border-top:1px solid var(--line);padding:14px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 24px;margin:0}
+.glossary-grid div{min-width:0}
+.glossary-grid dt{font-size:12.5px;font-weight:800;color:var(--ink)}
+.glossary-grid dd{margin:2px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
 .unpriced-row td{opacity:.78;background:rgba(107,114,128,.035)}
 
 @media(max-width:1150px){
@@ -206,6 +212,7 @@ tr.offerrow{cursor:pointer}
   th,td{padding:9px 6px}
   .control-secondary{margin-left:0;width:100%}
   .hide-mobile{display:none}
+  .glossary-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -268,7 +275,7 @@ tr.offerrow{cursor:pointer}
           <button data-v="intl">Visa/MC</button>
           <button data-v="domestic">Národní</button>
           <button data-v="amex">Amex</button>
-          <button data-v="other">Ostatní</button>
+          <button data-v="other" id="otherSchemeFilter" title="Další karetní schémata zastoupená v datech">Ostatní</button>
         </div>
       </div>
       <div class="control control-region">
@@ -319,8 +326,22 @@ tr.offerrow{cursor:pointer}
   </section>
 
   <details class="panel audit-details">
-    <summary>Co se změnilo a jak se data kontrolují</summary>
+    <summary>Co se změnilo od poslední týdenní kontroly</summary>
     <div class="audit-content" id="auditContent">Načítám stav kontroly…</div>
+  </details>
+
+  <details class="panel glossary-details">
+    <summary>Vysvětlivky</summary>
+    <dl class="glossary-grid">
+      <div><dt>Acquirer + PSP</dt><dd>Přímí acquireři, jejich distribuční kanály a PSP, přes které může obchodník přijímat karetní platby.</dd></div>
+      <div><dt>Přímý acquirer</dt><dd>Subjekt, který pro obchodníka zajišťuje acquiring a vypořádání karetní platby; nejde jen o technickou bránu.</dd></div>
+      <div><dt>PSP</dt><dd>Poskytovatel platebních služeb. Acquiring může zajišťovat sám nebo prostřednictvím licencovaného partnera.</dd></div>
+      <div><dt>Národní schéma</dt><dd>Domácí karetní síť, například Girocard v Německu nebo Dankort v Dánsku. Její název se ukáže po najetí na štítek.</dd></div>
+      <div><dt>Ostatní karetní schémata</dt><dd id="otherSchemesGlossary">Další schémata mimo Visa, Mastercard, národní schémata a Amex.</dd></div>
+      <div><dt>A2A převod</dt><dd>Platba přímo z bankovního účtu na účet; nejde o karetní acquiring.</dd></div>
+      <div><dt>IC++</dt><dd>Cena složená z interchange, poplatku karetnímu schématu a marže poskytovatele. Pro srovnání se chybějící části dopočítávají jednotným odhadem.</dd></div>
+      <div><dt>Reálná sazba</dt><dd>Výsledné procento pro srovnávací transakci 20 €, včetně fixního transakčního poplatku a označených odhadů IC++.</dd></div>
+    </dl>
   </details>
 
   <div class="footer">Merchant Fee Tracker · data se nepublikují bez zdrojového odkazu · automatizované změny používají fail-safe kontrolu důvěry parseru</div>
@@ -946,21 +967,43 @@ function renderCompare() {
 
 function renderAuditSummary() {
   const quality=S.data.data_quality || {};
-  const changes=[];
-  const seen=new Set();
+  const groups=new Map();
   for (const change of [...(S.data.change_log || [])].reverse()) {
-    const key=`${change.provider || change.offer_id}|${change.field}`;
-    if (seen.has(key)) continue;
-    seen.add(key); changes.push(change);
-    if (changes.length===5) break;
+    const key=change.provider || change.offer_id;
+    if (!groups.has(key) && groups.size < 5) groups.set(key,{...change,fields:new Set(),countries:new Set()});
+    const group=groups.get(key);
+    if (!group) continue;
+    group.fields.add(change.field);
+    if (change.country_iso2) group.countries.add(change.country_iso2);
   }
   const failed=quality.last_attempt_failed_row_count || 0;
-  const changeItems=changes.map(change => `<li><b>${esc(change.provider || change.offer_id)}</b>${change.country_iso2 ? ` · ${esc(change.country_iso2)}` : ''}: ${esc(change.field)} (${new Date(change.detected_at).toLocaleDateString('cs-CZ')})</li>`).join('');
+  const changeItems=[...groups.values()].map(change => {
+    const fields=change.fields;
+    const label=fields.has('offer') ? 'přidána nabídka'
+      : [...fields].some(field => field.startsWith('variable_pct') || field.startsWith('fixed_fee')) ? 'upravena sazba'
+      : [...fields].some(field => field.includes('fee')) ? 'upraveny poplatky'
+      : fields.has('source_url') ? 'upraven zdroj'
+      : 'upravena nabídka';
+    const countries=[...change.countries].join('/');
+    return `<li><b>${esc(change.provider || change.offer_id)}</b>${countries ? ` · ${esc(countries)}` : ''}: ${label} (${new Date(change.detected_at).toLocaleDateString('cs-CZ')})</li>`;
+  }).join('');
   document.getElementById('auditContent').innerHTML=`
     <b>${quality.active_price_parser_row_count || 0}</b> řádků má automatický cenový parser, <b>${quality.source_monitor_row_count || 0}</b> další sledují dostupnost oficiálního zdroje a <b>${quality.manual_monitoring_row_count || 0}</b> se reviduje ručně.
     ${failed ? `<br><b>${failed}</b> posledních pokusů o kontrolu zdroje selhalo; poslední dobrá cena zůstala zachována.` : ''}
     <br>Číselná cena: <b>${quality.numeric_price_row_count || 0}</b> · bez veřejného čísla: <b>${quality.no_numeric_price_row_count || 0}</b>.
+    <br>Poslední zachycené změny:
     <ul>${changeItems || '<li>V posledním období nebyla zaznamenána datová změna.</li>'}</ul>`;
+}
+
+function renderGlossary() {
+  const known=new Set(['visa','mastercard','national','amex']);
+  const labels={discover:'Discover',unionpay:'UnionPay',diners:'Diners Club',jcb:'JCB'};
+  const other=[...new Set(S.data.offers.flatMap(offer => offer.card_schemes || []).filter(scheme => !known.has(scheme)))]
+    .map(scheme => labels[scheme] || scheme)
+    .sort((a,b) => a.localeCompare(b,'cs'));
+  const suffix=other.length ? ` Aktuálně: ${other.map(esc).join(', ')}.` : ' Aktuálně v této skupině není žádná nabídka.';
+  document.getElementById('otherSchemesGlossary').innerHTML=`Další schémata mimo Visa, Mastercard, národní schémata a Amex.${suffix}`;
+  document.getElementById('otherSchemeFilter').title=other.length ? `Aktuálně: ${other.join(', ')}` : 'Další karetní schémata zastoupená v datech';
 }
 
 function exportCsv() {
@@ -991,6 +1034,7 @@ async function init() {
   S.amount = S.data.default_transaction_eur || 20;
   S.ccy = 'EUR';
   renderAuditSummary();
+  renderGlossary();
 
   if (S.data.offers.some(o => o.card_scheme)) {
     document.getElementById('scheme-control').style.display = '';

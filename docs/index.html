@@ -186,7 +186,6 @@ tr.offerrow{cursor:pointer}
 .footer-action:hover{color:var(--ink)}
 .footer-action:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
 .footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
-.trans-count{width:90px!important;font-family:inherit!important;font-size:18px!important;padding:6px 8px!important}
 .audit-details{margin-top:18px;text-align:left}
 .audit-details summary{cursor:pointer;font-weight:800;color:var(--ink);padding:14px 18px}
 .audit-content{border-top:1px solid var(--line);padding:14px 18px;color:var(--muted);font-size:12.5px;line-height:1.55}
@@ -272,14 +271,6 @@ tr.offerrow{cursor:pointer}
           <button data-v="other">Ostatní</button>
         </div>
       </div>
-      <div class="control">
-        <label>Veřejná cena</label>
-        <div class="seg" id="pricing-seg">
-          <button data-v="priced" class="active">S cenou</button>
-          <button data-v="unpriced">Bez ceny</button>
-          <button data-v="all">Vše</button>
-        </div>
-      </div>
       <div class="control control-region">
         <label>Region</label>
         <div class="seg" id="region-seg">
@@ -297,7 +288,7 @@ tr.offerrow{cursor:pointer}
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
-    <div class="kpi"><span>Transakcí za měsíc</span><strong><input class="trans-count" id="monthlyTransactions" type="number" min="1" step="1" value="100" aria-label="Počet transakcí za měsíc"></strong><small>paušál se rozpočítá; transakce 20 €</small></div>
+    <div class="kpi"><span>Srovnávací transakce</span><strong>20 €</strong><small>fixní transakční poplatek je zahrnutý ve výsledném %</small></div>
   </section>
 
   <section class="panel" style="padding:19px 21px">
@@ -345,7 +336,7 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', pricing:'priced', search:'', sortKey:'rate', sortAsc:true});
+const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', search:'', sortKey:'rate', sortAsc:true});
 const NATIONAL_SCHEME_BY_COUNTRY = Object.freeze({
   BE:'Bancontact',
   CH:'PostFinance Card',
@@ -354,7 +345,7 @@ const NATIONAL_SCHEME_BY_COUNTRY = Object.freeze({
   FR:'Cartes Bancaires (CB)',
   IT:'PagoBANCOMAT',
 });
-const S = { data:null, map:null, amount:20, monthlyTransactions:100, ccy:'EUR', ...DEFAULT_FILTERS };
+const S = { data:null, map:null, amount:20, ccy:'EUR', ...DEFAULT_FILTERS };
 
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
 // ale uživatelské rozhraní záměrně používá jen dva srozumitelné koše.
@@ -521,23 +512,12 @@ function calc(o) {
   const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const packageEffectivePct = o.package_effective_pct;
-  if (!Number.isFinite(S.monthlyTransactions) || S.monthlyTransactions < 1) return {min:null, max:null, emin:null, emax:null};
+  if ((o.monthly_fee || 0) > 0 && packageEffectivePct == null) return {min:null, max:null, emin:null, emax:null};
   const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddon);
   const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddon);
   const minimumCzk = (o.minimum_fee || 0) * fx;
-  let minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
-  let maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
-  const monthlyFx = S.data.fx.rates[o.monthly_currency || o.fee_currency]?.czk_per_unit ?? 1;
-  const monthlyShare = (o.monthly_fee || 0) * monthlyFx / S.monthlyTransactions;
-  if (monthlyShare > 0 && packageEffectivePct == null) {
-    if (o.monthly_fee_mode === 'minimum_commitment') {
-      minCzk = Math.max(minCzk, monthlyShare);
-      maxCzk = Math.max(maxCzk, monthlyShare);
-    } else {
-      minCzk += monthlyShare;
-      maxCzk += monthlyShare;
-    }
-  }
+  const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
+  const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
   const toDisplay = v => S.ccy === 'EUR' ? v / eurRate : v;
   return { min: toDisplay(minCzk), max: toDisplay(maxCzk), emin: minCzk / amountCzk * 100, emax: maxCzk / amountCzk * 100 };
 }
@@ -671,8 +651,6 @@ function allWithCalc() {
 
 function contextOffers() {
   let rows = allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o) && matchRole(o));
-  if (S.pricing === 'priced') rows=rows.filter(o => o.variable_pct_min != null);
-  if (S.pricing === 'unpriced') rows=rows.filter(o => o.variable_pct_min == null);
   if (S.provider) rows = rows.filter(o => o.provider === S.provider);
   else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
   return rows;
@@ -841,16 +819,13 @@ function showSchemeTooltip(badge) {
 function resetDashboard() {
   Object.assign(S, DEFAULT_FILTERS);
   S.amount = S.data?.default_transaction_eur || 20;
-  S.monthlyTransactions = S.data?.default_monthly_transactions || 100;
   S.ccy = 'EUR';
   document.getElementById('search').value = '';
   hideSearchSuggestions();
   document.getElementById('country').value = '';
-  document.getElementById('monthlyTransactions').value = S.monthlyTransactions;
   setActiveSegment('method-seg', S.method);
   setActiveSegment('role-seg', S.role);
   setActiveSegment('scheme-seg', S.scheme);
-  setActiveSegment('pricing-seg', S.pricing);
   setActiveSegment('region-seg', S.region);
   hideSchemeTooltip();
   render();
@@ -920,9 +895,9 @@ function renderCompare() {
             : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a>${providerRole}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}`;
           return `<tr class="offerrow ${o.variable_pct_min == null ? 'unpriced-row' : ''}" data-provider="${esc(o.provider)}">
             <td>${nameCell}</td>
-            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}${extraSchemeBadges}<span class="sub">${esc(o.product)}${o.channel ? ' · ' + esc(o.channel.toUpperCase()) : ''}</span></td>
+            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}${extraSchemeBadges}</td>
             <td class="published-rate">${published(o)}</td>
-            <td class="effective">${effectiveRate(o)}</td>
+            <td class="effective">${effectiveRate(o)}${o.comparison_estimate === true ? '<span class="sub">včetně srovnávacího IC++</span>' : ''}</td>
             <td class="rate">${additionalFees(o)}</td>
             <td>
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">${sourceLabel(o)}</a>
@@ -1005,9 +980,7 @@ async function init() {
   document.getElementById('fxdate').textContent = S.data.fx.date;
   document.getElementById('fxdate2').textContent = S.data.fx.date;
   S.amount = S.data.default_transaction_eur || 20;
-  S.monthlyTransactions = S.data.default_monthly_transactions || 100;
   S.ccy = 'EUR';
-  document.getElementById('monthlyTransactions').value=S.monthlyTransactions;
   renderAuditSummary();
 
   if (S.data.offers.some(o => o.card_scheme)) {
@@ -1075,18 +1048,6 @@ async function init() {
     setActiveSegment('scheme-seg',S.scheme);
     render();
   });
-  document.getElementById('pricing-seg').addEventListener('click', e => {
-    const btn=e.target.closest('button[data-v]');
-    if (!btn) return;
-    S.pricing=btn.dataset.v;
-    setActiveSegment('pricing-seg',S.pricing);
-    render();
-  });
-  document.getElementById('monthlyTransactions').addEventListener('input', e => {
-    const value=Math.max(1,Math.round(Number(e.target.value) || 1));
-    S.monthlyTransactions=value;
-    render();
-  });
   document.getElementById('region-seg').addEventListener('click', e => {
     const btn = e.target.closest('button[data-v]');
     if (!btn) return;
@@ -1121,7 +1082,7 @@ async function init() {
   window.addEventListener('scroll', hideSchemeTooltip, {passive:true});
   window.addEventListener('resize', hideSchemeTooltip);
 
-  ['method-seg','role-seg','scheme-seg','pricing-seg','region-seg'].forEach(id => {
+  ['method-seg','role-seg','scheme-seg','region-seg'].forEach(id => {
     document.getElementById(id).setAttribute('role','group');
     document.querySelectorAll(`#${id} button`).forEach(button => button.setAttribute('aria-pressed',button.classList.contains('active') ? 'true' : 'false'));
   });

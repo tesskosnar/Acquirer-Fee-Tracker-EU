@@ -45,7 +45,6 @@ ADYEN_CARD_COUNTRIES = ADYEN_CEE_COUNTRIES | ADYEN_EUROPE_COUNTRIES
 ADYEN_ICPP_REFERENCE_COUNTRIES = ADYEN_CARD_COUNTRIES
 ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
 REFERENCE_TRANSACTION_EUR = 20.0
-DEFAULT_MONTHLY_TRANSACTIONS = 100
 ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT = 0.20
 ICPP_EEA_SCHEME_FEE_REFERENCE_PCT = 0.15
 ICPP_SCHEME_FEE_SOURCE_URL = "https://www.paybyrd.com/pricing/scheme-fees"
@@ -1025,7 +1024,7 @@ def select_candidate(offer: dict, text: str) -> tuple[dict|None,float,str]:
     return best,confidence,best['raw'] if best else 'none'
 
 
-def calc(offer:dict,fx:dict,amount:float|None=None,monthly_transactions:int=DEFAULT_MONTHLY_TRANSACTIONS)->dict:
+def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     if amount is None:
         amount=REFERENCE_TRANSACTION_EUR*fx.get('EUR',{'czk_per_unit':1})['czk_per_unit']
     is_estimate=offer.get('comparison_estimate') is True
@@ -1038,7 +1037,7 @@ def calc(offer:dict,fx:dict,amount:float|None=None,monthly_transactions:int=DEFA
     fixed_addon_rate=fx.get(fixed_addon.get('currency'),{'czk_per_unit':1})['czk_per_unit']
     fixed_addon_czk=(fixed_addon.get('amount') or 0)*fixed_addon_rate
     package_effective_pct=offer.get('package_effective_pct')
-    if monthly_transactions<=0:
+    if (offer.get('monthly_fee') or 0)>0 and package_effective_pct is None:
         return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
     if package_effective_pct is not None:
         variable_min=package_effective_pct
@@ -1051,18 +1050,6 @@ def calc(offer:dict,fx:dict,amount:float|None=None,monthly_transactions:int=DEFA
     minimum=(offer.get('minimum_fee') or 0)*rate
     mn=max(mn,minimum)
     mx=max(mx,minimum)
-    monthly_fee=(offer.get('monthly_fee') or 0)*fx.get(offer.get('monthly_currency') or offer.get('fee_currency'),{'czk_per_unit':1})['czk_per_unit']
-    monthly_mode=offer.get('monthly_fee_mode','additional')
-    # A package_effective_pct already contains the monthly price divided by its
-    # included turnover.  Every other recurring charge is allocated over the
-    # selected number of monthly transactions so ranking cannot silently ignore it.
-    if monthly_fee>0 and package_effective_pct is None:
-        if monthly_mode=='minimum_commitment':
-            mn=max(mn,monthly_fee/monthly_transactions)
-            mx=max(mx,monthly_fee/monthly_transactions)
-        else:
-            mn+=monthly_fee/monthly_transactions
-            mx+=monthly_fee/monthly_transactions
     return {'fee_min_czk':round(mn,4),'fee_max_czk':round(mx,4),'effective_min_pct':round(mn/amount*100,4),'effective_max_pct':round(mx/amount*100,4)}
 
 
@@ -1423,7 +1410,7 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','reference_monthly_transactions','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
+    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         for o in output['offers']:
@@ -1431,7 +1418,7 @@ def write_csv(output:dict)->None:
             row={k:o.get(k) for k in cols}
             for field in ('non_transaction_fees','card_schemes'):
                 row[field]=json.dumps(row.get(field),ensure_ascii=False)
-            row.update({'reference_transaction_eur':REFERENCE_TRANSACTION_EUR,'reference_monthly_transactions':DEFAULT_MONTHLY_TRANSACTIONS,'fee_reference_min_czk':c.get('fee_min_czk'),'fee_reference_max_czk':c.get('fee_max_czk'),'effective_reference_min_pct':c.get('effective_min_pct'),'effective_reference_max_pct':c.get('effective_max_pct')})
+            row.update({'reference_transaction_eur':REFERENCE_TRANSACTION_EUR,'fee_reference_min_czk':c.get('fee_min_czk'),'fee_reference_max_czk':c.get('fee_max_czk'),'effective_reference_min_pct':c.get('effective_min_pct'),'effective_reference_max_pct':c.get('effective_max_pct')})
             w.writerow(row)
 
 
@@ -1620,7 +1607,7 @@ def main()->int:
         'counting_note':'Dashboard keeps distinct tariff, channel and card-profile rows. Exact duplicate economics may be collapsed; the export keeps every source row.',
     }
     changes=ensure_current_overlay_additions(append_dataset_changes(changes,previous.get('offers',[]),offers,now),offers,now)
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'default_monthly_transactions':DEFAULT_MONTHLY_TRANSACTIONS,'methodology_version':'2.0',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.0',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
             'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},

@@ -71,14 +71,14 @@ def test_package_fee_is_converted_to_effective_rate_at_full_limit_usage():
     assert x['effective_min_pct']==1.3267
 
 
-def test_monthly_fee_is_allocated_over_explicit_monthly_transaction_profile():
+def test_monthly_fee_without_public_volume_basis_is_not_ranked():
     offer={
         'variable_pct_min':0,'variable_pct_max':0,'fixed_fee_min':0,'fixed_fee_max':0,
         'monthly_fee':5,'fee_currency':'EUR',
     }
     fx={'EUR':{'czk_per_unit':25.0}}
     x=calc(offer,fx)
-    assert x['effective_min_pct']==0.25
+    assert x['effective_min_pct'] is None
 
 
 def test_cee_overlay_replaces_wrong_rows_and_adds_local_acquirers():
@@ -642,8 +642,8 @@ def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():
 def test_dashboard_does_not_treat_promos_or_monthly_fees_as_zero_total():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     assert 'o.promo !== true' in dashboard
-    assert 'monthlyShare' in dashboard
-    assert 'monthlyTransactions' in dashboard
+    assert "(o.monthly_fee || 0) > 0 && packageEffectivePct == null" in dashboard
+    assert 'id="monthlyTransactions"' not in dashboard
     assert 'akční ${value}' in dashboard
     assert 'při využití limitu' in dashboard
     assert 'return [...permanent, ...promos, ...withoutVal]' in dashboard
@@ -652,7 +652,7 @@ def test_dashboard_does_not_treat_promos_or_monthly_fees_as_zero_total():
 def test_dashboard_uses_structured_verification_pricing_and_audit_fields():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     assert "['verified_automated','verified_manual'].includes(o.verification_state)" in dashboard
-    assert 'id="pricing-seg"' in dashboard
+    assert 'id="pricing-seg"' not in dashboard
     assert 'id="auditContent"' in dashboard
     assert 'source_last_attempt_status' in dashboard
     assert '<meta property="og:title"' in dashboard

@@ -15,7 +15,7 @@ Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zej
 - Dashboard ukazuje jeden sloupec **Celková sazba** pro nastavenou částku transakce.
 - Pevná transakční složka se převede kurzem a zahrne přímo do výsledného procenta; její rozpad se v tabulce neopakuje.
 - Odlišné produkty, online/POS kanály, karetní profily a cenové modely zůstávají jako samostatné řádky. Slučují se jen ekonomicky totožné záznamy.
-- Měsíční paušál je vidět ve sloupci **Další poplatky** a zároveň se pro pořadí rozpočítá přes výchozích 100 transakcí měsíčně. Počet lze v dashboardu změnit. Jednorázová aktivace nebo hardware se do transakce svévolně nerozpouští.
+- Měsíční paušál je vidět ve sloupci **Další poplatky**. Pokud ceník neposkytuje vlastní objemový základ, nabídka nevstupuje do pořadí podle celkové sazby; paušál ani jednorázová aktivace či hardware se svévolně nerozpouštějí do transakce. Výjimkou jsou balíčky s veřejným limitem, z něhož lze efektivní sazbu přímo odvodit.
 - **Individuální nabídka** zůstane bez vymyšleného čísla.
 
 ## Co dashboard obsahuje

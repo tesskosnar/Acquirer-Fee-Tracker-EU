@@ -132,6 +132,11 @@ def test_czech_review_uses_all_in_rates_and_real_acquiring_entities():
 
     assert by_id['CZ-comgate-profi-card']['variable_pct_min']==0.67
     assert by_id['CZ-comgate-profi-a2a']['variable_pct_min']==0.62
+    assert (by_id['CZ-barion-fixed-card']['variable_pct_min'],by_id['CZ-barion-fixed-card']['variable_pct_max'])==(0.69,1.49)
+    assert (by_id['CZ-barion-fixed-a2a']['variable_pct_min'],by_id['CZ-barion-fixed-a2a']['variable_pct_max'])==(0.29,1.09)
+    assert by_id['CZ-barion-icpp-card']['comparison_estimate'] is True
+    assert by_id['CZ-barion-icpp-card']['pricing_components']['comparison_reference']['total_addon_pct']==0.35
+    assert 'CZ-barion-advanced-low-card' not in by_id
     assert by_id['CZ-kb-smartpay-ecommerce-card']['provider']=='Worldline / KB SmartPay'
     assert by_id['CZ-revolut-pay-by-bank-a2a']['fixed_fee_min']==0
     assert 'CZ-payu-po-3-měsících-card-restored' not in by_id
@@ -554,3 +559,29 @@ def test_dashboard_does_not_treat_promos_or_unallocated_monthly_fees_as_zero_tot
     assert 'akční ${value}' in dashboard
     assert 'při využití limitu' in dashboard
     assert 'return [...permanent, ...promos, ...withoutVal]' in dashboard
+
+
+def test_dashboard_search_offers_five_fuzzy_keyboard_accessible_suggestions():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert 'id="searchSuggestions"' in dashboard
+    assert 'aria-autocomplete="list"' in dashboard
+    assert 'function editDistance(a, b)' in dashboard
+    assert '.slice(0,5)' in dashboard
+    assert "e.key === 'ArrowDown'" in dashboard
+    assert "e.key === 'Enter'" in dashboard
+
+
+def test_barion_ranges_cover_all_public_cee_tariffs_without_first_tier_shortcut():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    by_id={offer['id']:offer for offer in offers}
+    for country in ('CZ','SK','PL','HU'):
+        fixed=by_id[f'{country}-barion-fixed-card']
+        icpp=by_id[f'{country}-barion-icpp-card']
+        a2a=by_id[f'{country}-barion-fixed-a2a']
+        assert (fixed['variable_pct_min'],fixed['variable_pct_max'])==(0.69,1.49)
+        assert (icpp['variable_pct_min'],icpp['variable_pct_max'])==(0.29,1.09)
+        assert (a2a['variable_pct_min'],a2a['variable_pct_max'])==(0.29,1.09)
+        assert '2. 6. 2026' in fixed['verification']
+    assert 'HU-barion-fixed-starter-first-tier-card' not in by_id
+    assert 'HU-barion-fixed-advanced-first-tier-card' not in by_id

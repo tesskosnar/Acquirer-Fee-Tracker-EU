@@ -45,8 +45,15 @@ button,input,select{font:inherit}
 }
 .control-primary{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
 .control-primary .control{min-width:200px}
-.control-search{min-width:260px;flex:1 1 300px}
+.control-search{min-width:260px;flex:1 1 300px;position:relative}
 .control-search input{padding-left:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2393a7c0' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:11px center}
+.search-suggestions{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:70;background:#10243a;border:1px solid #36516d;border-radius:10px;box-shadow:0 14px 28px rgba(0,0,0,.35);overflow:hidden}
+.search-suggestions[hidden]{display:none}
+.search-suggestion{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:transparent;color:var(--ink);padding:9px 11px;text-align:left;cursor:pointer}
+.search-suggestion:last-child{border-bottom:0}
+.search-suggestion:hover,.search-suggestion.active{background:#173753}
+.search-suggestion strong{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-suggestion span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 .control label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:6px}
 .control select, .control input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:var(--panel-alt);color:var(--ink)}
 .control.country select{font-weight:700;font-size:15px;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px}
@@ -212,7 +219,8 @@ tr.offerrow{cursor:pointer}
     <div class="control-primary">
       <div class="control control-search">
         <label for="search">Hledat</label>
-        <input id="search" type="search" placeholder="Poskytovatel, země nebo produkt…" autocomplete="off">
+        <input id="search" type="search" placeholder="Poskytovatel, země nebo produkt…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="searchSuggestions" aria-expanded="false">
+        <div id="searchSuggestions" class="search-suggestions" role="listbox" hidden></div>
       </div>
       <div class="control country">
         <label>Země</label>
@@ -327,6 +335,104 @@ function nationalSchemeName(o) {
 }
 function matchScheme(o) { return !S.scheme || schemeBucket(o.card_scheme, o.provider) === S.scheme; }
 function searchText(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+
+let searchActiveIndex = -1;
+let currentSearchSuggestions = [];
+
+function editDistance(a, b) {
+  const rows = Array.from({length:a.length + 1}, () => Array(b.length + 1).fill(0));
+  for (let i=0;i<=a.length;i++) rows[i][0]=i;
+  for (let j=0;j<=b.length;j++) rows[0][j]=j;
+  for (let i=1;i<=a.length;i++) {
+    for (let j=1;j<=b.length;j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      rows[i][j] = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + cost);
+      if (i>1 && j>1 && a[i - 1]===b[j - 2] && a[i - 2]===b[j - 1]) rows[i][j]=Math.min(rows[i][j],rows[i - 2][j - 2] + 1);
+    }
+  }
+  return rows[a.length][b.length];
+}
+
+function searchCandidateScore(candidate, query) {
+  const normalized = searchText(candidate.label);
+  const tokens = normalized.split(/[^a-z0-9]+/).filter(Boolean);
+  if (normalized === query) return -1;
+  if (normalized.startsWith(query)) return 0;
+  if (tokens.some(token => token.startsWith(query))) return 0.1;
+  const containedAt = normalized.indexOf(query);
+  if (containedAt >= 0) return 0.2 + containedAt / 1000;
+  const fuzzyTargets = [normalized, ...tokens].filter(target => target.length >= Math.max(2, query.length - 2));
+  const ratio = Math.min(...fuzzyTargets.map(target => editDistance(query, target) / Math.max(query.length, target.length)));
+  return 1 + ratio;
+}
+
+function searchSuggestionCandidates(query) {
+  const normalizedQuery = searchText(query).trim();
+  if (normalizedQuery.length < 2 || !S.data) return [];
+  const candidates = new Map();
+  const add = candidate => {
+    const key = `${candidate.type}|${searchText(candidate.label)}|${searchText(candidate.context || '')}`;
+    if (!candidates.has(key)) candidates.set(key, candidate);
+  };
+  const reviewed = S.data.offers.filter(isSourceReviewed);
+  const providerCountries = new Map();
+  reviewed.forEach(o => {
+    if (!providerCountries.has(o.provider)) providerCountries.set(o.provider,new Set());
+    providerCountries.get(o.provider).add(o.country_iso2);
+  });
+  providerCountries.forEach((countries,provider) => add({label:provider,type:'Poskytovatel',context:[...countries].sort().join(', '),priority:0}));
+  Object.entries(S.data.countries).forEach(([iso,country]) => add({label:country.name,type:'Země',context:iso,priority:1}));
+  reviewed.forEach(o => add({label:o.product,type:'Produkt',context:o.provider,priority:2}));
+  return [...candidates.values()]
+    .map(candidate => ({...candidate,score:searchCandidateScore(candidate,normalizedQuery)}))
+    .filter(candidate => candidate.score <= 1.55)
+    .sort((a,b) => a.score - b.score || a.priority - b.priority || a.label.localeCompare(b.label,'cs'))
+    .slice(0,5);
+}
+
+function hideSearchSuggestions() {
+  const host=document.getElementById('searchSuggestions');
+  host.hidden=true;
+  host.innerHTML='';
+  currentSearchSuggestions=[];
+  searchActiveIndex=-1;
+  document.getElementById('search').setAttribute('aria-expanded','false');
+}
+
+function selectSearchSuggestion(index) {
+  const suggestion=currentSearchSuggestions[index];
+  if (!suggestion) return;
+  const input=document.getElementById('search');
+  input.value=suggestion.label;
+  S.search=suggestion.label;
+  S.provider='';
+  hideSearchSuggestions();
+  render();
+}
+
+function renderSearchSuggestions(query) {
+  const host=document.getElementById('searchSuggestions');
+  currentSearchSuggestions=searchSuggestionCandidates(query);
+  searchActiveIndex=-1;
+  if (!currentSearchSuggestions.length) return hideSearchSuggestions();
+  host.innerHTML=currentSearchSuggestions.map((candidate,index) => `
+    <button type="button" class="search-suggestion" role="option" data-index="${index}" aria-selected="false">
+      <strong>${esc(candidate.label)}</strong><span>${esc(candidate.type)}${candidate.context ? ' · ' + esc(candidate.context) : ''}</span>
+    </button>`).join('');
+  host.hidden=false;
+  document.getElementById('search').setAttribute('aria-expanded','true');
+}
+
+function moveSearchSuggestion(direction) {
+  if (!currentSearchSuggestions.length) return;
+  searchActiveIndex=(searchActiveIndex + direction + currentSearchSuggestions.length) % currentSearchSuggestions.length;
+  document.querySelectorAll('.search-suggestion').forEach((button,index) => {
+    const active=index===searchActiveIndex;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-selected',active ? 'true' : 'false');
+  });
+}
+
 function matchSearch(o) {
   const query=searchText(S.search).trim();
   if (!query) return true;
@@ -435,6 +541,7 @@ function effectiveRate(o) {
     if (model.includes('up to')) return `max. ${value}`;
     return value;
   }
+  if (o.comparison_estimate === true) return `≈ ${value}`;
   if (model.includes('from')) return `od ${value}`;
   if (model.includes('up to')) return `max. ${value}`;
   return isFullyCalculable(o) ? value : `min. ${value}`;
@@ -464,6 +571,12 @@ function published(o) {
     const processing = components.processing_fee;
     const markup = components.adyen_markup_pct ?? o.variable_pct_min;
     return `${markup.toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency} + IC++`;
+  }
+  if (o.comparison_estimate === true && components?.model === 'interchange++') {
+    const markup = o.variable_pct_min === o.variable_pct_max
+      ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
+      : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
+    return `${markup} + IC++`;
   }
   if (o.variable_pct_min === 0 && o.variable_pct_max === 0 && (o.fixed_fee_min || 0) === 0) {
     if (o.promo === true) return 'akční 0 %';
@@ -530,9 +643,11 @@ function compactOffers(rows) {
     const currentRate = current?._c.emin ?? Infinity;
     const offerPromo = offer.promo === true ? 1 : 0;
     const currentPromo = current?.promo === true ? 1 : 0;
+    const offerEstimate = offer.comparison_estimate === true ? 1 : 0;
+    const currentEstimate = current?.comparison_estimate === true ? 1 : 0;
     const offerMonthly = offer.monthly_fee ?? Infinity;
     const currentMonthly = current?.monthly_fee ?? Infinity;
-    if (!current || offerPromo < currentPromo || (offerPromo === currentPromo && (offerRate < currentRate || (offerRate === currentRate && offerMonthly < currentMonthly)))) groups.set(key, offer);
+    if (!current || offerPromo < currentPromo || (offerPromo === currentPromo && (offerEstimate < currentEstimate || (offerEstimate === currentEstimate && (offerRate < currentRate || (offerRate === currentRate && offerMonthly < currentMonthly)))))) groups.set(key, offer);
   }
   return [...groups.values()];
 }
@@ -680,6 +795,7 @@ function resetDashboard() {
   S.amount = S.data?.default_transaction_eur || 20;
   S.ccy = 'EUR';
   document.getElementById('search').value = '';
+  hideSearchSuggestions();
   document.getElementById('country').value = '';
   setActiveSegment('method-seg', S.method);
   setActiveSegment('role-seg', S.role);
@@ -840,7 +956,21 @@ async function init() {
   document.getElementById('search').oninput = e => {
     S.search = e.target.value;
     S.provider = '';
+    renderSearchSuggestions(e.target.value);
     render();
+  };
+  document.getElementById('search').onfocus = e => renderSearchSuggestions(e.target.value);
+  document.getElementById('search').onkeydown = e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveSearchSuggestion(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); moveSearchSuggestion(-1); }
+    else if (e.key === 'Enter' && searchActiveIndex >= 0) { e.preventDefault(); selectSearchSuggestion(searchActiveIndex); }
+    else if (e.key === 'Escape') hideSearchSuggestions();
+  };
+  document.getElementById('search').onblur = () => window.setTimeout(hideSearchSuggestions,120);
+  document.getElementById('searchSuggestions').onmousedown = e => e.preventDefault();
+  document.getElementById('searchSuggestions').onclick = e => {
+    const button=e.target.closest('.search-suggestion[data-index]');
+    if (button) selectSearchSuggestion(Number(button.dataset.index));
   };
   document.getElementById('method-seg').addEventListener('click', e => {
     const btn = e.target.closest('button[data-v]');

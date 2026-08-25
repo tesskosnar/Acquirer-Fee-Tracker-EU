@@ -49,7 +49,7 @@
     {"country_iso2":"ES","provider":"Comercia Global Payments / CaixaBank","role":"direct_acquirer","official_url":"https://www.comerciaglobalpayments.com/","discovered_via":"market_scan"},
     {"country_iso2":"ES","provider":"Banco Sabadell Merchant Services / Nexi","role":"acquiring_bank","official_url":"https://www.nexigroup.com/","discovered_via":"Business of Payments"},
     {"country_iso2":"ES","provider":"BBVA Merchant Services","role":"acquiring_bank","official_url":"https://www.bbva.es/empresas.html","discovered_via":"market_scan"},
-    {"country_iso2":"ES","provider":"Dojo Spain","role":"direct_acquirer","official_url":"https://www.dojo.tech/es/","discovered_via":"Business of Payments"},
+    {"country_iso2":"ES","provider":"Dojo Spain","role":"direct_acquirer","official_url":"https://dojo.tech/es/preguntas-frecuentes/","discovered_via":"Business of Payments"},
     {"country_iso2":"ES","provider":"Paycomet","role":"full_service_psp","official_url":"https://www.paycomet.com/","discovered_via":"Business of Payments"},
 
     {"country_iso2":"IT","provider":"Nexi Italy","role":"direct_acquirer","official_url":"https://www.nexi.it/","discovered_via":"Business of Payments"},
@@ -80,13 +80,13 @@
     {"country_iso2":"IE","provider":"BOI Payment Acceptance","role":"acquirer_sales_channel","official_url":"https://www.boipa.com/","discovered_via":"market_scan"},
     {"country_iso2":"IE","provider":"Dojo Ireland","role":"direct_acquirer","official_url":"https://dojo.tech/ie/","discovered_via":"Business of Payments"},
 
-    {"country_iso2":"DK","provider":"Nets / Nexi Denmark","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"DK","provider":"Nets / Nexi Denmark","role":"direct_acquirer","official_url":"https://payments.nets.eu/da-DK/smartpos","discovered_via":"market_scan"},
     {"country_iso2":"DK","provider":"Flatpay Denmark","role":"full_service_psp","official_url":"https://www.flatpay.com/","discovered_via":"Business of Payments"},
     {"country_iso2":"DK","provider":"Clearhaus","role":"direct_acquirer","official_url":"https://www.clearhaus.com/","discovered_via":"market_scan"},
     {"country_iso2":"SE","provider":"Swedbank Pay / PayEx","role":"direct_acquirer","official_url":"https://www.swedbankpay.com/","discovered_via":"market_scan"},
     {"country_iso2":"SE","provider":"Worldline Sweden / Bambora","role":"direct_acquirer","official_url":"https://worldline.com/sv-se/home","discovered_via":"market_scan"},
-    {"country_iso2":"SE","provider":"Nets / Nexi Sweden","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
-    {"country_iso2":"FI","provider":"Nets / Nexi Finland","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
+    {"country_iso2":"SE","provider":"Nets / Nexi Sweden","role":"direct_acquirer","official_url":"https://payments.nets.eu/sv-SE/smartpos","discovered_via":"market_scan"},
+    {"country_iso2":"FI","provider":"Nets / Nexi Finland","role":"direct_acquirer","official_url":"https://payments.nets.eu/fi-FI/smartpos","discovered_via":"market_scan"},
     {"country_iso2":"FI","provider":"Worldline Finland","role":"direct_acquirer","official_url":"https://worldline.com/","discovered_via":"market_scan"},
     {"country_iso2":"NO","provider":"Nets / Nexi Norway","role":"direct_acquirer","official_url":"https://www.nets.eu/","discovered_via":"market_scan"},
     {"country_iso2":"NO","provider":"Worldline Norway / Bambora","role":"direct_acquirer","official_url":"https://worldline.com/","discovered_via":"market_scan"},
@@ -99,6 +99,6 @@
     {"country_iso2":"GR","provider":"Viva.com","role":"direct_acquirer","official_url":"https://www.viva.com/","discovered_via":"market_scan"},
     {"country_iso2":"CY","provider":"JCC Payment Systems","role":"direct_acquirer","official_url":"https://www.jcc.com.cy/","discovered_via":"market_scan"},
     {"country_iso2":"MT","provider":"Bank of Valletta Merchant Services","role":"acquiring_bank","official_url":"https://www.bov.com/","discovered_via":"market_scan"},
-    {"country_iso2":"MT","provider":"APS / Worldline","role":"acquirer_sales_channel","official_url":"https://www.apsbank.com.mt/","discovered_via":"market_scan"}
+    {"country_iso2":"MT","provider":"APS / Trust Payments","role":"acquirer_sales_channel","official_url":"https://www.apsbank.com.mt/merchant-acquiring/","discovered_via":"official_aps_partner_page"}
   ]
 }

@@ -10,6 +10,7 @@ from scraper.update import (
     EUROPE_WATCHLIST,
     PROVIDER_MASTER_CROSSCHECK,
     apply_cee_verified_overlay,
+    apply_audit_corrections,
     apply_europe_verified_overlay,
     adyen_country_context,
     build_cee_audit,
@@ -141,7 +142,11 @@ def test_czech_review_uses_all_in_rates_and_real_acquiring_entities():
     assert by_id['CZ-barion-icpp-card']['pricing_components']['comparison_reference']['total_addon_pct']==0.35
     assert 'CZ-barion-advanced-low-card' not in by_id
     assert by_id['CZ-kb-smartpay-ecommerce-card']['provider']=='Worldline / KB SmartPay'
-    assert by_id['CZ-revolut-pay-by-bank-a2a']['fixed_fee_min']==0
+    offers=apply_audit_corrections(update.apply_provider_gap_overlay(
+        apply_europe_verified_overlay(offers,baseline['countries']),baseline['countries']
+    ))
+    by_id={item['id']:item for item in offers}
+    assert by_id['CZ-revolut-pay-by-bank-a2a']['fixed_fee_min']==6
     assert 'CZ-payu-po-3-měsících-card-restored' not in by_id
     assert by_id['CZ-payu-ecommerce-card']['variable_pct_min']==1
     assert by_id['CZ-payu-ecommerce-card']['fixed_fee_min']==1
@@ -566,6 +571,8 @@ def test_blocked_automated_fetch_does_not_erase_manual_source_review():
     assert source_was_manually_reviewed({'verification':'ručně ověřeno v oficiálním FAQ'})
     assert source_was_manually_reviewed({'verification':'ověřena lokální nabídka 20. 8. 2026'})
     assert not source_was_manually_reviewed({'verification':'z rozšířeného datasetu'})
+    assert source_was_manually_reviewed({'verification_state':'verified_manual','verification':'legacy text'})
+    assert not source_was_manually_reviewed({'verification_state':'legacy_unverified','verification':'ručně ověřeno'})
 
 
 def test_manual_review_resolves_quote_and_false_positive_price_leads():
@@ -574,6 +581,10 @@ def test_manual_review_resolves_quote_and_false_positive_price_leads():
     )=='quote_or_individual_price_confirmed_without_public_number'
     assert classify_audited_row(
         {'pricing_model':'Not public','price_lead_review':'non_merchant_or_incomplete'},
+        'public_price_lead_found',
+    )=='manual_price_lead_rejected_as_non_merchant_or_incomplete'
+    assert classify_audited_row(
+        {'pricing_model':'Individual','price_lead_review':'non_merchant_or_incomplete'},
         'public_price_lead_found',
     )=='manual_price_lead_rejected_as_non_merchant_or_incomplete'
 
@@ -687,6 +698,101 @@ def test_barion_ranges_cover_all_public_cee_tariffs_without_first_tier_shortcut(
         assert (fixed['variable_pct_min'],fixed['variable_pct_max'])==(0.69,1.49)
         assert (icpp['variable_pct_min'],icpp['variable_pct_max'])==(0.29,1.09)
         assert (a2a['variable_pct_min'],a2a['variable_pct_max'])==(0.29,1.09)
-        assert '2. 6. 2026' in fixed['verification']
+        corrected=apply_audit_corrections(update.apply_provider_gap_overlay(
+            apply_europe_verified_overlay(offers,baseline['countries']),baseline['countries']
+        ))
+        fixed=next(row for row in corrected if row['id']==f'{country}-barion-fixed-card')
+        assert '22. 4. 2026' in fixed['verification']
     assert 'HU-barion-fixed-starter-first-tier-card' not in by_id
     assert 'HU-barion-fixed-advanced-first-tier-card' not in by_id
+
+
+def test_audit_corrections_rename_finby_fix_monthly_minimum_and_gopay_a2a():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    offers=apply_europe_verified_overlay(offers,baseline['countries'])
+    offers=update.apply_provider_gap_overlay(offers,baseline['countries'])
+    offers=apply_audit_corrections(normalize_revolut_cee_offers(offers))
+    by_id={item['id']:item for item in offers}
+    trustpay=by_id['SK-trustpay-local-merchant-acquiring-acceptance-card']
+    assert trustpay['provider']=='Finby'
+    assert trustpay['variable_pct_min']==0.99
+    assert trustpay['monthly_fee']==12
+    assert trustpay['monthly_fee_mode']=='minimum_commitment'
+    assert by_id['SK-gopay-standard-a2a-restored']['variable_pct_min']==2.2
+    assert by_id['SK-gopay-standard-a2a-restored']['monthly_fee']==8
+    assert by_id['SK-gopay-standard-card-restored']['variable_pct_max']==2.33
+    assert by_id['SK-gopay-standard-card-restored']['card_profile']=='consumer'
+
+
+def test_dashboard_published_fee_shows_fixed_fee_ranges():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert "`${min.toLocaleString('cs-CZ')}–${max.toLocaleString('cs-CZ')}`" in dashboard
+
+
+def test_audit_corrections_lock_recent_semantic_price_fixes():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
+    offers=apply_europe_verified_overlay(offers,baseline['countries'])
+    offers=update.apply_provider_gap_overlay(offers,baseline['countries'])
+    offers=apply_audit_corrections(normalize_revolut_cee_offers(offers))
+    by_id={item['id']:item for item in offers}
+
+    # BOIPA's public example and UniCredit Romania's 0.70% POS fee are not
+    # universal e-commerce merchant rates.
+    for offer_id in ('IE-boipa-readymade-card-registry','RO-unicredit-ecommerce-card'):
+        assert by_id[offer_id]['pricing_model']=='Individual'
+        assert by_id[offer_id]['variable_pct_min'] is None
+        assert by_id[offer_id].get('effective_pct_min') is None
+
+    qr=by_id['CZ-globalpayments-qr-platba-uctem-a2a-verified']
+    assert (qr['variable_pct_min'],qr['fixed_fee_min'],qr['setup_fee'])==(0.79,0.99,299)
+
+    assert by_id['SE-netsnexisweden-card-registry']['variable_pct_min']==1.0
+    assert by_id['SE-netsnexisweden-card-registry']['monthly_fee']==99
+    assert by_id['FI-netsnexifinland-card-registry']['variable_pct_min']==1.0
+    assert by_id['FI-netsnexifinland-card-registry']['monthly_fee']==20
+    assert by_id['DK-netsnexidenmark-card-registry']['variable_pct_min']==1.3
+    assert by_id['DK-nets-dankort-card']['variable_pct_min']==0.19
+    assert by_id['DK-nets-dankort-card']['variable_pct_max']==0.55
+
+    viva=by_id['RO-viva-online-domestic-consumer-card']
+    assert viva['monthly_fee']==25
+    assert viva['monthly_fee_mode']=='minimum_commitment'
+    assert all(
+        item.get('monthly_fee_mode')=='minimum_commitment'
+        for item in offers if item['provider']=='Viva.com' and item.get('monthly_fee')
+    )
+
+    assert by_id['CZ-csob-start-visa-debit-card']['setup_fee']==1890
+    assert by_id['CZ-csob-payment-button-a2a']['setup_fee']==1890
+    assert by_id['SK-worldline-online-card']['monthly_fee']==2
+    assert by_id['HU-teya-card']['monthly_fee']==8000
+    assert by_id['HU-teya-card']['monthly_fee_mode']=='minimum_commitment'
+    assert by_id['PT-teyaportugal-card-registry']['monthly_fee']==19.99
+    assert by_id['GB-teya-card-registry']['monthly_fee']==29.99
+
+
+def test_generated_adyen_rows_receive_post_parser_manual_review_metadata():
+    ids=(
+        'EE-adyen-trustly-a2a','LV-adyen-trustly-a2a','LT-adyen-trustly-a2a',
+        'SK-adyen-sepa-direct-debit-a2a','GB-adyen-visa-mastercard-markup-card',
+    )
+    rows=apply_audit_corrections([{'id':offer_id} for offer_id in ids],generated_only=True)
+    by_id={row['id']:row for row in rows}
+    assert by_id['EE-adyen-trustly-a2a']['source_url']=='https://www.adyen.com/payment-methods/trustly'
+    assert all(row['price_verified_on']=='2026-08-25' for row in rows)
+    assert all('ručně ověřeno' in row['verification'] for row in rows)
+
+
+def test_live_update_fetches_only_sources_referenced_by_current_offers():
+    configs={'src_a':{'url':'https://a.test'},'src_orphan':{'url':'https://orphan.test'}}
+    assert update.referenced_source_configs([{'source_id':'src_a'},{}],configs)=={
+        'src_a':configs['src_a']
+    }
+    try:
+        update.referenced_source_configs([{'source_id':'src_missing'}],configs)
+    except ValueError as exc:
+        assert 'src_missing' in str(exc)
+    else:
+        raise AssertionError('missing source configuration was accepted')

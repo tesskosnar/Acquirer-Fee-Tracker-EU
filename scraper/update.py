@@ -31,6 +31,7 @@ EUROPE_WATCHLIST = Path(__file__).with_name("europe_acquirer_watchlist.json")
 EUROPE_REGISTRY = Path(__file__).with_name("europe_acquirer_registry.json")
 EUROPE_VERIFIED = Path(__file__).with_name("europe_verified_offers.json")
 PROVIDER_GAPS = Path(__file__).with_name("provider_gap_offers.json")
+AUDIT_CORRECTIONS = Path(__file__).with_name("audit_corrections.json")
 PROVIDER_MASTER_CROSSCHECK = Path(__file__).with_name("provider_master_crosscheck.json")
 CNB_URL = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
 USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-only check of public pricing pages)"
@@ -412,6 +413,15 @@ def validate_offer_schema(offers: list[dict]) -> None:
             raise ValueError(f'card_schemes missing for {oid}')
         if not isinstance(offer.get('non_transaction_fees'),list):
             raise ValueError(f'non_transaction_fees missing for {oid}')
+
+
+def referenced_source_configs(offers:list[dict], sources:dict)->dict:
+    """Return only source configs that are attached to a current offer."""
+    referenced={offer.get('source_id') for offer in offers if offer.get('source_id')}
+    missing=sorted(referenced-set(sources))
+    if missing:
+        raise ValueError(f"Offer references missing source configs: {', '.join(missing)}")
+    return {sid:sources[sid] for sid in sorted(referenced)}
 
 
 def append_dataset_changes(changes: list[dict], previous: list[dict], current: list[dict], now: str) -> list[dict]:
@@ -1209,6 +1219,37 @@ def apply_provider_gap_overlay(offers:list[dict], countries:dict)->list[dict]:
     return merged
 
 
+def apply_audit_corrections(offers:list[dict], *, generated_only:bool=False)->list[dict]:
+    """Apply source-reviewed corrections by immutable offer id.
+
+    Keeping these findings in a small overlay makes a later source rebuild
+    unable to silently resurrect a superseded price or URL. Every correction
+    must target exactly one existing row; typos therefore fail the build.
+    """
+    if not AUDIT_CORRECTIONS.exists():
+        return offers
+    payload=json.loads(AUDIT_CORRECTIONS.read_text(encoding='utf-8'))
+    updates=[] if generated_only else list(payload.get('updates',[]))
+    group_key='generated_group_updates' if generated_only else 'group_updates'
+    for group in payload.get(group_key,[]):
+        if not isinstance(group.get('set'),dict) or not group['set']:
+            raise ValueError('Audit correction group has no fields')
+        updates.extend({'id':oid,'set':group['set']} for oid in group.get('ids',[]))
+    update_ids=[item.get('id') for item in updates]
+    if len(update_ids)!=len(set(update_ids)):
+        raise ValueError('Duplicate offer id in audit corrections')
+    by_id={offer['id']:offer for offer in offers}
+    missing=sorted(set(update_ids)-set(by_id))
+    if missing:
+        raise ValueError(f"Audit correction targets missing offer ids: {', '.join(missing)}")
+    for item in updates:
+        fields=item.get('set',{})
+        if not isinstance(fields,dict) or not fields:
+            raise ValueError(f"Audit correction {item.get('id')} has no fields")
+        by_id[item['id']].update(deepcopy(fields))
+    return offers
+
+
 def normalize_revolut_cee_offers(offers:list[dict])->list[dict]:
     """Keep Revolut as a baseline, but use the current legal-table labels.
 
@@ -1435,6 +1476,7 @@ def main()->int:
             baseline['countries'],
         ),baseline['countries'])
     )))))
+    offers=apply_audit_corrections(offers)
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
     schema_fields={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment'}
     changes=[change for change in previous.get('change_log',[]) if not (
@@ -1460,7 +1502,8 @@ def main()->int:
         fx_date,fx=fx_block['date'],fx_block['rates']
 
     fetched={}
-    for sid,s in baseline['sources'].items():
+    active_sources=referenced_source_configs(offers,baseline['sources'])
+    for sid,s in active_sources.items():
         if offline:
             fetched[sid]={'text':'','raw':'','hash':None,'status':'offline','checked_at':now}
             continue
@@ -1486,6 +1529,7 @@ def main()->int:
     offers=sync_adyen_cee_offers(
         offers,baseline['countries'],now,adyen_catalog,adyen_source.get('hash')
     )
+    offers=apply_audit_corrections(offers,generated_only=True)
     offers=expand_explicit_alternative_scheme_rates(offers)
 
     # A source access is not the same event as a semantic price verification.
@@ -1571,6 +1615,10 @@ def main()->int:
             o['verification']=f'retained – review suggested ({conf:.0%}; {why})'
         o['calculation_reference']=calc(o,fx)
 
+    # Re-apply generated-row corrections after parser/fallback handling so an
+    # offline run cannot replace a later manual semantic review with legacy
+    # automated wording from the previous snapshot.
+    offers=apply_audit_corrections(offers,generated_only=True)
     for offer in offers:
         if not offer.get('price_verified_on'):
             offer['price_verified_on']=infer_price_verified_on(offer)

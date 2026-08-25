@@ -583,10 +583,19 @@ function additionalFees(o) {
 }
 
 function published(o) {
+  const fixedPart = () => {
+    const min = o.fixed_fee_min || 0;
+    const max = o.fixed_fee_max ?? min;
+    if (min === 0 && max === 0) return '';
+    const amount = min === max
+      ? min.toLocaleString('cs-CZ')
+      : `${min.toLocaleString('cs-CZ')}–${max.toLocaleString('cs-CZ')}`;
+    return ` + ${amount} ${o.fee_currency}`;
+  };
   const model = o.pricing_model_code;
   if (o.variable_pct_min == null) return model === 'individual' ? 'cena na vyžádání' : 'cena není veřejně uvedena';
   if (o.all_in_complete === false && o.comparison_estimate !== true) {
-    const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
+    const f = fixedPart();
     return `${o.variable_pct_min.toLocaleString('cs-CZ')} %${f} + IC++`;
   }
   const components = o.pricing_components;
@@ -609,7 +618,7 @@ function published(o) {
   const p = o.variable_pct_min === o.variable_pct_max
     ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
     : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
-  const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
+  const f = fixedPart();
   const minimum = o.minimum_fee ? ` (min. ${o.minimum_fee.toLocaleString('cs-CZ')} ${o.fee_currency})` : '';
   const hasRange = o.variable_pct_min !== o.variable_pct_max || o.fixed_fee_min !== o.fixed_fee_max;
   const prefix = model === 'from' ? 'od ' : hasRange && model === 'up_to' ? 'max. ' : '';

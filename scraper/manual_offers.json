@@ -307,12 +307,12 @@
       "provider": "Comgate"
     },
     "src_36": {
-      "url": "https://czech.payu.com/wp-content/uploads/sites/3/2026/05/Cenik-PayU-2026.pdf",
+      "url": "https://czech.payu.com/en/activate-payments/",
       "format": "html",
       "provider": "PayU"
     },
     "src_37": {
-      "url": "https://www.gopay.com/cs/cenik/",
+      "url": "https://help.gopay.com/en/knowledge-base/prices-terms-conditions/current-terms-and-conditions/prices-and-fees/list-of-fees-for-payment-gateway-in-effect-as-of-25-8-2024",
       "format": "html",
       "provider": "GoPay"
     },

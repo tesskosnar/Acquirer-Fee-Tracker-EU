@@ -51,7 +51,10 @@ FEE_CONTEXT_RE = re.compile(
 
 
 def source_was_manually_reviewed(row: dict) -> bool:
-    """Do not let a later blocked fetch erase a completed human review."""
+    """Use the structured state; parse prose only for old input files."""
+    state = row.get("verification_state")
+    if state:
+        return state in {"verified_manual", "verified_automated"}
     verification = (row.get("verification") or "").lower()
     excluded = ("částečně", "namátkově", "rozšířeného datasetu", "obnoveno z původního")
     if any(token in verification for token in excluded):
@@ -62,10 +65,10 @@ def source_was_manually_reviewed(row: dict) -> bool:
 
 def classify_audited_row(row: dict, scan_outcome: str) -> str:
     """Combine the scanner lead with the recorded manual pricing review."""
-    if row.get("pricing_model") == "Individual":
-        return "quote_or_individual_price_confirmed_without_public_number"
     if scan_outcome == "public_price_lead_found" and row.get("price_lead_review") == "non_merchant_or_incomplete":
         return "manual_price_lead_rejected_as_non_merchant_or_incomplete"
+    if row.get("pricing_model") == "Individual":
+        return "quote_or_individual_price_confirmed_without_public_number"
     if scan_outcome != "public_price_lead_found" and source_was_manually_reviewed(row):
         return "manual_source_review_completed_without_public_number"
     return scan_outcome
@@ -118,9 +121,10 @@ def extract_price_leads(text: str, page_url: str = "", limit: int = 12) -> list[
 
 
 class OfficialSiteScanner:
-    def __init__(self) -> None:
+    def __init__(self, timeout: int = TIMEOUT) -> None:
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": USER_AGENT, "Accept": "*/*"})
+        self.timeout = timeout
         self.robots: dict[str, urllib.robotparser.RobotFileParser] = {}
         self.cache: dict[str, dict] = {}
         self.last_request: dict[str, float] = defaultdict(float)
@@ -130,7 +134,7 @@ class OfficialSiteScanner:
         if site not in self.robots:
             parser = urllib.robotparser.RobotFileParser()
             try:
-                response = self.session.get(site + "/robots.txt", timeout=10)
+                response = self.session.get(site + "/robots.txt", timeout=min(10, self.timeout))
                 parser.parse((response.text if response.ok else "").splitlines())
             except requests.RequestException:
                 parser.parse([])
@@ -151,7 +155,7 @@ class OfficialSiteScanner:
         if delay > 0:
             time.sleep(delay)
         try:
-            response = self.session.get(url, timeout=TIMEOUT, allow_redirects=True)
+            response = self.session.get(url, timeout=self.timeout, allow_redirects=True)
             self.last_request[site] = time.monotonic()
             if response.status_code in {401, 403, 429}:
                 result = {"url": url, "final_url": response.url, "status": f"http_{response.status_code}", "text": "", "links": []}
@@ -271,6 +275,8 @@ def main() -> int:
                     "previous_pricing_model": row.get("pricing_model"),
                     "source_url": url,
                     "outcome": outcome,
+                    "raw_scan_outcome": scan["outcome"],
+                    "price_leads": scan.get("evidence", []),
                 }
             )
 

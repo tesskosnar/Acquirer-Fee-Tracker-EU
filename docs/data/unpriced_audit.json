@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-20T20:14:38+00:00",
-  "dataset_generated_at": "2026-08-20T20:13:26+00:00",
+  "generated_at": "2026-08-25T14:08:08+00:00",
+  "dataset_generated_at": "2026-08-25T14:06:11+00:00",
   "scope": "Official-source deep scan of rows without a numeric published merchant price. Detected expressions are leads requiring manual validation, never automatically published fees.",
-  "total_unpriced_rows_in_dataset": 89,
-  "rows_scanned": 89,
-  "unique_official_urls_scanned": 76,
+  "total_unpriced_rows_in_dataset": 91,
+  "rows_scanned": 91,
+  "unique_official_urls_scanned": 79,
   "outcomes": {
-    "manual_price_lead_rejected_as_non_merchant_or_incomplete": 2,
-    "manual_source_review_completed_without_public_number": 40,
-    "quote_or_individual_price_confirmed_without_public_number": 47
+    "manual_price_lead_rejected_as_non_merchant_or_incomplete": 23,
+    "manual_source_review_completed_without_public_number": 38,
+    "quote_or_individual_price_confirmed_without_public_number": 30
   },
   "rows": [
     {
@@ -19,7 +19,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Individual",
       "source_url": "https://banked.com/faqs",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-trustly-a2a-registry",
@@ -29,7 +31,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://developers.trustly.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "AT-trustly-a2a-registry",
@@ -39,7 +43,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://developers.trustly.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "DK-trustly-a2a-registry",
@@ -49,7 +55,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://developers.trustly.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "SE-trustly-a2a-registry",
@@ -59,17 +67,21 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://developers.trustly.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
-      "id": "GB-dnapayments-card-registry",
-      "country_iso2": "GB",
-      "provider": "DNA Payments",
+      "id": "CH-datatrans-gateway-card",
+      "country_iso2": "CH",
+      "provider": "Datatrans",
       "method": "card",
-      "provider_role": "acquirer",
-      "previous_pricing_model": "Individual",
-      "source_url": "https://dnapayments.com/storage/app/media/Zash%20Bundle%20Campaign%20Terms%20and%20Conditions_2.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "provider_role": "gateway_processor",
+      "previous_pricing_model": "Not public",
+      "source_url": "https://docs.datatrans.ch/docs/getting-started",
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-truelayer-a2a-registry",
@@ -79,7 +91,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "AT-truelayer-a2a-registry",
@@ -89,7 +103,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "IE-truelayer-a2a-registry",
@@ -99,7 +115,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "DK-truelayer-a2a-registry",
@@ -109,7 +127,9 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Not public",
       "source_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "ES-dojospain-card-registry",
@@ -117,9 +137,11 @@
       "provider": "Dojo",
       "method": "card",
       "provider_role": "acquirer",
-      "previous_pricing_model": "Not public",
-      "source_url": "https://dojo.tech/es/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "previous_pricing_model": "Individual",
+      "source_url": "https://dojo.tech/es/preguntas-frecuentes/",
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "IT-dojoitaly-card-registry",
@@ -129,7 +151,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://dojo.tech/it/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "BG-dsk-virtual-pos-card",
@@ -139,7 +163,27 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://dskbank.bg/docs/default-source/%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B8/tariff-for-business-clients.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://dskbank.bg/docs/default-source/%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B8/tariff-for-business-clients.pdf",
+          "price_leads": [
+            "ly maintenance and service fee EUR 55 Cash operations Euro Foreign currency Cash withdrawal in banknotes - upon request 1% on the total amount, min. EUR 5.60 Cash deposit of banknotes - listed and sorted banknotes 0,95% on the total amount, m",
+            "banknotes - upon request 1% on the total amount, min. EUR 5.60 Cash deposit of banknotes - listed and sorted banknotes 0,95% on the total amount, min. EUR 5.60 Payments and transfers Electronic channel In bank office Interbank domestic euro tra",
+            "t 5% on the total amount, Cash withdrawal in coins2 - min. EUR 5.60 Requested, but not withdrawn amounts by the client5 0,75% on the requested but not withdrawn amount, min. EUR 9 0,75% on the total amount, in addition to the commission for cash",
+            "UR 5.60 Requested, but not withdrawn amounts by the client5 0,75% on the requested but not withdrawn amount, min. EUR 9 0,75% on the total amount, in addition to the commission for cash Withdrawal of banknotes in certain denomination (if possibl",
+            "fers to non-EEA Euro Foreign currency banks and non-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 50 Urgent transfers (if feasible for the Bank) - additional",
+            "n-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 50 Urgent transfers (if feasible for the Bank) - additional fee EUR 30 Additional fees for foreign currency t",
+            "overed by the payer) Appendix №1 Additional fee for checking incoming and outgoing transfers to/from non-EEA countries3 0,10% on the total amount Other services Euro Foreign currency Payment of utility bills via E-banking4 EUR 0.40 USD 0.43/ GBP",
+            "if any payment system Return of received transfer for the benefit of a Banks`s client, regardless of who initiated it6 0,20%, min. EUR 30, max. EUR 300 Additional fee for processing of mass payments files, presented via e-mail7 EUR 26 per file",
+            "uiry via ATM in Bulgaria3 EUR 0.35 USD 0.40 Balance inquiry via ATM abroad EUR 1 USD 1 Receiving money through the card 1% 0,5% Money transfer4 EUR 1 + 1% USD 0.57 + 1% EUR 1 + 1% USD 0.57 + 1% Other operations and services EUR USD EUR USD 0,",
+            "y via ATM in Bulgaria3 EUR 0.35 USD 0.40 Balance inquiry via ATM abroad EUR 1 USD 1 Receiving money through the card 1% 0,5% Money transfer4 EUR 1 + 1% USD 0.57 + 1% EUR 1 + 1% USD 0.57 + 1% Other operations and services EUR USD EUR USD 0,40%,",
+            "35 USD 0.40 Balance inquiry via ATM abroad EUR 1 USD 1 Receiving money through the card 1% 0,5% Money transfer4 EUR 1 + 1% USD 0.57 + 1% EUR 1 + 1% USD 0.57 + 1% Other operations and services EUR USD EUR USD 0,40%, 0,40%, Cash withdrawal from",
+            "lance inquiry via ATM abroad EUR 1 USD 1 Receiving money through the card 1% 0,5% Money transfer4 EUR 1 + 1% USD 0.57 + 1% EUR 1 + 1% USD 0.57 + 1% Other operations and services EUR USD EUR USD 0,40%, 0,40%, Cash withdrawal from DSK Bank`s AT"
+          ]
+        }
+      ]
     },
     {
       "id": "LT-european-merchant-bank-card",
@@ -149,7 +193,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-trustpaymentsuk-card-registry",
@@ -159,7 +205,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://help.trustpayments.com/hc/en-us/articles/19157739389713-How-do-I-perform-reconciliation-on-my-acquiring-account",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HU-payu-online-card",
@@ -169,7 +217,16 @@
       "provider_role": "psp",
       "previous_pricing_model": "Not public",
       "source_url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
-      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
+          "price_leads": [
+            "tercard) Make quick card payments, with no intemediary required. How can you benefit? Achieve conversion rates of up to 95%. Attract new customers with fast, safe online transactions. Ensure secure transactions, with 24/7 monitoring and 3DS st"
+          ]
+        }
+      ]
     },
     {
       "id": "MT-shift4finaro-card-registry",
@@ -179,7 +236,27 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-25-000011/0001794669-25-000011.pdf",
-      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-25-000011/0001794669-25-000011.pdf",
+          "price_leads": [
+            "ith lower unit pricing than our existing customer base. Subscription and other revenues increased by $161.7 million, or 90%. The increase in subscription and other revenues was primarily driven by the impact of recent acquisitions as well as h",
+            "st of Sales Year Ended December 31, (in millions) 2024 2023 $ Change Network fees $ (1,976.2) $ (1,624.4) $ (351.8) The 22% increase in network fees was primarily due to the increase in payments-based revenue, which increased 25%. Gross revenu",
+            "$ (351.8) The 22% increase in network fees was primarily due to the increase in payments-based revenue, which increased 25%. Gross revenue less network fees increased by $414.0 million, or 44%, primarily due to the increase in end-to-end payme",
+            "ncrease in payments-based revenue, which increased 25%. Gross revenue less network fees increased by $414.0 million, or 44%, primarily due to the increase in end-to-end payment volume, the impact of recent acquisitions and higher SaaS revenue.",
+            "y a commitment fee under the Revolving Credit Facility in respect of the unutilized commitments thereunder at a rate of 0.25% per annum. The Borrower is also subject to customary letter of credit and agency fees. There were no borrowings and bor",
+            "o the highest of the Federal Funds Effective Rate plus 0.50%, the daily simple SOFR rate (subject to a 0.0% floor) plus 1.00%, and the prime rate announced by Citizens from time to time). In addition to making periodic interest payments on the p",
+            "ired to pay an unused fee under the Settlement Line in respect of the unused availability thereunder at a rate equal to 0.15% per annum. The purpose of the Settlement Line is to provide financing for certain settlement obligations of Shift4 LLC’",
+            "ired to pay an unused fee under the Settlement Line in respect of the unused availability thereunder at a rate equal to 0.15% per annum. As of December 31, 2024, there were $73.2 million of borrowings against the Settlement Line. The borrowings",
+            "onvertible Notes\") August 1, 2027 0.90% 632.5 632.5 4.625% Senior Notes due 2026 (\"2026 Senior Notes\") November 1, 2026 5.13% 450.0 450.0 Total debt principal 2,872.5 1,772.5 Less: Unamortized capitalized financing fees (31.5) (22.3) Total debt",
+            "31, 2024 December 31, 2023 Weighted average remaining in lease term (in years): 4.5 4.0 Weighted average discount rate 5.1 % 5.1 % Operating lease payments included in operating cash flows were $10.3 million, $7.2 million and $5.7 million for t",
+            "024 December 31, 2023 Weighted average remaining in lease term (in years): 4.5 4.0 Weighted average discount rate 5.1 % 5.1 % Operating lease payments included in operating cash flows were $10.3 million, $7.2 million and $5.7 million for the yea",
+            "ment processing fees are primarily driven as a percentage of payment volume. No single customer accounted for more than 10% of the Company’s revenue during the years ended December 31, 2024, 2023 and 2022. The following table presents a disagg"
+          ]
+        }
+      ]
     },
     {
       "id": "FR-marketpay-card-registry",
@@ -189,7 +266,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://market-pay.com/en",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "AT-fiservaustria-card-registry",
@@ -199,7 +278,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://merchants.fiserv.com/en-europe/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-fiservuk-card-registry",
@@ -209,7 +290,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "SK-skpay-card",
@@ -219,7 +302,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://mojapos.skpay.sk/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "BG-icard-local-merchant-acquiring-acceptance-card",
@@ -229,7 +314,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "CY-payabl-card-registry",
@@ -239,7 +326,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://payabl.com/payabl-gateway",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "LT-nets-merchant-acquiring-card",
@@ -249,7 +338,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://payments.nets.eu/lt-LT/acquiring",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "LV-nets-merchant-acquiring-card",
@@ -259,7 +350,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://payments.nets.eu/lv-LV/acquiring",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "LT-paystrax-card",
@@ -269,7 +362,16 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
+          "price_leads": [
+            "l amount, the merchant does not have to apply for further issuer authorisation. If the final transaction amount exceeds 15% of the authorised total amount, the merchant shall apply for separate issuer authorisation for the portion of the trans"
+          ]
+        }
+      ]
     },
     {
       "id": "FR-societegeneralesogecommerce-card-registry",
@@ -279,7 +381,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://professionnels.sg.fr/compte-banque-au-quotidien/encaissement-en-ligne-avec-site-marchand",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "MT-trustpaymentsmalta-card-registry",
@@ -289,7 +393,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://trustpayments.com/products/acquiring/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GR-worldlinegreece-a2a-registry",
@@ -299,7 +405,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://worldline.com/el-gr/home",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "LI-worldlineswitzerland-card-registry",
@@ -309,7 +417,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "FR-worldlinefrance-card-registry",
@@ -319,7 +429,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://worldline.com/fr-fr/home",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "IT-worldlineaxeptaitaly-card-registry",
@@ -329,7 +441,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://worldline.com/it-it/home",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "IE-aibmerchantservices-card-registry",
@@ -339,17 +453,21 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.aibms.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
-      "id": "MT-apsworldline-card-registry",
+      "id": "MT-apstrustpayments-card-registry",
       "country_iso2": "MT",
-      "provider": "APS / Worldline",
+      "provider": "APS / Trust Payments",
       "method": "card",
       "provider_role": "acquirer_sales_channel",
       "previous_pricing_model": "Not public",
-      "source_url": "https://www.apsbank.com.mt/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "source_url": "https://www.apsbank.com.mt/merchant-acquiring/",
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-barclaycardpayments-card-registry",
@@ -359,7 +477,62 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.barclaycard.co.uk/business/accepting-payments",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.barclaycard.co.uk/business/accepting-payments",
+          "price_leads": [
+            "Visa or Mastercard personal debit card is used in person to buy a £50 item, you could pay: Example transaction charge (0.7%) – £0.35 + Authorisation fee (3p) – £0.03 = Total transaction fees – £0.38 By phone When a Visa or Mastercard personal",
+            "Visa or Mastercard personal credit card is used by phone to buy a £50 item, you could pay: Example transaction charge (2.05%) – £1.03 + Authorisation fee (3p) – £0.03 = Total transaction fees – £1.06 Cancellation fees The amount you pay as a ca"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
+          "price_leads": [
+            "tances and borrowing history. Fees There's an annual account fee of £42. Charges Credit limit Cash Copies of statements 3% (minimum £3) £2 for a copy of any statement Repayments You must pay your balance off in full by the payment due date sh",
+            "es When making a purchase abroad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates",
+            "n making a purchase abroad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates ca",
+            "broad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates can be found at either Vis"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
+          "price_leads": [
+            "lability We process payments for over 160,000 businesses. (3) Reliability Our payment authorisation service uptime was 100% in 2025. (2) See why industry leaders choose us Sky Bet Read our Sky Bet case study Tombola Read our Tombola case study"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/help-and-support/credit-and-charge-card/understanding-repayments",
+          "price_leads": [
+            "ple shows how much interest it would cost and how much time it would take to clear a balance of £2,500 on a card with a 28.9% annual interest rate. Please note : this is a guide calculated on approximate minimum payment rates, which vary by prov"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions/retail",
+          "price_leads": [
+            "control of spend. Why retailers like you choose to work with us In 2024, our payment authorisation service uptime was 100% 2 One of Europe’s leading payment providers for issuing, acquiring and gateway solutions 3 We support 114 trading curre"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions/travel",
+          "price_leads": [
+            "024 1 Over 32m card payments processed in a single day in 2024 1 In 2024, our payment authorisation service uptime was 100% . 1 Payment strategies to help your ambitions go the distance An integrated payment strategy is critical to any busines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IE-boipa-readymade-card-registry",
+      "country_iso2": "IE",
+      "provider": "BOI Payment Acceptance",
+      "method": "card",
+      "provider_role": "acquirer_sales_channel",
+      "previous_pricing_model": "Individual",
+      "source_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "MT-bankofvallettamerchantservices-card-registry",
@@ -368,8 +541,10 @@
       "method": "card",
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
-      "source_url": "https://www.bov.com/meta/downloads/bov-ecommerce-application-form",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "source_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "AT-cardcomplete-card-registry",
@@ -379,7 +554,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.cardcomplete.com/fuer-unternehmen/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-cashflows-card-registry",
@@ -389,7 +566,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "BG-ccb-virtual-pos-card",
@@ -399,7 +578,28 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
+    },
+    {
+      "id": "GB-checkoutcom-card",
+      "country_iso2": "GB",
+      "provider": "Checkout.com",
+      "method": "card",
+      "provider_role": "psp",
+      "previous_pricing_model": "Individual",
+      "source_url": "https://www.checkout.com/pricing",
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.checkout.com/products/disputes",
+          "price_leads": [
+            "ebacks. Learn more 30 min saved per dispute through resolution automation 28 days reduction in time to refund customers 58% reduction in sales-to-chargeback ratio Unlock your payments potential today Get in touch Where the world checks out. Gl"
+          ]
+        }
+      ]
     },
     {
       "id": "HU-cib-ecommerce-card",
@@ -409,7 +609,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "SK-danubepay-card",
@@ -419,7 +621,38 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.danubepay.com/service/acquiring",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
+    },
+    {
+      "id": "GB-dnapayments-card-registry",
+      "country_iso2": "GB",
+      "provider": "DNA Payments",
+      "method": "card",
+      "provider_role": "acquirer",
+      "previous_pricing_model": "Individual",
+      "source_url": "https://www.dnapayments.com/",
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.dnapayments.com/news/qepos-solution-ltd-and-dna-payments-partner-bring-streamlined-epos-payments-uk-hospitality-and-retail-businesses",
+          "price_leads": [
+            "ftware and systems provider, to offer integrated payments for hospitality and retail businesses nationwide. Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistan",
+            "e and systems provider, to offer integrated payments for hospitality and retail businesses nationwide. Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to",
+            "systems provider, to offer integrated payments for hospitality and retail businesses nationwide. Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to help"
+          ]
+        },
+        {
+          "url": "https://www.dnapayments.com/news/dna-payments-and-etabs-partner-offer-integrated-payment-solutions-retail-and-trade-businesses",
+          "price_leads": [
+            "DNA Payments and ETABS partner to offer integrated payment solutions for retail and trade businesses Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistan",
+            "DNA Payments and ETABS partner to offer integrated payment solutions for retail and trade businesses Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to",
+            "Payments and ETABS partner to offer integrated payment solutions for retail and trade businesses Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to help"
+          ]
+        }
+      ]
     },
     {
       "id": "NO-elavonnorway-card-registry",
@@ -429,7 +662,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.elavon.no/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GR-epayeuronetmerchantservices-card-registry",
@@ -439,17 +674,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.epayworldwide.gr/en/about-us/",
-      "outcome": "manual_source_review_completed_without_public_number"
-    },
-    {
-      "id": "BE-europabank-card-registry",
-      "country_iso2": "BE",
-      "provider": "Europabank",
-      "method": "card",
-      "provider_role": "acquirer",
-      "previous_pricing_model": "Not public",
-      "source_url": "https://www.europabank.be/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "BG-fibank-virtual-pos-card",
@@ -459,7 +686,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-globalpaymentsuk-card-registry",
@@ -469,7 +698,44 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
+          "price_leads": [
+            "f 5 April 2025. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payment",
+            "ril 2025. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments take",
+            "25. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepaymen",
+            "r Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Per",
+            "Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who receive",
+            "lobal Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bo",
+            "Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97",
+            "ts takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6",
+            "4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion",
+            "9.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men",
+            "Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men and women who received a bonus for their per",
+            "bal Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men and women who received a bonus for their performan"
+          ]
+        },
+        {
+          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
+          "price_leads": [
+            "h Pay and Shop Limited and GP Payments Acquiring International GmbH. Pay gap Mean Median Hourly pay gap – All employees 8.5% 11.0% Note – due to an insufficient sample size of part-time employees and with no temporary employees, we have not dis",
+            "and Shop Limited and GP Payments Acquiring International GmbH. Pay gap Mean Median Hourly pay gap – All employees 8.5% 11.0% Note – due to an insufficient sample size of part-time employees and with no temporary employees, we have not disclosed",
+            "y gap data for these employee groups. Our mean hourly pay gap shows the average hourly pay of men at Global Payments is 8.5% higher than the average pay of women. Our median hourly pay gap shows the average hourly pay of men at Global Payments",
+            "gher than the average pay of women. Our median hourly pay gap shows the average hourly pay of men at Global Payments is 11.0% higher than the average pay of women. This statistic falls slightly below the reported average mean pay gap of 11.2%1 a",
+            ", and in the lower quartile, which sees an overrepresentation of women. Bonus gap Mean Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our",
+            "in the lower quartile, which sees an overrepresentation of women. Bonus gap Mean Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our media",
+            "Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our median bonus gap is 16.6% in favour of men. The difference in results suggest the bonu",
+            "gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our median bonus gap is 16.6% in favour of men. The difference in results suggest the bonus pay of a small number of employees has a large influence",
+            "ployees -1.7% 10.6% Men Women % of employees receiving a bonus 93.0% 91.2% % of employees in receipt of benefit in kind 93.0% 91.2% While Pay and Shop Limited, which makes up over half of the overall Global Payments employee population, still ha",
+            "s -1.7% 10.6% Men Women % of employees receiving a bonus 93.0% 91.2% % of employees in receipt of benefit in kind 93.0% 91.2% While Pay and Shop Limited, which makes up over half of the overall Global Payments employee population, still has a pa",
+            "size. Overall, we also notice some improvement in our bonus gap data compared to last year’s result (mean bonus gap of 10.9% and median pay gap of 13.2%, both in favour of men). Gender Pay Gap Reporting for GP Payments Acquiring International G",
+            "ce some improvement in our bonus gap data compared to last year’s result (mean bonus gap of 10.9% and median pay gap of 13.2%, both in favour of men). Gender Pay Gap Reporting for GP Payments Acquiring International GmbH During the reporting per"
+          ]
+        }
+      ]
     },
     {
       "id": "HR-global-payments-croatia-card",
@@ -479,7 +745,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.globalpayments.hr/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "FR-hipay-card-registry",
@@ -489,7 +757,9 @@
       "provider_role": "psp",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.hipay.com/fr/a-propos/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HR-hpb-card",
@@ -499,7 +769,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "SI-intesa-sanpaolo-card",
@@ -509,7 +781,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "CY-jccpaymentsystems-card-registry",
@@ -519,7 +793,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.jcc.com.cy/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HU-kh-vpos-card",
@@ -529,7 +805,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "EE-lhv-ecommerce-card",
@@ -539,7 +817,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "RO-librapay-card",
@@ -549,7 +829,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.librapay.ro/faq-comercianti/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HU-mbh-bank-card",
@@ -559,27 +841,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.mbhbank.hu/sw/static/file/Elfogadoi_kezikonyv__MBH_0425.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
-    },
-    {
-      "id": "SE-netsnexisweden-card-registry",
-      "country_iso2": "SE",
-      "provider": "Nets / Nexi",
-      "method": "card",
-      "provider_role": "acquirer",
-      "previous_pricing_model": "Not public",
-      "source_url": "https://www.nets.eu/",
-      "outcome": "manual_source_review_completed_without_public_number"
-    },
-    {
-      "id": "FI-netsnexifinland-card-registry",
-      "country_iso2": "FI",
-      "provider": "Nets / Nexi",
-      "method": "card",
-      "provider_role": "acquirer",
-      "previous_pricing_model": "Not public",
-      "source_url": "https://www.nets.eu/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "GR-nexigreece-card-registry",
@@ -589,7 +853,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.nexi.gr/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "HR-nexi-local-merchant-acquiring-acceptance-card",
@@ -599,7 +865,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.nexi.hr/hr/rjesenja-za-trgovce/ecommerce/ugovaranje-prihvacanja/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "EE-nets-merchant-acquiring-card",
@@ -609,7 +877,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.nexigroup.com/en/group/brands/nets/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "SI-nlb-ecommerce-card",
@@ -619,7 +889,20 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.nlb.si/podjetja/vsakodnevno-poslovanje/sprejemanje-kartic/spletna-prodaja",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.nlb.si/content/dam/nlb/pdf-files/poslovne-finance/izvlecek-iz-tarife.pdf",
+          "price_leads": [
+            "lokacija 1,00 EUR in zamenjava Pošiljanje PIN številke s priporočeno pošto** 3,00 EUR Strošek quasi cash transakcije*** 1,50% na transakcijo, min. 1,00 EUR - max. 150,00 EUR *Nadomestilo se ne zaračuna v primeru nenamerne poškodbe kartice (slaba",
+            "**Tarifa se obračuna od celotnega zneska Menjava gotovine na bančnem okencu Menjava gotovine* (vse kombinacije menjave) 4,38%/zneska, min. 5,50 EUR *Velja tudi za izdajo kovancev/bankovcev v centralnem trezorju s predhodnim nakazilom na transakc",
+            "v centralnem trezorju s predhodnim nakazilom na transakcijski račun NLB. Poslovanje s tujo gotovino Dvig tuje gotovine* 2,19%/znesek, min. 6,85 – max. 91,23 EUR Polog bankovcev v tuji valuti* 0,56%/znesek, min. 6,85 – max. 91,23 EUR *Brez nadome",
+            "0 EUR Opomini Pošiljanje opominov 30,00 EUR Dvig gotovine, vpogled v stanje in upravljanje s PIN številko Dvig gotovine 6,00% od zneska dviga, min. 17,00 EUR Vpogled v stanje na kartici na bankomatu druge banke v Sloveniji in tujini 1,00 EUR Upr",
+            "anje PIN številke s priporočeno pošto 3,00 EUR Nadomestilo za SMS Obroke 1,90 EUR/obrok Strošek quasi cash transakcije* 1,50% na transakcijo, min. 1,00 EUR - max. 150,00 EUR *Quasi cash transakcije so kartične transakcije za vsak prenos sredstev"
+          ]
+        }
+      ]
     },
     {
       "id": "SI-nlb-ecommerce-flik-a2a",
@@ -629,7 +912,20 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.nlb.si/podjetja/vsakodnevno-poslovanje/sprejemanje-kartic/spletna-prodaja",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.nlb.si/content/dam/nlb/pdf-files/poslovne-finance/izvlecek-iz-tarife.pdf",
+          "price_leads": [
+            "lokacija 1,00 EUR in zamenjava Pošiljanje PIN številke s priporočeno pošto** 3,00 EUR Strošek quasi cash transakcije*** 1,50% na transakcijo, min. 1,00 EUR - max. 150,00 EUR *Nadomestilo se ne zaračuna v primeru nenamerne poškodbe kartice (slaba",
+            "**Tarifa se obračuna od celotnega zneska Menjava gotovine na bančnem okencu Menjava gotovine* (vse kombinacije menjave) 4,38%/zneska, min. 5,50 EUR *Velja tudi za izdajo kovancev/bankovcev v centralnem trezorju s predhodnim nakazilom na transakc",
+            "v centralnem trezorju s predhodnim nakazilom na transakcijski račun NLB. Poslovanje s tujo gotovino Dvig tuje gotovine* 2,19%/znesek, min. 6,85 – max. 91,23 EUR Polog bankovcev v tuji valuti* 0,56%/znesek, min. 6,85 – max. 91,23 EUR *Brez nadome",
+            "0 EUR Opomini Pošiljanje opominov 30,00 EUR Dvig gotovine, vpogled v stanje in upravljanje s PIN številko Dvig gotovine 6,00% od zneska dviga, min. 17,00 EUR Vpogled v stanje na kartici na bankomatu druge banke v Sloveniji in tujini 1,00 EUR Upr",
+            "anje PIN številke s priporočeno pošto 3,00 EUR Nadomestilo za SMS Obroke 1,90 EUR/obrok Strošek quasi cash transakcije* 1,50% na transakcijo, min. 1,00 EUR - max. 150,00 EUR *Quasi cash transakcije so kartične transakcije za vsak prenos sredstev"
+          ]
+        }
+      ]
     },
     {
       "id": "IT-numia-card-registry",
@@ -639,7 +935,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HR-otp-bank-card",
@@ -648,8 +946,10 @@
       "method": "card",
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
-      "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "SI-otp-online-card",
@@ -659,7 +959,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.otpbanka.si/najem-spletno-mesto",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "SI-otp-online-flik-a2a",
@@ -669,7 +971,21 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.otpbanka.si/najem-spletno-mesto",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
+    },
+    {
+      "id": "PT-sibs-gateway-card",
+      "country_iso2": "PT",
+      "provider": "SIBS",
+      "method": "card",
+      "provider_role": "gateway_processor",
+      "previous_pricing_model": "Not public",
+      "source_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "PL-paymove-qr-blik-a2a",
@@ -679,7 +995,17 @@
       "provider_role": "psp",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.paymove.io/en/contact/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.paymove.io/en/contact/",
+          "price_leads": [
+            "are should be friendly! Fees Activation Fee Always free! 0 zł Transaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free!",
+            "ransaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free! The remaining boards are priced individually. 0 zł 🤩 Opportunit"
+          ]
+        }
+      ]
     },
     {
       "id": "PL-paymove-qr-card-wallet-card",
@@ -689,7 +1015,17 @@
       "provider_role": "psp",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.paymove.io/en/contact/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.paymove.io/en/contact/",
+          "price_leads": [
+            "are should be friendly! Fees Activation Fee Always free! 0 zł Transaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free!",
+            "ransaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free! The remaining boards are priced individually. 0 zł 🤩 Opportunit"
+          ]
+        }
+      ]
     },
     {
       "id": "BG-paynetics-card-acquiring",
@@ -699,7 +1035,16 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.paynetics.digital/card-acquiring/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.paynetics.digital/large-corporates/",
+          "price_leads": [
+            "hrough our Card Portal – set up the program, load cards, monitor card usage and manage all cards all in one place with 100% visibility, control, monitoring and reporting. Use cases Problem/Challenge EGT Digital powers some of the most dynamic"
+          ]
+        }
+      ]
     },
     {
       "id": "BG-postbank-virtual-pos-card",
@@ -709,7 +1054,27 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.postbank.bg/-/media/2026_01_01_Tariff_Corporates_EN.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.postbank.bg/-/media/2026_01_01_Tariff_Corporates_EN.pdf",
+          "price_leads": [
+            "N 97.79), no max (BGN 23.47) (BGN 9.78) Loans , Leasing, Documentary collections, Letters of credit EUR 10.00 EUR 10.00 0.25%, min EUR 50.00 EUR 12.00 2 Monthly maintenance fee free of charge free of charge USD 10.00* - free of charge (BGN 19.56",
+            "ver EUR 25 000.00 (BGN 48 895.75), per day for package Notary. 3 Amounts below the range are free of charge. 3.1 sorted 0.20%, min. EUR 1.00 (BGN 1.96), no max free of charge Transfers/ Payments, Universal payer, 3.2 unsorted 0.30%, min. EUR 1.0",
+            "e. 3.1 sorted 0.20%, min. EUR 1.00 (BGN 1.96), no max free of charge Transfers/ Payments, Universal payer, 3.2 unsorted 0.30%, min. EUR 1.00 (BGN 1.96), no max free of charge Purchase and sale of foreign currency 4 Withdrawal from the account in",
+            "nk cards 4.1 upon request * according to section Cash Operations for the amount above EUR 5 000.00 (BGN 9 779.15) daily 0.30%, min. EUR 2.00 (BGN 3.91) Internet banking/ Mobile banking/ Mobile application “Postbank m- * The request must be submi",
+            "tside of EEA4: accounts with distraint notices. 6.2.1 ordered at Bank's branch according to section Transfers/ Payments 0.15%, min. EUR 20.00, max EUR 300.00 according to section Internet banking/ Mobile Other fees, taxes and 6.2.2 ordered via I",
+            ", max EUR 300.00 according to section Internet banking/ Mobile Other fees, taxes and 6.2.2 ordered via Internet Banking 0.10%, min. EUR 20.00, max EUR 300.00 banking commissions for banks 7 Monthly maintenance fee for the debit card of the packa",
+            "3.1 sorted Up to EUR 5 000.00 (BGN 9779.15) daily EUR 0 (BGN 0 ) For the amount above EUR 5 000.00 (BGN 9779.15) daily 0.30%, min. Transfers/ Payments, Universal payer, EUR 2.05 (BGN 4.01) Purchase and sale of foreign currency 3.2 unsorted 4 Wi",
+            "transfer in EEA: Securities and Investment Gold 3.2.1 ordered at Bank's branch According to section Transfers/ Payments 0.15%, min. EUR 20.00 up to 15 (including) per month Mutual funds 0.07%, min. EUR 15.00 3.2.2 ordered via Internet Banking ac",
+            "ank's branch According to section Transfers/ Payments 0.15%, min. EUR 20.00 up to 15 (including) per month Mutual funds 0.07%, min. EUR 15.00 3.2.2 ordered via Internet Banking according to section Internet banking/ Mobile over 15 per month 0.07",
+            ".07%, min. EUR 15.00 3.2.2 ordered via Internet Banking according to section Internet banking/ Mobile over 15 per month 0.07%, min. EUR 10.00 banking Loans , Leasing, Documentary collections, 4 Monthly maintenance fee for the debit card of the p",
+            "25 000.00 (BGN 48 895.75), per day for packages: Notary Premia. Amounts below the range are free of charge. 3.1 sorted 0.20%, min. EUR 1.00 (BGN 1.96) 0.20%, min. EUR 1.00 (BGN 1.96) Bank cards 3.2 unsorted 0.30%, min. EUR 1.00 (BGN 1.96) 0.30%",
+            "day for packages: Notary Premia. Amounts below the range are free of charge. 3.1 sorted 0.20%, min. EUR 1.00 (BGN 1.96) 0.20%, min. EUR 1.00 (BGN 1.96) Bank cards 3.2 unsorted 0.30%, min. EUR 1.00 (BGN 1.96) 0.30%, min. EUR 1.00 (BGN 1.96) Up EU"
+          ]
+        }
+      ]
     },
     {
       "id": "HR-rba-online-card",
@@ -718,8 +1083,10 @@
       "method": "card",
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
-      "source_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/opci-uvjeti-za-prihvat-kartica-na-internet-prodajnom-mjestu/Opci-uvjeti-za-prihvat-kartica-na-Internet-prodajnom-mjestu.pdf.coredownload.inline.pdf",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "source_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima/2025-10-17_Naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima.pdf.coredownload.inline.pdf",
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "DE-rs2-card-registry",
@@ -729,7 +1096,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.rs2.com/press_and_media/rs2-launches-its-own-acquiring-business/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "LT-seb-ecommerce-card",
@@ -739,7 +1108,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.seb.lt/verslui/lesu-surinkimas/mokejimu-surinkimas-internetu",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "GB-shift4-card-registry",
@@ -749,7 +1120,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.shift4.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "IS-straumur-card-registry",
@@ -759,7 +1132,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.straumur.is/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HU-teya-card",
@@ -768,8 +1143,23 @@
       "method": "card",
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
-      "source_url": "https://www.teya.com/hu/legal/payment-terms",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "source_url": "https://www.teya.com/hu/pricing",
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.teya.com/hu/pricing",
+          "price_leads": [
+            "n. EladÃ¡sok Ma ElÅzÅ szerdÃ¡hoz kÃ©pest 600 450 300 150 0 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 705 455 Ft 12% vs. mÃºlt hÃ©ten BorravalÃ³ 66 089 Ft VisszatÃ©rÃ­tÃ©sek -20 589 Ft FizetÃ©si mÃ³dok MasterCard 1 220 278 Ft Visa 513 9"
+          ]
+        },
+        {
+          "url": "https://www.teya.com/hu/pricing",
+          "price_leads": [
+            "n. EladÃ¡sok Ma ElÅzÅ szerdÃ¡hoz kÃ©pest 600 450 300 150 0 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 705 455 Ft 12% vs. mÃºlt hÃ©ten BorravalÃ³ 66 089 Ft VisszatÃ©rÃ­tÃ©sek -20 589 Ft FizetÃ©si mÃ³dok MasterCard 1 220 278 Ft Visa 513 9"
+          ]
+        }
+      ]
     },
     {
       "id": "PT-teyaportugal-card-registry",
@@ -779,7 +1169,26 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.teya.com/pt/pricing",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.teya.com/pt/pricing",
+          "price_leads": [
+            "preocupe com filas. A Teya tem velocidades de transaÃ§Ã£o lÃ­deres na indÃºstria. CartÃ£o de dÃ©bito com cashback Ganhe 0,5% de cashback em todas as compras com o cartÃ£o Teya, mensal e ilimitado. Aceite pagamentos no telemÃ³vel Receba pagament",
+            "tal. Vendas Hoje vs Ãºltima quarta-feira 600 450 300 150 0 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 1.550,45 â¬ 12% vs. na semana passada GratificaÃ§Ãµes 145,25 â¬ Reembolsos - 45,25 â¬ CartÃµes MasterCard 2.681,93 Â£ Visa 1.129,65 â",
+            "Que terminal de pagamento recebo com cada plano? Todos os planos incluem um terminal. Simple : Sem desconto. Advanced : 50% de desconto no primeiro terminal. Premium : 1 terminal incluÃ­do. E se precisar de ajuda? Estamos disponÃ­veis 24/7. Fa"
+          ]
+        },
+        {
+          "url": "https://www.teya.com/pt/pricing",
+          "price_leads": [
+            "preocupe com filas. A Teya tem velocidades de transaÃ§Ã£o lÃ­deres na indÃºstria. CartÃ£o de dÃ©bito com cashback Ganhe 0,5% de cashback em todas as compras com o cartÃ£o Teya, mensal e ilimitado. Aceite pagamentos no telemÃ³vel Receba pagament",
+            "tal. Vendas Hoje vs Ãºltima quarta-feira 600 450 300 150 0 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 1.550,45 â¬ 12% vs. na semana passada GratificaÃ§Ãµes 145,25 â¬ Reembolsos - 45,25 â¬ CartÃµes MasterCard 2.681,93 Â£ Visa 1.129,65 â",
+            "Que terminal de pagamento recebo com cada plano? Todos os planos incluem um terminal. Simple : Sem desconto. Advanced : 50% de desconto no primeiro terminal. Premium : 1 terminal incluÃ­do. E se precisar de ajuda? Estamos disponÃ­veis 24/7. Fa"
+          ]
+        }
+      ]
     },
     {
       "id": "BG-transcard-virtual-pos-card",
@@ -789,7 +1198,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.transcard.bg/en/business-cards/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "BG-ubb-virtual-pos-card",
@@ -799,7 +1210,34 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "price_leads": [
+            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
+          ]
+        },
+        {
+          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "price_leads": [
+            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "RO-unicredit-ecommerce-card",
+      "country_iso2": "RO",
+      "provider": "UniCredit Bank",
+      "method": "card",
+      "provider_role": "acquirer",
+      "previous_pricing_model": "Individual",
+      "source_url": "https://www.unicredit.ro/ro/imm/tranzactionare/pos-ecommerce.html",
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "CZ-unicredit-ecommerce-card",
@@ -808,8 +1246,10 @@
       "method": "card",
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
-      "source_url": "https://www.unicreditbank.cz/cs/popupeditpages/svobodna-povolani/ucty/platby-prostrednictvim-internetu.modal.html",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "source_url": "https://www.unicreditbank.cz/content/dam/cee2020-pws-cz/cz-dokumenty/dokumenty-produkty/sazebniky/Sazebnik-COR-01062026-EN.pdf",
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "SI-unicredit-online-card",
@@ -819,7 +1259,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "quote_or_individual_price_confirmed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "SK-unicredit-online-card",
@@ -828,8 +1270,10 @@
       "method": "card",
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
-      "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/uzitocne_informacie/Pokyny_pro_obchodnika_A5_SK_v03.pdf",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "source_unavailable_or_blocked",
+      "price_leads": []
     },
     {
       "id": "AT-volt-a2a-registry",
@@ -839,7 +1283,22 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.volt.io/legal/eu-msa/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        },
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        }
+      ]
     },
     {
       "id": "IE-volt-a2a-registry",
@@ -849,7 +1308,22 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.volt.io/legal/eu-msa/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        },
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        }
+      ]
     },
     {
       "id": "DK-volt-a2a-registry",
@@ -859,7 +1333,22 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.volt.io/legal/eu-msa/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        },
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        }
+      ]
     },
     {
       "id": "SE-volt-a2a-registry",
@@ -869,7 +1358,22 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.volt.io/legal/eu-msa/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        },
+        {
+          "url": "https://www.volt.io/legal/eu-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the European Central (such amount compounded on a monthly basis) until payment is made."
+          ]
+        }
+      ]
     },
     {
       "id": "GB-volt-a2a-registry",
@@ -879,7 +1383,22 @@
       "provider_role": "a2a_provider",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.volt.io/legal/uk-msa/",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.volt.io/legal/uk-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the Bank of England (such amount compounded on a monthly basis) until payment is made."
+          ]
+        },
+        {
+          "url": "https://www.volt.io/legal/uk-msa/",
+          "price_leads": [
+            "f you fail to make payment in accordance with this clause 12 then Volt will be entitled to charge interest at a rate of 6% per year above the base rate of the Bank of England (such amount compounded on a monthly basis) until payment is made."
+          ]
+        }
+      ]
     },
     {
       "id": "CH-planet-card-registry",
@@ -889,7 +1408,9 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Not public",
       "source_url": "https://www.weareplanet.com/",
-      "outcome": "manual_source_review_completed_without_public_number"
+      "outcome": "manual_source_review_completed_without_public_number",
+      "raw_scan_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "price_leads": []
     },
     {
       "id": "HR-zagrebacka-ecommerce-card",
@@ -899,7 +1420,23 @@
       "provider_role": "acquirer",
       "previous_pricing_model": "Individual",
       "source_url": "https://www.zaba.hr/home/mali-poduzetnici/e-commerce",
-      "outcome": "quote_or_individual_price_confirmed_without_public_number"
+      "outcome": "manual_price_lead_rejected_as_non_merchant_or_incomplete",
+      "raw_scan_outcome": "public_price_lead_found",
+      "price_leads": [
+        {
+          "url": "https://www.zaba.hr/home/med/dok/447/447-izvadak-iz-odluke-o-tarifi-naknada-za-usluge-banke-po-karticnom-poslovanju-za-pravne-osobe-srpanj-2026.pdf",
+          "price_leads": [
+            "otovinske isplate uz korištenje poslovne debitne kartice Na bankomatu Banke, članica Grupe Zagrebačke banke u Hrvatskoj 0,19% od isplaćenog iznosa Na bankomatima i drugim isplatnim mjestima u Hrvatskoj 1,90%, najmanje 1,99 od isplaćenog iznosa N",
+            "mjestima u Hrvatskoj 1,90%, najmanje 1,99 od isplaćenog iznosa Na bankomatima i drugim isplatnim mjestima u inozemstvu 1,90%, najmanje 1,99 od isplaćenog iznosa Zamjena kartice i PIN-a Izvanredna zamjena poslovne debitne kartice* 5,31 po kartic",
+            "naplaćuje Naknada za korisnika kartice za plaćanje na obročnu otplatu Naknada za plaćanje na obročnu otplatu - 2-3 rate 0,60% od iznosa rate Naknada za plaćanje na obročnu otplatu - 4-6 rate 1,00% od iznosa rate Naknada za plaćanje na obročnu ot",
+            "nada za plaćanje na obročnu otplatu - 7-9 rate 1,50% od iznosa rate Naknada za plaćanje na obročnu otplatu - 10-12 rate 2,00% od iznosa rate Naknada za plaćanje na obročnu otplatu - 13-24 rate 4,00% od iznosa rate Isplate putem Mastercard kartic",
+            "da za plaćanje na obročnu otplatu - 10-12 rate 2,00% od iznosa rate Naknada za plaćanje na obročnu otplatu - 13-24 rate 4,00% od iznosa rate Isplate putem Mastercard kartice, go! business Mastercard kreditne kartice, Visa Business kartice s odgo",
+            "ess kartice s odgodom plaćanja i Business Mastercard Plus kartice od isplaćenog iznosa, Na bankomatima Zagrebačke banke 3,00% + 2,65 EUR po transakciji Na ostalim isplatnim mjestima u Hrvatskoj (poslovnice Zagrebačke od isplaćenog iznosa, banke, bankomati",
+            "koj (poslovnice Zagrebačke od isplaćenog iznosa, banke, bankomati i poslovnice drugih banaka, poslovnice FINA-e u uredi 4,00% + 2,65 EUR po transakciji Hrvatske pošte) od isplaćenog iznosa, u inozemstvu (na bankomatima i isplatnim mjestima) 4,00% + 2,65 EU",
+            ",00% + 2,65 EUR po transakciji Hrvatske pošte) od isplaćenog iznosa, u inozemstvu (na bankomatima i isplatnim mjestima) 4,00% + 2,65 EUR po transakciji PRIHVAT KARTICA Naknada za opremu za prihvat Naknada za izgubljeni (ukradeni,uništeni) bežični EFT POS t"
+          ]
+        }
+      ]
     }
   ],
   "source_scans": [
@@ -916,48 +1453,12 @@
       "evidence": []
     },
     {
-      "source_url": "https://dnapayments.com/storage/app/media/Zash%20Bundle%20Campaign%20Terms%20and%20Conditions_2.pdf",
+      "source_url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://dnapayments.com/storage/app/media/Zash%20Bundle%20Campaign%20Terms%20and%20Conditions_2.pdf",
-          "final_url": "https://dnapayments.com/storage/app/media/Zash%20Bundle%20Campaign%20Terms%20and%20Conditions_2.pdf",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://developers.trustly.com/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://developers.trustly.com/",
-          "final_url": "https://developers.trustly.com/",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://dojo.tech/es/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://dojo.tech/es/",
-          "final_url": "https://dojo.tech/es/",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://dojo.tech/it/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://dojo.tech/it/",
-          "final_url": "https://dojo.tech/it/",
+          "url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
+          "final_url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
           "status": "ok"
         }
       ],
@@ -976,12 +1477,24 @@
       "evidence": []
     },
     {
-      "source_url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
+      "source_url": "https://dojo.tech/es/preguntas-frecuentes/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
-          "final_url": "https://em.bank/lt/bankininkyste-kaip-paslauga/integruotieji-finansai/integruotieji-mokejimai/",
+          "url": "https://dojo.tech/es/preguntas-frecuentes/",
+          "final_url": "https://dojo.tech/es/preguntas-frecuentes/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://dojo.tech/it/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://dojo.tech/it/",
+          "final_url": "https://dojo.tech/it/",
           "status": "ok"
         }
       ],
@@ -1031,6 +1544,23 @@
       ]
     },
     {
+      "source_url": "https://docs.datatrans.ch/docs/getting-started",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://docs.datatrans.ch/docs/getting-started",
+          "final_url": "https://docs.datatrans.ch/docs/getting-started",
+          "status": "ok"
+        },
+        {
+          "url": "https://docs.datatrans.ch/docs/multi-currency-pricing",
+          "final_url": "https://docs.datatrans.ch/docs/multi-currency-pricing",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
       "source_url": "https://payabl.com/payabl-gateway",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
@@ -1073,27 +1603,24 @@
       ]
     },
     {
-      "source_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+      "source_url": "https://merchants.fiserv.com/en-europe/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
-          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+          "url": "https://merchants.fiserv.com/en-europe/",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=6a9b8a85-a26a-4d3a-9cad-99aaaf049a65&ssb=57278236454&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2F&ssi=75568c06-cskb-4589-b807-4ff5e88b4328&ssk=botmanager_support@radware.com&ssm=12457570708314809107420907997015&ssn=a677e41410693f21eb0aafa5006b9592ba887f38d787-0479-4798-9eaada&sso=6922a0a4-4deb8c52ac03d9eb3739877972ff05a20d4554132d7a4009&ssp=53728407801787636480178763241025680&ssq=99707706684981894356066849946257318341560&ssr=MTA5LjE4My4xOS42Ng==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA3ZjM4ZDc4Ny0wNDc5LTQ3OTgtOTBhNC00ZGViOGM1MmFjMDMxLTE3ODc2NjY4NDkwODMwLTAwNGNiMDM2NDkxZjE3Y2IzOWIxMCJ9",
           "status": "ok"
-        },
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
         {
-          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
-          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
-          "status": "ok"
-        },
-        {
-          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/what-is-icard-physical-pos-terminal-tariff",
-          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/what-is-icard-physical-pos-terminal-tariff",
-          "status": "ok"
-        },
-        {
-          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/can-i-have-different-clients-operating-with-different-fees-for-accepting-card-payments",
-          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/can-i-have-different-clients-operating-with-different-fees-for-accepting-card-payments",
+          "url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=f330a1b6-7058-436c-95aa-95fa7d314737&ssb=09679292466&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-uk%2Fresources%2Ffaqs%2F&ssi=8e0359c3-cskb-45c3-b4df-5cf03ec9ad33&ssk=botmanager_support@radware.com&ssm=28479043144772355131646570854540&ssn=e2591635d67cdf4858c7db0eb2769ef4cd577f38d787-0479-4798-92012e&sso=640fe0a4-4deb8c52ac030ee9b121d384edc691a0c547f131c3249ab0&ssp=46453710661787695001178767985227532&ssq=80891656685098087293366849714494149541639&ssr=MTA5LjE4My4xOS42Ng==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA3ZjM4ZDc4Ny0wNDc5LTQ3OTgtOTBhNC00ZGViOGM1MmFjMDMxLTE3ODc2NjY4NDkwODMxMzc4LTAwNDc5MmNiMTQ0ZjVlZGE5MTMxMyJ9",
           "status": "ok"
         }
       ],
@@ -1118,6 +1645,38 @@
         {
           "url": "https://payments.nets.eu/lv-LV/acquiring",
           "final_url": "https://payments.nets.eu/lv-LV/acquiring",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+          "status": "ok"
+        },
+        {
+          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/how-many-different-tariffs-can-i-offer-to-my-clients-and-how-are-they-structured",
+          "status": "ok"
+        },
+        {
+          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/what-is-icard-physical-pos-terminal-tariff",
+          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/what-is-icard-physical-pos-terminal-tariff",
+          "status": "ok"
+        },
+        {
+          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/can-i-have-different-clients-operating-with-different-fees-for-accepting-card-payments",
+          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/can-i-have-different-clients-operating-with-different-fees-for-accepting-card-payments",
+          "status": "ok"
+        },
+        {
+          "url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/can-a-merchant-have-two-terminals-operating-with-different-rates",
+          "final_url": "https://partner.icard.com/en/help/pos/bundle-application-for-icard-physical-terminal-with-a-business-account/can-a-merchant-have-two-terminals-operating-with-different-rates",
           "status": "ok"
         }
       ],
@@ -1153,161 +1712,77 @@
       "evidence": []
     },
     {
-      "source_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
+      "source_url": "https://www.apsbank.com.mt/merchant-acquiring/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
-          "final_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
+          "url": "https://www.apsbank.com.mt/merchant-acquiring/",
+          "final_url": "https://www.apsbank.com.mt/merchant-acquiring/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://developers.trustly.com/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://developers.trustly.com/",
+          "final_url": "https://amer.developers.trustly.com/welcome",
           "status": "ok"
         },
         {
-          "url": "https://docs.truelayer.com/docs/automatic-fee-collection",
-          "final_url": "https://docs.truelayer.com/docs/automatic-fee-collection",
+          "url": "https://amer.developers.trustly.com/integrate/accept-payments",
+          "final_url": "https://amer.developers.trustly.com/integrate/accept-payments",
           "status": "ok"
         },
         {
-          "url": "https://docs.truelayer.com/docs/generate-a-payments-access-token",
-          "final_url": "https://docs.truelayer.com/docs/generate-a-payments-access-token",
+          "url": "https://amer.developers.trustly.com/integrate/send-money",
+          "final_url": "https://amer.developers.trustly.com/integrate/send-money",
           "status": "ok"
         },
         {
-          "url": "https://docs.truelayer.com/docs/migrate-to-the-latest-android-sdk-version",
-          "final_url": "https://docs.truelayer.com/docs/migrate-to-the-latest-android-sdk-version",
+          "url": "https://amer.developers.trustly.com/integrate/retrieve-data",
+          "final_url": "https://amer.developers.trustly.com/integrate/retrieve-data",
           "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://merchants.fiserv.com/en-europe/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
+        },
         {
-          "url": "https://merchants.fiserv.com/en-europe/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=2c9a4a6a-c2c7-4ad3-bdc4-6935e431e0ae&ssb=14610299529&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2F&ssi=57740b9c-cskb-4a21-b000-1efe42030cae&ssk=botmanager_support@radware.com&ssm=27680520716686126105815218723879&ssn=683202699aa94a9d0445a0738283fe202a4270d09372-8539-4156-ad2a10&sso=deb7002b-603232219c5888639da68a4b87d87238bd2c6de353bbfe84&ssp=50963482081787260978178728632243015&ssq=61615115684034639566056840405909522243727&ssr=ODcuMjAyLjkwLjIzMw==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA3MGQwOTM3Mi04NTM5LTQxNTYtYTAyYi02MDMyMzIyMTljNTgxLTE3ODcyNTY4NDA2MzgwLTAwNDI2ODQwOGY5NThhOTVjZTIxMCJ9",
+          "url": "https://amer.developers.trustly.com/integrate/manage-your-integration",
+          "final_url": "https://amer.developers.trustly.com/integrate/manage-your-integration",
           "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
+        },
         {
-          "url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=2103d287-6821-4b9e-8c85-1f9b81fd72d1&ssb=03319279574&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-uk%2Fresources%2Ffaqs%2F&ssi=e2c175d6-cskb-4c11-b2e0-adbcc3430e70&ssk=botmanager_support@radware.com&ssm=22716661131061071136475772422139&ssn=30a85cbb9103e713695686284e4f86a79efd70d09372-8539-4156-addaaa&sso=ed8ec02b-603232219c58d666d3d372645ce93aca8109c8b0ac96bc49&ssp=43591920051787281609178725811245771&ssq=41414395684228242515456840926428194626418&ssr=ODcuMjAyLjkwLjIzMw==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA3MGQwOTM3Mi04NTM5LTQxNTYtYTAyYi02MDMyMzIyMTljNTgxLTE3ODcyNTY4NDA2MzgxNDE0LTAwNGE1MWMwMWUyNWY4YmM2YmUxMyJ9",
+          "url": "https://amer.developers.trustly.com/integrate/accept-payments/instant-payments",
+          "final_url": "https://amer.developers.trustly.com/integrate/accept-payments/instant-payments",
           "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.apsbank.com.mt/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
+        },
         {
-          "url": "https://www.apsbank.com.mt/",
-          "final_url": "https://www.apsbank.com.mt/",
+          "url": "https://amer.developers.trustly.com/integrate/accept-payments/recurring-payments",
+          "final_url": "https://amer.developers.trustly.com/integrate/accept-payments/recurring-payments",
+          "status": "ok"
+        },
+        {
+          "url": "https://amer.developers.trustly.com/integrate/accept-payments/scan-and-pay",
+          "final_url": "https://amer.developers.trustly.com/integrate/accept-payments/scan-and-pay",
+          "status": "ok"
+        },
+        {
+          "url": "https://amer.developers.trustly.com/integrate/send-money/send-payouts-using-online-banking",
+          "final_url": "https://amer.developers.trustly.com/integrate/send-money/send-payouts-using-online-banking",
           "status": "ok"
         }
       ],
       "evidence": []
     },
     {
-      "source_url": "https://www.bov.com/meta/downloads/bov-ecommerce-application-form",
+      "source_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
       "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
-          "url": "https://www.bov.com/meta/downloads/bov-ecommerce-application-form",
-          "final_url": "https://www.bov.com/meta/downloads/bov-ecommerce-application-form",
+          "url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
+          "final_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
           "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
-          "final_url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
-          "final_url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
-          "final_url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.ccbank.bg/en/corporate-clients",
-          "final_url": "https://www.ccbank.bg/en/corporate-clients",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.ccbank.bg/en/corporate-clients/bank-cards",
-          "final_url": "https://www.ccbank.bg/en/corporate-clients/bank-cards",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.ccbank.bg/en/corporate-clients/bank-cards/cre",
-          "final_url": "https://www.ccbank.bg/en/corporate-clients/bank-cards/cre",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.danubepay.com/service/acquiring",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.danubepay.com/service/acquiring",
-          "final_url": "https://www.danubepay.com/service/acquiring",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.cardcomplete.com/fuer-unternehmen/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.cardcomplete.com/fuer-unternehmen/",
-          "final_url": "https://www.cardcomplete.com/fuer-unternehmen/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.cardcomplete.com/fuer-unternehmen/firmenkarten/corporate-card/",
-          "final_url": "https://www.cardcomplete.com/fuer-unternehmen/firmenkarten/corporate-card/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.cardcomplete.com/fuer-unternehmen/akzeptanz/akzeptanzpartner-werden/vergleichen-zahlt-sich-aus/",
-          "final_url": "https://www.cardcomplete.com/fuer-unternehmen/akzeptanz/akzeptanzpartner-werden/vergleichen-zahlt-sich-aus/",
-          "status": "ok"
         }
       ],
       "evidence": []
@@ -1328,85 +1803,6 @@
         }
       ],
       "evidence": []
-    },
-    {
-      "source_url": "https://www.elavon.no/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.elavon.no/",
-          "final_url": "https://www.elavon.no/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.elavon.no/",
-          "final_url": "https://www.elavon.no/",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-          "final_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.barclaycard.co.uk/business/accepting-payments",
-      "outcome": "public_price_lead_found",
-      "pages_checked": [
-        {
-          "url": "https://www.barclaycard.co.uk/business/accepting-payments",
-          "final_url": "https://www.barclaycard.co.uk/business/accepting-payments",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
-          "final_url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.barclaycard.co.uk/business/cards/business-card-customer-home/select-charge-card-guide",
-          "final_url": "https://www.barclaycard.co.uk/business/cards/business-card-customer-home/select-charge-card-guide",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
-          "final_url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
-          "status": "ok"
-        }
-      ],
-      "evidence": [
-        {
-          "url": "https://www.barclaycard.co.uk/business/accepting-payments",
-          "price_leads": [
-            "Visa or Mastercard personal debit card is used in person to buy a £50 item, you could pay: Example transaction charge (0.7%) – £0.35 + Authorisation fee (3p) – £0.03 = Total transaction fees – £0.38 By phone When a Visa or Mastercard personal",
-            "Visa or Mastercard personal credit card is used by phone to buy a £50 item, you could pay: Example transaction charge (2.05%) – £1.03 + Authorisation fee (3p) – £0.03 = Total transaction fees – £1.06 Cancellation fees The amount you pay as a ca"
-          ]
-        },
-        {
-          "url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
-          "price_leads": [
-            "tances and borrowing history. Fees There's an annual account fee of £42. Charges Credit limit Cash Copies of statements 3% (minimum £3) £2 for a copy of any statement Repayments You must pay your balance off in full by the payment due date sh",
-            "es When making a purchase abroad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates",
-            "n making a purchase abroad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates ca",
-            "broad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates can be found at either Vis"
-          ]
-        },
-        {
-          "url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
-          "price_leads": [
-            "lability We process payments for over 160,000 businesses. (3) Reliability Our payment authorisation service uptime was 100% in 2025. (2) See why industry leaders choose us Sky Bet Read our Sky Bet case study Tombola Read our Tombola case study"
-          ]
-        }
-      ]
     },
     {
       "source_url": "https://worldline.com/el-gr/home",
@@ -1462,82 +1858,319 @@
       "evidence": []
     },
     {
+      "source_url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
+          "final_url": "https://www.cashflows.com/consumer-duty-product-information-for-acquiring-services",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.cardcomplete.com/fuer-unternehmen/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.cardcomplete.com/fuer-unternehmen/",
+          "final_url": "https://www.cardcomplete.com/fuer-unternehmen/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.cardcomplete.com/fuer-unternehmen/firmenkarten/corporate-card/",
+          "final_url": "https://www.cardcomplete.com/fuer-unternehmen/firmenkarten/corporate-card/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.cardcomplete.com/fuer-unternehmen/akzeptanz/akzeptanzpartner-werden/vergleichen-zahlt-sich-aus/",
+          "final_url": "https://www.cardcomplete.com/fuer-unternehmen/akzeptanz/akzeptanzpartner-werden/vergleichen-zahlt-sich-aus/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.boipa.com/en-ie/in-store/card-terminals",
+          "final_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.boipa.com/en-ie/corporate",
+          "final_url": "https://www.boipa.com/en-ie/corporate",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
+          "final_url": "https://www.cib.hu/egyeni-es-kisvallalkozasok/kartyaelfogadas/eCommerce.html",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.barclaycard.co.uk/business/accepting-payments",
+      "outcome": "public_price_lead_found",
+      "pages_checked": [
+        {
+          "url": "https://www.barclaycard.co.uk/business/accepting-payments",
+          "final_url": "https://www.barclaycard.co.uk/business/accepting-payments",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
+          "final_url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/cards/business-card-customer-home/select-charge-card-guide",
+          "final_url": "https://www.barclaycard.co.uk/business/cards/business-card-customer-home/select-charge-card-guide",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
+          "final_url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/help-and-support/credit-and-charge-card",
+          "final_url": "https://www.barclaycard.co.uk/business/help-and-support/credit-and-charge-card",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/help-and-support/credit-and-charge-card/understanding-repayments",
+          "final_url": "https://www.barclaycard.co.uk/business/help-and-support/credit-and-charge-card/understanding-repayments",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions",
+          "final_url": "https://www.barclaycard.co.uk/business/corporate-solutions",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions/retail",
+          "final_url": "https://www.barclaycard.co.uk/business/corporate-solutions/retail",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions/travel",
+          "final_url": "https://www.barclaycard.co.uk/business/corporate-solutions/travel",
+          "status": "ok"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.barclaycard.co.uk/business/accepting-payments",
+          "price_leads": [
+            "Visa or Mastercard personal debit card is used in person to buy a £50 item, you could pay: Example transaction charge (0.7%) – £0.35 + Authorisation fee (3p) – £0.03 = Total transaction fees – £0.38 By phone When a Visa or Mastercard personal",
+            "Visa or Mastercard personal credit card is used by phone to buy a £50 item, you could pay: Example transaction charge (2.05%) – £1.03 + Authorisation fee (3p) – £0.03 = Total transaction fees – £1.06 Cancellation fees The amount you pay as a ca"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/cards/charge-cards/select",
+          "price_leads": [
+            "tances and borrowing history. Fees There's an annual account fee of £42. Charges Credit limit Cash Copies of statements 3% (minimum £3) £2 for a copy of any statement Repayments You must pay your balance off in full by the payment due date sh",
+            "es When making a purchase abroad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates",
+            "n making a purchase abroad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates ca",
+            "broad, you’ll be charged the following fees: Purchase Non-sterling fee Non-sterling cash fee 2.99% 3% (minimum £3) plus 2.99% non sterling transaction fee Payment scheme exchange rate Depending on your card type, rates can be found at either Vis"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/accepting-payments/corporate-payment-solutions/payments-processing",
+          "price_leads": [
+            "lability We process payments for over 160,000 businesses. (3) Reliability Our payment authorisation service uptime was 100% in 2025. (2) See why industry leaders choose us Sky Bet Read our Sky Bet case study Tombola Read our Tombola case study"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/help-and-support/credit-and-charge-card/understanding-repayments",
+          "price_leads": [
+            "ple shows how much interest it would cost and how much time it would take to clear a balance of £2,500 on a card with a 28.9% annual interest rate. Please note : this is a guide calculated on approximate minimum payment rates, which vary by prov"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions/retail",
+          "price_leads": [
+            "control of spend. Why retailers like you choose to work with us In 2024, our payment authorisation service uptime was 100% 2 One of Europe’s leading payment providers for issuing, acquiring and gateway solutions 3 We support 114 trading curre"
+          ]
+        },
+        {
+          "url": "https://www.barclaycard.co.uk/business/corporate-solutions/travel",
+          "price_leads": [
+            "024 1 Over 32m card payments processed in a single day in 2024 1 In 2024, our payment authorisation service uptime was 100% . 1 Payment strategies to help your ambitions go the distance An integrated payment strategy is critical to any busines"
+          ]
+        }
+      ]
+    },
+    {
+      "source_url": "https://www.danubepay.com/service/acquiring",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.danubepay.com/service/acquiring",
+          "final_url": "https://www.danubepay.com/service/acquiring",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.checkout.com/pricing",
+      "outcome": "public_price_lead_found",
+      "pages_checked": [
+        {
+          "url": "https://www.checkout.com/pricing",
+          "final_url": "https://www.checkout.com/pricing",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.checkout.com/products/fraud-detection",
+          "final_url": "https://www.checkout.com/products/fraud-detection",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.checkout.com/products/disputes",
+          "final_url": "https://www.checkout.com/products/disputes",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.checkout.com/pricing",
+          "final_url": "https://www.checkout.com/pricing",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.checkout.com/products/integrated-platforms",
+          "final_url": "https://www.checkout.com/products/integrated-platforms",
+          "status": "ok"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.checkout.com/products/disputes",
+          "price_leads": [
+            "ebacks. Learn more 30 min saved per dispute through resolution automation 28 days reduction in time to refund customers 58% reduction in sales-to-chargeback ratio Unlock your payments potential today Get in touch Where the world checks out. Gl"
+          ]
+        }
+      ]
+    },
+    {
+      "source_url": "https://www.elavon.no/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.elavon.no/",
+          "final_url": "https://www.elavon.no/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.elavon.no/",
+          "final_url": "https://www.elavon.no/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
+      "outcome": "public_price_lead_found",
+      "pages_checked": [
+        {
+          "url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
+          "final_url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
+          "status": "ok"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
+          "price_leads": [
+            "l amount, the merchant does not have to apply for further issuer authorisation. If the final transaction amount exceeds 15% of the authorised total amount, the merchant shall apply for separate issuer authorisation for the portion of the trans"
+          ]
+        }
+      ]
+    },
+    {
+      "source_url": "https://www.globalpayments.hr/",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.globalpayments.hr/",
+          "final_url": "https://www.globalpayments.hr/",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/become-a-partner-of-ccb/virtual-pos-terminals",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/bank-cards",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/bank-cards",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/bank-cards/cre",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/bank-cards/cre",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/bank-cards/deb",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/bank-cards/deb",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts/business-deposits",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts/business-deposits",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts/accounts-of-corporate-clients",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts/accounts-of-corporate-clients",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts/questions-and-answers-on-deposit-insurance",
+          "final_url": "https://www.ccbank.bg/en/corporate-clients/deposits-and-accounts/questions-and-answers-on-deposit-insurance",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
       "source_url": "https://www.epayworldwide.gr/en/about-us/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://www.epayworldwide.gr/en/about-us/",
           "final_url": "https://www.epayworldwide.gr/en/about-us/",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.europabank.be/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.europabank.be/",
-          "final_url": "https://www.europabank.be/nl",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.europabank.be/nl/tarieven-en-reglementen",
-          "final_url": "https://www.europabank.be/nl/tarieven-en-reglementen",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
-          "final_url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
-          "final_url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.jcc.com.cy/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.jcc.com.cy/",
-          "final_url": "https://www.jcc.com.cy/",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
-          "final_url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.hpb.hr/hr/upozorenje-uoceni-lazni-telefonski-pozivi-u-ime-banke-10931/10931",
-          "final_url": "https://www.hpb.hr/hr/upozorenje-uoceni-lazni-telefonski-pozivi-u-ime-banke-10931/10931",
           "status": "ok"
         }
       ],
@@ -1566,27 +2199,114 @@
       "evidence": []
     },
     {
-      "source_url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
+      "source_url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
+          "final_url": "https://www.intesasanpaolobank.si/podjetja/poslovne-kartice/sprejemanje-kartic.html",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
-          "final_url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
+          "url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
+          "final_url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
           "status": "ok"
         },
         {
-          "url": "https://www.fibank.bg/en/business/loans/corporate-financing",
-          "final_url": "https://www.fibank.bg/en/business/loans/corporate-financing",
+          "url": "https://www.hpb.hr/hr/upozorenje-uoceni-lazni-telefonski-pozivi-u-ime-banke-10931/10931",
+          "final_url": "https://www.hpb.hr/hr/upozorenje-uoceni-lazni-telefonski-pozivi-u-ime-banke-10931/10931",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.dnapayments.com/",
+      "outcome": "public_price_lead_found",
+      "pages_checked": [
+        {
+          "url": "https://www.dnapayments.com/",
+          "final_url": "https://www.dnapayments.com/",
           "status": "ok"
         },
         {
-          "url": "https://www.fibank.bg/en/business/loans/corporate-financing/working-capital-loan",
-          "final_url": "https://www.fibank.bg/en/business/loans/corporate-financing/working-capital-loan",
+          "url": "https://www.dnapayments.com/sectors/ecommerce",
+          "final_url": "https://www.dnapayments.com/sectors/ecommerce",
           "status": "ok"
         },
         {
-          "url": "https://www.fibank.bg/en/business/loans/corporate-financing/investment-loan",
-          "final_url": "https://www.fibank.bg/en/business/loans/corporate-financing/investment-loan",
+          "url": "https://www.dnapayments.com/payment-solutions/zash-android-epos",
+          "final_url": "https://www.dnapayments.com/payment-solutions/zash-android-epos",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.dnapayments.com/news/qepos-solution-ltd-and-dna-payments-partner-bring-streamlined-epos-payments-uk-hospitality-and-retail-businesses",
+          "final_url": "https://www.dnapayments.com/news/qepos-solution-ltd-and-dna-payments-partner-bring-streamlined-epos-payments-uk-hospitality-and-retail-businesses",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.dnapayments.com/news/dna-payments-and-etabs-partner-offer-integrated-payment-solutions-retail-and-trade-businesses",
+          "final_url": "https://www.dnapayments.com/news/dna-payments-and-etabs-partner-offer-integrated-payment-solutions-retail-and-trade-businesses",
+          "status": "ok"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.dnapayments.com/news/qepos-solution-ltd-and-dna-payments-partner-bring-streamlined-epos-payments-uk-hospitality-and-retail-businesses",
+          "price_leads": [
+            "ftware and systems provider, to offer integrated payments for hospitality and retail businesses nationwide. Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistan",
+            "e and systems provider, to offer integrated payments for hospitality and retail businesses nationwide. Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to",
+            "systems provider, to offer integrated payments for hospitality and retail businesses nationwide. Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to help"
+          ]
+        },
+        {
+          "url": "https://www.dnapayments.com/news/dna-payments-and-etabs-partner-offer-integrated-payment-solutions-retail-and-trade-businesses",
+          "price_leads": [
+            "DNA Payments and ETABS partner to offer integrated payment solutions for retail and trade businesses Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistan",
+            "DNA Payments and ETABS partner to offer integrated payment solutions for retail and trade businesses Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to",
+            "Payments and ETABS partner to offer integrated payment solutions for retail and trade businesses Font size: 100% 150% 200% Colours: White Black Full Voice assistant: Images: Close \"Easy read\" Voice assistant We have a voice assistant to help"
+          ]
+        }
+      ]
+    },
+    {
+      "source_url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
+          "final_url": "https://www.kh.hu/web/eng/businesses/daily-banking/bank-card-acceptance/service",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.jcc.com.cy/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.jcc.com.cy/",
+          "final_url": "https://www.jcc.com.cy/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.librapay.ro/faq-comercianti/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.librapay.ro/faq-comercianti/",
+          "final_url": "https://www.librapay.ro/faq-comercianti/",
           "status": "ok"
         }
       ],
@@ -1605,28 +2325,61 @@
       "evidence": []
     },
     {
-      "source_url": "https://www.librapay.ro/faq-comercianti/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
-          "url": "https://www.librapay.ro/faq-comercianti/",
-          "final_url": "https://www.librapay.ro/faq-comercianti/",
+          "url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
+          "final_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
+          "final_url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
+          "final_url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
           "status": "ok"
         }
       ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.nets.eu/",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
+      "evidence": [
         {
-          "url": "https://www.nets.eu/",
-          "status": "error",
-          "error": "SSLError: HTTPSConnectionPool(host='www.nets.eu', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
+          "price_leads": [
+            "f 5 April 2025. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payment",
+            "ril 2025. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments take",
+            "25. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepaymen",
+            "r Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Per",
+            "Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who receive",
+            "lobal Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bo",
+            "Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97",
+            "ts takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6",
+            "4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion",
+            "9.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men",
+            "Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men and women who received a bonus for their per",
+            "bal Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men and women who received a bonus for their performan"
+          ]
+        },
+        {
+          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
+          "price_leads": [
+            "h Pay and Shop Limited and GP Payments Acquiring International GmbH. Pay gap Mean Median Hourly pay gap – All employees 8.5% 11.0% Note – due to an insufficient sample size of part-time employees and with no temporary employees, we have not dis",
+            "and Shop Limited and GP Payments Acquiring International GmbH. Pay gap Mean Median Hourly pay gap – All employees 8.5% 11.0% Note – due to an insufficient sample size of part-time employees and with no temporary employees, we have not disclosed",
+            "y gap data for these employee groups. Our mean hourly pay gap shows the average hourly pay of men at Global Payments is 8.5% higher than the average pay of women. Our median hourly pay gap shows the average hourly pay of men at Global Payments",
+            "gher than the average pay of women. Our median hourly pay gap shows the average hourly pay of men at Global Payments is 11.0% higher than the average pay of women. This statistic falls slightly below the reported average mean pay gap of 11.2%1 a",
+            ", and in the lower quartile, which sees an overrepresentation of women. Bonus gap Mean Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our",
+            "in the lower quartile, which sees an overrepresentation of women. Bonus gap Mean Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our media",
+            "Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our median bonus gap is 16.6% in favour of men. The difference in results suggest the bonu",
+            "gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our median bonus gap is 16.6% in favour of men. The difference in results suggest the bonus pay of a small number of employees has a large influence",
+            "ployees -1.7% 10.6% Men Women % of employees receiving a bonus 93.0% 91.2% % of employees in receipt of benefit in kind 93.0% 91.2% While Pay and Shop Limited, which makes up over half of the overall Global Payments employee population, still ha",
+            "s -1.7% 10.6% Men Women % of employees receiving a bonus 93.0% 91.2% % of employees in receipt of benefit in kind 93.0% 91.2% While Pay and Shop Limited, which makes up over half of the overall Global Payments employee population, still has a pa",
+            "size. Overall, we also notice some improvement in our bonus gap data compared to last year’s result (mean bonus gap of 10.9% and median pay gap of 13.2%, both in favour of men). Gender Pay Gap Reporting for GP Payments Acquiring International G",
+            "ce some improvement in our bonus gap data compared to last year’s result (mean bonus gap of 10.9% and median pay gap of 13.2%, both in favour of men). Gender Pay Gap Reporting for GP Payments Acquiring International GmbH During the reporting per"
+          ]
         }
-      ],
-      "evidence": []
+      ]
     },
     {
       "source_url": "https://www.nexi.gr/",
@@ -1648,30 +2401,6 @@
           "url": "https://www.nexi.hr/hr/rjesenja-za-trgovce/ecommerce/ugovaranje-prihvacanja/",
           "final_url": "https://www.nexi.hr/hr/rjesenja-za-trgovce/ecommerce/ugovaranje-prihvacanja/",
           "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
-          "final_url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025.pdf",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025.pdf",
-          "final_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025.pdf",
-          "status": "http_403"
         }
       ],
       "evidence": []
@@ -1699,52 +2428,40 @@
           "url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
           "final_url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
           "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/price-list-and-terms-and-conditions",
+          "final_url": "https://www.lhv.ee/en/price-list-and-terms-and-conditions",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/securities-price-info",
+          "final_url": "https://www.lhv.ee/en/securities-price-info",
+          "status": "ok"
         }
       ],
       "evidence": []
     },
     {
-      "source_url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
-      "outcome": "public_price_lead_found",
-      "pages_checked": [
-        {
-          "url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
-          "final_url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
-          "status": "ok"
-        }
-      ],
-      "evidence": [
-        {
-          "url": "https://paystrax.com/wp-content/uploads/2026/04/Terms-for-MFA-v.1.4-LT.pdf",
-          "price_leads": [
-            "l amount, the merchant does not have to apply for further issuer authorisation. If the final transaction amount exceeds 15% of the authorised total amount, the merchant shall apply for separate issuer authorisation for the portion of the trans"
-          ]
-        }
-      ]
-    },
-    {
-      "source_url": "https://www.globalpayments.hr/",
+      "source_url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://www.globalpayments.hr/",
-          "final_url": "https://www.globalpayments.hr/",
+          "url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
+          "final_url": "https://www.numia.com/Pagine/Utility/LaNostraOfferta.aspx",
           "status": "ok"
-        },
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
         {
-          "url": "https://www.globalpayments.hr/",
-          "final_url": "https://www.globalpayments.hr/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.globalpayments.hr/-/media/project/gpnheadless/corporateheadless/erste/home/upute-za-internetsko-placanje-koristenjem-usluge-mbplus.pdf?rev=fcfe53f64b824179b77c42caaf2409a6",
-          "final_url": "https://www.globalpayments.hr/-/media/project/gpnheadless/corporateheadless/erste/home/upute-za-internetsko-placanje-koristenjem-usluge-mbplus.pdf?rev=fcfe53f64b824179b77c42caaf2409a6",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.globalpayments.hr/-/media/project/gpnheadless/corporateheadless/erste/home/upute-za-koristenje-usluge-mbplus-na-fizickim-prodajnim-mjestima.pdf?rev=6caf6690fb88427ebd82d93eba7989ae",
-          "final_url": "https://www.globalpayments.hr/-/media/project/gpnheadless/corporateheadless/erste/home/upute-za-koristenje-usluge-mbplus-na-fizickim-prodajnim-mjestima.pdf?rev=6caf6690fb88427ebd82d93eba7989ae",
-          "status": "ok"
+          "url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
+          "status": "error",
+          "error": "HTTPError: 404 Client Error:  for url: https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf"
         }
       ],
       "evidence": []
@@ -1770,64 +2487,53 @@
       ]
     },
     {
-      "source_url": "https://www.paynetics.digital/card-acquiring/",
-      "outcome": "public_price_lead_found",
-      "pages_checked": [
-        {
-          "url": "https://www.paynetics.digital/card-acquiring/",
-          "final_url": "https://www.paynetics.digital/card-acquiring/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.paynetics.digital/large-corporates/",
-          "final_url": "https://www.paynetics.digital/large-corporates/",
-          "status": "ok"
-        }
-      ],
-      "evidence": [
-        {
-          "url": "https://www.paynetics.digital/large-corporates/",
-          "price_leads": [
-            "hrough our Card Portal – set up the program, load cards, monitor card usage and manage all cards all in one place with 100% visibility, control, monitoring and reporting. Use cases Problem/Challenge EGT Digital powers some of the most dynamic"
-          ]
-        }
-      ]
-    },
-    {
-      "source_url": "https://www.nexigroup.com/en/group/brands/nets/",
+      "source_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://www.nexigroup.com/en/group/brands/nets/",
-          "final_url": "https://www.nexigroup.com/en/group/brands/nets/",
+          "url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
+          "final_url": "https://docs.truelayer.com/docs/get-information-about-banking-providers",
           "status": "ok"
         },
         {
-          "url": "https://www.nexigroup.com/en/business/medium-large-enterprises/digital-corporate-banking/",
-          "final_url": "https://www.nexigroup.com/en/business/medium-large-enterprises/digital-corporate-banking/",
+          "url": "https://docs.truelayer.com/docs/automatic-fee-collection",
+          "final_url": "https://docs.truelayer.com/docs/automatic-fee-collection",
           "status": "ok"
         },
         {
-          "url": "https://www.nexigroup.com/en/business/medium-large-enterprises/open-banking-corporate/",
-          "final_url": "https://www.nexigroup.com/en/business/medium-large-enterprises/open-banking-corporate/",
+          "url": "https://docs.truelayer.com/docs/generate-a-payments-access-token",
+          "final_url": "https://docs.truelayer.com/docs/generate-a-payments-access-token",
           "status": "ok"
         },
         {
-          "url": "https://www.nexigroup.com/en/business/banks-and-financial-institutions/digital-corporate-banking/",
-          "final_url": "https://www.nexigroup.com/en/business/banks-and-financial-institutions/digital-corporate-banking/",
+          "url": "https://docs.truelayer.com/docs/migrate-to-the-latest-android-sdk-version",
+          "final_url": "https://docs.truelayer.com/docs/migrate-to-the-latest-android-sdk-version",
           "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.shift4.com/",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
+        },
         {
-          "url": "https://www.shift4.com/",
-          "final_url": "https://www.shift4.com/",
-          "status": "http_429"
+          "url": "https://docs.truelayer.com/docs/migrate-to-the-latest-ios-sdk-version",
+          "final_url": "https://docs.truelayer.com/docs/migrate-to-the-latest-ios-sdk-version",
+          "status": "ok"
+        },
+        {
+          "url": "https://docs.truelayer.com/docs/integrate-signup-in-finland",
+          "final_url": "https://docs.truelayer.com/docs/integrate-signup-in-finland",
+          "status": "ok"
+        },
+        {
+          "url": "https://docs.truelayer.com/docs/generate-an-auth-link",
+          "final_url": "https://docs.truelayer.com/docs/generate-an-auth-link",
+          "status": "ok"
+        },
+        {
+          "url": "https://docs.truelayer.com/docs/generate-a-direct-bank-auth-link",
+          "final_url": "https://docs.truelayer.com/docs/generate-a-direct-bank-auth-link",
+          "status": "ok"
+        },
+        {
+          "url": "https://docs.truelayer.com/docs/migrate-from-paydirect-to-v3",
+          "final_url": "https://docs.truelayer.com/docs/migrate-from-paydirect-to-v3",
+          "status": "ok"
         }
       ],
       "evidence": []
@@ -1871,6 +2577,108 @@
       ]
     },
     {
+      "source_url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
+          "final_url": "https://www.fibank.bg/en/business/pos-terminals-for-your-business/virtual-pos-terminal",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.fibank.bg/en/business/loans/corporate-financing",
+          "final_url": "https://www.fibank.bg/en/business/loans/corporate-financing",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.fibank.bg/en/business/loans/corporate-financing/working-capital-loan",
+          "final_url": "https://www.fibank.bg/en/business/loans/corporate-financing/working-capital-loan",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.fibank.bg/en/business/loans/corporate-financing/investment-loan",
+          "final_url": "https://www.fibank.bg/en/business/loans/corporate-financing/investment-loan",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.fibank.bg/en/documents/tariff",
+          "final_url": "https://www.fibank.bg/en/documents/tariff",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.fibank.bg/en/documents/bulletin-of-interest-rates",
+          "final_url": "https://www.fibank.bg/en/documents/bulletin-of-interest-rates",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.fibank.bg/en/about-us/corporate-governance/compliance/personal-data",
+          "final_url": "https://www.fibank.bg/en/about-us/corporate-governance/compliance/personal-data",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
+          "final_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.paynetics.digital/card-acquiring/",
+      "outcome": "public_price_lead_found",
+      "pages_checked": [
+        {
+          "url": "https://www.paynetics.digital/card-acquiring/",
+          "final_url": "https://www.paynetics.digital/card-acquiring/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.paynetics.digital/large-corporates/",
+          "final_url": "https://www.paynetics.digital/large-corporates/",
+          "status": "ok"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://www.paynetics.digital/large-corporates/",
+          "price_leads": [
+            "hrough our Card Portal – set up the program, load cards, monitor card usage and manage all cards all in one place with 100% visibility, control, monitoring and reporting. Use cases Problem/Challenge EGT Digital powers some of the most dynamic"
+          ]
+        }
+      ]
+    },
+    {
+      "source_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima/2025-10-17_Naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima.pdf.coredownload.inline.pdf",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima/2025-10-17_Naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima.pdf.coredownload.inline.pdf",
+          "final_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima/2025-10-17_Naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima.pdf.coredownload.inline.pdf",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.shift4.com/",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.shift4.com/",
+          "final_url": "https://www.shift4.com/",
+          "status": "http_429"
+        }
+      ],
+      "evidence": []
+    },
+    {
       "source_url": "https://www.straumur.is/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
@@ -1883,22 +2691,32 @@
       "evidence": []
     },
     {
-      "source_url": "https://www.otpbanka.si/najem-spletno-mesto",
+      "source_url": "https://www.nexigroup.com/en/group/brands/nets/",
       "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
-          "url": "https://www.otpbanka.si/najem-spletno-mesto",
-          "final_url": "https://www.otpbanka.si/najem-spletno-mesto",
+          "url": "https://www.nexigroup.com/en/group/brands/nets/",
+          "final_url": "https://www.nexigroup.com/en/group/brands/nets/",
           "status": "ok"
         },
         {
-          "url": "https://www.otpbanka.si/cenik-splosni-pogoji",
-          "final_url": "https://www.otpbanka.si/cenik-splosni-pogoji",
+          "url": "https://www.nexigroup.com/en/business/medium-large-enterprises/digital-corporate-banking/",
+          "final_url": "https://www.nexigroup.com/en/business/medium-large-enterprises/digital-corporate-banking/",
           "status": "ok"
         },
         {
-          "url": "https://www.otpbanka.si/medijsko-sredisce",
-          "final_url": "https://www.otpbanka.si/medijsko-sredisce",
+          "url": "https://www.nexigroup.com/en/business/medium-large-enterprises/open-banking-corporate/",
+          "final_url": "https://www.nexigroup.com/en/business/medium-large-enterprises/open-banking-corporate/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.nexigroup.com/en/business/banks-and-financial-institutions/digital-corporate-banking/",
+          "final_url": "https://www.nexigroup.com/en/business/banks-and-financial-institutions/digital-corporate-banking/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.nexigroup.com/en/group/governance/corporate-bodies/",
+          "final_url": "https://www.nexigroup.com/en/group/governance/corporate-bodies/",
           "status": "ok"
         }
       ],
@@ -1917,126 +2735,27 @@
       "evidence": []
     },
     {
-      "source_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/opci-uvjeti-za-prihvat-kartica-na-internet-prodajnom-mjestu/Opci-uvjeti-za-prihvat-kartica-na-Internet-prodajnom-mjestu.pdf.coredownload.inline.pdf",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/opci-uvjeti-za-prihvat-kartica-na-internet-prodajnom-mjestu/Opci-uvjeti-za-prihvat-kartica-na-Internet-prodajnom-mjestu.pdf.coredownload.inline.pdf",
-          "final_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/opci-uvjeti-za-prihvat-kartica-na-internet-prodajnom-mjestu/Opci-uvjeti-za-prihvat-kartica-na-Internet-prodajnom-mjestu.pdf.coredownload.inline.pdf",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.transcard.bg/en/business-cards/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "pages_checked": [
-        {
-          "url": "https://www.transcard.bg/en/business-cards/",
-          "final_url": "https://www.transcard.bg/en/business-cards/",
-          "status": "ok"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.unicreditbank.cz/cs/popupeditpages/svobodna-povolani/ucty/platby-prostrednictvim-internetu.modal.html",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.unicreditbank.cz/cs/popupeditpages/svobodna-povolani/ucty/platby-prostrednictvim-internetu.modal.html",
-          "final_url": "https://www.unicreditbank.cz/cs/popupeditpages/svobodna-povolani/ucty/platby-prostrednictvim-internetu.modal.html",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
-          "final_url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/uzitocne_informacie/Pokyny_pro_obchodnika_A5_SK_v03.pdf",
-      "outcome": "source_unavailable_or_blocked",
-      "pages_checked": [
-        {
-          "url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/uzitocne_informacie/Pokyny_pro_obchodnika_A5_SK_v03.pdf",
-          "final_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/uzitocne_informacie/Pokyny_pro_obchodnika_A5_SK_v03.pdf",
-          "status": "http_403"
-        }
-      ],
-      "evidence": []
-    },
-    {
-      "source_url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
+      "source_url": "https://www.teya.com/hu/pricing",
       "outcome": "public_price_lead_found",
       "pages_checked": [
-        {
-          "url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-          "final_url": "https://ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-          "status": "ok"
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "final_url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "status": "ok"
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/produkti-za-golemi-korporativni-klienti",
-          "final_url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/produkti-za-golemi-korporativni-klienti",
-          "status": "ok"
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "final_url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "status": "ok"
-        }
-      ],
-      "evidence": [
-        {
-          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "price_leads": [
-            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
-          ]
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "price_leads": [
-            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
-          ]
-        }
-      ]
-    },
-    {
-      "source_url": "https://www.teya.com/hu/legal/payment-terms",
-      "outcome": "public_price_lead_found",
-      "pages_checked": [
-        {
-          "url": "https://www.teya.com/hu/legal/payment-terms",
-          "final_url": "https://www.teya.com/hu/legal/payment-terms",
-          "status": "ok"
-        },
         {
           "url": "https://www.teya.com/hu/pricing",
           "final_url": "https://www.teya.com/hu/pricing",
           "status": "ok"
         },
         {
-          "url": "https://www.teya.com/hu/legal/fees",
-          "final_url": "https://www.teya.com/hu/legal/fees",
+          "url": "https://www.teya.com/hu/pricing",
+          "final_url": "https://www.teya.com/hu/pricing",
           "status": "ok"
         }
       ],
       "evidence": [
+        {
+          "url": "https://www.teya.com/hu/pricing",
+          "price_leads": [
+            "n. EladÃ¡sok Ma ElÅzÅ szerdÃ¡hoz kÃ©pest 600 450 300 150 0 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 705 455 Ft 12% vs. mÃºlt hÃ©ten BorravalÃ³ 66 089 Ft VisszatÃ©rÃ­tÃ©sek -20 589 Ft FizetÃ©si mÃ³dok MasterCard 1 220 278 Ft Visa 513 9"
+          ]
+        },
         {
           "url": "https://www.teya.com/hu/pricing",
           "price_leads": [
@@ -2078,6 +2797,88 @@
           ]
         }
       ]
+    },
+    {
+      "source_url": "https://www.otpbanka.si/najem-spletno-mesto",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.otpbanka.si/najem-spletno-mesto",
+          "final_url": "https://www.otpbanka.si/najem-spletno-mesto",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.otpbanka.si/cenik-splosni-pogoji",
+          "final_url": "https://www.otpbanka.si/cenik-splosni-pogoji",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.otpbanka.si/medijsko-sredisce",
+          "final_url": "https://www.otpbanka.si/medijsko-sredisce",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.unicredit.ro/ro/imm/tranzactionare/pos-ecommerce.html",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.unicredit.ro/ro/imm/tranzactionare/pos-ecommerce.html",
+          "final_url": "https://www.unicredit.ro/ro/imm/tranzactionare/pos-ecommerce.html",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.unicreditbank.cz/content/dam/cee2020-pws-cz/cz-dokumenty/dokumenty-produkty/sazebniky/Sazebnik-COR-01062026-EN.pdf",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.unicreditbank.cz/content/dam/cee2020-pws-cz/cz-dokumenty/dokumenty-produkty/sazebniky/Sazebnik-COR-01062026-EN.pdf",
+          "final_url": "https://www.unicreditbank.cz/content/dam/cee2020-pws-cz/cz-dokumenty/dokumenty-produkty/sazebniky/Sazebnik-COR-01062026-EN.pdf",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.transcard.bg/en/business-cards/",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "pages_checked": [
+        {
+          "url": "https://www.transcard.bg/en/business-cards/",
+          "final_url": "https://www.transcard.bg/en/business-cards/",
+          "status": "ok"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
+          "final_url": "https://www.unicreditbank.si/si/podjetja/upravljanje-z-denarjem/pos-terminal.html",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
+      "outcome": "source_unavailable_or_blocked",
+      "pages_checked": [
+        {
+          "url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
+          "final_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
+          "status": "http_403"
+        }
+      ],
+      "evidence": []
     },
     {
       "source_url": "https://www.weareplanet.com/",
@@ -2215,6 +3016,71 @@
             "ess kartice s odgodom plaćanja i Business Mastercard Plus kartice od isplaćenog iznosa, Na bankomatima Zagrebačke banke 3,00% + 2,65 EUR po transakciji Na ostalim isplatnim mjestima u Hrvatskoj (poslovnice Zagrebačke od isplaćenog iznosa, banke, bankomati",
             "koj (poslovnice Zagrebačke od isplaćenog iznosa, banke, bankomati i poslovnice drugih banaka, poslovnice FINA-e u uredi 4,00% + 2,65 EUR po transakciji Hrvatske pošte) od isplaćenog iznosa, u inozemstvu (na bankomatima i isplatnim mjestima) 4,00% + 2,65 EU",
             ",00% + 2,65 EUR po transakciji Hrvatske pošte) od isplaćenog iznosa, u inozemstvu (na bankomatima i isplatnim mjestima) 4,00% + 2,65 EUR po transakciji PRIHVAT KARTICA Naknada za opremu za prihvat Naknada za izgubljeni (ukradeni,uništeni) bežični EFT POS t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
+      "outcome": "public_price_lead_found",
+      "pages_checked": [
+        {
+          "url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
+          "final_url": "https://ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "final_url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/produkti-za-golemi-korporativni-klienti",
+          "final_url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/produkti-za-golemi-korporativni-klienti",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "final_url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/contact/feedback",
+          "final_url": "https://ubb.bg/en/contact/feedback",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/rates",
+          "final_url": "https://ubb.bg/en/rates",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/rates/fees-and-commissions-individual",
+          "final_url": "https://ubb.bg/en/rates/fees-and-commissions-individual",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/rates/fees-and-commissions-business",
+          "final_url": "https://ubb.bg/en/rates/fees-and-commissions-business",
+          "status": "ok"
+        },
+        {
+          "url": "https://ubb.bg/en/rates/fees-and-commissions-banking",
+          "final_url": "https://ubb.bg/en/rates/fees-and-commissions-banking",
+          "status": "ok"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "price_leads": [
+            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
+          ]
+        },
+        {
+          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
+          "price_leads": [
+            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
           ]
         }
       ]

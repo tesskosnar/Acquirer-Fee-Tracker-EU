@@ -1,0 +1,685 @@
+{
+  "as_of": "2026-08-25",
+  "methodology": "Only semantically reviewed, current primary official sources. Search snippets, expired promotions and interchange-only tables are not merchant prices.",
+  "group_updates": [
+    {
+      "ids": [
+        "BG-stripe-standard-eea-consumer-cards-card",
+        "CZ-stripe-standard-eea-consumer-cards-card",
+        "EE-stripe-standard-eea-consumer-cards-card",
+        "HR-stripe-standard-eea-consumer-cards-card",
+        "HU-stripe-standard-eea-consumer-cards-card",
+        "LT-stripe-standard-eea-consumer-cards-card",
+        "LV-stripe-standard-eea-consumer-cards-card",
+        "PL-stripe-standard-eea-consumer-cards-card",
+        "RO-stripe-standard-eea-consumer-cards-card",
+        "SI-stripe-standard-eea-consumer-cards-card",
+        "SK-stripe-standard-eea-consumer-cards-card"
+      ],
+      "set": {
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce Stripe dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "ids": [
+        "BG-mollie-eea-consumer-cards-card",
+        "CZ-mollie-eea-consumer-cards-card",
+        "EE-mollie-eea-consumer-cards-card",
+        "HR-mollie-eea-consumer-cards-card",
+        "HU-mollie-eea-consumer-cards-card",
+        "LT-mollie-eea-consumer-cards-card",
+        "LV-mollie-eea-consumer-cards-card",
+        "PL-mollie-eea-consumer-cards-card",
+        "RO-mollie-eea-consumer-cards-card",
+        "SI-mollie-eea-consumer-cards-card",
+        "SK-mollie-eea-consumer-cards-card"
+      ],
+      "set": {
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce Mollie dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "ids": [
+        "SK-24pay-blended-from-card",
+        "SK-24pay-bank-transfer-from-a2a"
+      ],
+      "set": {
+        "verification": "ručně ověřeno v aktuálně zveřejněném oficiálním ceníku 24pay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "ids": [
+        "LV-swedbank-online-eea-card",
+        "LV-swedbank-payment-initiation-a2a"
+      ],
+      "set": {
+        "verification": "ručně ověřeno v aktuálním oficiálním sazebníku Swedbank dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "ids": [
+        "CZ-sumup-online-payments-card"
+      ],
+      "set": {
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce SumUp dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "ids": [
+        "BG-dsk-virtual-pos-card",
+        "HU-payu-online-card",
+        "MT-shift4finaro-card-registry",
+        "LT-paystrax-card",
+        "GB-barclaycardpayments-card-registry",
+        "GB-checkoutcom-card",
+        "GB-globalpaymentsuk-card-registry",
+        "SI-nlb-ecommerce-card",
+        "SI-nlb-ecommerce-flik-a2a",
+        "PL-paymove-qr-blik-a2a",
+        "PL-paymove-qr-card-wallet-card",
+        "BG-paynetics-card-acquiring",
+        "BG-postbank-virtual-pos-card",
+        "BG-ubb-virtual-pos-card",
+        "AT-volt-a2a-registry",
+        "IE-volt-a2a-registry",
+        "DK-volt-a2a-registry",
+        "SE-volt-a2a-registry",
+        "GB-volt-a2a-registry",
+        "HR-zagrebacka-ecommerce-card"
+      ],
+      "set": {
+        "price_lead_review": "non_merchant_or_incomplete"
+      }
+    },
+    {
+      "ids": [
+        "CZ-viva-online-domestic-consumer-card",
+        "SK-viva-online-eea-consumer-card",
+        "PL-viva-online-domestic-consumer-card",
+        "HU-viva-online-domestic-consumer-card",
+        "BG-viva-online-eea-consumer-card",
+        "HR-viva-online-eea-consumer-card",
+        "SI-viva-online-eea-consumer-card",
+        "EE-viva-online-eea-consumer-card",
+        "LV-viva-online-eea-consumer-card",
+        "LT-viva-online-eea-consumer-card",
+        "GR-viva-inperson-card-registry",
+        "CY-viva-inperson-card-registry"
+      ],
+      "set": {
+        "monthly_fee_mode": "minimum_commitment",
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce Viva.com dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    }
+  ],
+  "generated_group_updates": [
+    {
+      "ids": [
+        "EE-adyen-trustly-a2a",
+        "LV-adyen-trustly-a2a",
+        "LT-adyen-trustly-a2a"
+      ],
+      "set": {
+        "source_url": "https://www.adyen.com/payment-methods/trustly",
+        "verification": "ručně ověřeno na aktuální oficiální stránce Trustly od Adyen dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "ids": [
+        "SK-adyen-sepa-direct-debit-a2a",
+        "GB-adyen-visa-mastercard-markup-card"
+      ],
+      "set": {
+        "verification": "ručně ověřeno na aktuálním oficiálním ceníku Adyen dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    }
+  ],
+  "updates": [
+    {
+      "id": "SK-trustpay-local-merchant-acquiring-acceptance-card",
+      "set": {
+        "provider": "Finby",
+        "monthly_fee": 12,
+        "monthly_currency": "EUR",
+        "monthly_fee_mode": "minimum_commitment",
+        "condition": "Minimální měsíční poplatek 12 EUR; sazebník stále používá právní název Trust Pay, obchodní značka je Finby.",
+        "source_url": "https://finby.sk/wp-content/uploads/pdf/Cennik_poplatkov_2024.pdf",
+        "verification": "ručně ověřeno v aktuálně zveřejněném oficiálním ceníku Finby dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SK-trustpay-instant-bank-transfer-a2a",
+      "set": {
+        "provider": "Finby",
+        "monthly_fee": 12,
+        "monthly_currency": "EUR",
+        "monthly_fee_mode": "minimum_commitment",
+        "condition": "Minimální měsíční poplatek 12 EUR; sazebník stále používá právní název Trust Pay, obchodní značka je Finby.",
+        "source_url": "https://finby.sk/wp-content/uploads/pdf/Cennik_poplatkov_2024.pdf",
+        "verification": "ručně ověřeno v aktuálně zveřejněném oficiálním ceníku Finby dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "CZ-revolut-pay-by-bank-a2a",
+      "set": {
+        "fixed_fee_min": 6,
+        "fixed_fee_max": 6,
+        "condition": "Revolut Pay Account-to-account od retail zákazníka: 1 % + stejný lokální fixní poplatek jako online karty, v ČR 6 CZK; Business/Pro zákazník 2,8 % + 6 CZK.",
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Revolut Business dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "HU-gopay-standard-a2a-restored",
+      "set": {
+        "product": "Bankovní převod",
+        "variable_pct_min": 2.2,
+        "variable_pct_max": 2.2,
+        "monthly_fee": 3033,
+        "monthly_currency": "HUF",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "2,20 % + 48 HUF; měsíční poplatek 3 033 HUF se účtuje jen při online obratu pod 800 000 HUF.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "PL-gopay-standard-a2a-restored",
+      "set": {
+        "product": "Bankovní převod",
+        "variable_pct_min": 2.2,
+        "variable_pct_max": 2.2,
+        "monthly_fee": 37,
+        "monthly_currency": "PLN",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "2,20 % + 0,58 PLN; měsíční poplatek 37 PLN se účtuje jen při online obratu pod 9 600 PLN.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "RO-gopay-standard-a2a-restored",
+      "set": {
+        "product": "Bankovní převod",
+        "variable_pct_min": 2.2,
+        "variable_pct_max": 2.2,
+        "monthly_fee": 38,
+        "monthly_currency": "RON",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "2,20 % + 0,70 RON; měsíční poplatek 38 RON se účtuje jen při online obratu pod 10 000 RON.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SK-gopay-standard-a2a-restored",
+      "set": {
+        "product": "Bankovní převod",
+        "variable_pct_min": 2.2,
+        "variable_pct_max": 2.2,
+        "monthly_fee": 8,
+        "monthly_currency": "EUR",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "2,20 % + 0,12 EUR; měsíční poplatek 8 EUR se účtuje jen při online obratu pod 2 050 EUR.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "HU-gopay-standard-card-restored",
+      "set": {
+        "product": "Spotřebitelské Visa/MC",
+        "variable_pct_min": 2.1,
+        "variable_pct_max": 2.33,
+        "card_profile": "consumer",
+        "monthly_fee": 3033,
+        "monthly_currency": "HUF",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "Spotřebitelské Visa/MC 2,10–2,33 % + 48 HUF; měsíční poplatek 3 033 HUF se účtuje jen při online obratu pod 800 000 HUF.",
+        "notes": "Úplná průměrná sazba z aktuálně odkazovaného oficiálního ceníku GoPay; kategorie ostatních karet do 4,4 % není smíchána se spotřebitelským profilem.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "PL-gopay-standard-card-restored",
+      "set": {
+        "product": "Spotřebitelské Visa/MC",
+        "variable_pct_min": 2.1,
+        "variable_pct_max": 2.33,
+        "card_profile": "consumer",
+        "monthly_fee": 37,
+        "monthly_currency": "PLN",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "Spotřebitelské Visa/MC 2,10–2,33 % + 0,58 PLN; měsíční poplatek 37 PLN se účtuje jen při online obratu pod 9 600 PLN.",
+        "notes": "Úplná průměrná sazba z aktuálně odkazovaného oficiálního ceníku GoPay; kategorie ostatních karet do 4,4 % není smíchána se spotřebitelským profilem.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "RO-gopay-standard-card-restored",
+      "set": {
+        "product": "Spotřebitelské Visa/MC",
+        "variable_pct_min": 2.1,
+        "variable_pct_max": 2.33,
+        "card_profile": "consumer",
+        "monthly_fee": 38,
+        "monthly_currency": "RON",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "Spotřebitelské Visa/MC 2,10–2,33 % + 0,70 RON; měsíční poplatek 38 RON se účtuje jen při online obratu pod 10 000 RON.",
+        "notes": "Úplná průměrná sazba z aktuálně odkazovaného oficiálního ceníku GoPay; kategorie ostatních karet do 4,4 % není smíchána se spotřebitelským profilem.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SK-gopay-standard-card-restored",
+      "set": {
+        "product": "Spotřebitelské Visa/MC",
+        "variable_pct_min": 2.1,
+        "variable_pct_max": 2.33,
+        "card_profile": "consumer",
+        "monthly_fee": 8,
+        "monthly_currency": "EUR",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "Spotřebitelské Visa/MC 2,10–2,33 % + 0,12 EUR; měsíční poplatek 8 EUR se účtuje jen při online obratu pod 2 050 EUR.",
+        "notes": "Úplná průměrná sazba z aktuálně odkazovaného oficiálního ceníku GoPay; kategorie ostatních karet do 4,4 % není smíchána se spotřebitelským profilem.",
+        "verification": "ručně ověřeno v aktuálně odkazovaném oficiálním sazebníku GoPay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "CZ-thepay-standard-card-restored",
+      "set": {
+        "monthly_fee": 139,
+        "monthly_currency": "CZK",
+        "condition": "Základní pásmo do 250 000 CZK měsíčně; vyšší pásma mají 0,89 % a 0,79 % bez měsíčního poplatku.",
+        "source_url": "https://www.thepay.eu/nwm-upload/2025/04/sazebnik_poplatku_5_5_2025.pdf",
+        "verification": "ručně ověřeno v aktuálně zveřejněném oficiálním sazebníku ThePay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25",
+        "source_status": "manual"
+      }
+    },
+    {
+      "id": "CZ-thepay-standard-a2a-restored",
+      "set": {
+        "monthly_fee": 139,
+        "monthly_currency": "CZK",
+        "condition": "Základní pásmo do 250 000 CZK měsíčně; ostatní platební metody jsou ve stejném pásmu 0,99 % + 0 CZK.",
+        "source_url": "https://www.thepay.eu/nwm-upload/2025/04/sazebnik_poplatku_5_5_2025.pdf",
+        "verification": "ručně ověřeno v aktuálně zveřejněném oficiálním sazebníku ThePay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25",
+        "source_status": "manual"
+      }
+    },
+    {
+      "id": "CZ-unicredit-ecommerce-card",
+      "set": {
+        "monthly_fee": 190,
+        "monthly_currency": "CZK",
+        "setup_fee": 3050,
+        "setup_currency": "CZK",
+        "condition": "Transakční provize je stanovena individuálně; veřejný sazebník uvádí 3 050 CZK za zřízení e-commerce a 190 CZK měsíčně za každou měnu/bránu.",
+        "source_url": "https://www.unicreditbank.cz/content/dam/cee2020-pws-cz/cz-dokumenty/dokumenty-produkty/sazebniky/Sazebnik-COR-01062026-EN.pdf",
+        "verification": "ručně ověřeno v oficiálním sazebníku UniCredit účinném od 1. 6. 2026 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SK-unicredit-online-card",
+      "set": {
+        "monthly_fee": 10,
+        "monthly_currency": "EUR",
+        "setup_fee": 125,
+        "setup_currency": "EUR",
+        "condition": "Transakční provize není veřejná; veřejný sazebník uvádí 125 EUR za zřízení GP WebPay a 10 EUR měsíčně při obratu pod 1 499,99 EUR.",
+        "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
+        "verification": "ručně ověřeno v oficiálním sazebníku UniCredit 2026 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "HR-rba-online-card",
+      "set": {
+        "condition": "Aktuální veřejný sazebník uvádí merchant transakční poplatek podle smlouvy; zveřejňuje pouze vedlejší poplatky.",
+        "source_url": "https://www.rba.hr/content/dam/rbi/retail/eu/hr/dokumentacija/poslovni-subjekti/naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima/2025-10-17_Naknade-za-prihvat-karticnih-proizvoda-na-prodajnim-mjestima.pdf.coredownload.inline.pdf",
+        "verification": "ručně ověřeno v aktuálním oficiálním sazebníku RBA účinném od 17. 10. 2025 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "HU-teya-card",
+      "set": {
+        "price_lead_review": "non_merchant_or_incomplete",
+        "monthly_fee": 8000,
+        "monthly_currency": "HUF",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "Teya uvádí transakční sazbu jako individuální; při tříměsíčním obratu pod 3 mil. HUF se může uplatnit minimální měsíční poplatek 8 000 HUF včetně DPH.",
+        "source_url": "https://www.teya.com/hu/pricing",
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce Teya dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "PT-teyaportugal-card-registry",
+      "set": {
+        "price_lead_review": "non_merchant_or_incomplete",
+        "monthly_fee": 19.99,
+        "monthly_currency": "EUR",
+        "monthly_fee_mode": "minimum_commitment",
+        "monthly_fee_kind": "low_volume_fee",
+        "condition": "Aktuální portugalský ceník uvádí personalizovanou nabídku; při měsíčním karetním obratu pod 2 500 EUR se účtuje nízkoobjemový poplatek 19,99 EUR.",
+        "source_url": "https://www.teya.com/pt/pricing",
+        "verification": "ručně ověřeno na aktuálním oficiálním ceníku Teya Portugal dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "GB-handepay-lite-card",
+      "set": {
+        "setup_fee": 199,
+        "setup_currency": "GBP",
+        "setup_fee_kind": "terminal_purchase",
+        "tax_treatment": "excluding_vat",
+        "condition": "Handepay Lite: 1,2 % pro debetní i kreditní karty, bez autorizačního poplatku; nákup terminálu 199 GBP + VAT.",
+        "source_url": "https://www.handepay.co.uk/card-machines/is-a-pay-as-you-go-card-machine-right-for-your-business/",
+        "verification": "ručně ověřeno na aktuální oficiální stránce Handepay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "EE-montonio-eu-issued-commercial-cards-card-verified",
+      "set": {
+        "source_url": "https://www.montonio.com/pricing",
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Montonio dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "LV-montonio-eu-issued-commercial-cards-card-verified",
+      "set": {
+        "source_url": "https://www.montonio.com/pricing",
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Montonio dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "LT-montonio-eu-issued-commercial-cards-card-verified",
+      "set": {
+        "source_url": "https://www.montonio.com/pricing",
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Montonio dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "PL-przelewy24-standard-card",
+      "set": {
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Przelewy24 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "PL-przelewy24-standard-a2a",
+      "set": {
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Przelewy24 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "DK-flatpaydenmark-a2a-registry",
+      "set": {
+        "source_url": "https://www.flatpay.com/da/produkter/online-payments",
+        "condition": "Příplatek MobilePay k Flatpay Online: 0,99 DKK za transakci a 49 DKK měsíčně; základní karetní Flatpay sazba je vedena samostatně.",
+        "verification": "ručně ověřeno na aktuální oficiální stránce Flatpay dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SE-swish-a2a-registry",
+      "set": {
+        "source_url": "https://seb.se/foretag/digitala-tjanster/swish-foretag",
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku SEB pro Swish Handel dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SE-swish-swedbank-a2a",
+      "set": {
+        "setup_fee": 1000,
+        "setup_currency": "SEK",
+        "source_url": "https://www.swedbank.se/foretag/betala-och-ta-betalt/swish.html",
+        "verification": "ručně ověřeno v aktuálním oficiálním ceníku Swedbank pro Swish Handel dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "HR-otp-bank-card",
+      "set": {
+        "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
+        "condition": "Aktuální podmínky popisují IC++ složky, ale merchant provize je určena smlouvou a veřejné all-in číslo není uvedeno.",
+        "verification": "ručně ověřeno v aktuálních oficiálních podmínkách OTP banka dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "PT-sibs-gateway-card",
+      "set": {
+        "source_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
+        "condition": "SIBS Gateway potvrzuje přijímání karet, MB WAY a Multibanco; cenu obchodník sjednává přes banku nebo SIBS a veřejný merchant tarif není uveden.",
+        "verification": "ručně ověřeno na aktuální oficiální stránce SIBS Gateway dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "BE-europabank-card-registry",
+      "set": {
+        "product": "E-commerce – EEA spotřebitelské Visa/Mastercard",
+        "pricing_model": "Blended range",
+        "variable_pct_min": 2.0,
+        "variable_pct_max": 2.1,
+        "fixed_fee_min": 0,
+        "fixed_fee_max": 0,
+        "all_in_complete": true,
+        "card_profile": "consumer",
+        "condition": "Online sazba: základ 1,10 % pro regulované debitní karty nebo 1,20 % pro kreditní karty + veřejný e-commerce/MO-TO příplatek 0,90 p. b.",
+        "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
+        "verification": "ručně ověřeno v oficiálním standardním merchant tarifu Europabank 2026/3 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "MT-bankofvallettamerchantservices-card-registry",
+      "set": {
+        "setup_fee": 70,
+        "setup_currency": "EUR",
+        "condition": "E-commerce merchant účet má veřejný aktivační poplatek 70 EUR; transakční provize je vyjednávaná podle obratu, oboru a historie účtu.",
+        "source_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
+        "verification": "ručně ověřeno v oficiálním BOV e-commerce průvodci vydaném 19. 12. 2024 dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "MT-apstrustpayments-card-registry",
+      "set": {
+        "provider": "APS / Trust Payments",
+        "condition": "APS je distribuční kanál; vlastní acquiring a e-commerce službu poskytuje Trust Payments. Veřejná transakční sazba není uvedena.",
+        "source_url": "https://www.apsbank.com.mt/merchant-acquiring/",
+        "verification": "ručně ověřena aktuální role APS a partnerství s Trust Payments na oficiálním zdroji dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "IE-boipa-readymade-card-registry",
+      "set": {
+        "product": "Ready Made / Tailor Made",
+        "pricing_model": "Individual",
+        "variable_pct_min": null,
+        "variable_pct_max": null,
+        "fixed_fee_min": null,
+        "fixed_fee_max": null,
+        "package_effective_pct": null,
+        "all_in_complete": false,
+        "condition": "Aktuální oficiální materiály potvrzují paušální Ready Made a individuální Tailor Made plán, ale konkrétní cenu odkazují do obchodní smlouvy; dřívější veřejně nedoložený přepočet 60 / 4 000 EUR byl odstraněn.",
+        "source_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
+        "verification": "ručně ověřeno na aktuální oficiální stránce a v provozních pokynech BOIPA dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "RO-unicredit-ecommerce-card",
+      "set": {
+        "product": "E-commerce Visa/Mastercard",
+        "pricing_model": "Individual",
+        "variable_pct_min": null,
+        "variable_pct_max": null,
+        "fixed_fee_min": null,
+        "fixed_fee_max": null,
+        "all_in_complete": false,
+        "condition": "Aktuální sazebník uvádí veřejné sazby 0,60–1,20 % jen pro POS/SoftPOS. Oficiální e-commerce stránka žádá obchodníka o individuální cenovou nabídku; dřívějších 0,70 % proto bylo odstraněno jako záměna kanálu.",
+        "source_url": "https://www.unicredit.ro/ro/imm/tranzactionare/pos-ecommerce.html",
+        "verification": "ručně ověřeno porovnáním aktuálního oficiálního sazebníku a e-commerce stránky UniCredit Romania dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "ES-dojospain-card-registry",
+      "set": {
+        "pricing_model": "Individual",
+        "monthly_fee": 24.95,
+        "monthly_currency": "EUR",
+        "monthly_fee_mode": "minimum_commitment",
+        "condition": "Transakční sazba je individuální podle typu karty, kanálu a obratu. Pokud součet transakčních poplatků za měsíc nedosáhne 24,95 EUR, Dojo účtuje minimální měsíční platbu 24,95 EUR.",
+        "source_url": "https://dojo.tech/es/preguntas-frecuentes/",
+        "verification": "ručně ověřeno v aktuálním oficiálním FAQ Dojo Spain dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "GB-dnapayments-card-registry",
+      "set": {
+        "price_lead_review": "non_merchant_or_incomplete",
+        "condition": "DNA Payments zveřejňuje interchange a scheme fee guide, nikoli vlastní kompletní merchant přirážku; konečná sazba je sjednána individuálně.",
+        "source_url": "https://www.dnapayments.com/",
+        "verification": "ručně ověřena aktuální acquiringová nabídka a absence veřejné kompletní merchant sazby dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
+      "set": {
+        "fixed_fee_min": 0.99,
+        "fixed_fee_max": 0.99,
+        "setup_fee": 299,
+        "setup_currency": "CZK",
+        "setup_fee_kind": "activation",
+        "condition": "QR platba z účtu přes terminál nebo terminál v mobilu: maximálně 0,79 % + 0,99 Kč za transakci; aktivace terminálu v mobilu stojí jednorázově 299 Kč.",
+        "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce Global Payments ČR dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "SE-netsnexisweden-card-registry",
+      "set": {
+        "product": "SmartPOS – Visa/Mastercard",
+        "channel": "pos",
+        "pricing_model": "Blended",
+        "variable_pct_min": 1.0,
+        "variable_pct_max": 1.0,
+        "fixed_fee_min": 0,
+        "fixed_fee_max": 0,
+        "monthly_fee": 99,
+        "monthly_currency": "SEK",
+        "all_in_complete": true,
+        "card_profile": "consumer",
+        "condition": "Nets Pay SmartPOS: 1 % za transakci Visa/Mastercard, 99 SEK měsíčně, smlouva na 36 měsíců.",
+        "source_url": "https://payments.nets.eu/sv-SE/smartpos",
+        "verification": "ručně ověřeno na aktuální oficiální produktové stránce Nets Sweden dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "FI-netsnexifinland-card-registry",
+      "set": {
+        "product": "SmartPOS – platební karty",
+        "channel": "pos",
+        "pricing_model": "Blended",
+        "variable_pct_min": 1.0,
+        "variable_pct_max": 1.0,
+        "fixed_fee_min": 0,
+        "fixed_fee_max": 0,
+        "monthly_fee": 20,
+        "monthly_currency": "EUR",
+        "all_in_complete": true,
+        "card_profile": "unspecified",
+        "condition": "Nets SmartPOS N950: 1 % pro všechny platební karty, 20 EUR měsíčně, smlouva na 24 měsíců.",
+        "source_url": "https://payments.nets.eu/fi-FI/smartpos",
+        "verification": "ručně ověřeno na aktuální oficiální produktové stránce Nets Finland dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "DK-netsnexidenmark-card-registry",
+      "set": {
+        "product": "SmartPOS – Visa/Mastercard",
+        "pricing_model": "Blended",
+        "variable_pct_min": 1.3,
+        "variable_pct_max": 1.3,
+        "monthly_fee": 199,
+        "monthly_currency": "DKK",
+        "card_profile": "consumer",
+        "condition": "Nets Pay SmartPOS N950: 1,30 % za Visa/Mastercard, 199 DKK měsíčně, smlouva na 36 měsíců.",
+        "source_url": "https://payments.nets.eu/da-DK/smartpos",
+        "verification": "ručně ověřeno na aktuální oficiální produktové stránce Nets Denmark dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "DK-nets-dankort-card",
+      "set": {
+        "product": "SmartPOS – Dankort",
+        "pricing_model": "Blended range",
+        "variable_pct_min": 0.19,
+        "variable_pct_max": 0.55,
+        "monthly_fee": 199,
+        "monthly_currency": "DKK",
+        "condition": "Nets Pay SmartPOS N950: 0,19–0,55 % za národní Dankort, 199 DKK měsíčně, smlouva na 36 měsíců.",
+        "source_url": "https://payments.nets.eu/da-DK/smartpos",
+        "verification": "ručně ověřeno na aktuální oficiální produktové stránce Nets Denmark dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    },
+    {
+      "id": "RO-viva-online-domestic-consumer-card",
+      "set": {
+        "monthly_fee": 25,
+        "monthly_currency": "RON",
+        "monthly_fee_mode": "minimum_commitment",
+        "condition": "Domácí spotřebitelské karty; u některých oficiálních e-commerce pluginů může být příplatek 0,35 %. Plán Zero má minimální měsíční vyúčtování 25 RON, proti němuž se započítávají vymezené poplatky za používání.",
+        "source_url": "https://www.viva.com/en-ro/pricing",
+        "verification": "ručně ověřeno na aktuální oficiální cenové stránce Viva.com Romania dne 25. 8. 2026",
+        "price_verified_on": "2026-08-25"
+      }
+    }
+  ]
+}

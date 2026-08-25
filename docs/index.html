@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Srovnání veřejných merchant acquiring, PSP a A2A sazeb v EU, EHP, Spojeném království a Švýcarsku.">
+<link rel="canonical" href="https://tesskosnar.github.io/Acquirer-Fee-Tracker-EU/">
+<meta property="og:title" content="Merchant Fee Tracker">
+<meta property="og:description" content="Srovnání veřejných poplatků za přijímání plateb napříč Evropou.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tesskosnar.github.io/Acquirer-Fee-Tracker-EU/">
+<meta property="og:image" content="https://tesskosnar.github.io/Acquirer-Fee-Tracker-EU/assets/og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:,">
 <title>Merchant Fee Tracker</title>
 <style>
@@ -16,9 +24,13 @@
   --scale-4:#009446; --scale-5:#65a31c; --scale-6:#b1aa00; --scale-7:#ffa600;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
 a{color:var(--teal)}
 button,input,select{font:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.skip-link{position:fixed;left:12px;top:-60px;z-index:2000;background:#fff;color:#071627;padding:10px 14px;border-radius:8px;font-weight:800}
+.skip-link:focus{top:12px}
 .wrap{max-width:1480px;margin:auto;padding:0 28px 60px}
 
 .hero{background:linear-gradient(128deg,#050f1c 0%,#0b2b45 58%,#0e4a5f 130%);color:#fff;padding:30px 0 26px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -174,6 +186,12 @@ tr.offerrow{cursor:pointer}
 .footer-action:hover{color:var(--ink)}
 .footer-action:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
 .footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}
+.trans-count{width:90px!important;font-family:inherit!important;font-size:18px!important;padding:6px 8px!important}
+.audit-details{margin-top:18px;text-align:left}
+.audit-details summary{cursor:pointer;font-weight:800;color:var(--ink);padding:14px 18px}
+.audit-content{border-top:1px solid var(--line);padding:14px 18px;color:var(--muted);font-size:12.5px;line-height:1.55}
+.audit-content ul{margin:8px 0 0;padding-left:18px}
+.unpriced-row td{opacity:.78;background:rgba(107,114,128,.035)}
 
 @media(max-width:1150px){
   .map-wrap{flex-direction:column}
@@ -193,6 +211,7 @@ tr.offerrow{cursor:pointer}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#comparison">Přeskočit na srovnání</a>
 
 <header class="hero">
   <div class="wrap">
@@ -223,7 +242,7 @@ tr.offerrow{cursor:pointer}
         <div id="searchSuggestions" class="search-suggestions" role="listbox" hidden></div>
       </div>
       <div class="control country">
-        <label>Země</label>
+        <label for="country">Země</label>
         <select id="country"><option value="">Všechny země (EU/EHP + UK + CH)</option></select>
       </div>
       <div class="control">
@@ -249,6 +268,16 @@ tr.offerrow{cursor:pointer}
           <button data-v="" class="active">Vše</button>
           <button data-v="intl">Visa/MC</button>
           <button data-v="domestic">Národní</button>
+          <button data-v="amex">Amex</button>
+          <button data-v="other">Ostatní</button>
+        </div>
+      </div>
+      <div class="control">
+        <label>Veřejná cena</label>
+        <div class="seg" id="pricing-seg">
+          <button data-v="priced" class="active">S cenou</button>
+          <button data-v="unpriced">Bez ceny</button>
+          <button data-v="all">Vše</button>
         </div>
       </div>
       <div class="control control-region">
@@ -268,7 +297,7 @@ tr.offerrow{cursor:pointer}
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
-    <div class="kpi"><span>Srovnávací transakce</span><strong>20 €</strong><small>fixní poplatek je zahrnutý ve výsledném %</small></div>
+    <div class="kpi"><span>Transakcí za měsíc</span><strong><input class="trans-count" id="monthlyTransactions" type="number" min="1" step="1" value="100" aria-label="Počet transakcí za měsíc"></strong><small>paušál se rozpočítá; transakce 20 €</small></div>
   </section>
 
   <section class="panel" style="padding:19px 21px">
@@ -284,10 +313,10 @@ tr.offerrow{cursor:pointer}
     </div>
   </section>
 
-  <section class="panel panel-light" style="margin-top:18px">
+  <section class="panel panel-light" id="comparison" style="margin-top:18px">
     <div class="panelhead">
       <div class="heading-row"><h2 id="compareTitle">Srovnání nabídek</h2><p id="compareSub">Všechny nabídky. Vyber region nahoře nebo klikni na poskytovatele pro zúžení.</p></div>
-      <span style="display:flex;align-items:center;gap:8px"><span class="pill" id="rowcount">—</span><button id="clearCountry" class="btn btn-ghost" style="display:none;height:auto;padding:5px 10px;font-size:11px">✕ zrušit filtr</button></span>
+      <span style="display:flex;align-items:center;gap:8px"><span class="pill" id="rowcount" aria-live="polite">—</span><button id="clearCountry" class="btn btn-ghost" style="display:none;height:auto;padding:5px 10px;font-size:11px">✕ zrušit filtr</button></span>
     </div>
     <div id="compareBody"></div>
   </section>
@@ -297,6 +326,11 @@ tr.offerrow{cursor:pointer}
       Přepočteno dle kurzu ČNB ze dne <b id="fxdate2">—</b>. <a href="data/latest.csv" download>Stáhnout plný datový export</a> · <button id="export" class="footer-action">Export CSV</button>
     </div>
   </section>
+
+  <details class="panel audit-details">
+    <summary>Co se změnilo a jak se data kontrolují</summary>
+    <div class="audit-content" id="auditContent">Načítám stav kontroly…</div>
+  </details>
 
   <div class="footer">Merchant Fee Tracker · data se nepublikují bez zdrojového odkazu · automatizované změny používají fail-safe kontrolu důvěry parseru</div>
 </main>
@@ -311,7 +345,7 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', search:'', sortKey:'rate', sortAsc:true});
+const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', pricing:'priced', search:'', sortKey:'rate', sortAsc:true});
 const NATIONAL_SCHEME_BY_COUNTRY = Object.freeze({
   BE:'Bancontact',
   CH:'PostFinance Card',
@@ -320,20 +354,31 @@ const NATIONAL_SCHEME_BY_COUNTRY = Object.freeze({
   FR:'Cartes Bancaires (CB)',
   IT:'PagoBANCOMAT',
 });
-const S = { data:null, map:null, amount:20, ccy:'EUR', ...DEFAULT_FILTERS };
+const S = { data:null, map:null, amount:20, monthlyTransactions:100, ccy:'EUR', ...DEFAULT_FILTERS };
 
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
 // ale uživatelské rozhraní záměrně používá jen dva srozumitelné koše.
-function schemeBucket(cs, provider='') {
+function schemeBucket(cs, provider='', schemes=[]) {
+  if (schemes.includes('amex')) return 'amex';
+  if (schemes.some(s => !['visa','mastercard','national','amex'].includes(s))) return 'other';
+  if (schemes.includes('national')) return 'domestic';
+  if (schemes.includes('visa') || schemes.includes('mastercard')) return 'intl';
   if (provider === 'Clearhaus') return 'intl';
   return !cs ? null : cs === 'domestic' ? 'domestic' : cs.startsWith('intl') ? 'intl' : null;
 }
-function schemeLabel(o) { return schemeBucket(o.card_scheme, o.provider) === 'domestic' ? 'Národní' : schemeBucket(o.card_scheme, o.provider) === 'intl' ? 'Visa/MC' : null; }
+function schemeLabel(o) { const schemes=o.card_schemes || []; if (schemes.includes('national')) return 'Národní'; if (schemes.includes('visa') || schemes.includes('mastercard')) return 'Visa/MC'; if (schemes.includes('amex')) return 'Amex'; return schemes.length ? 'Ostatní' : null; }
 function nationalSchemeName(o) {
-  if (schemeBucket(o.card_scheme, o.provider) !== 'domestic') return null;
+  if (schemeBucket(o.card_scheme, o.provider, o.card_schemes || []) !== 'domestic') return null;
   return o.national_scheme_name || NATIONAL_SCHEME_BY_COUNTRY[o.country_iso2] || null;
 }
-function matchScheme(o) { return !S.scheme || schemeBucket(o.card_scheme, o.provider) === S.scheme; }
+function matchScheme(o) {
+  if (!S.scheme) return true;
+  const schemes=o.card_schemes || [];
+  if (S.scheme==='amex') return schemes.includes('amex');
+  if (S.scheme==='other') return schemes.some(s => !['visa','mastercard','national','amex'].includes(s));
+  if (S.scheme==='domestic') return schemes.includes('national') || schemeBucket(o.card_scheme,o.provider,schemes)==='domestic';
+  return schemes.includes('visa') || schemes.includes('mastercard') || schemeBucket(o.card_scheme,o.provider,schemes)==='intl';
+}
 function searchText(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
 
 let searchActiveIndex = -1;
@@ -397,6 +442,7 @@ function hideSearchSuggestions() {
   currentSearchSuggestions=[];
   searchActiveIndex=-1;
   document.getElementById('search').setAttribute('aria-expanded','false');
+  document.getElementById('search').removeAttribute('aria-activedescendant');
 }
 
 function selectSearchSuggestion(index) {
@@ -416,7 +462,7 @@ function renderSearchSuggestions(query) {
   searchActiveIndex=-1;
   if (!currentSearchSuggestions.length) return hideSearchSuggestions();
   host.innerHTML=currentSearchSuggestions.map((candidate,index) => `
-    <button type="button" class="search-suggestion" role="option" data-index="${index}" aria-selected="false">
+    <button type="button" id="searchOption${index}" class="search-suggestion" role="option" data-index="${index}" aria-selected="false">
       <strong>${esc(candidate.label)}</strong><span>${esc(candidate.type)}${candidate.context ? ' · ' + esc(candidate.context) : ''}</span>
     </button>`).join('');
   host.hidden=false;
@@ -430,6 +476,7 @@ function moveSearchSuggestion(direction) {
     const active=index===searchActiveIndex;
     button.classList.toggle('active',active);
     button.setAttribute('aria-selected',active ? 'true' : 'false');
+    if (active) document.getElementById('search').setAttribute('aria-activedescendant',button.id);
   });
 }
 
@@ -474,19 +521,23 @@ function calc(o) {
   const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const packageEffectivePct = o.package_effective_pct;
-  const hasOnlyUnallocatedMonthlyFee = (o.monthly_fee || 0) > 0
-    && (o.variable_pct_min || 0) === 0
-    && (o.variable_pct_max || 0) === 0
-    && (o.fixed_fee_min || 0) === 0
-    && (o.fixed_fee_max || 0) === 0
-    && (o.minimum_fee || 0) === 0
-    && packageEffectivePct == null;
-  if (hasOnlyUnallocatedMonthlyFee) return {min:null, max:null, emin:null, emax:null};
+  if (!Number.isFinite(S.monthlyTransactions) || S.monthlyTransactions < 1) return {min:null, max:null, emin:null, emax:null};
   const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddon);
   const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddon);
   const minimumCzk = (o.minimum_fee || 0) * fx;
-  const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
-  const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
+  let minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
+  let maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
+  const monthlyFx = S.data.fx.rates[o.monthly_currency || o.fee_currency]?.czk_per_unit ?? 1;
+  const monthlyShare = (o.monthly_fee || 0) * monthlyFx / S.monthlyTransactions;
+  if (monthlyShare > 0 && packageEffectivePct == null) {
+    if (o.monthly_fee_mode === 'minimum_commitment') {
+      minCzk = Math.max(minCzk, monthlyShare);
+      maxCzk = Math.max(maxCzk, monthlyShare);
+    } else {
+      minCzk += monthlyShare;
+      maxCzk += monthlyShare;
+    }
+  }
   const toDisplay = v => S.ccy === 'EUR' ? v / eurRate : v;
   return { min: toDisplay(minCzk), max: toDisplay(maxCzk), emin: minCzk / amountCzk * 100, emax: maxCzk / amountCzk * 100 };
 }
@@ -496,13 +547,11 @@ function isFullyCalculable(o) {
 }
 
 function isSourceReviewed(o) {
-  const v = (o.verification || '').toLowerCase();
-  if (v.includes('částečně') || v.includes('namátkově') || v.includes('rozšířeného datasetu') || v.includes('obnoveno z původního')) return false;
-  return v.startsWith('auto-checked') || v.includes('ručně ověř') || v.includes('ověřen') || v.includes('last verified adyen') || v.includes('adyen country/method');
+  return ['verified_automated','verified_manual'].includes(o.verification_state);
 }
 
 function isComparable(o) {
-  return o.promo !== true && o._c?.emin != null && isFullyCalculable(o) && isSourceReviewed(o);
+  return o.promo !== true && o.tax_treatment !== 'excluding_vat' && o._c?.emin != null && isFullyCalculable(o) && isSourceReviewed(o);
 }
 
 function sourceLabel(o) {
@@ -524,7 +573,7 @@ function roleBadge(o) {
 }
 
 function effectiveRate(o) {
-  const model = (o.pricing_model || '').toLowerCase();
+  const model = o.pricing_model_code;
   if (o._c.emin == null) {
     if ((o.monthly_fee || 0) > 0 && o.variable_pct_min === 0 && (o.fixed_fee_min || 0) === 0) return 'závisí na objemu';
     return '—';
@@ -537,31 +586,25 @@ function effectiveRate(o) {
     if (o.package_effective_pct != null) return `≈ ${value} při využití limitu`;
     if (o.promo === true && o._c.emin === 0) return `akční ${value}`;
     if (o.comparison_estimate === true) return `≈ ${value}`;
-    if (model.includes('from')) return `od ${value}`;
-    if (model.includes('up to')) return `max. ${value}`;
+    if (model === 'from') return `od ${value}`;
+    if (model === 'up_to') return `max. ${value}`;
     return value;
   }
   if (o.comparison_estimate === true) return `≈ ${value}`;
-  if (model.includes('from')) return `od ${value}`;
-  if (model.includes('up to')) return `max. ${value}`;
+  if (model === 'from') return `od ${value}`;
+  if (model === 'up_to') return `max. ${value}`;
   return isFullyCalculable(o) ? value : `min. ${value}`;
 }
 
 function additionalFees(o) {
-  const fees = [];
-  if (o.monthly_fee > 0) {
-    const prefix = (o.pricing_model || '').toLowerCase().includes('from') ? 'od ' : '';
-    const included = o.included_monthly_volume != null
-      ? ` (do ${o.included_monthly_volume.toLocaleString('cs-CZ')} ${o.included_volume_currency || o.fee_currency} obratu)`
-      : '';
-    fees.push(`${prefix}${o.monthly_fee.toLocaleString('cs-CZ')} ${o.monthly_currency || o.fee_currency} / měsíc${included}`);
-  }
+  const labels={monthly_service:'Měsíčně',terminal_rental:'Pronájem terminálu',activation:'Aktivace',service_and_terminal:'Služba a terminál',card_reader_purchase:'Čtečka',card_reader_purchase_from:'Čtečka od',terminal_purchase:'Terminál'};
+  const fees=(o.non_transaction_fees || []).map(fee => `${labels[fee.kind] || fee.kind}: ${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' / měsíc' : ''}`);
   return fees.length ? fees.join('<br>') : '—';
 }
 
 function published(o) {
-  const model = (o.pricing_model || '').toLowerCase();
-  if (o.variable_pct_min == null) return model.includes('individual') ? 'cena na vyžádání' : 'cena není veřejně uvedena';
+  const model = o.pricing_model_code;
+  if (o.variable_pct_min == null) return model === 'individual' ? 'cena na vyžádání' : 'cena není veřejně uvedena';
   if (o.all_in_complete === false && o.comparison_estimate !== true) {
     const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
     return `${o.variable_pct_min.toLocaleString('cs-CZ')} %${f} + IC++`;
@@ -589,8 +632,8 @@ function published(o) {
   const f = o.fixed_fee_min ? ` + ${o.fixed_fee_min.toLocaleString('cs-CZ')} ${o.fee_currency}` : '';
   const minimum = o.minimum_fee ? ` (min. ${o.minimum_fee.toLocaleString('cs-CZ')} ${o.fee_currency})` : '';
   const hasRange = o.variable_pct_min !== o.variable_pct_max || o.fixed_fee_min !== o.fixed_fee_max;
-  const prefix = model.includes('from') ? 'od ' : hasRange && model.includes('up to') ? 'max. ' : '';
-  return prefix + p + f + minimum;
+  const prefix = model === 'from' ? 'od ' : hasRange && model === 'up_to' ? 'max. ' : '';
+  return prefix + p + f + minimum + (o.tax_treatment === 'excluding_vat' ? ' + VAT' : '');
 }
 
 function pricingReference(o) {
@@ -609,14 +652,13 @@ function calculatedFee(o) {
 }
 
 function statusInfo(o) {
-  const v = o.verification || '';
-  if (o.source_status && o.source_status.startsWith('error')) {
-    return {cls:'error', label:'zdroj nedostupný', detail:o.verification};
+  if ((o.source_last_attempt_status || '').startsWith('error')) {
+    return {cls:'error', label:'poslední kontrola selhala', detail:o.source_last_attempt_status};
   }
-  if (v.includes('review suggested') || v.includes('review')) {
+  if (o.verification_state === 'review_needed' || o.verification_state === 'reviewed_undated') {
     return {cls:'warn', label:'stojí za kontrolu', detail:o.verification};
   }
-  if (v.startsWith('auto-checked')) {
+  if (o.verification_state === 'verified_automated') {
     return {cls:'ok', label:'automaticky ověřeno', detail:o.verification};
   }
   if (isSourceReviewed(o)) return {cls:'ok', label:'ověřeno', detail:o.verification};
@@ -629,6 +671,8 @@ function allWithCalc() {
 
 function contextOffers() {
   let rows = allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && (!S.method || o.method === S.method) && (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) && matchScheme(o) && matchRole(o));
+  if (S.pricing === 'priced') rows=rows.filter(o => o.variable_pct_min != null);
+  if (S.pricing === 'unpriced') rows=rows.filter(o => o.variable_pct_min == null);
   if (S.provider) rows = rows.filter(o => o.provider === S.provider);
   else if (S.country) rows = rows.filter(o => o.country_iso2 === S.country);
   return rows;
@@ -637,7 +681,7 @@ function contextOffers() {
 function compactOffers(rows) {
   const groups = new Map();
   for (const offer of rows) {
-    const key = [offer.country_iso2, offer.provider, offer.method, schemeBucket(offer.card_scheme, offer.provider) || 'all'].join('|');
+    const key = [offer.country_iso2,offer.provider,offer.method,offer.channel,offer.product,offer.card_profile,(offer.card_schemes || []).join(','),offer.pricing_model_code,offer.variable_pct_min,offer.variable_pct_max,offer.fixed_fee_min,offer.fixed_fee_max,offer.minimum_fee,offer.monthly_fee,offer.monthly_currency,offer.source_url].join('|');
     const current = groups.get(key);
     const offerRate = offer._c.emin ?? Infinity;
     const currentRate = current?._c.emin ?? Infinity;
@@ -706,13 +750,13 @@ function renderMap() {
     const inRegion = !S.region || REGION_COUNTRIES[S.region].includes(p.iso2);
     const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', !inRegion ? 'dimmed' : ''].filter(Boolean).join(' ');
-    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}"><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
+    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}" ${hasData ? `tabindex="0" role="button" aria-label="${esc(p.name)}, nejnižší sazba ${fmtPct(v)}"` : ''}><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
   svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 700');
 
   svg.querySelectorAll('.active-country').forEach(el => {
-    el.onclick = () => {
+    const activate = () => {
       const iso = el.dataset.iso;
       S.country = S.country === iso ? '' : iso;
       S.provider = '';
@@ -721,6 +765,8 @@ function renderMap() {
       document.getElementById('country').value = S.country;
       render();
     };
+    el.onclick = activate;
+    el.onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(); } };
   });
 
   renderMapDetail();
@@ -765,7 +811,9 @@ function clearFocus() {
 
 function setActiveSegment(id, value) {
   document.querySelectorAll(`#${id} button[data-v]`).forEach(button => {
-    button.classList.toggle('active', button.dataset.v === value);
+    const active=button.dataset.v === value;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed',active ? 'true' : 'false');
   });
 }
 
@@ -793,13 +841,16 @@ function showSchemeTooltip(badge) {
 function resetDashboard() {
   Object.assign(S, DEFAULT_FILTERS);
   S.amount = S.data?.default_transaction_eur || 20;
+  S.monthlyTransactions = S.data?.default_monthly_transactions || 100;
   S.ccy = 'EUR';
   document.getElementById('search').value = '';
   hideSearchSuggestions();
   document.getElementById('country').value = '';
+  document.getElementById('monthlyTransactions').value = S.monthlyTransactions;
   setActiveSegment('method-seg', S.method);
   setActiveSegment('role-seg', S.role);
   setActiveSegment('scheme-seg', S.scheme);
+  setActiveSegment('pricing-seg', S.pricing);
   setActiveSegment('region-seg', S.region);
   hideSchemeTooltip();
   render();
@@ -807,7 +858,7 @@ function resetDashboard() {
 }
 
 function resetRegionButtons() {
-  document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === ''));
+  setActiveSegment('region-seg','');
 }
 
 function renderCompare() {
@@ -820,7 +871,7 @@ function renderCompare() {
 
   const rows = sortRows(compactOffers(contextOffers()));
   rowcount.textContent = `${rows.length} zobrazených · ${S.data.offers.length} v exportu`;
-  rowcount.title = 'Tabulka zobrazuje zdrojově zkontrolované nabídky a slučuje tarifní varianty stejného poskytovatele, země, metody a karetního schématu. Export obsahuje všechny tarifní řádky.';
+  rowcount.title = 'Tabulka zachovává odlišné produkty, kanály, karetní profily a cenové modely. Slučují se jen ekonomicky totožné řádky.';
   const countryName = S.country ? (S.data.countries[S.country]?.name || S.country) : '';
   title.innerHTML = S.country && !S.provider
     ? `Srovnání nabídek <strong style="color:var(--accent)">pro ${esc(countryName)}</strong>`
@@ -848,7 +899,7 @@ function renderCompare() {
         <th>${S.provider ? 'Země' : 'Poskytovatel'}</th>
         <th>Metoda</th>
         <th title="Sazba z veřejného ceníku bez přepočtu na referenční transakci">Publikovaná sazba</th>
-        <th><button class="sortbtn ${activeCls('rate')}" data-sort="rate">Celková sazba <span class="arrow">${arrow('rate')}</span></button></th>
+        <th aria-sort="${S.sortKey === 'rate' ? (S.sortAsc ? 'ascending' : 'descending') : 'none'}"><button class="sortbtn ${activeCls('rate')}" data-sort="rate" aria-label="Seřadit podle celkové sazby">Celková sazba <span class="arrow">${arrow('rate')}</span></button></th>
         <th>Další poplatky</th>
         <th>Zdroj</th>
       </tr></thead>
@@ -862,13 +913,14 @@ function renderCompare() {
             : schemeLbl
             ? `<span class="pill scheme" title="Sazba platí pro Visa nebo Mastercard.">${esc(schemeLbl)}</span>`
             : '';
+          const extraSchemeBadges=(o.card_schemes || []).includes('amex') && schemeLbl !== 'Amex' ? '<span class="pill scheme" title="Sazba zahrnuje také American Express.">Amex</span>' : '';
           const providerRole = roleBadge(o);
           const nameCell = S.provider
             ? `<b>${esc(o.country_iso2)}</b>${providerRole}<span class="sub">${esc(o.country)}</span>`
             : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a>${providerRole}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}`;
-          return `<tr class="offerrow" data-provider="${esc(o.provider)}">
+          return `<tr class="offerrow ${o.variable_pct_min == null ? 'unpriced-row' : ''}" data-provider="${esc(o.provider)}">
             <td>${nameCell}</td>
-            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}</td>
+            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}${extraSchemeBadges}<span class="sub">${esc(o.product)}${o.channel ? ' · ' + esc(o.channel.toUpperCase()) : ''}</span></td>
             <td class="published-rate">${published(o)}</td>
             <td class="effective">${effectiveRate(o)}</td>
             <td class="rate">${additionalFees(o)}</td>
@@ -908,6 +960,25 @@ function renderCompare() {
   });
 }
 
+function renderAuditSummary() {
+  const quality=S.data.data_quality || {};
+  const changes=[];
+  const seen=new Set();
+  for (const change of [...(S.data.change_log || [])].reverse()) {
+    const key=`${change.provider || change.offer_id}|${change.field}`;
+    if (seen.has(key)) continue;
+    seen.add(key); changes.push(change);
+    if (changes.length===5) break;
+  }
+  const failed=quality.last_attempt_failed_row_count || 0;
+  const changeItems=changes.map(change => `<li><b>${esc(change.provider || change.offer_id)}</b>${change.country_iso2 ? ` · ${esc(change.country_iso2)}` : ''}: ${esc(change.field)} (${new Date(change.detected_at).toLocaleDateString('cs-CZ')})</li>`).join('');
+  document.getElementById('auditContent').innerHTML=`
+    <b>${quality.active_price_parser_row_count || 0}</b> řádků má automatický cenový parser, <b>${quality.source_monitor_row_count || 0}</b> další sledují dostupnost oficiálního zdroje a <b>${quality.manual_monitoring_row_count || 0}</b> se reviduje ručně.
+    ${failed ? `<br><b>${failed}</b> posledních pokusů o kontrolu zdroje selhalo; poslední dobrá cena zůstala zachována.` : ''}
+    <br>Číselná cena: <b>${quality.numeric_price_row_count || 0}</b> · bez veřejného čísla: <b>${quality.no_numeric_price_row_count || 0}</b>.
+    <ul>${changeItems || '<li>V posledním období nebyla zaznamenána datová změna.</li>'}</ul>`;
+}
+
 function exportCsv() {
   const rows = contextOffers().length ? sortRows(contextOffers()) : sortRows(allWithCalc());
   const head = ['country','provider','provider_type','product','method','card_scheme','published_rate','reference_transaction','reference_currency','effective_min_pct','effective_max_pct','comparison_estimate','source_url','comparison_source_url'];
@@ -934,7 +1005,10 @@ async function init() {
   document.getElementById('fxdate').textContent = S.data.fx.date;
   document.getElementById('fxdate2').textContent = S.data.fx.date;
   S.amount = S.data.default_transaction_eur || 20;
+  S.monthlyTransactions = S.data.default_monthly_transactions || 100;
   S.ccy = 'EUR';
+  document.getElementById('monthlyTransactions').value=S.monthlyTransactions;
+  renderAuditSummary();
 
   if (S.data.offers.some(o => o.card_scheme)) {
     document.getElementById('scheme-control').style.display = '';
@@ -976,10 +1050,10 @@ async function init() {
     const btn = e.target.closest('button[data-v]');
     if (!btn) return;
     S.method = btn.dataset.v;
-    document.querySelectorAll('#method-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    setActiveSegment('method-seg',S.method);
     if (S.method !== 'card') {
       S.role = 'all';
-      document.querySelectorAll('#role-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === 'all'));
+      setActiveSegment('role-seg','all');
     }
     render();
   });
@@ -987,10 +1061,10 @@ async function init() {
     const btn = e.target.closest('button[data-v]');
     if (!btn) return;
     S.role = btn.dataset.v;
-    document.querySelectorAll('#role-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    setActiveSegment('role-seg',S.role);
     if (S.role !== 'all') {
       S.method = 'card';
-      document.querySelectorAll('#method-seg button').forEach(b => b.classList.toggle('active', b.dataset.v === 'card'));
+      setActiveSegment('method-seg','card');
     }
     render();
   });
@@ -998,14 +1072,26 @@ async function init() {
     const btn = e.target.closest('button[data-v]');
     if (!btn) return;
     S.scheme = btn.dataset.v;
-    document.querySelectorAll('#scheme-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    setActiveSegment('scheme-seg',S.scheme);
+    render();
+  });
+  document.getElementById('pricing-seg').addEventListener('click', e => {
+    const btn=e.target.closest('button[data-v]');
+    if (!btn) return;
+    S.pricing=btn.dataset.v;
+    setActiveSegment('pricing-seg',S.pricing);
+    render();
+  });
+  document.getElementById('monthlyTransactions').addEventListener('input', e => {
+    const value=Math.max(1,Math.round(Number(e.target.value) || 1));
+    S.monthlyTransactions=value;
     render();
   });
   document.getElementById('region-seg').addEventListener('click', e => {
     const btn = e.target.closest('button[data-v]');
     if (!btn) return;
     S.region = btn.dataset.v;
-    document.querySelectorAll('#region-seg button').forEach(b => b.classList.toggle('active', b === btn));
+    setActiveSegment('region-seg',S.region);
     if (S.region) { S.country = ''; S.provider = ''; document.getElementById('country').value = ''; }
     render();
   });
@@ -1034,6 +1120,12 @@ async function init() {
   });
   window.addEventListener('scroll', hideSchemeTooltip, {passive:true});
   window.addEventListener('resize', hideSchemeTooltip);
+
+  ['method-seg','role-seg','scheme-seg','pricing-seg','region-seg'].forEach(id => {
+    document.getElementById(id).setAttribute('role','group');
+    document.querySelectorAll(`#${id} button`).forEach(button => button.setAttribute('aria-pressed',button.classList.contains('active') ? 'true' : 'false'));
+  });
+  document.getElementById('map').setAttribute('role','group');
 
   render();
 }

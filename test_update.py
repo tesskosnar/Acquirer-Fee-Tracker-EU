@@ -71,14 +71,14 @@ def test_package_fee_is_converted_to_effective_rate_at_full_limit_usage():
     assert x['effective_min_pct']==1.3267
 
 
-def test_monthly_fee_without_volume_assumption_is_not_reported_as_zero_total():
+def test_monthly_fee_is_allocated_over_explicit_monthly_transaction_profile():
     offer={
         'variable_pct_min':0,'variable_pct_max':0,'fixed_fee_min':0,'fixed_fee_max':0,
         'monthly_fee':5,'fee_currency':'EUR',
     }
     fx={'EUR':{'czk_per_unit':25.0}}
     x=calc(offer,fx)
-    assert x['effective_min_pct'] is None
+    assert x['effective_min_pct']==0.25
 
 
 def test_cee_overlay_replaces_wrong_rows_and_adds_local_acquirers():
@@ -639,13 +639,31 @@ def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():
     assert 'id="export"' not in controls
 
 
-def test_dashboard_does_not_treat_promos_or_unallocated_monthly_fees_as_zero_total():
+def test_dashboard_does_not_treat_promos_or_monthly_fees_as_zero_total():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     assert 'o.promo !== true' in dashboard
-    assert 'hasOnlyUnallocatedMonthlyFee' in dashboard
+    assert 'monthlyShare' in dashboard
+    assert 'monthlyTransactions' in dashboard
     assert 'akční ${value}' in dashboard
     assert 'při využití limitu' in dashboard
     assert 'return [...permanent, ...promos, ...withoutVal]' in dashboard
+
+
+def test_dashboard_uses_structured_verification_pricing_and_audit_fields():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert "['verified_automated','verified_manual'].includes(o.verification_state)" in dashboard
+    assert 'id="pricing-seg"' in dashboard
+    assert 'id="auditContent"' in dashboard
+    assert 'source_last_attempt_status' in dashboard
+    assert '<meta property="og:title"' in dashboard
+
+
+def test_provider_gap_overlay_adds_reviewed_high_visibility_providers():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    offers=update.apply_provider_gap_overlay([],baseline['countries'])
+    providers={offer['provider'] for offer in offers}
+    assert {'PayPal','Square','Checkout.com','SIBS'}.issubset(providers)
+    assert all(offer.get('price_verified_on')=='2026-08-25' for offer in offers)
 
 
 def test_dashboard_search_offers_five_fuzzy_keyboard_accessible_suggestions():

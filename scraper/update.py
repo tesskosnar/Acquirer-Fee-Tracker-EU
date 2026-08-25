@@ -30,6 +30,7 @@ CEE_VERIFIED = Path(__file__).with_name("cee_verified_offers.json")
 EUROPE_WATCHLIST = Path(__file__).with_name("europe_acquirer_watchlist.json")
 EUROPE_REGISTRY = Path(__file__).with_name("europe_acquirer_registry.json")
 EUROPE_VERIFIED = Path(__file__).with_name("europe_verified_offers.json")
+PROVIDER_GAPS = Path(__file__).with_name("provider_gap_offers.json")
 PROVIDER_MASTER_CROSSCHECK = Path(__file__).with_name("provider_master_crosscheck.json")
 CNB_URL = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
 USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-only check of public pricing pages)"
@@ -44,6 +45,7 @@ ADYEN_CARD_COUNTRIES = ADYEN_CEE_COUNTRIES | ADYEN_EUROPE_COUNTRIES
 ADYEN_ICPP_REFERENCE_COUNTRIES = ADYEN_CARD_COUNTRIES
 ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
 REFERENCE_TRANSACTION_EUR = 20.0
+DEFAULT_MONTHLY_TRANSACTIONS = 100
 ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT = 0.20
 ICPP_EEA_SCHEME_FEE_REFERENCE_PCT = 0.15
 ICPP_SCHEME_FEE_SOURCE_URL = "https://www.paybyrd.com/pricing/scheme-fees"
@@ -144,6 +146,28 @@ def provider_key(value: str | None) -> str:
     return re.sub(r'[^a-z0-9]+','',plain.lower())
 
 
+def canonical_provider_key(value: str | None) -> str:
+    """Collapse country-branch labels to a group name for registry audits only."""
+    key=provider_key(value)
+    brand_prefixes=(
+        ('netsnexi','netsnexi'),('globalpayments','globalpayments'),
+        ('societegenerale','societegenerale'),('unicreditbank','unicreditbank'),
+        ('worldline','worldline'),('worldpay','worldpay'),('barclaycard','barclaycard'),
+        ('checkoutcom','checkoutcom'),('elavon','elavon'),('nexi','nexi'),
+        ('flatpay','flatpay'),('fiserv','fiserv'),('payone','payone'),('dojo','dojo'),
+        ('getnet','getnet'),('teya','teya'),('europeanmerchantservices','europeanmerchantservices'),
+        ('swedbank','swedbank'),('raiffeisen','raiffeisen'),('viva','viva'),
+        ('payu','payu'),('unzer','unzer'),('shift4','shift4'),('planet','planet'),
+        ('square','square'),('paypal','paypal'),('sibs','sibs'),
+    )
+    for prefix,canonical in brand_prefixes:
+        if key.startswith(prefix):
+            return canonical
+    if 'bancasella' in key:
+        return 'bancasella'
+    return key
+
+
 def provider_role(offer: dict) -> str:
     """Return the provider's economic role, independently of payment method."""
     kind=(offer.get('provider_type') or '').lower()
@@ -163,12 +187,131 @@ def provider_role(offer: dict) -> str:
 
 def is_source_reviewed_offer(offer: dict) -> bool:
     """Mirror the dashboard rule that decides whether a row is publishable."""
+    state=offer.get('verification_state')
+    if state:
+        return state in {'verified_automated','verified_manual'}
     verification=(offer.get('verification') or '').lower()
     excluded=('částečně','namátkově','rozšířeného datasetu','obnoveno z původního')
     if any(token in verification for token in excluded):
         return False
     accepted=('ručně ověř','ověřen','last verified adyen','adyen country/method')
     return verification.startswith('auto-checked') or any(token in verification for token in accepted)
+
+
+def verification_state(offer: dict) -> str:
+    """Convert legacy prose into a stable, explicit review state once.
+
+    The UI and exports consume this field and never have to guess from Czech
+    sentences.  The text remains only as human-readable evidence.
+    """
+    verification=(offer.get('verification') or '').lower()
+    if 'review suggested' in verification or verification.startswith('retained – review'):
+        return 'review_needed'
+    if is_source_reviewed_offer({**offer,'verification_state':None}):
+        if not offer.get('price_verified_on'):
+            return 'reviewed_undated'
+        return 'verified_automated' if verification.startswith('auto-checked') else 'verified_manual'
+    return 'legacy_unverified'
+
+
+def pricing_model_code(offer: dict) -> str:
+    """Normalise free-form pricing labels into a controlled vocabulary."""
+    model=(offer.get('pricing_model') or '').lower()
+    if offer.get('variable_pct_min') is None:
+        return 'individual' if 'individual' in model else 'not_public'
+    if 'interchange' in model or 'ic++' in model or 'icpp' in model:
+        return 'icpp'
+    if 'subscription' in model or 'monthly' in model:
+        return 'subscription'
+    if offer.get('promo') or 'promo' in model:
+        return 'promo'
+    if 'package' in model or offer.get('package_effective_pct') is not None:
+        return 'package'
+    if 'up to' in model or 'maximum' in model:
+        return 'up_to'
+    if 'from' in model or model.startswith('od '):
+        return 'from'
+    if 'free' in model:
+        return 'free'
+    if any(token in model for token in ('blended','fixed','flat','standard','published')):
+        return 'blended'
+    return 'other'
+
+
+def card_scheme_fields(offer: dict) -> tuple[list[str], str]:
+    """Return explicit networks and a conservative cardholder profile."""
+    if offer.get('method')!='card':
+        return [],'not_applicable'
+    schemes=list(dict.fromkeys(offer.get('card_schemes') or []))
+    if not schemes:
+        if (offer.get('card_scheme') or '').startswith('domestic'):
+            schemes=['national']
+        else:
+            schemes=['visa','mastercard']
+    evidence=' '.join(str(offer.get(field) or '').lower() for field in ('product','condition'))
+    if offer.get('card_profile'):
+        profile=offer['card_profile']
+    elif any(token in evidence for token in ('commercial card','business card','corporate card','firemní kart')):
+        profile='commercial'
+    elif any(token in evidence for token in ('consumer card','spotřebitelsk','debit spotřeb')):
+        profile='consumer'
+    else:
+        profile='unspecified'
+    return schemes,profile
+
+
+def normalise_offer_schema(offers: list[dict]) -> list[dict]:
+    """Make comparison-critical metadata explicit for every published row."""
+    one_off_fees={
+        'NL-worldlinenetherlands-card-registry':{'kind':'terminal_purchase','amount':199,'currency':'EUR','interval':'one_off'},
+        'NL-worldline-domestic-debit-card':{'kind':'terminal_purchase','amount':199,'currency':'EUR','interval':'one_off'},
+    }
+    rental_ids={'NO-worldline-one-card-registry','SE-worldline-one-card-registry','DK-worldline-one-card'}
+    for offer in offers:
+        numeric=offer.get('variable_pct_min') is not None
+        if offer.get('all_in_complete') is None:
+            components=offer.get('pricing_components') or {}
+            missing_icpp=(components.get('model')=='interchange++' and not offer.get('comparison_estimate'))
+            offer['all_in_complete']=bool(numeric and not missing_icpp)
+        offer['pricing_model_code']=pricing_model_code(offer)
+        schemes,profile=card_scheme_fields(offer)
+        offer['card_schemes']=schemes
+        offer['card_profile']=profile
+        offer.setdefault('tax_treatment','included_or_not_applicable')
+        if offer.get('package_effective_pct') is not None:
+            offer['monthly_fee_mode']='package_effective'
+        elif 'minimální měsíční poplatek' in (offer.get('condition') or '').lower():
+            offer['monthly_fee_mode']='minimum_commitment'
+        else:
+            offer.setdefault('monthly_fee_mode','additional')
+        if offer.get('id') in rental_ids:
+            offer['monthly_fee_kind']='terminal_rental'
+        if offer.get('id') in one_off_fees:
+            offer.setdefault('additional_fees',[]).append(one_off_fees[offer['id']])
+        fees=[]
+        if (offer.get('monthly_fee') or 0)>0:
+            fees.append({
+                'kind':offer.get('monthly_fee_kind','monthly_service'),
+                'amount':offer['monthly_fee'],
+                'currency':offer.get('monthly_currency') or offer.get('fee_currency'),
+                'interval':'monthly',
+                'mode':offer['monthly_fee_mode'],
+            })
+        if offer.get('setup_fee') is not None:
+            fees.append({
+                'kind':offer.get('setup_fee_kind','activation'),
+                'amount':offer['setup_fee'],
+                'currency':offer.get('setup_currency') or offer.get('fee_currency'),
+                'interval':'one_off',
+            })
+        fees.extend(deepcopy(offer.get('additional_fees') or []))
+        offer['non_transaction_fees']=fees
+        offer['monitoring_level']='price_parser' if offer.get('parser',{}).get('auto_parse') else ('source_monitor' if offer.get('source_id') else 'manual')
+        offer.setdefault('source_last_attempt_at',None)
+        offer.setdefault('source_last_attempt_status','not_attempted')
+        offer['verification_state']=verification_state(offer)
+        offer['verification_scope']='price' if numeric else 'service_or_role'
+    return offers
 
 
 def _iso_date(value: str | None) -> str | None:
@@ -251,8 +394,80 @@ def validate_temporal_metadata(offers: list[dict], generated_at: str) -> None:
                 raise ValueError(f"source_checked_at must be timezone-aware for {offer.get('id')}")
             if checked>generated:
                 raise ValueError(f"Future source_checked_at for {offer.get('id')}: {checked_at}")
-            if offer.get('source_status') in {'manual','seeded'} and checked==generated:
+            if offer.get('source_status') in {'manual','seeded'} and checked==generated and not offer.get('source_id'):
                 raise ValueError(f"Build timestamp copied into source_checked_at for {offer.get('id')}")
+
+
+def validate_offer_schema(offers: list[dict]) -> None:
+    allowed_states={'verified_automated','verified_manual','reviewed_undated','legacy_unverified','review_needed'}
+    allowed_models={'blended','icpp','from','up_to','subscription','promo','individual','not_public','free','package','other'}
+    for offer in offers:
+        oid=offer.get('id')
+        if not isinstance(offer.get('all_in_complete'),bool):
+            raise ValueError(f'all_in_complete must be explicit for {oid}')
+        if offer.get('verification_state') not in allowed_states:
+            raise ValueError(f'Invalid verification_state for {oid}')
+        if offer.get('pricing_model_code') not in allowed_models:
+            raise ValueError(f'Invalid pricing_model_code for {oid}')
+        if offer.get('method')=='card' and not offer.get('card_schemes'):
+            raise ValueError(f'card_schemes missing for {oid}')
+        if not isinstance(offer.get('non_transaction_fees'),list):
+            raise ValueError(f'non_transaction_fees missing for {oid}')
+
+
+def append_dataset_changes(changes: list[dict], previous: list[dict], current: list[dict], now: str) -> list[dict]:
+    """Record manual overlays as well as parser changes in the same audit log."""
+    fields=(
+        'provider','product','method','channel','pricing_model_code','variable_pct_min','variable_pct_max',
+        'fixed_fee_min','fixed_fee_max','minimum_fee','monthly_fee','monthly_currency','monthly_fee_mode',
+        'setup_fee','fee_currency','all_in_complete','comparison_estimate','condition','source_url',
+        'card_schemes','card_profile','tax_treatment',
+    )
+    before={row['id']:row for row in previous}
+    after={row['id']:row for row in current}
+    existing={(item.get('offer_id'),item.get('field'),json.dumps(item.get('new'),sort_keys=True,ensure_ascii=False)) for item in changes}
+    schema_defaults={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment'}
+    for oid in sorted(after.keys()-before.keys()):
+        row=after[oid]
+        signature=(oid,'offer',json.dumps('added'))
+        if signature not in existing:
+            changes.append({'detected_at':now,'offer_id':oid,'provider':row.get('provider'),'country_iso2':row.get('country_iso2'),'method':row.get('method'),'field':'offer','old':None,'new':'added','source_url':row.get('source_url'),'confidence':1.0,'change_origin':'dataset'})
+    for oid in sorted(before.keys()-after.keys()):
+        row=before[oid]
+        signature=(oid,'offer',json.dumps('removed'))
+        if signature not in existing:
+            changes.append({'detected_at':now,'offer_id':oid,'provider':row.get('provider'),'country_iso2':row.get('country_iso2'),'method':row.get('method'),'field':'offer','old':'present','new':'removed','source_url':row.get('source_url'),'confidence':1.0,'change_origin':'dataset'})
+    for oid in sorted(before.keys() & after.keys()):
+        old,new=before[oid],after[oid]
+        for field in fields:
+            if field not in old and field in schema_defaults:
+                continue
+            if old.get(field)==new.get(field):
+                continue
+            signature=(oid,field,json.dumps(new.get(field),sort_keys=True,ensure_ascii=False))
+            if signature in existing:
+                continue
+            changes.append({'detected_at':now,'offer_id':oid,'provider':new.get('provider'),'country_iso2':new.get('country_iso2'),'method':new.get('method'),'field':field,'old':old.get(field),'new':new.get(field),'source_url':new.get('source_url'),'confidence':1.0,'change_origin':'dataset'})
+            existing.add(signature)
+    return changes[-500:]
+
+
+def ensure_current_overlay_additions(changes: list[dict], offers: list[dict], now: str) -> list[dict]:
+    """Seed the audit for a newly introduced reviewed overlay exactly once."""
+    if not PROVIDER_GAPS.exists():
+        return changes
+    overlay=json.loads(PROVIDER_GAPS.read_text(encoding='utf-8'))
+    if overlay.get('as_of')!=now[:10]:
+        return changes
+    existing={(item.get('offer_id'),item.get('field'),json.dumps(item.get('new'),sort_keys=True,ensure_ascii=False)) for item in changes}
+    by_id={offer['id']:offer for offer in offers}
+    for raw in overlay.get('offers',[]):
+        signature=(raw['id'],'offer',json.dumps('added'))
+        if signature in existing:
+            continue
+        offer=by_id[raw['id']]
+        changes.append({'detected_at':now,'offer_id':offer['id'],'provider':offer.get('provider'),'country_iso2':offer.get('country_iso2'),'method':offer.get('method'),'field':'offer','old':None,'new':'added','source_url':offer.get('source_url'),'confidence':1.0,'change_origin':'reviewed_overlay'})
+    return changes[-500:]
 
 
 def assign_provider_roles(offers: list[dict]) -> list[dict]:
@@ -289,16 +504,16 @@ def build_registry_audit(registry: dict, offers: list[dict], aliases: dict | Non
     for code in sorted({item['country_iso2'] for item in providers}):
         discovered=[item for item in providers if item['country_iso2']==code]
         dataset=by_country.get(code,[])
-        dataset_keys={provider_key(item.get('provider')) for item in dataset}
+        dataset_keys={canonical_provider_key(item.get('provider')) for item in dataset}
         matched=[]; missing=[]
         for item in discovered:
             dataset_name=aliases.get((code,item['provider']),item['provider'])
-            (matched if provider_key(dataset_name) in dataset_keys else missing).append(item['provider'])
+            (matched if canonical_provider_key(dataset_name) in dataset_keys else missing).append(item['provider'])
         acquirers=[item for item in discovered if item['role'] in {'acquiring_bank','direct_acquirer'}]
         matched_acquirers=[]
         for item in acquirers:
             dataset_name=aliases.get((code,item['provider']),item['provider'])
-            if provider_key(dataset_name) in dataset_keys:
+            if canonical_provider_key(dataset_name) in dataset_keys:
                 matched_acquirers.append(item['provider'])
         rows.append({
             'country_iso2':code,
@@ -810,7 +1025,7 @@ def select_candidate(offer: dict, text: str) -> tuple[dict|None,float,str]:
     return best,confidence,best['raw'] if best else 'none'
 
 
-def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
+def calc(offer:dict,fx:dict,amount:float|None=None,monthly_transactions:int=DEFAULT_MONTHLY_TRANSACTIONS)->dict:
     if amount is None:
         amount=REFERENCE_TRANSACTION_EUR*fx.get('EUR',{'czk_per_unit':1})['czk_per_unit']
     is_estimate=offer.get('comparison_estimate') is True
@@ -823,16 +1038,7 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     fixed_addon_rate=fx.get(fixed_addon.get('currency'),{'czk_per_unit':1})['czk_per_unit']
     fixed_addon_czk=(fixed_addon.get('amount') or 0)*fixed_addon_rate
     package_effective_pct=offer.get('package_effective_pct')
-    has_only_unallocated_monthly_fee=(
-        (offer.get('monthly_fee') or 0)>0
-        and (offer.get('variable_pct_min') or 0)==0
-        and (offer.get('variable_pct_max') or 0)==0
-        and (offer.get('fixed_fee_min') or 0)==0
-        and (offer.get('fixed_fee_max') or 0)==0
-        and (offer.get('minimum_fee') or 0)==0
-        and package_effective_pct is None
-    )
-    if has_only_unallocated_monthly_fee:
+    if monthly_transactions<=0:
         return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
     if package_effective_pct is not None:
         variable_min=package_effective_pct
@@ -845,6 +1051,18 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     minimum=(offer.get('minimum_fee') or 0)*rate
     mn=max(mn,minimum)
     mx=max(mx,minimum)
+    monthly_fee=(offer.get('monthly_fee') or 0)*fx.get(offer.get('monthly_currency') or offer.get('fee_currency'),{'czk_per_unit':1})['czk_per_unit']
+    monthly_mode=offer.get('monthly_fee_mode','additional')
+    # A package_effective_pct already contains the monthly price divided by its
+    # included turnover.  Every other recurring charge is allocated over the
+    # selected number of monthly transactions so ranking cannot silently ignore it.
+    if monthly_fee>0 and package_effective_pct is None:
+        if monthly_mode=='minimum_commitment':
+            mn=max(mn,monthly_fee/monthly_transactions)
+            mx=max(mx,monthly_fee/monthly_transactions)
+        else:
+            mn+=monthly_fee/monthly_transactions
+            mx+=monthly_fee/monthly_transactions
     return {'fee_min_czk':round(mn,4),'fee_max_czk':round(mx,4),'effective_min_pct':round(mn/amount*100,4),'effective_max_pct':round(mx/amount*100,4)}
 
 
@@ -989,6 +1207,21 @@ def apply_europe_verified_overlay(offers:list[dict], countries:dict)->list[dict]
     return merged
 
 
+def apply_provider_gap_overlay(offers:list[dict], countries:dict)->list[dict]:
+    """Add explicitly reviewed providers without duplicating country aliases."""
+    if not PROVIDER_GAPS.exists():
+        return offers
+    overlay=json.loads(PROVIDER_GAPS.read_text(encoding='utf-8'))
+    rows=[_normalise_verified_offer(raw,countries) for raw in overlay.get('offers',[])]
+    ids={row['id'] for row in rows}
+    merged=[offer for offer in offers if offer['id'] not in ids]
+    merged.extend(rows)
+    merged_ids=[offer['id'] for offer in merged]
+    if len(merged_ids)!=len(set(merged_ids)):
+        raise ValueError('Duplicate offer id after provider gap overlay')
+    return merged
+
+
 def normalize_revolut_cee_offers(offers:list[dict])->list[dict]:
     """Keep Revolut as a baseline, but use the current legal-table labels.
 
@@ -1030,6 +1263,36 @@ def normalize_card_schemes(offers:list[dict])->list[dict]:
         if offer.get('provider')=='Clearhaus' and offer.get('method')=='card':
             offer['card_scheme']='intl'
     return offers
+
+
+def expand_explicit_alternative_scheme_rates(offers:list[dict])->list[dict]:
+    """Publish a separate row when an official tariff gives Amex a different price."""
+    expanded=list(offers)
+    existing={offer['id'] for offer in offers}
+    for offer in offers:
+        if offer.get('method')!='card':
+            continue
+        clone=None
+        if offer.get('provider')=='Revolut' and offer.get('country_iso2') in ADYEN_CEE_COUNTRIES:
+            clone=deepcopy(offer)
+            clone.update({
+                'id':offer['id']+'-amex','product':'Online American Express',
+                'variable_pct_min':1.7,'variable_pct_max':1.7,
+                'card_scheme':'amex','card_schemes':['amex'],'card_profile':'all',
+                'condition':'American Express; stejný lokální fixní poplatek jako v oficiálním country ceníku.',
+            })
+        elif offer.get('id')=='BG-mypos-local-merchant-acquiring-acceptance-card':
+            clone=deepcopy(offer)
+            clone.update({
+                'id':offer['id']+'-amex','product':'Online American Express',
+                'variable_pct_min':2.5,'variable_pct_max':2.5,
+                'fixed_fee_min':0.1,'fixed_fee_max':0.1,'fee_currency':'EUR',
+                'card_scheme':'amex','card_schemes':['amex'],'card_profile':'all',
+                'condition':'American Express podle oficiálního bulharského ceníku myPOS.',
+            })
+        if clone and clone['id'] not in existing:
+            expanded.append(clone); existing.add(clone['id'])
+    return expanded
 
 
 def normalize_clearhaus_minimum_fees(offers:list[dict])->list[dict]:
@@ -1160,12 +1423,15 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','price_verified_on','source_status','source_checked_at']
+    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','reference_monthly_transactions','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         for o in output['offers']:
             c=o.get('calculation_reference',{})
-            row={k:o.get(k) for k in cols};row.update({'reference_transaction_eur':REFERENCE_TRANSACTION_EUR,'fee_reference_min_czk':c.get('fee_min_czk'),'fee_reference_max_czk':c.get('fee_max_czk'),'effective_reference_min_pct':c.get('effective_min_pct'),'effective_reference_max_pct':c.get('effective_max_pct')})
+            row={k:o.get(k) for k in cols}
+            for field in ('non_transaction_fees','card_schemes'):
+                row[field]=json.dumps(row.get(field),ensure_ascii=False)
+            row.update({'reference_transaction_eur':REFERENCE_TRANSACTION_EUR,'reference_monthly_transactions':DEFAULT_MONTHLY_TRANSACTIONS,'fee_reference_min_czk':c.get('fee_min_czk'),'fee_reference_max_czk':c.get('fee_max_czk'),'effective_reference_min_pct':c.get('effective_min_pct'),'effective_reference_max_pct':c.get('effective_max_pct')})
             w.writerow(row)
 
 
@@ -1177,13 +1443,16 @@ def main()->int:
     # recykloval starý výstup a ignoroval jakékoliv ruční opravy v baseline.
     # 'previous' slouží níž jen ke sledování změn (prev_by_id), ne jako zdroj dat.
     offers=normalize_unpriced_pricing_models(normalize_provider_names(normalize_clearhaus_minimum_fees(normalize_card_schemes(normalize_revolut_cee_offers(
-        apply_europe_verified_overlay(
+        apply_provider_gap_overlay(apply_europe_verified_overlay(
             apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries']),
             baseline['countries'],
-        )
+        ),baseline['countries'])
     )))))
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
-    changes=list(previous.get('change_log',[]))[-250:]
+    schema_fields={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment'}
+    changes=[change for change in previous.get('change_log',[]) if not (
+        change.get('change_origin')=='dataset' and change.get('old') is None and change.get('field') in schema_fields
+    )][-250:]
     now=datetime.now(timezone.utc).isoformat(timespec='seconds')
     for offer in offers:
         initialise_temporal_metadata(offer,prev_by_id.get(offer['id']))
@@ -1230,6 +1499,26 @@ def main()->int:
     offers=sync_adyen_cee_offers(
         offers,baseline['countries'],now,adyen_catalog,adyen_source.get('hash')
     )
+    offers=expand_explicit_alternative_scheme_rates(offers)
+
+    # A source access is not the same event as a semantic price verification.
+    # Keep the last attempt visible even when the last successful state and
+    # last good price must be retained.
+    for offer in offers:
+        sid=offer.get('source_id')
+        if not sid:
+            continue
+        previous_offer=prev_by_id.get(offer['id'],{})
+        source=fetched.get(sid,{})
+        if offline:
+            offer['source_last_attempt_at']=previous_offer.get('source_last_attempt_at')
+            offer['source_last_attempt_status']=previous_offer.get('source_last_attempt_status','not_attempted')
+            continue
+        offer['source_last_attempt_at']=source.get('checked_at',now)
+        offer['source_last_attempt_status']=source.get('status','not_checked')
+        if source.get('status')=='ok':
+            offer['source_checked_at']=source.get('checked_at')
+            offer['source_hash']=source.get('hash') or offer.get('source_hash')
 
     for o in offers:
         sid=o.get('source_id')
@@ -1298,8 +1587,10 @@ def main()->int:
     for offer in offers:
         if not offer.get('price_verified_on'):
             offer['price_verified_on']=infer_price_verified_on(offer)
+    normalise_offer_schema(offers)
     assign_provider_roles(offers)
     validate_temporal_metadata(offers,now)
+    validate_offer_schema(offers)
 
     registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8')) if CEE_REGISTRY.exists() else {'providers':[]}
     europe_registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8')) if EUROPE_REGISTRY.exists() else {'providers':[]}
@@ -1307,6 +1598,7 @@ def main()->int:
     master_crosscheck=json.loads(PROVIDER_MASTER_CROSSCHECK.read_text(encoding='utf-8')) if PROVIDER_MASTER_CROSSCHECK.exists() else {'regulatory_master':{},'verified_country_additions':[]}
     cee_audit=build_cee_audit(registry,offers)
     europe_audit=build_registry_audit(europe_registry,offers)
+    watchlist_audit=build_registry_audit(watchlist,offers)
     unpriced=[offer for offer in offers if offer.get('variable_pct_min') is None]
     data_quality={
         'offer_row_count':len(offers),
@@ -1320,14 +1612,21 @@ def main()->int:
         'price_verified_on_row_count':sum(1 for offer in offers if offer.get('price_verified_on')),
         'price_verification_date_missing_row_count':sum(1 for offer in offers if not offer.get('price_verified_on')),
         'successful_source_check_timestamp_row_count':sum(1 for offer in offers if offer.get('source_checked_at')),
-        'counting_note':'Dashboard counts compact provider/country/method/scheme rows after source-review and active filters; the export keeps every tariff row.',
+        'active_price_parser_row_count':sum(1 for offer in offers if offer.get('monitoring_level')=='price_parser'),
+        'source_monitor_row_count':sum(1 for offer in offers if offer.get('monitoring_level')=='source_monitor'),
+        'manual_monitoring_row_count':sum(1 for offer in offers if offer.get('monitoring_level')=='manual'),
+        'last_attempt_failed_row_count':sum(1 for offer in offers if str(offer.get('source_last_attempt_status','')).startswith('error')),
+        'recurring_fee_row_count':sum(1 for offer in offers if (offer.get('monthly_fee') or 0)>0),
+        'counting_note':'Dashboard keeps distinct tariff, channel and card-profile rows. Exact duplicate economics may be collapsed; the export keeps every source row.',
     }
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'1.6',
+    changes=ensure_current_overlay_additions(append_dataset_changes(changes,previous.get('offers',[]),offers,now),offers,now)
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'default_monthly_transactions':DEFAULT_MONTHLY_TRANSACTIONS,'methodology_version':'2.0',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
             'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},
             'europe_acquirer_registry':{'as_of':europe_registry.get('as_of'),'provider_count':len(europe_registry.get('providers',[])),'country_count':len({item.get('country_iso2') for item in europe_registry.get('providers',[])})},
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},
+            'watchlist_audit':watchlist_audit,
             'provider_master_crosscheck':{'as_of':master_crosscheck.get('as_of'),'normalised_group_count':master_crosscheck.get('regulatory_master',{}).get('normalised_group_count',0),'new_candidate_group_count':len(master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])),'verified_country_addition_count':len(master_crosscheck.get('verified_country_additions',[]))},
             'data_quality':data_quality,
             'cee_audit':cee_audit,
@@ -1338,10 +1637,12 @@ def main()->int:
     (DATA/'changes.json').write_text(json.dumps(changes[-250:],ensure_ascii=False,indent=2),encoding='utf-8')
     (DATA/'cee_audit.json').write_text(json.dumps(cee_audit,ensure_ascii=False,indent=2),encoding='utf-8')
     (DATA/'europe_audit.json').write_text(json.dumps(europe_audit,ensure_ascii=False,indent=2),encoding='utf-8')
-    today=date.today().isoformat();(HISTORY/f'{today}.json').write_text(json.dumps(output,ensure_ascii=False,indent=2),encoding='utf-8')
+    if os.environ.get('ACQ_TRACKER_SKIP_HISTORY')!='1':
+        history_name=datetime.fromisoformat(now).astimezone(timezone.utc).strftime('%Y-%m-%dT%H%M%SZ.json')
+        (HISTORY/history_name).write_text(json.dumps(output,ensure_ascii=False,indent=2),encoding='utf-8')
     idx=[]
     for p in sorted(HISTORY.glob('*.json')):
-        if p.name!='index.json':idx.append({'date':p.stem,'file':p.name})
+        if p.name!='index.json':idx.append({'date':p.stem[:10],'timestamp':p.stem,'file':p.name})
     (HISTORY/'index.json').write_text(json.dumps(idx,indent=2),encoding='utf-8')
     write_csv(output)
     log.info('Wrote %d offers, CNB FX %s, %d history points',len(offers),fx_date,len(idx))

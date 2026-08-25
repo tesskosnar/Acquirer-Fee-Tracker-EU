@@ -14,8 +14,8 @@ Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zej
 
 - Dashboard ukazuje jeden sloupec **Celková sazba** pro nastavenou částku transakce.
 - Pevná transakční složka se převede kurzem a zahrne přímo do výsledného procenta; její rozpad se v tabulce neopakuje.
-- Obratové podmínky a názvy tarifů zůstávají v datovém exportu, ale nepřehlcují hlavní tabulku. Pokud má poskytovatel více tarifů pro stejnou metodu, dashboard ukáže jeho nejnižší ověřenou veřejnou variantu.
-- Měsíční paušál je oddělený ve sloupci **Další poplatky**, nikoli u názvu poskytovatele.
+- Odlišné produkty, online/POS kanály, karetní profily a cenové modely zůstávají jako samostatné řádky. Slučují se jen ekonomicky totožné záznamy.
+- Měsíční paušál je vidět ve sloupci **Další poplatky** a zároveň se pro pořadí rozpočítá přes výchozích 100 transakcí měsíčně. Počet lze v dashboardu změnit. Jednorázová aktivace nebo hardware se do transakce svévolně nerozpouští.
 - **Individuální nabídka** zůstane bez vymyšleného čísla.
 
 ## Co dashboard obsahuje
@@ -38,10 +38,10 @@ Mapa i srovnávací tabulka jsou **kontextové**. Ve výchozím stavu vidíš ce
 `.github/workflows/weekly-update.yml` běží každé pondělí. Skript:
 
 1. stáhne poslední dostupné kurzy ČNB,
-2. kontroluje veřejné ceníky a jejich obsahový hash,
-3. zkusí vytěžit sazby z okolí definovaných textových kotev,
+2. u zdrojů napojených na monitoring kontroluje dostupnost a obsahový hash,
+3. u omezené skupiny podporovaných ceníků zkusí vytěžit sazby z definovaných struktur nebo textových kotev,
 4. nové hodnoty přijme pouze při dostatečné důvěře parseru,
-5. přepočítá náklady, uloží `latest.json`, CSV, change log a týdenní snapshot,
+5. přepočítá náklady, uloží `latest.json`, CSV, change log a časově označený neměnný snapshot,
 6. změny commitne zpět do repozitáře.
 
 ### Časové údaje nejsou totéž
@@ -49,6 +49,8 @@ Mapa i srovnávací tabulka jsou **kontextové**. Ve výchozím stavu vidíš ce
 - `generated_at` na kořeni JSON je pouze okamžik sestavení/exportu datasetu.
 - `source_checked_at` u nabídky je čas posledního úspěšného načtení konkrétního zdroje. Při offline buildu, chybě zdroje ani u ručně udržovaného řádku se nepřepisuje časem buildu.
 - `price_verified_on` je kalendářní den, kdy byla sazba a její podmínky skutečně věcně ověřena. Datum je oddělené od volného textu `verification`; pokud historický záznam neobsahuje dostatečně přesný důkaz, zůstává prázdné.
+- `source_last_attempt_at` a `source_last_attempt_status` popisují poslední pokus. Selhání tedy nepřepíše poslední dobrou cenu ani se neschová za starý úspěšný stav.
+- `verification_state` je pevný stav používaný aplikací; věta v `verification` už nerozhoduje o tom, zda je řádek ověřený.
 
 Záměrně se neukládá smyšlený čas ruční kontroly: pokud známe jen den, pole `price_verified_on` obsahuje jen datum `YYYY-MM-DD`.
 
@@ -61,7 +63,7 @@ Adyen je výjimka z obecného textového parseru. Jeho ceník mění processing 
 - oficiální typ metody (`Online banking`, `Direct debit`, `Cards`), takže A2A nezmizí jen proto, že její název neobsahuje „A2A“,
 - konkrétní payment-method fee z ceníkové tabulky.
 
-U karet se interně ukládají oddělené komponenty. Pro srovnání IC++ nabídky používá dashboard jednotný profil autentizované EEA spotřebitelské debetní karty (a domácí UK debetní karty): `0,20 %` interchange a konzervativní referenci `0,15 %` scheme fee. Scheme-fee reference vychází z [veřejné tabulky Paybyrd](https://www.paybyrd.com/pricing/scheme-fees), která pro autentizované EEA transakce uvádí pozorované hodnoty přibližně `0,11–0,15 %`. Výsledek je označen `≈`, protože jde o srovnávací odhad, nikoli garantovanou cenu konkrétní transakce. Nepřidává se žádná plošná přirážka za CEE nebo ne-eurovou měnu; případné non-local settlement poplatky jsou podmíněné konkrétním nastavením. Pro Švýcarsko se tento odhad nepoužije, dokud nebude ověřena vhodná domácí interchange reference.
+U karet se interně ukládají oddělené komponenty. Pro srovnání IC++ nabídky používá dashboard jednotný profil autentizované EEA spotřebitelské debetní karty (a domácí UK debetní karty): `0,20 %` interchange a konzervativní referenci `0,15 %` scheme fee. Scheme-fee reference vychází z [veřejné tabulky Paybyrd](https://www.paybyrd.com/pricing/scheme-fees), která pro autentizované EEA transakce uvádí pozorované hodnoty přibližně `0,11–0,15 %`. Výsledek je označen `≈`, protože jde o srovnávací odhad, nikoli garantovanou cenu konkrétní transakce. Nepřidává se žádná plošná přirážka za CEE nebo ne-eurovou měnu; případné non-local settlement poplatky jsou podmíněné konkrétním nastavením. Švýcarsko používá vlastní explicitně zdrojovanou domácí referenci.
 
 Fixní transakční poplatky se převádějí do výsledné efektivní procentní sazby na jednotné referenční transakci `20 EUR`. U A2A se zveřejní číslo jen tehdy, když lze z oficiálního ceníku sečíst processing fee a celou cenu konkrétní platební metody.
 

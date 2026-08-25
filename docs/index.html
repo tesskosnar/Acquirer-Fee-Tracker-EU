@@ -274,7 +274,6 @@ tr.offerrow{cursor:pointer}
           <button data-v="" class="active">Vše</button>
           <button data-v="intl">Visa/MC</button>
           <button data-v="domestic">Národní</button>
-          <button data-v="amex">Amex</button>
           <button data-v="other" id="otherSchemeFilter" title="Další karetní schémata zastoupená v datech">Ostatní</button>
         </div>
       </div>
@@ -337,7 +336,7 @@ tr.offerrow{cursor:pointer}
       <div><dt>Přímý acquirer</dt><dd>Subjekt, který pro obchodníka zajišťuje acquiring a vypořádání karetní platby; nejde jen o technickou bránu.</dd></div>
       <div><dt>PSP</dt><dd>Poskytovatel platebních služeb. Acquiring může zajišťovat sám nebo prostřednictvím licencovaného partnera.</dd></div>
       <div><dt>Národní schéma</dt><dd>Domácí karetní síť, například Girocard v Německu nebo Dankort v Dánsku. Její název se ukáže po najetí na štítek.</dd></div>
-      <div><dt>Ostatní karetní schémata</dt><dd id="otherSchemesGlossary">Další schémata mimo Visa, Mastercard, národní schémata a Amex.</dd></div>
+      <div><dt>Ostatní karetní schémata</dt><dd id="otherSchemesGlossary">Další schémata mimo Visa, Mastercard a národní schémata.</dd></div>
       <div><dt>A2A převod</dt><dd>Platba přímo z bankovního účtu na účet; nejde o karetní acquiring.</dd></div>
       <div><dt>IC++</dt><dd>Cena složená z interchange, poplatku karetnímu schématu a marže poskytovatele. Pro srovnání se chybějící části dopočítávají jednotným odhadem.</dd></div>
       <div><dt>Reálná sazba</dt><dd>Výsledné procento pro srovnávací transakci 20 €, včetně fixního transakčního poplatku a označených odhadů IC++.</dd></div>
@@ -371,8 +370,7 @@ const S = { data:null, map:null, amount:20, ccy:'EUR', ...DEFAULT_FILTERS };
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
 // ale uživatelské rozhraní záměrně používá jen dva srozumitelné koše.
 function schemeBucket(cs, provider='', schemes=[]) {
-  if (schemes.includes('amex')) return 'amex';
-  if (schemes.some(s => !['visa','mastercard','national','amex'].includes(s))) return 'other';
+  if (schemes.some(s => !['visa','mastercard','national'].includes(s))) return 'other';
   if (schemes.includes('national')) return 'domestic';
   if (schemes.includes('visa') || schemes.includes('mastercard')) return 'intl';
   if (provider === 'Clearhaus') return 'intl';
@@ -386,8 +384,7 @@ function nationalSchemeName(o) {
 function matchScheme(o) {
   if (!S.scheme) return true;
   const schemes=o.card_schemes || [];
-  if (S.scheme==='amex') return schemes.includes('amex');
-  if (S.scheme==='other') return schemes.some(s => !['visa','mastercard','national','amex'].includes(s));
+  if (S.scheme==='other') return schemes.some(s => !['visa','mastercard','national'].includes(s));
   if (S.scheme==='domestic') return schemes.includes('national') || schemeBucket(o.card_scheme,o.provider,schemes)==='domestic';
   return schemes.includes('visa') || schemes.includes('mastercard') || schemeBucket(o.card_scheme,o.provider,schemes)==='intl';
 }
@@ -996,13 +993,13 @@ function renderAuditSummary() {
 }
 
 function renderGlossary() {
-  const known=new Set(['visa','mastercard','national','amex']);
+  const known=new Set(['visa','mastercard','national']);
   const labels={discover:'Discover',unionpay:'UnionPay',diners:'Diners Club',jcb:'JCB'};
   const other=[...new Set(S.data.offers.flatMap(offer => offer.card_schemes || []).filter(scheme => !known.has(scheme)))]
     .map(scheme => labels[scheme] || scheme)
     .sort((a,b) => a.localeCompare(b,'cs'));
   const suffix=other.length ? ` Aktuálně: ${other.map(esc).join(', ')}.` : ' Aktuálně v této skupině není žádná nabídka.';
-  document.getElementById('otherSchemesGlossary').innerHTML=`Další schémata mimo Visa, Mastercard, národní schémata a Amex.${suffix}`;
+  document.getElementById('otherSchemesGlossary').innerHTML=`Další schémata mimo Visa, Mastercard a národní schémata.${suffix}`;
   document.getElementById('otherSchemeFilter').title=other.length ? `Aktuálně: ${other.join(', ')}` : 'Další karetní schémata zastoupená v datech';
 }
 

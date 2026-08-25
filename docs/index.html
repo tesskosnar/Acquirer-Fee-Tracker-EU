@@ -994,7 +994,7 @@ function renderAuditSummary() {
 
 function renderGlossary() {
   const known=new Set(['visa','mastercard','national']);
-  const labels={discover:'Discover',unionpay:'UnionPay',diners:'Diners Club',jcb:'JCB'};
+  const labels={amex:'Amex',discover:'Discover',unionpay:'UnionPay',diners:'Diners Club',jcb:'JCB'};
   const other=[...new Set(S.data.offers.flatMap(offer => offer.card_schemes || []).filter(scheme => !known.has(scheme)))]
     .map(scheme => labels[scheme] || scheme)
     .sort((a,b) => a.localeCompare(b,'cs'));

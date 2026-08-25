@@ -44,6 +44,14 @@ Mapa i srovnávací tabulka jsou **kontextové**. Ve výchozím stavu vidíš ce
 5. přepočítá náklady, uloží `latest.json`, CSV, change log a týdenní snapshot,
 6. změny commitne zpět do repozitáře.
 
+### Časové údaje nejsou totéž
+
+- `generated_at` na kořeni JSON je pouze okamžik sestavení/exportu datasetu.
+- `source_checked_at` u nabídky je čas posledního úspěšného načtení konkrétního zdroje. Při offline buildu, chybě zdroje ani u ručně udržovaného řádku se nepřepisuje časem buildu.
+- `price_verified_on` je kalendářní den, kdy byla sazba a její podmínky skutečně věcně ověřena. Datum je oddělené od volného textu `verification`; pokud historický záznam neobsahuje dostatečně přesný důkaz, zůstává prázdné.
+
+Záměrně se neukládá smyšlený čas ruční kontroly: pokud známe jen den, pole `price_verified_on` obsahuje jen datum `YYYY-MM-DD`.
+
 ### Adyen: kontrola po zemích a podle skutečného typu metody
 
 Adyen je výjimka z obecného textového parseru. Jeho ceník mění processing fee a dostupné metody podle zvolené země, proto se už nekontroluje jedním globálním regulárním výrazem. Aktualizace kombinuje:

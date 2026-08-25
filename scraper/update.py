@@ -126,6 +126,13 @@ ADYEN_FIXED_RE = re.compile(
 ADYEN_PROCESSING_PREFIX_RE = re.compile(
     r"^(?:€|\$|£)\s*\d+(?:[.,]\d+)?\s*\+\s*", re.I
 )
+VERIFICATION_DATE_RE = re.compile(r"\b(?P<day>[0-3]?\d)\.\s*(?P<month>[01]?\d)\.\s*(?P<year>20\d{2})\b")
+EFFECTIVE_DATE_PREFIX_RE = re.compile(r"(?:účinn\w*|platn\w*)\s+od\s*$", re.I)
+PRICE_VERIFICATION_FIELDS = (
+    'source_url', 'product', 'pricing_model', 'variable_pct_min', 'variable_pct_max',
+    'fixed_fee_min', 'fixed_fee_max', 'minimum_fee', 'monthly_fee', 'package_effective_pct',
+    'condition', 'pricing_components', 'all_in_complete', 'comparison_estimate',
+)
 
 
 def decimal(s: str | None) -> float | None:
@@ -162,6 +169,90 @@ def is_source_reviewed_offer(offer: dict) -> bool:
         return False
     accepted=('ručně ověř','ověřen','last verified adyen','adyen country/method')
     return verification.startswith('auto-checked') or any(token in verification for token in accepted)
+
+
+def _iso_date(value: str | None) -> str | None:
+    """Return a valid ISO calendar date without inventing a time of day."""
+    if not value:
+        return None
+    try:
+        return date.fromisoformat(value).isoformat()
+    except (TypeError, ValueError):
+        return None
+
+
+def infer_price_verified_on(offer: dict) -> str | None:
+    """Extract a real price-review date only when the evidence supports it.
+
+    Manual notes often contain both a tariff effective date and the later date
+    on which the price was checked. Effective dates are deliberately ignored.
+    A precise manual source-fetch timestamp is a safe fallback for reviewed
+    legacy rows whose prose records only a month.
+    """
+    explicit=_iso_date(offer.get('price_verified_on'))
+    if explicit:
+        return explicit
+    if not is_source_reviewed_offer(offer):
+        return None
+    verification=offer.get('verification') or ''
+    for match in reversed(list(VERIFICATION_DATE_RE.finditer(verification))):
+        prefix=verification[max(0,match.start()-40):match.start()]
+        if EFFECTIVE_DATE_PREFIX_RE.search(prefix):
+            continue
+        try:
+            return date(int(match.group('year')),int(match.group('month')),int(match.group('day'))).isoformat()
+        except ValueError:
+            continue
+    checked_at=offer.get('source_checked_at')
+    if offer.get('source_status') in {'manual','ok'} and checked_at:
+        try:
+            return datetime.fromisoformat(checked_at).date().isoformat()
+        except (TypeError, ValueError):
+            pass
+    return None
+
+
+def same_price_verification_basis(current: dict, previous: dict) -> bool:
+    """Whether an earlier price-review date still describes the same row."""
+    return all(current.get(field)==previous.get(field) for field in PRICE_VERIFICATION_FIELDS)
+
+
+def initialise_temporal_metadata(offer: dict, previous: dict | None = None) -> dict:
+    """Keep build time, source access and semantic price review independent."""
+    offer.setdefault('source_checked_at',None)
+    verified_on=infer_price_verified_on(offer)
+    if not verified_on and previous and same_price_verification_basis(offer,previous):
+        verified_on=_iso_date(previous.get('price_verified_on'))
+    offer['price_verified_on']=verified_on
+    return offer
+
+
+def validate_temporal_metadata(offers: list[dict], generated_at: str) -> None:
+    """Reject malformed or future-dated temporal metadata before publication."""
+    generated=datetime.fromisoformat(generated_at)
+    if generated.tzinfo is None:
+        raise ValueError('generated_at must be timezone-aware')
+    for offer in offers:
+        verified_on=offer.get('price_verified_on')
+        if verified_on:
+            try:
+                verified=date.fromisoformat(verified_on)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"Invalid price_verified_on for {offer.get('id')}: {verified_on}") from exc
+            if verified>generated.date():
+                raise ValueError(f"Future price_verified_on for {offer.get('id')}: {verified_on}")
+        checked_at=offer.get('source_checked_at')
+        if checked_at:
+            try:
+                checked=datetime.fromisoformat(checked_at)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"Invalid source_checked_at for {offer.get('id')}: {checked_at}") from exc
+            if checked.tzinfo is None:
+                raise ValueError(f"source_checked_at must be timezone-aware for {offer.get('id')}")
+            if checked>generated:
+                raise ValueError(f"Future source_checked_at for {offer.get('id')}: {checked_at}")
+            if offer.get('source_status') in {'manual','seeded'} and checked==generated:
+                raise ValueError(f"Build timestamp copied into source_checked_at for {offer.get('id')}")
 
 
 def assign_provider_roles(offers: list[dict]) -> list[dict]:
@@ -468,7 +559,7 @@ def build_adyen_a2a_offer(country_code: str, country_name: str, name: str, slug:
         "notes": f"Adyen processing fee plus the public payment-method fee ({method_fee.get('raw','')}). Classified as A2A from Adyen's official payment-method type, not from the method name.",
         "verification": "auto-checked by country and payment-method type" if live else "retained from last verified Adyen country audit",
         "source_status": "ok" if live else "seeded",
-        "source_checked_at": checked_at,
+        "source_checked_at": checked_at if live else None,
         "source_hash": source_hash,
         "last_changed_at": None,
         "card_scheme": None,
@@ -553,7 +644,7 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             ),
             "verification": "auto-checked by country (Adyen pricing + payment-method API)" if catalog else "retained from last verified Adyen country audit",
             "source_status": "ok" if catalog else "seeded",
-            "source_checked_at": checked_at,
+            "source_checked_at": checked_at if catalog else None,
             "source_hash": source_hash,
             "source_id": ADYEN_SOURCE_ID,
             "source_url": "https://www.adyen.com/pricing",
@@ -1069,7 +1160,7 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','source_status','source_checked_at']
+    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','pricing_model','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','price_verified_on','source_status','source_checked_at']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         for o in output['offers']:
@@ -1094,6 +1185,8 @@ def main()->int:
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
     changes=list(previous.get('change_log',[]))[-250:]
     now=datetime.now(timezone.utc).isoformat(timespec='seconds')
+    for offer in offers:
+        initialise_temporal_metadata(offer,prev_by_id.get(offer['id']))
 
     offline=os.environ.get('ACQ_TRACKER_OFFLINE')=='1'
     try:
@@ -1142,16 +1235,20 @@ def main()->int:
         sid=o.get('source_id')
         if o.get('parser',{}).get('type')=='adyen_country_method':
             src=fetched.get(sid,{})
-            o['source_checked_at']=now
+            if adyen_catalog and src.get('status')=='ok':
+                o['source_checked_at']=src.get('checked_at')
+                if o.get('source_status')=='ok':
+                    o['price_verified_on']=date.fromisoformat(now[:10]).isoformat()
             if src.get('hash'):o['source_hash']=src['hash']
             if not adyen_catalog:
                 old=prev_by_id.get(o['id'])
                 if old:
-                    for field in ('source_status','source_checked_at','source_hash','verification'):
+                    for field in ('source_status','source_checked_at','source_hash','verification','price_verified_on'):
                         o[field]=old.get(field)
                 else:
                     o['source_status']=src.get('status','not checked')
                     o['verification']='retained – Adyen country/method source unavailable'
+                    o['source_checked_at']=None
             old=prev_by_id.get(o['id'])
             if old:
                 for field in ('variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','fee_currency'):
@@ -1167,20 +1264,21 @@ def main()->int:
         # vůbec nezkoušejí automaticky kontrolovat - jejich verification text píše
         # člověk, skript ho nemá přepisovat matoucím "source unavailable" hlášením.
         if not sid or not o.get('parser',{}).get('auto_parse',True):
-            o['source_checked_at']=now
             o['calculation_reference']=calc(o,fx)
             continue
         src=fetched.get(sid,{})
-        o['source_checked_at']=now;o['source_status']=src.get('status','not checked')
+        o['source_status']=src.get('status','not checked')
         if src.get('hash'):o['source_hash']=src['hash']
         if src.get('status')!='ok':
             old=prev_by_id.get(o['id'])
             if old:
-                for field in ('source_status','source_checked_at','source_hash','verification'):
+                for field in ('source_status','source_checked_at','source_hash','verification','price_verified_on'):
                     o[field]=old.get(field)
             else:
                 o['verification']='retained – source unavailable'
+                o['source_checked_at']=None
             o['calculation_reference']=calc(o,fx);continue
+        o['source_checked_at']=src.get('checked_at')
         old=prev_by_id.get(o['id'],o)
         cand,conf,why=select_candidate(o,src['text'])
         if cand and conf>=0.88:
@@ -1191,12 +1289,17 @@ def main()->int:
                     changes.append({'detected_at':now,'offer_id':o['id'],'field':k,'old':old.get(k),'new':v,'source_url':o['source_url'],'confidence':round(conf,3),'raw_match':why})
                     o[k]=v;changed=True
             o['verification']=f'auto-checked ({conf:.0%})'
+            o['price_verified_on']=date.fromisoformat(now[:10]).isoformat()
             if changed:o['last_changed_at']=now
         else:
             o['verification']=f'retained – review suggested ({conf:.0%}; {why})'
         o['calculation_reference']=calc(o,fx)
 
+    for offer in offers:
+        if not offer.get('price_verified_on'):
+            offer['price_verified_on']=infer_price_verified_on(offer)
     assign_provider_roles(offers)
+    validate_temporal_metadata(offers,now)
 
     registry=json.loads(CEE_REGISTRY.read_text(encoding='utf-8')) if CEE_REGISTRY.exists() else {'providers':[]}
     europe_registry=json.loads(EUROPE_REGISTRY.read_text(encoding='utf-8')) if EUROPE_REGISTRY.exists() else {'providers':[]}
@@ -1214,9 +1317,12 @@ def main()->int:
         'source_reviewed_row_count':sum(1 for offer in offers if is_source_reviewed_offer(offer)),
         'unpriced_source_reviewed_row_count':sum(1 for offer in unpriced if is_source_reviewed_offer(offer)),
         'unpriced_needs_individual_source_review_row_count':sum(1 for offer in unpriced if not is_source_reviewed_offer(offer)),
+        'price_verified_on_row_count':sum(1 for offer in offers if offer.get('price_verified_on')),
+        'price_verification_date_missing_row_count':sum(1 for offer in offers if not offer.get('price_verified_on')),
+        'successful_source_check_timestamp_row_count':sum(1 for offer in offers if offer.get('source_checked_at')),
         'counting_note':'Dashboard counts compact provider/country/method/scheme rows after source-review and active filters; the export keeps every tariff row.',
     }
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'1.5',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'1.6',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
             'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},

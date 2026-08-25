@@ -17,6 +17,8 @@ from scraper.update import (
     normalize_revolut_cee_offers,
     normalize_unpriced_pricing_models,
     is_source_reviewed_offer,
+    infer_price_verified_on,
+    initialise_temporal_metadata,
     parse_adyen_catalog,
     parse_adyen_fee_text,
     parse_cnb,
@@ -24,6 +26,7 @@ from scraper.update import (
     resolve_nuxt_payload,
     select_candidate,
     sync_adyen_cee_offers,
+    validate_temporal_metadata,
 )
 
 def test_fee_expression():
@@ -465,6 +468,90 @@ def test_source_reviewed_rule_distinguishes_missing_price_from_missing_review():
     assert is_source_reviewed_offer({'verification':'ověřena lokální nabídka; veřejná sazba nenalezena 19. 8. 2026'})
     assert is_source_reviewed_offer({'verification':'ručně ověřeno v oficiálním ceníku'})
     assert not is_source_reviewed_offer({'verification':'z rozšířeného datasetu'})
+
+
+def test_price_verification_date_is_separate_from_build_and_tariff_effective_date():
+    offer={
+        'id':'CZ-example-card',
+        'source_status':'manual',
+        'source_checked_at':None,
+        'verification':'ručně ověřeno v ceníku platném od 2. 6. 2026 dne 25. 8. 2026',
+    }
+    initialise_temporal_metadata(offer)
+    assert offer['source_checked_at'] is None
+    assert offer['price_verified_on']=='2026-08-25'
+
+
+def test_effective_date_alone_is_not_mislabelled_as_price_verification():
+    offer={
+        'verification':'ručně ověřeno v oficiálním ceníku účinném od 1. 8. 2025',
+        'source_status':'manual',
+        'source_checked_at':None,
+    }
+    assert infer_price_verified_on(offer) is None
+
+
+def test_precise_manual_source_fetch_can_supply_legacy_review_date():
+    offer={
+        'verification':'ověřeno přímým fetchem primárního zdroje (srpen 2026)',
+        'source_status':'manual',
+        'source_checked_at':'2026-08-12T19:16:32+00:00',
+    }
+    assert infer_price_verified_on(offer)=='2026-08-12'
+
+
+def test_successful_automated_check_supplies_price_review_date():
+    offer={
+        'verification':'auto-checked (99%)',
+        'source_status':'ok',
+        'source_checked_at':'2026-08-24T05:27:27+00:00',
+    }
+    assert infer_price_verified_on(offer)=='2026-08-24'
+
+
+def test_unreviewed_seed_build_date_does_not_become_price_verification():
+    offer={
+        'verification':'z rozšířeného datasetu (kontrola datována 22.7.2026 - nejde o živé prověření)',
+        'source_status':'seeded',
+        'source_checked_at':None,
+    }
+    assert infer_price_verified_on(offer) is None
+
+
+def test_previous_verification_date_survives_only_for_unchanged_price_basis():
+    previous={
+        'source_url':'https://example.com/pricing','product':'Card','variable_pct_min':1.0,
+        'price_verified_on':'2026-08-20',
+    }
+    same={'source_url':'https://example.com/pricing','product':'Card','variable_pct_min':1.0}
+    changed={'source_url':'https://example.com/pricing','product':'Card','variable_pct_min':1.1}
+    initialise_temporal_metadata(same,previous)
+    initialise_temporal_metadata(changed,previous)
+    assert same['price_verified_on']=='2026-08-20'
+    assert changed['price_verified_on'] is None
+
+
+def test_temporal_validation_rejects_future_price_review():
+    offer={'id':'CZ-future','price_verified_on':'2026-08-26','source_checked_at':None}
+    try:
+        validate_temporal_metadata([offer],'2026-08-25T09:00:00+00:00')
+    except ValueError as exc:
+        assert 'Future price_verified_on' in str(exc)
+    else:
+        raise AssertionError('future price verification date was accepted')
+
+
+def test_temporal_validation_rejects_build_stamp_on_manual_row():
+    offer={
+        'id':'CZ-manual','source_status':'manual','price_verified_on':'2026-08-25',
+        'source_checked_at':'2026-08-25T09:00:00+00:00',
+    }
+    try:
+        validate_temporal_metadata([offer],'2026-08-25T09:00:00+00:00')
+    except ValueError as exc:
+        assert 'Build timestamp copied' in str(exc)
+    else:
+        raise AssertionError('manual row accepted the build timestamp as a source check')
 
 
 def test_unpriced_audit_only_flags_fee_expressions_in_payment_context():

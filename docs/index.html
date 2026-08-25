@@ -367,8 +367,17 @@ function calc(o) {
   const fixedAddon = o.pricing_components?.comparison_reference?.fixed_addon;
   const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
-  const variableMin = o.variable_pct_min + comparisonAddon;
-  const variableMax = o.variable_pct_max + comparisonAddon;
+  const packageEffectivePct = o.package_effective_pct;
+  const hasOnlyUnallocatedMonthlyFee = (o.monthly_fee || 0) > 0
+    && (o.variable_pct_min || 0) === 0
+    && (o.variable_pct_max || 0) === 0
+    && (o.fixed_fee_min || 0) === 0
+    && (o.fixed_fee_max || 0) === 0
+    && (o.minimum_fee || 0) === 0
+    && packageEffectivePct == null;
+  if (hasOnlyUnallocatedMonthlyFee) return {min:null, max:null, emin:null, emax:null};
+  const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddon);
+  const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddon);
   const minimumCzk = (o.minimum_fee || 0) * fx;
   const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
   const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
@@ -387,7 +396,7 @@ function isSourceReviewed(o) {
 }
 
 function isComparable(o) {
-  return isFullyCalculable(o) && isSourceReviewed(o);
+  return o.promo !== true && o._c?.emin != null && isFullyCalculable(o) && isSourceReviewed(o);
 }
 
 function sourceLabel(o) {
@@ -410,12 +419,17 @@ function roleBadge(o) {
 
 function effectiveRate(o) {
   const model = (o.pricing_model || '').toLowerCase();
-  if (o._c.emin == null) return '—';
+  if (o._c.emin == null) {
+    if ((o.monthly_fee || 0) > 0 && o.variable_pct_min === 0 && (o.fixed_fee_min || 0) === 0) return 'závisí na objemu';
+    return '—';
+  }
   const hasRange = o._c.emin !== o._c.emax;
   const value = !hasRange
     ? fmtPct(o._c.emin)
     : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
   if (!hasRange) {
+    if (o.package_effective_pct != null) return `≈ ${value} při využití limitu`;
+    if (o.promo === true && o._c.emin === 0) return `akční ${value}`;
     if (o.comparison_estimate === true) return `≈ ${value}`;
     if (model.includes('from')) return `od ${value}`;
     if (model.includes('up to')) return `max. ${value}`;
@@ -430,7 +444,10 @@ function additionalFees(o) {
   const fees = [];
   if (o.monthly_fee > 0) {
     const prefix = (o.pricing_model || '').toLowerCase().includes('from') ? 'od ' : '';
-    fees.push(`${prefix}${o.monthly_fee.toLocaleString('cs-CZ')} ${o.monthly_currency || o.fee_currency} / měsíc`);
+    const included = o.included_monthly_volume != null
+      ? ` (do ${o.included_monthly_volume.toLocaleString('cs-CZ')} ${o.included_volume_currency || o.fee_currency} obratu)`
+      : '';
+    fees.push(`${prefix}${o.monthly_fee.toLocaleString('cs-CZ')} ${o.monthly_currency || o.fee_currency} / měsíc${included}`);
   }
   return fees.length ? fees.join('<br>') : '—';
 }
@@ -448,6 +465,11 @@ function published(o) {
     const markup = components.adyen_markup_pct ?? o.variable_pct_min;
     return `${markup.toLocaleString('cs-CZ')} % + ${processing.amount.toLocaleString('cs-CZ')} ${processing.currency} + IC++`;
   }
+  if (o.variable_pct_min === 0 && o.variable_pct_max === 0 && (o.fixed_fee_min || 0) === 0) {
+    if (o.promo === true) return 'akční 0 %';
+    if (o.package_effective_pct != null) return '0 % za transakci v balíčku';
+    if ((o.monthly_fee || 0) > 0) return '0 % za transakci';
+  }
   const p = o.variable_pct_min === o.variable_pct_max
     ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
     : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
@@ -462,6 +484,7 @@ function pricingReference(o) {
   const reference = o.pricing_components?.comparison_reference;
   const parts = [];
   if (reference) parts.push(`Srovnávací EEA debet: ${esc(reference.interchange_pct)} % interchange + ${esc(reference.scheme_fee_pct)} % scheme fee`);
+  if (o.package_effective_pct != null) parts.push('Celková sazba = paušál / zahrnutý obrat při plném využití limitu.');
   if (o.condition) parts.push(esc(o.condition));
   return parts.map(part => `<span class="sub">${part}</span>`).join('');
 }
@@ -505,18 +528,21 @@ function compactOffers(rows) {
     const current = groups.get(key);
     const offerRate = offer._c.emin ?? Infinity;
     const currentRate = current?._c.emin ?? Infinity;
+    const offerPromo = offer.promo === true ? 1 : 0;
+    const currentPromo = current?.promo === true ? 1 : 0;
     const offerMonthly = offer.monthly_fee ?? Infinity;
     const currentMonthly = current?.monthly_fee ?? Infinity;
-    if (!current || offerRate < currentRate || (offerRate === currentRate && offerMonthly < currentMonthly)) groups.set(key, offer);
+    if (!current || offerPromo < currentPromo || (offerPromo === currentPromo && (offerRate < currentRate || (offerRate === currentRate && offerMonthly < currentMonthly)))) groups.set(key, offer);
   }
   return [...groups.values()];
 }
 
 function sortRows(rows) {
   const key = S.sortKey === 'rate' ? 'emin' : 'min';
-  const withVal = rows.filter(o => o._c[key] != null).sort((a, b) => S.sortAsc ? a._c[key] - b._c[key] : b._c[key] - a._c[key]);
+  const permanent = rows.filter(o => o.promo !== true && o._c[key] != null).sort((a, b) => S.sortAsc ? a._c[key] - b._c[key] : b._c[key] - a._c[key]);
+  const promos = rows.filter(o => o.promo === true && o._c[key] != null).sort((a, b) => S.sortAsc ? a._c[key] - b._c[key] : b._c[key] - a._c[key]);
   const withoutVal = rows.filter(o => o._c[key] == null);
-  return [...withVal, ...withoutVal];
+  return [...permanent, ...promos, ...withoutVal];
 }
 
 function render() {

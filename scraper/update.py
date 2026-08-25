@@ -731,8 +731,24 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     fixed_addon=comparison.get('fixed_addon') or {}
     fixed_addon_rate=fx.get(fixed_addon.get('currency'),{'czk_per_unit':1})['czk_per_unit']
     fixed_addon_czk=(fixed_addon.get('amount') or 0)*fixed_addon_rate
-    variable_min=offer['variable_pct_min']+addon
-    variable_max=offer['variable_pct_max']+addon
+    package_effective_pct=offer.get('package_effective_pct')
+    has_only_unallocated_monthly_fee=(
+        (offer.get('monthly_fee') or 0)>0
+        and (offer.get('variable_pct_min') or 0)==0
+        and (offer.get('variable_pct_max') or 0)==0
+        and (offer.get('fixed_fee_min') or 0)==0
+        and (offer.get('fixed_fee_max') or 0)==0
+        and (offer.get('minimum_fee') or 0)==0
+        and package_effective_pct is None
+    )
+    if has_only_unallocated_monthly_fee:
+        return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
+    if package_effective_pct is not None:
+        variable_min=package_effective_pct
+        variable_max=package_effective_pct
+    else:
+        variable_min=offer['variable_pct_min']+addon
+        variable_max=offer['variable_pct_max']+addon
     mn=amount*variable_min/100+(offer.get('fixed_fee_min') or 0)*rate+fixed_addon_czk
     mx=amount*variable_max/100+(offer.get('fixed_fee_max') or 0)*rate+fixed_addon_czk
     minimum=(offer.get('minimum_fee') or 0)*rate

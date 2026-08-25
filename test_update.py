@@ -58,6 +58,26 @@ def test_minimum_fee_floor_is_applied_after_fx_conversion():
     assert x['effective_min_pct']==2.5
 
 
+def test_package_fee_is_converted_to_effective_rate_at_full_limit_usage():
+    offer={
+        'variable_pct_min':0,'variable_pct_max':0,'fixed_fee_min':0,'fixed_fee_max':0,
+        'monthly_fee':19.9,'package_effective_pct':1.3267,'fee_currency':'EUR',
+    }
+    fx={'EUR':{'czk_per_unit':25.0}}
+    x=calc(offer,fx)
+    assert x['effective_min_pct']==1.3267
+
+
+def test_monthly_fee_without_volume_assumption_is_not_reported_as_zero_total():
+    offer={
+        'variable_pct_min':0,'variable_pct_max':0,'fixed_fee_min':0,'fixed_fee_max':0,
+        'monthly_fee':5,'fee_currency':'EUR',
+    }
+    fx={'EUR':{'czk_per_unit':25.0}}
+    x=calc(offer,fx)
+    assert x['effective_min_pct'] is None
+
+
 def test_cee_overlay_replaces_wrong_rows_and_adds_local_acquirers():
     baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
     offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
@@ -406,8 +426,14 @@ def test_german_and_portuguese_public_price_corrections_are_kept():
     assert by_id['DE-fiserv-telecash-spring-card']['monthly_fee']==0
     assert by_id['DE-zahlo-eea-consumer-card']['variable_pct_min']==1
     assert by_id['DE-zahlo-eea-consumer-card']['fixed_fee_min']==0.05
+    assert by_id['DE-zahlo-qr-a2a']['fixed_fee_min']==0.25
+    assert by_id['DE-zahlo-qr-a2a']['monthly_fee']==0
+    assert by_id['DE-elavon-debit-card']['variable_pct_min']==0.59
+    assert by_id['DE-elavon-credit-card']['fixed_fee_min']==0.01
+    assert by_id['DE-vrpayment-card-registry']['package_effective_pct']==1.3267
     assert by_id['DE-payone-visa-mastercard-card']['variable_pct_min']==1.9
     assert by_id['PT-paybyrd-essential-eea-card']['variable_pct_min']==1.25
+    assert by_id['PT-reduniqunicre-card-registry']['package_effective_pct']==0.6
 
 
 def test_cee_public_tariffs_replace_individual_placeholders():
@@ -518,3 +544,12 @@ def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():
     assert dashboard.index('class="fxnote"') < dashboard.index('id="export"')
     controls=dashboard[dashboard.index('<section class="controls">'):dashboard.index('</section>',dashboard.index('<section class="controls">'))]
     assert 'id="export"' not in controls
+
+
+def test_dashboard_does_not_treat_promos_or_unallocated_monthly_fees_as_zero_total():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert 'o.promo !== true' in dashboard
+    assert 'hasOnlyUnallocatedMonthlyFee' in dashboard
+    assert 'akční ${value}' in dashboard
+    assert 'při využití limitu' in dashboard
+    assert 'return [...permanent, ...promos, ...withoutVal]' in dashboard

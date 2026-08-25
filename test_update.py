@@ -1,3 +1,4 @@
+import csv
 import json
 from copy import deepcopy
 
@@ -60,6 +61,29 @@ def test_minimum_fee_floor_is_applied_after_fx_conversion():
     x=calc(offer,fx,500)
     assert x['fee_min_czk']==12.5
     assert x['effective_min_pct']==2.5
+
+
+def test_minimum_fee_dominates_a_low_value_transaction():
+    offer={'variable_pct_min':0.1,'variable_pct_max':0.2,'fixed_fee_min':0,'fixed_fee_max':0,'minimum_fee':1,'fee_currency':'EUR'}
+    fx={'EUR':{'czk_per_unit':25.0}}
+    x=calc(offer,fx,100)
+    assert x['fee_min_czk']==25
+    assert x['fee_max_czk']==25
+    assert x['effective_min_pct']==25
+    assert x['effective_max_pct']==25
+
+
+def test_icpp_comparison_addon_stays_separate_from_published_variable_rate():
+    offer={
+        'variable_pct_min':0.69,'variable_pct_max':0.69,'fixed_fee_min':0,'fixed_fee_max':0,
+        'fee_currency':'EUR','all_in_complete':False,'comparison_estimate':True,
+        'variable_pct_basis':'provider_published',
+        'pricing_components':{'comparison_reference':{'total_addon_pct_min':0.278,'total_addon_pct_max':0.303}},
+    }
+    result=calc(offer,{'EUR':{'czk_per_unit':25}},500)
+    assert offer['variable_pct_min']==0.69
+    assert result['effective_min_pct']==0.968
+    assert result['effective_max_pct']==0.993
 
 
 def test_package_fee_is_converted_to_effective_rate_at_full_limit_usage():
@@ -728,6 +752,47 @@ def test_audit_corrections_rename_finby_fix_monthly_minimum_and_gopay_a2a():
 def test_dashboard_published_fee_shows_fixed_fee_ranges():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     assert "`${min.toLocaleString('cs-CZ')}–${max.toLocaleString('cs-CZ')}`" in dashboard
+
+
+def test_dashboard_uses_conservative_ranges_and_clears_hidden_a2a_scheme_filter():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert "S.sortKey === 'rate' ? 'emax' : 'max'" in dashboard
+    assert 'o._c.emax < current._c.emax' in dashboard
+    assert "if (o.method !== 'card') return true" in dashboard
+    assert "if (S.method === 'a2a')" in dashboard
+    assert "S.scheme = ''" in dashboard
+    assert "return `${isApproximate(o) ? '≈ ' : ''}${range}`" in dashboard
+
+
+def test_dashboard_includes_map_insets_unique_sources_expandable_rows_and_mobile_cards():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert 'id="mapInsets"' in dashboard
+    assert "const insetCountries=['IS','MT','CY']" in dashboard
+    assert 'new Map(rows.filter(o => o.source_url).map(o => [o.provider,o]))' in dashboard
+    assert 'class="offer-detail-row"' in dashboard
+    assert 'aria-expanded="false"' in dashboard
+    assert 'tr.offerrow{display:grid' in dashboard
+    assert 'Exportovat aktuální výběr' in dashboard
+    assert "low_volume_fee:'Poplatek při nízkém obratu'" in dashboard
+    assert "fee.interval === 'monthly' ? ' měsíčně'" in dashboard
+    assert "schemeLbl === 'Amex'" in dashboard
+
+
+def test_provider_type_is_derived_from_structured_role_and_csv_is_country_sorted(tmp_path,monkeypatch):
+    rows=[
+        {'id':'z','country_iso2':'SK','provider':'B','provider_role':'psp'},
+        {'id':'a','country_iso2':'CZ','provider':'A','provider_role':'acquirer'},
+    ]
+    update.normalise_provider_types(rows)
+    assert [row['provider_type'] for row in rows]==['PSP','Acquirer']
+    for row in rows:
+        row['calculation_reference']={}
+    monkeypatch.setattr(update,'DATA',tmp_path)
+    update.write_csv({'offers':rows})
+    with (tmp_path/'latest.csv').open(encoding='utf-8-sig',newline='') as handle:
+        exported=list(csv.DictReader(handle))
+    assert [row['country_iso2'] for row in exported]==['CZ','SK']
+    assert exported[0]['id']=='a'
 
 
 def test_audit_corrections_lock_recent_semantic_price_fixes():

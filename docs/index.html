@@ -130,6 +130,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,[t
 .country-shape.dimmed{opacity:.22}
 .legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:10px;flex-wrap:wrap}
 .legend .grad{width:120px;height:7px;border-radius:20px;background:linear-gradient(90deg,var(--scale-0),var(--scale-1),var(--scale-2),var(--scale-3),var(--scale-4),var(--scale-5),var(--scale-6),var(--scale-7))}
+.map-insets{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.map-inset{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--light-line);border-radius:8px;background:var(--light-bg);color:var(--light-ink);padding:5px 8px;font-size:11px;font-weight:700;cursor:pointer}
+.map-inset:hover{border-color:var(--navy)}
+.map-inset.selected{outline:2px solid #e8543f;outline-offset:1px}
+.map-inset.dimmed{opacity:.35}
+.map-inset .swatch{width:9px;height:9px;border-radius:50%;background:#efe9d8;flex:0 0 auto}
 .map-detail{flex:1;min-width:220px;background:var(--light-bg);color:var(--light-ink);border-radius:16px;padding:18px 20px;min-height:170px}
 .map-detail .name{font-weight:700;font-size:16px;margin:0 0 4px}
 .map-detail .region{font-size:11px;color:var(--light-muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 14px}
@@ -152,6 +158,11 @@ th{position:sticky;top:0;background:var(--panel-alt);color:var(--muted);text-ali
 td{padding:11px 11px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
 tr:hover td{background:rgba(255,255,255,.03)}
 tr.offerrow{cursor:pointer}
+tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
+.offer-detail-row td{width:100%;padding:0;border-bottom:1px solid var(--line);background:#f0ecdf;color:var(--light-ink)}
+.offer-detail{padding:14px 18px 16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 24px;font-size:12px;line-height:1.45}
+.offer-detail b{display:block;margin-bottom:2px;color:var(--light-ink)}
+.offer-detail span{color:var(--light-muted)}
 .provider{font-weight:700}
 .provider-link{font-weight:700;color:var(--ink);cursor:pointer;text-decoration:none;border-bottom:1px dashed var(--muted-light)}
 .provider-link:hover{color:var(--teal);border-color:var(--teal)}
@@ -209,8 +220,19 @@ tr.offerrow{cursor:pointer}
   .kpis{grid-template-columns:1fr 1fr}
   .hero h1{font-size:32px}
   .panelhead{padding:14px}
-  table{font-size:12px}
-  th,td{padding:9px 6px}
+  #comparison .panelhead{flex-direction:column;align-items:flex-start}
+  #comparison .panelhead>span{width:100%;justify-content:space-between;flex-wrap:wrap}
+  .tablewrap{overflow:visible;max-height:none;padding:10px}
+  table,tbody{display:block}
+  thead{display:none}
+  tr.offerrow{display:grid;grid-template-columns:1fr 1fr;margin-bottom:10px;border:1px solid var(--light-line);border-radius:11px;overflow:hidden;background:#fff}
+  tr.offerrow td{display:block;width:auto;padding:9px 10px;border-bottom:1px solid var(--light-line)}
+  tr.offerrow td::before{content:attr(data-label);display:block;margin-bottom:3px;color:var(--light-muted);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  tr.offerrow td:nth-child(1),tr.offerrow td:nth-child(3),tr.offerrow td:nth-child(4),tr.offerrow td:nth-child(6){grid-column:1 / -1}
+  tr.offerrow td:nth-last-child(-n+2){border-bottom:0}
+  .offer-detail-row:not([hidden]){display:block;margin:-10px 0 10px}
+  .offer-detail-row td{display:block;width:100%;border-radius:0 0 11px 11px}
+  .offer-detail{grid-template-columns:1fr;padding:12px}
   .control-secondary{margin-left:0;width:100%}
   .hide-mobile{display:none}
   .glossary-grid{grid-template-columns:1fr}
@@ -263,8 +285,8 @@ tr.offerrow{cursor:pointer}
       <div class="control">
         <label>Typ poskytovatele</label>
         <div class="seg" id="role-seg">
-          <button data-v="merchant" class="active">Acquirer + PSP</button>
-          <button data-v="acquirer">Přímí acquireři</button>
+          <button data-v="merchant">Acquirer + PSP</button>
+          <button data-v="acquirer" class="active">Přímí acquireři</button>
           <button data-v="psp">PSP</button>
           <button data-v="all">Vše</button>
         </div>
@@ -294,7 +316,7 @@ tr.offerrow{cursor:pointer}
   <section class="kpis">
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
-    <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z porovnatelných veřejných sazeb</small></div>
+    <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z horních hranic porovnatelných sazeb</small></div>
     <div class="kpi"><span>Srovnávací transakce</span><strong>20 €</strong><small>včetně fixního poplatku</small></div>
   </section>
 
@@ -306,6 +328,7 @@ tr.offerrow{cursor:pointer}
       <div>
         <div class="map-svg-host"><svg id="map" viewBox="0 0 600 700" aria-label="Mapa Evropy"></svg></div>
         <div class="legend"><span id="legendLo">—</span><span class="grad"></span><span id="legendHi">—</span></div>
+        <div class="map-insets" id="mapInsets" aria-label="Ostrovní státy mimo výřez mapy"></div>
       </div>
       <div class="map-detail" id="mapDetail"></div>
     </div>
@@ -321,7 +344,7 @@ tr.offerrow{cursor:pointer}
 
   <section class="panel" style="margin-top:18px">
     <div class="fxnote">
-      Přepočteno dle kurzu ČNB ze dne <b id="fxdate2">—</b>. <a href="data/latest.csv" download>Stáhnout plný datový export</a> · <button id="export" class="footer-action">Export CSV</button>
+      Přepočteno dle kurzu ČNB ze dne <b id="fxdate2">—</b>. <a href="data/latest.csv" download>Stáhnout plný datový export</a> · <button id="export" class="footer-action">Exportovat aktuální výběr</button>
     </div>
   </section>
 
@@ -357,7 +380,7 @@ const REGION_COUNTRIES = {
   Southern: ["IT","ES","PT","MT","CY","GR"],
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
-const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'merchant', scheme:'', search:'', sortKey:'rate', sortAsc:true});
+const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'acquirer', scheme:'', search:'', sortKey:'rate', sortAsc:true});
 const NATIONAL_SCHEME_BY_COUNTRY = Object.freeze({
   BE:'Bancontact',
   CH:'PostFinance Card',
@@ -383,6 +406,7 @@ function nationalSchemeName(o) {
   return o.national_scheme_name || NATIONAL_SCHEME_BY_COUNTRY[o.country_iso2] || null;
 }
 function matchScheme(o) {
+  if (o.method !== 'card') return true;
   if (!S.scheme) return true;
   const schemes=o.card_schemes || [];
   if (S.scheme==='other') return schemes.some(s => !['visa','mastercard','national'].includes(s));
@@ -505,6 +529,11 @@ function matchRole(o) {
 const esc = s => String(s ?? '').replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const fmtCzk = n => n == null ? 'individuální' : new Intl.NumberFormat('cs-CZ', {style:'currency', currency:S.ccy, maximumFractionDigits:2}).format(n);
 const fmtPct = n => n == null ? '—' : new Intl.NumberFormat('cs-CZ', {minimumFractionDigits:2, maximumFractionDigits:2}).format(n) + ' %';
+const formatIsoDate = value => {
+  const match=String(value || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return value || '—';
+  return new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(Number(match[1]),Number(match[2])-1,Number(match[3]))));
+};
 
 const SCALE = ['#003f5c','#00546e','#006b71','#008162','#009446','#65a31c','#b1aa00','#ffa600'];
 function scaleColor(v, min, max) {
@@ -526,14 +555,16 @@ function calc(o) {
   const eurRate = S.data.fx.rates.EUR?.czk_per_unit ?? 24;
   const amountCzk = S.ccy === 'EUR' ? S.amount * eurRate : S.amount;
   const fx = S.data.fx.rates[o.fee_currency]?.czk_per_unit ?? 1;
-  const comparisonAddon = o.pricing_components?.comparison_reference?.total_addon_pct || 0;
-  const fixedAddon = o.pricing_components?.comparison_reference?.fixed_addon;
+  const comparison = o.pricing_components?.comparison_reference || {};
+  const comparisonAddonMin = comparison.total_addon_pct_min ?? comparison.total_addon_pct ?? 0;
+  const comparisonAddonMax = comparison.total_addon_pct_max ?? comparison.total_addon_pct ?? 0;
+  const fixedAddon = comparison.fixed_addon;
   const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const packageEffectivePct = o.package_effective_pct;
   if ((o.monthly_fee || 0) > 0 && packageEffectivePct == null) return {min:null, max:null, emin:null, emax:null};
-  const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddon);
-  const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddon);
+  const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddonMin);
+  const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddonMax);
   const minimumCzk = (o.minimum_fee || 0) * fx;
   const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
   const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
@@ -551,6 +582,16 @@ function isSourceReviewed(o) {
 
 function isComparable(o) {
   return o.promo !== true && o.tax_treatment !== 'excluding_vat' && o._c?.emin != null && isFullyCalculable(o) && isSourceReviewed(o);
+}
+
+function isApproximate(o) {
+  return o.comparison_estimate === true || o.package_effective_pct != null;
+}
+
+function comparisonRate(o) {
+  if (o?._c?.emin == null) return '—';
+  const range=o._c.emin === o._c.emax ? fmtPct(o._c.emin) : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
+  return `${isApproximate(o) ? '≈ ' : ''}${range}`;
 }
 
 function sourceLabel(o) {
@@ -596,8 +637,8 @@ function effectiveRate(o) {
 }
 
 function additionalFees(o) {
-  const labels={monthly_service:'Měsíčně',terminal_rental:'Pronájem terminálu',activation:'Aktivace',service_and_terminal:'Služba a terminál',card_reader_purchase:'Čtečka',card_reader_purchase_from:'Čtečka od',terminal_purchase:'Terminál'};
-  const fees=(o.non_transaction_fees || []).map(fee => `${labels[fee.kind] || fee.kind}: ${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' / měsíc' : ''}`);
+  const labels={monthly_service:'Měsíční poplatek',low_volume_fee:'Poplatek při nízkém obratu',terminal_rental:'Pronájem terminálu',activation:'Aktivace',service_and_terminal:'Služba a terminál',card_reader_purchase:'Čtečka',card_reader_purchase_from:'Čtečka od',terminal_purchase:'Terminál'};
+  const fees=(o.non_transaction_fees || []).map(fee => `${labels[fee.kind] || fee.kind}: ${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`);
   return fees.length ? fees.join('<br>') : '—';
 }
 
@@ -615,7 +656,10 @@ function published(o) {
   if (o.variable_pct_min == null) return model === 'individual' ? 'cena na vyžádání' : 'cena není veřejně uvedena';
   if (o.all_in_complete === false && o.comparison_estimate !== true) {
     const f = fixedPart();
-    return `${o.variable_pct_min.toLocaleString('cs-CZ')} %${f} + IC++`;
+    const markup=o.variable_pct_min === o.variable_pct_max
+      ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
+      : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
+    return `${markup}${f} + IC++`;
   }
   const components = o.pricing_components;
   if (o.comparison_estimate === true && components?.processing_fee) {
@@ -627,7 +671,7 @@ function published(o) {
     const markup = o.variable_pct_min === o.variable_pct_max
       ? `${o.variable_pct_min.toLocaleString('cs-CZ')} %`
       : `${o.variable_pct_min.toLocaleString('cs-CZ')}–${o.variable_pct_max.toLocaleString('cs-CZ')} %`;
-    return `${markup} + IC++`;
+    return `${markup}${fixedPart()} + IC++`;
   }
   if (o.variable_pct_min === 0 && o.variable_pct_max === 0 && (o.fixed_fee_min || 0) === 0) {
     if (o.promo === true) return 'akční 0 %';
@@ -647,10 +691,30 @@ function published(o) {
 function pricingReference(o) {
   const reference = o.pricing_components?.comparison_reference;
   const parts = [];
-  if (reference) parts.push(`Srovnávací EEA debet: ${esc(reference.interchange_pct)} % interchange + ${esc(reference.scheme_fee_pct)} % scheme fee`);
+  if (reference) {
+    const min=reference.total_addon_pct_min ?? reference.total_addon_pct;
+    const max=reference.total_addon_pct_max ?? reference.total_addon_pct;
+    const localized=value => Number(value).toLocaleString('cs-CZ',{maximumFractionDigits:4});
+    const addon=min == null ? '' : min === max ? `+${localized(min)} p. b.` : `+${localized(min)} až +${localized(max)} p. b.`;
+    parts.push(`Srovnávací IC++ odhad${addon ? `: ${addon}` : ''}; není součástí publikované sazby.`);
+  }
   if (o.package_effective_pct != null) parts.push('Celková sazba = paušál / zahrnutý obrat při plném využití limitu.');
   if (o.condition) parts.push(esc(o.condition));
   return parts.map(part => `<span class="sub">${part}</span>`).join('');
+}
+
+function offerDetails(o) {
+  const comparison=o.pricing_components?.comparison_reference;
+  const methodology=pricingReference(o) || '<span>Bez další metodické poznámky.</span>';
+  const profile=o.method === 'card'
+    ? `${(o.card_schemes || []).map(s => ({visa:'Visa',mastercard:'Mastercard',national:'národní',amex:'Amex',discover:'Discover'}[s] || s)).join(', ') || 'neuvedeno'} · ${o.card_profile === 'consumer' ? 'spotřebitelská karta' : o.card_profile === 'commercial' ? 'firemní karta' : 'profil karty neuveden'}`
+    : 'A2A převod';
+  return `<div class="offer-detail">
+    <div><b>Produkt / tarif</b><span>${esc(o.product || 'Neuvedeno')}</span></div>
+    <div><b>Profil nabídky</b><span>${esc(profile)}</span></div>
+    <div><b>Podmínky a metodika</b>${methodology}</div>
+    <div><b>Ověření zdroje</b><span>${o.price_verified_on ? `Cena ověřena ${esc(formatIsoDate(o.price_verified_on))}.` : 'Datum cenového ověření není uvedeno.'}${comparison ? ' Výpočet obsahuje označený odhad.' : ''}</span></div>
+  </div>`;
 }
 
 function calculatedFee(o) {
@@ -689,8 +753,8 @@ function compactOffers(rows) {
   for (const offer of rows) {
     const key = [offer.country_iso2,offer.provider,offer.method,offer.channel,offer.product,offer.card_profile,(offer.card_schemes || []).join(','),offer.pricing_model_code,offer.variable_pct_min,offer.variable_pct_max,offer.fixed_fee_min,offer.fixed_fee_max,offer.minimum_fee,offer.monthly_fee,offer.monthly_currency,offer.source_url].join('|');
     const current = groups.get(key);
-    const offerRate = offer._c.emin ?? Infinity;
-    const currentRate = current?._c.emin ?? Infinity;
+    const offerRate = offer._c.emax ?? Infinity;
+    const currentRate = current?._c.emax ?? Infinity;
     const offerPromo = offer.promo === true ? 1 : 0;
     const currentPromo = current?.promo === true ? 1 : 0;
     const offerEstimate = offer.comparison_estimate === true ? 1 : 0;
@@ -703,7 +767,7 @@ function compactOffers(rows) {
 }
 
 function sortRows(rows) {
-  const key = S.sortKey === 'rate' ? 'emin' : 'min';
+  const key = S.sortKey === 'rate' ? 'emax' : 'max';
   const permanent = rows.filter(o => o.promo !== true && o._c[key] != null).sort((a, b) => S.sortAsc ? a._c[key] - b._c[key] : b._c[key] - a._c[key]);
   const promos = rows.filter(o => o.promo === true && o._c[key] != null).sort((a, b) => S.sortAsc ? a._c[key] - b._c[key] : b._c[key] - a._c[key]);
   const withoutVal = rows.filter(o => o._c[key] == null);
@@ -711,6 +775,7 @@ function sortRows(rows) {
 }
 
 function render() {
+  updateSchemeControlVisibility();
   renderKpis();
   renderMap();
   renderCompare();
@@ -718,18 +783,20 @@ function render() {
 
 function renderKpis() {
   const rows = compactOffers(contextOffers()).filter(o => isComparable(o));
-  const vals = rows.filter(o => o._c.emin != null).map(o => o._c);
-  const byMin = [...rows.filter(o => o._c.emin != null)].sort((a,b) => a._c.emin - b._c.emin);
-  const byMax = [...rows.filter(o => o._c.emin != null)].sort((a,b) => b._c.emin - a._c.emin);
+  const vals = rows.filter(o => o._c.emax != null).map(o => o._c.emax);
+  const byMin = [...rows.filter(o => o._c.emax != null)].sort((a,b) => a._c.emax - b._c.emax);
+  const byMax = [...rows.filter(o => o._c.emax != null)].sort((a,b) => b._c.emax - a._c.emax);
   const best = byMin[0], worst = byMax[0];
-  const sorted = vals.map(v => v.emin).sort((a,b) => a-b);
+  const sorted = vals.sort((a,b) => a-b);
   const median = sorted.length ? sorted[Math.floor(sorted.length/2)] : null;
 
-  document.getElementById('kpiMin').textContent = best ? fmtPct(best._c.emin) : '—';
+  document.getElementById('kpiMin').textContent = best ? comparisonRate(best) : '—';
   document.getElementById('kpiMinName').textContent = best ? `${best.provider} · ${best.country_iso2}` : '—';
-  document.getElementById('kpiMax').textContent = worst ? fmtPct(worst._c.emin) : '—';
+  document.getElementById('kpiMax').textContent = worst ? comparisonRate(worst) : '—';
   document.getElementById('kpiMaxName').textContent = worst ? `${worst.provider} · ${worst.country_iso2}` : '—';
   document.getElementById('kpiMedian').textContent = fmtPct(median);
+  document.getElementById('kpiMin').title='Vybráno podle nejnižší horní hranice sazby.';
+  document.getElementById('kpiMax').title='Použita horní hranice sazby.';
 }
 
 function renderMap() {
@@ -738,10 +805,11 @@ function renderMap() {
 
   let byCountry = {};
   for (const o of base) {
-    if (o._c.emin == null) continue;
-    byCountry[o.country_iso2] = Math.min(byCountry[o.country_iso2] ?? Infinity, o._c.emin);
+    if (o._c.emax == null) continue;
+    const current=byCountry[o.country_iso2];
+    if (!current || o._c.emax < current._c.emax) byCountry[o.country_iso2]=o;
   }
-  const vals = Object.values(byCountry);
+  const vals = Object.values(byCountry).map(o => o._c.emax);
   const mn = vals.length ? Math.min(...vals) : 0, mx = vals.length ? Math.max(...vals) : 1;
   document.getElementById('legendLo').textContent = fmtPct(mn);
   document.getElementById('legendHi').textContent = fmtPct(mx);
@@ -750,16 +818,27 @@ function renderMap() {
     if (p.context) {
       return `<path class="country-shape context" d="${p.d}" fill-rule="evenodd"></path>`;
     }
-    const v = byCountry[p.iso2];
-    const hasData = v != null;
+    const offer = byCountry[p.iso2];
+    const v = offer?._c.emax;
+    const hasData = offer != null;
     const isSelected = S.country === p.iso2;
     const inRegion = !S.region || REGION_COUNTRIES[S.region].includes(p.iso2);
     const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
     const cls = ['country-shape', hasData ? 'active-country' : '', isSelected ? 'selected' : '', !inRegion ? 'dimmed' : ''].filter(Boolean).join(' ');
-    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}" ${hasData ? `tabindex="0" role="button" aria-label="${esc(p.name)}, nejnižší sazba ${fmtPct(v)}"` : ''}><title>${esc(p.name)}${hasData ? ' · ' + fmtPct(v) : ' · zatím bez dat'}</title></path>`;
+    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}" ${hasData ? `tabindex="0" role="button" aria-label="${esc(p.name)}, srovnávací sazba ${comparisonRate(offer)}"` : ''}><title>${esc(p.name)}${hasData ? ' · ' + comparisonRate(offer) : ' · zatím bez dat'}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
   svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 700');
+
+  const insetCountries=['IS','MT','CY'];
+  document.getElementById('mapInsets').innerHTML=insetCountries.map(iso => {
+    const offer=byCountry[iso];
+    const name=S.data.countries[iso]?.name || iso;
+    const inRegion=!S.region || REGION_COUNTRIES[S.region].includes(iso);
+    const classes=['map-inset',S.country===iso?'selected':'',!inRegion?'dimmed':''].filter(Boolean).join(' ');
+    const fill=offer ? scaleColor(offer._c.emax,mn,mx) : '#efe9d8';
+    return `<button class="${classes}" data-iso="${iso}" ${offer ? '' : 'disabled'} title="${esc(name)}${offer ? ` · ${comparisonRate(offer)}` : ' · zatím bez dat'}"><span class="swatch" style="background:${fill}"></span>${esc(iso)}</button>`;
+  }).join('');
 
   svg.querySelectorAll('.active-country').forEach(el => {
     const activate = () => {
@@ -774,8 +853,20 @@ function renderMap() {
     el.onclick = activate;
     el.onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(); } };
   });
+  document.querySelectorAll('#mapInsets .map-inset:not(:disabled)').forEach(el => {
+    el.onclick=() => activateCountry(el.dataset.iso);
+  });
 
   renderMapDetail();
+}
+
+function activateCountry(iso) {
+  S.country = S.country === iso ? '' : iso;
+  S.provider = '';
+  S.region = '';
+  resetRegionButtons();
+  document.getElementById('country').value = S.country;
+  render();
 }
 
 function renderMapDetail() {
@@ -787,23 +878,31 @@ function renderMapDetail() {
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
   const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
-  const withVal = rows.filter(o => isComparable(o) && o._c.emin != null).sort((a,b) => a._c.emin - b._c.emin);
-  const lo = withVal[0], hi = withVal[withVal.length - 1];
+  const withVal = rows.filter(o => isComparable(o) && o._c.emax != null).sort((a,b) => a._c.emax - b._c.emax);
+  const lo = withVal[0];
+  const overallMin=withVal.length ? Math.min(...withVal.map(o => o._c.emin)) : null;
+  const overallMax=withVal.length ? Math.max(...withVal.map(o => o._c.emax)) : null;
+  const minOffer=withVal.find(o => o._c.emin === overallMin);
+  const maxOffer=withVal.find(o => o._c.emax === overallMax);
   const rangeText = withVal.length
-    ? (lo === hi ? fmtPct(lo._c.emin) : `${fmtPct(lo._c.emin)} – ${fmtPct(hi._c.emin)}`)
+    ? (overallMin === overallMax
+      ? `${isApproximate(minOffer) ? '≈ ' : ''}${fmtPct(overallMin)}`
+      : `${isApproximate(minOffer) ? '≈ ' : ''}${fmtPct(overallMin)} – ${isApproximate(maxOffer) ? '≈ ' : ''}${fmtPct(overallMax)}`)
     : '—';
-  const links = rows.slice(0, 4).map(o => `<a class="source-link" href="${esc(o.source_url)}" target="_blank" rel="noopener">${esc(o.provider)} ↗</a>`).join('');
+  const uniqueSources=[...new Map(rows.filter(o => o.source_url).map(o => [o.provider,o])).values()];
+  const links = uniqueSources.slice(0, 4).map(o => `<a class="source-link" href="${esc(o.source_url)}" target="_blank" rel="noopener">${esc(o.provider)} ↗</a>`).join('');
+  const moreSources=uniqueSources.length > 4 ? `<span style="color:var(--light-muted)">+ ${uniqueSources.length - 4} dalších</span>` : '';
   host.innerHTML = `
     <p class="name">${esc(name)}</p>
     <p class="region">${esc(region)}</p>
     <div class="label">Rozmezí sazeb</div>
     <div class="val" style="font-size:20px">${rangeText}</div>
     <div class="label">Nejnižší nabídka</div>
-    <div class="val">${lo ? fmtPct(lo._c.emin) + ' · ' + esc(lo.provider) : '—'}</div>
+    <div class="val">${lo ? comparisonRate(lo) + ' · ' + esc(lo.provider) : '—'}</div>
     <div class="label">Počet nabídek</div>
     <div class="val">${rows.length}</div>
     <div class="label" style="margin-bottom:5px">Zdroje</div>
-    <div style="display:flex; flex-direction:column; gap:4px">${links || '—'}</div>
+    <div style="display:flex; flex-direction:column; gap:4px">${links || '—'}${moreSources}</div>
     <p style="font-size:11.5px; color:var(--light-muted); margin:14px 0 0; padding-top:12px; border-top:1px solid var(--light-line)">↓ Srovnání nabídek dole je teď filtrované jen na <b>${esc(name)}</b>.</p>
   `;
 }
@@ -821,6 +920,13 @@ function setActiveSegment(id, value) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed',active ? 'true' : 'false');
   });
+}
+
+function updateSchemeControlVisibility() {
+  const control=document.getElementById('scheme-control');
+  if (!control || !S.data) return;
+  const hasCardSchemes=S.data.offers.some(o => o.method === 'card' && (o.card_schemes || []).length);
+  control.style.display=hasCardSchemes && S.method !== 'a2a' ? '' : 'none';
 }
 
 function hideSchemeTooltip() {
@@ -902,32 +1008,40 @@ function renderCompare() {
         <th>${S.provider ? 'Země' : 'Poskytovatel'}</th>
         <th>Metoda</th>
         <th title="Sazba z veřejného ceníku bez přepočtu na referenční transakci">Publikovaná sazba</th>
-        <th aria-sort="${S.sortKey === 'rate' ? (S.sortAsc ? 'ascending' : 'descending') : 'none'}"><button class="sortbtn ${activeCls('rate')}" data-sort="rate" aria-label="Seřadit podle celkové sazby">Celková sazba <span class="arrow">${arrow('rate')}</span></button></th>
+        <th aria-sort="${S.sortKey === 'rate' ? (S.sortAsc ? 'ascending' : 'descending') : 'none'}"><button class="sortbtn ${activeCls('rate')}" data-sort="rate" aria-label="Seřadit podle horní hranice celkové sazby" title="Řazení používá horní hranici sazby">Celková sazba <span class="arrow">${arrow('rate')}</span></button></th>
         <th>Další poplatky</th>
         <th>Zdroj</th>
       </tr></thead>
       <tbody>
-        ${rows.map(o => {
+        ${rows.map((o,index) => {
           const st = statusInfo(o);
           const schemeLbl = schemeLabel(o);
           const nationalScheme = nationalSchemeName(o);
+          const schemeTooltip = schemeLbl === 'Visa/MC'
+            ? 'Sazba platí pro Visa nebo Mastercard.'
+            : schemeLbl === 'Amex'
+            ? 'Sazba platí pro American Express.'
+            : schemeLbl === 'Ostatní'
+            ? `Další karetní schéma: ${(o.card_schemes || []).join(', ')}.`
+            : '';
           const schemeBadge = nationalScheme
             ? `<span class="pill scheme" tabindex="0" data-scheme-tooltip="${esc(nationalScheme)}" aria-label="Národní karetní schéma: ${esc(nationalScheme)}">${esc(schemeLbl)}</span>`
             : schemeLbl
-            ? `<span class="pill scheme" title="Sazba platí pro Visa nebo Mastercard.">${esc(schemeLbl)}</span>`
+            ? `<span class="pill scheme" title="${esc(schemeTooltip)}">${esc(schemeLbl)}</span>`
             : '';
           const extraSchemeBadges=(o.card_schemes || []).includes('amex') && schemeLbl !== 'Amex' ? '<span class="pill scheme" title="Sazba zahrnuje také American Express.">Amex</span>' : '';
           const providerRole = roleBadge(o);
           const nameCell = S.provider
             ? `<b>${esc(o.country_iso2)}</b>${providerRole}<span class="sub">${esc(o.country)}</span>`
             : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a>${providerRole}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}`;
-          return `<tr class="offerrow ${o.variable_pct_min == null ? 'unpriced-row' : ''}" data-provider="${esc(o.provider)}">
-            <td>${nameCell}</td>
-            <td><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}${extraSchemeBadges}</td>
-            <td class="published-rate">${published(o)}</td>
-            <td class="effective">${effectiveRate(o)}${o.comparison_estimate === true ? '<span class="sub">včetně srovnávacího IC++</span>' : ''}</td>
-            <td class="rate">${additionalFees(o)}</td>
-            <td>
+          const detailId=`offer-detail-${index}`;
+          return `<tr class="offerrow ${o.variable_pct_min == null ? 'unpriced-row' : ''}" data-provider="${esc(o.provider)}" data-detail-id="${detailId}" tabindex="0" role="button" aria-expanded="false" aria-controls="${detailId}">
+            <td data-label="${S.provider ? 'Země' : 'Poskytovatel'}">${nameCell}</td>
+            <td data-label="Metoda"><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}${extraSchemeBadges}</td>
+            <td data-label="Publikovaná sazba" class="published-rate">${published(o)}</td>
+            <td data-label="Celková sazba" class="effective">${effectiveRate(o)}${o.comparison_estimate === true ? '<span class="sub">včetně srovnávacího IC++</span>' : ''}</td>
+            <td data-label="Další poplatky" class="rate">${additionalFees(o)}</td>
+            <td data-label="Zdroj">
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">${sourceLabel(o)}</a>
               ${o.comparison_estimate === true && o.pricing_components?.comparison_reference?.scheme_fee_source_url
                 ? `<a class="sub source" target="_blank" rel="noopener" href="${esc(o.pricing_components.comparison_reference.scheme_fee_source_url)}">zdroj scheme fee ↗</a>`
@@ -937,7 +1051,7 @@ function renderCompare() {
                 : ''}
               ${st.cls === 'error' ? `<span class="status-dot error" title="${esc(st.detail)}"></span>` : ''}
             </td>
-          </tr>`;
+          </tr><tr class="offer-detail-row" id="${detailId}" hidden><td colspan="6">${offerDetails(o)}</td></tr>`;
         }).join('')}
       </tbody>
     </table></div>`;
@@ -960,6 +1074,19 @@ function renderCompare() {
       S.sortKey = key;
       renderCompare();
     };
+  });
+  body.querySelectorAll('.offerrow').forEach(row => {
+    const toggle=event => {
+      if (event?.target?.closest('a,button,[data-scheme-tooltip]')) return;
+      if (event?.type === 'keydown' && !['Enter',' '].includes(event.key)) return;
+      if (event?.type === 'keydown') event.preventDefault();
+      const detail=document.getElementById(row.dataset.detailId);
+      const expanded=row.getAttribute('aria-expanded') === 'true';
+      row.setAttribute('aria-expanded',expanded ? 'false' : 'true');
+      detail.hidden=expanded;
+    };
+    row.onclick=toggle;
+    row.onkeydown=toggle;
   });
 }
 
@@ -1005,7 +1132,13 @@ function renderGlossary() {
 }
 
 function exportCsv() {
-  const rows = contextOffers().length ? sortRows(contextOffers()) : sortRows(allWithCalc());
+  const selected=contextOffers();
+  const rows=(selected.length ? selected : allWithCalc()).sort((a,b) =>
+    a.country_iso2.localeCompare(b.country_iso2) ||
+    a.provider.localeCompare(b.provider,'cs') ||
+    (a.method || '').localeCompare(b.method) ||
+    (a.product || '').localeCompare(b.product,'cs')
+  );
   const head = ['country','provider','provider_type','product','method','card_scheme','published_rate','reference_transaction','reference_currency','effective_min_pct','effective_max_pct','comparison_estimate','source_url','comparison_source_url'];
   const lines = [head.join(',')];
   for (const o of rows) {
@@ -1027,16 +1160,14 @@ async function init() {
     fetch('assets/europe-paths.json').then(r => r.json()),
   ]);
   document.getElementById('generated').textContent = new Date(S.data.generated_at).toLocaleString('cs-CZ');
-  document.getElementById('fxdate').textContent = S.data.fx.date;
-  document.getElementById('fxdate2').textContent = S.data.fx.date;
+  document.getElementById('fxdate').textContent = formatIsoDate(S.data.fx.date);
+  document.getElementById('fxdate2').textContent = formatIsoDate(S.data.fx.date);
   S.amount = S.data.default_transaction_eur || 20;
   S.ccy = 'EUR';
   renderAuditSummary();
   renderGlossary();
 
-  if (S.data.offers.some(o => o.card_scheme)) {
-    document.getElementById('scheme-control').style.display = '';
-  }
+  updateSchemeControlVisibility();
 
   const withData = new Set(S.data.offers.filter(o => o.variable_pct_min != null).map(o => o.country_iso2));
   const countries = Object.entries(S.data.countries).sort((a,b) => a[1].name.localeCompare(b[1].name, 'cs'));
@@ -1075,6 +1206,10 @@ async function init() {
     if (!btn) return;
     S.method = btn.dataset.v;
     setActiveSegment('method-seg',S.method);
+    if (S.method === 'a2a') {
+      S.scheme = '';
+      setActiveSegment('scheme-seg','');
+    }
     if (S.method !== 'card') {
       S.role = 'all';
       setActiveSegment('role-seg','all');

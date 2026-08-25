@@ -269,6 +269,7 @@ def normalise_offer_schema(offers: list[dict]) -> list[dict]:
     rental_ids={'NO-worldline-one-card-registry','SE-worldline-one-card-registry','DK-worldline-one-card'}
     for offer in offers:
         numeric=offer.get('variable_pct_min') is not None
+        offer.setdefault('variable_pct_basis','provider_published' if numeric else 'not_applicable')
         if offer.get('all_in_complete') is None:
             components=offer.get('pricing_components') or {}
             missing_icpp=(components.get('model')=='interchange++' and not offer.get('comparison_estimate'))
@@ -401,6 +402,7 @@ def validate_temporal_metadata(offers: list[dict], generated_at: str) -> None:
 def validate_offer_schema(offers: list[dict]) -> None:
     allowed_states={'verified_automated','verified_manual','reviewed_undated','legacy_unverified','review_needed'}
     allowed_models={'blended','icpp','from','up_to','subscription','promo','individual','not_public','free','package','other'}
+    allowed_variable_bases={'provider_published','not_applicable'}
     for offer in offers:
         oid=offer.get('id')
         if not isinstance(offer.get('all_in_complete'),bool):
@@ -409,6 +411,8 @@ def validate_offer_schema(offers: list[dict]) -> None:
             raise ValueError(f'Invalid verification_state for {oid}')
         if offer.get('pricing_model_code') not in allowed_models:
             raise ValueError(f'Invalid pricing_model_code for {oid}')
+        if offer.get('variable_pct_basis') not in allowed_variable_bases:
+            raise ValueError(f'Invalid variable_pct_basis for {oid}')
         if offer.get('method')=='card' and not offer.get('card_schemes'):
             raise ValueError(f'card_schemes missing for {oid}')
         if not isinstance(offer.get('non_transaction_fees'),list):
@@ -430,12 +434,12 @@ def append_dataset_changes(changes: list[dict], previous: list[dict], current: l
         'provider','product','method','channel','pricing_model_code','variable_pct_min','variable_pct_max',
         'fixed_fee_min','fixed_fee_max','minimum_fee','monthly_fee','monthly_currency','monthly_fee_mode',
         'setup_fee','fee_currency','all_in_complete','comparison_estimate','condition','source_url',
-        'card_schemes','card_profile','tax_treatment',
+        'card_schemes','card_profile','tax_treatment','variable_pct_basis',
     )
     before={row['id']:row for row in previous}
     after={row['id']:row for row in current}
     existing={(item.get('offer_id'),item.get('field'),json.dumps(item.get('new'),sort_keys=True,ensure_ascii=False)) for item in changes}
-    schema_defaults={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment'}
+    schema_defaults={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment','variable_pct_basis'}
     for oid in sorted(after.keys()-before.keys()):
         row=after[oid]
         signature=(oid,'offer',json.dumps('added'))
@@ -499,6 +503,25 @@ def assign_provider_roles(offers: list[dict]) -> list[dict]:
     for offer in offers:
         key=(offer.get('country_iso2',''),provider_key(offer.get('provider')))
         offer['provider_role']=roles.get(key,provider_role(offer))
+    return offers
+
+
+def normalise_provider_types(offers: list[dict]) -> list[dict]:
+    """Keep provider_type as a display label for the structured provider_role.
+
+    Source provenance and pricing visibility belong to their own fields and
+    must not leak into the organisation type used by exports and the UI.
+    """
+    labels={
+        'acquirer':'Acquirer',
+        'acquirer_sales_channel':'Kanál acquirera',
+        'psp':'PSP',
+        'gateway_processor':'Brána / procesor',
+        'a2a_provider':'A2A poskytovatel',
+        'other':'Ostatní',
+    }
+    for offer in offers:
+        offer['provider_type']=labels[offer.get('provider_role','other')]
     return offers
 
 
@@ -861,6 +884,7 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             "pricing_components": components,
             "all_in_complete": False,
             "comparison_estimate": has_reference,
+            "variable_pct_basis": "provider_published",
             "notes": (
                 "Adyen processing fee + 0.60% acquiring markup. For Switzerland the dashboard adds a conservative domestic e-commerce debit reference: 0.28% interchange plus Mastercard scheme fees of 0.138% + CHF 0.052. This is a modelled comparison value, not a guaranteed quote."
                 if code == "CH" else
@@ -882,7 +906,11 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             "minimum_fee": None,
             "cap": None,
             "cap_currency": None,
-            "condition": "",
+            "condition": (
+                "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,28 % interchange a 0,138 % scheme fee + 0,052 CHF."
+                if code == "CH" else
+                "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee."
+            ),
             "promo": False,
             "last_changed_at": offer.get("last_changed_at"),
             "card_scheme": "intl",
@@ -1042,7 +1070,8 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
         return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
     rate=fx.get(offer.get('fee_currency'),{'czk_per_unit':1})['czk_per_unit']
     comparison=(offer.get('pricing_components') or {}).get('comparison_reference') or {}
-    addon=comparison.get('total_addon_pct') or 0
+    addon_min=comparison.get('total_addon_pct_min',comparison.get('total_addon_pct',0)) or 0
+    addon_max=comparison.get('total_addon_pct_max',comparison.get('total_addon_pct',0)) or 0
     fixed_addon=comparison.get('fixed_addon') or {}
     fixed_addon_rate=fx.get(fixed_addon.get('currency'),{'czk_per_unit':1})['czk_per_unit']
     fixed_addon_czk=(fixed_addon.get('amount') or 0)*fixed_addon_rate
@@ -1053,8 +1082,8 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
         variable_min=package_effective_pct
         variable_max=package_effective_pct
     else:
-        variable_min=offer['variable_pct_min']+addon
-        variable_max=offer['variable_pct_max']+addon
+        variable_min=offer['variable_pct_min']+addon_min
+        variable_max=offer['variable_pct_max']+addon_max
     mn=amount*variable_min/100+(offer.get('fixed_fee_min') or 0)*rate+fixed_addon_czk
     mx=amount*variable_max/100+(offer.get('fixed_fee_max') or 0)*rate+fixed_addon_czk
     minimum=(offer.get('minimum_fee') or 0)*rate
@@ -1451,10 +1480,11 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
+    cols=['id','country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_basis','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
-        for o in output['offers']:
+        offers=sorted(output['offers'],key=lambda o:(o.get('country_iso2',''),(o.get('provider') or '').casefold(),o.get('method',''),o.get('product',''),o.get('id','')))
+        for o in offers:
             c=o.get('calculation_reference',{})
             row={k:o.get(k) for k in cols}
             for field in ('non_transaction_fees','card_schemes'):
@@ -1478,7 +1508,7 @@ def main()->int:
     )))))
     offers=apply_audit_corrections(offers)
     prev_by_id={o['id']:o for o in previous.get('offers',[])}
-    schema_fields={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment'}
+    schema_fields={'pricing_model_code','monthly_fee_mode','all_in_complete','card_schemes','card_profile','tax_treatment','variable_pct_basis'}
     changes=[change for change in previous.get('change_log',[]) if not (
         change.get('change_origin')=='dataset' and change.get('old') is None and change.get('field') in schema_fields
     )][-250:]
@@ -1624,6 +1654,7 @@ def main()->int:
             offer['price_verified_on']=infer_price_verified_on(offer)
     normalise_offer_schema(offers)
     assign_provider_roles(offers)
+    normalise_provider_types(offers)
     validate_temporal_metadata(offers,now)
     validate_offer_schema(offers)
 
@@ -1655,7 +1686,7 @@ def main()->int:
         'counting_note':'Dashboard keeps distinct tariff, channel and card-profile rows. Exact duplicate economics may be collapsed; the export keeps every source row.',
     }
     changes=ensure_current_overlay_additions(append_dataset_changes(changes,previous.get('offers',[]),offers,now),offers,now)
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.0',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.1',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
             'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},

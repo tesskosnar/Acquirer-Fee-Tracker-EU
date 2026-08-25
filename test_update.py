@@ -542,6 +542,7 @@ def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():
     assert 'data-reset-dashboard' in dashboard
     assert '.sticky-home{position:sticky;top:0' in dashboard
     assert dashboard.index('class="fxnote"') < dashboard.index('id="export"')
+    assert 'href="data/changes.json"' not in dashboard
     controls=dashboard[dashboard.index('<section class="controls">'):dashboard.index('</section>',dashboard.index('<section class="controls">'))]
     assert 'id="export"' not in controls
 

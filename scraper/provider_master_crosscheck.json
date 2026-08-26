@@ -1,7 +1,12 @@
 {
-  "as_of": "2026-08-19",
+  "as_of": "2026-08-26",
   "scope": "Cross-check of the user-supplied regulatory master and public discovery directories against the country registries. This file is a research backlog, not a list of publishable merchant prices.",
   "methodology": "A group is published in a country only after an official product, market, tariff, FAQ or legal page proves that merchants can actually use the service there. Regulatory passporting, association membership and payment-facilitator registration create a candidate only.",
+  "candidate_review": {
+    "status": "open",
+    "unresolved_regulatory_acquiring_candidates": 22,
+    "publication_rule": "Keep the name in the internal backlog until an official source proves merchant acquiring, an addressable country and a current merchant offer. Add a numeric dashboard row only after a primary public tariff is semantically verified."
+  },
   "source_assessment": [
     {
       "name": "Regulatory-authority merged master supplied by the user",

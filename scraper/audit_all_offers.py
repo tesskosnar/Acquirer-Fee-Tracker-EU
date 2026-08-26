@@ -137,8 +137,8 @@ def main() -> int:
         scan = source["scan"]
         source_ok = any(page.get("status") == "ok" for page in scan["pages_checked"])
         for row in by_url[url]:
-            manually_verified = (
-                row.get("verification_state") == "verified_manual"
+            previously_verified = (
+                row.get("verification_state") in {"verified_manual", "verified_automated"}
                 and bool(row.get("price_verified_on"))
             )
             if row.get("variable_pct_min") is None:
@@ -150,24 +150,24 @@ def main() -> int:
                     outcome = "unpriced_numeric_lead_rejected_after_manual_review"
                 elif leads:
                     outcome = "unpriced_public_price_lead_requires_review"
-                elif source_ok and manually_verified:
+                elif source_ok and previously_verified:
                     outcome = "unpriced_manually_verified_without_public_number"
                 elif source_ok:
                     outcome = "unpriced_no_numeric_lead_on_scanned_official_pages"
-                elif manually_verified:
-                    outcome = "source_blocked_but_manually_verified"
+                elif previously_verified:
+                    outcome = "source_blocked_but_previously_verified"
                 else:
                     outcome = "source_unavailable_or_blocked"
                 match = None
             else:
                 match = evidence_match(row, source["texts"])
-                if not source_ok and manually_verified:
-                    outcome = "source_blocked_but_manually_verified"
+                if not source_ok and previously_verified:
+                    outcome = "source_blocked_but_previously_verified"
                 elif not source_ok:
                     outcome = "source_unavailable_or_blocked"
                 elif match["all_stored_components_found"]:
                     outcome = "stored_components_found_on_official_source"
-                elif manually_verified:
+                elif previously_verified:
                     outcome = "priced_row_manually_verified_parser_mismatch"
                 else:
                     outcome = "priced_row_requires_manual_source_review"

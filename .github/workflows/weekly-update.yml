@@ -16,7 +16,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - name: Checkout repozitáře
         uses: actions/checkout@v4
@@ -35,6 +35,9 @@ jobs:
       - name: Spustit týdenní aktualizaci (kurz ČNB + kontrola zdrojů + přepočet)
         run: python scraper/update.py
 
+      - name: Prověřit všechny publikované nabídky proti oficiálním zdrojům
+        run: python scraper/audit_all_offers.py --workers 12 --linked-page-limit 3 --timeout 15
+
       - name: Spustit testy (kontrola, že se nic nerozbilo)
         run: python -m pytest -q
 
@@ -49,12 +52,18 @@ jobs:
             git commit -m "chore: týdenní aktualizace poplatků ($(date -u +%Y-%m-%d))"
             # Pojistka pro nešťastné načasování (ruční push těsně mezi naším
             # pullem na začátku a pushem teď): zkusit rebase + push, max 3x.
+            pushed=false
             for i in 1 2 3; do
               if git pull --rebase origin main && git push; then
                 echo "Push úspěšný."
+                pushed=true
                 break
               fi
               echo "Pokus $i selhal, zkouším znovu za 10s..."
               sleep 10
             done
+            if [ "$pushed" != true ]; then
+              echo "Publikace selhala i po třech pokusech."
+              exit 1
+            fi
           fi

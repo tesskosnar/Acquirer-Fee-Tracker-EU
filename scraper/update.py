@@ -46,6 +46,7 @@ ADYEN_CARD_COUNTRIES = ADYEN_CEE_COUNTRIES | ADYEN_EUROPE_COUNTRIES
 ADYEN_ICPP_REFERENCE_COUNTRIES = ADYEN_CARD_COUNTRIES
 ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
 REFERENCE_TRANSACTION_EUR = 20.0
+REFERENCE_MONTHLY_ACCEPTANCE_TURNOVER_EUR = 5000.0
 ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT = 0.20
 ICPP_SCHEME_FEE_SOURCE_URL = "https://www.paybyrd.com/pricing/scheme-fees"
 ICPP_EEA_SCHEME_FEE_SCENARIOS = (
@@ -282,6 +283,10 @@ def normalise_offer_schema(offers: list[dict]) -> list[dict]:
             missing_icpp=(components.get('model')=='interchange++' and not offer.get('comparison_estimate'))
             offer['all_in_complete']=bool(numeric and not missing_icpp)
         offer['pricing_model_code']=pricing_model_code(offer)
+        # A promotional pricing model is itself structured evidence that the
+        # offer must not enter standard headline comparisons.
+        if offer['pricing_model_code']=='promo':
+            offer['promo']=True
         schemes,profile=card_scheme_fields(offer)
         offer['card_schemes']=schemes
         offer['card_profile']=profile
@@ -317,6 +322,12 @@ def normalise_offer_schema(offers: list[dict]) -> list[dict]:
         offer['monitoring_level']='price_parser' if offer.get('parser',{}).get('auto_parse') else ('source_monitor' if offer.get('source_id') else 'manual')
         offer.setdefault('source_last_attempt_at',None)
         offer.setdefault('source_last_attempt_status','not_attempted')
+        if (
+            not offer.get('source_checked_at')
+            and offer.get('source_last_attempt_status')=='ok'
+            and offer.get('source_last_attempt_at')
+        ):
+            offer['source_checked_at']=offer['source_last_attempt_at']
         offer['verification_state']=verification_state(offer)
         offer['verification_scope']='price' if numeric else 'service_or_role'
     return offers
@@ -371,6 +382,14 @@ def same_price_verification_basis(current: dict, previous: dict) -> bool:
 def initialise_temporal_metadata(offer: dict, previous: dict | None = None) -> dict:
     """Keep build time, source access and semantic price review independent."""
     offer.setdefault('source_checked_at',None)
+    if (
+        not offer.get('source_checked_at')
+        and offer.get('source_last_attempt_status')=='ok'
+        and offer.get('source_last_attempt_at')
+    ):
+        # A successful source-monitor attempt is a real successful fetch, not
+        # the build timestamp. Preserve it as the last successful access.
+        offer['source_checked_at']=offer['source_last_attempt_at']
     verified_on=infer_price_verified_on(offer)
     if not verified_on and previous and same_price_verification_basis(offer,previous):
         verified_on=_iso_date(previous.get('price_verified_on'))
@@ -1105,8 +1124,20 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     fixed_addon_rate=fx.get(fixed_addon.get('currency'),{'czk_per_unit':1})['czk_per_unit']
     fixed_addon_czk=(fixed_addon.get('amount') or 0)*fixed_addon_rate
     package_effective_pct=offer.get('package_effective_pct')
-    if (offer.get('monthly_fee') or 0)>0 and package_effective_pct is None:
-        return {'fee_min_czk':None,'fee_max_czk':None,'effective_min_pct':None,'effective_max_pct':None}
+    monthly_fee=offer.get('monthly_fee') or 0
+    monthly_currency=offer.get('monthly_currency') or offer.get('fee_currency')
+    monthly_rate=fx.get(monthly_currency,{'czk_per_unit':1})['czk_per_unit']
+    monthly_turnover_czk=REFERENCE_MONTHLY_ACCEPTANCE_TURNOVER_EUR*fx.get('EUR',{'czk_per_unit':1})['czk_per_unit']
+    monthly_pct=(monthly_fee*monthly_rate/monthly_turnover_czk*100) if monthly_fee and monthly_turnover_czk else 0
+
+    def apply_monthly_fee(mn:float,mx:float)->tuple[float,float]:
+        if not monthly_pct or package_effective_pct is not None:
+            return mn,mx
+        if offer.get('monthly_fee_mode')=='minimum_commitment':
+            floor=amount*monthly_pct/100
+            return max(mn,floor),max(mx,floor)
+        addon=amount*monthly_pct/100
+        return mn+addon,mx+addon
     if package_effective_pct is not None:
         variable_min=package_effective_pct
         variable_max=package_effective_pct
@@ -1127,12 +1158,14 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
         minimum=(offer.get('minimum_fee') or 0)*rate
         mn=max(min(scenario_min),minimum)
         mx=max(max(scenario_max),minimum)
+        mn,mx=apply_monthly_fee(mn,mx)
         return {'fee_min_czk':round(mn,4),'fee_max_czk':round(mx,4),'effective_min_pct':round(mn/amount*100,4),'effective_max_pct':round(mx/amount*100,4)}
     mn=amount*variable_min/100+(offer.get('fixed_fee_min') or 0)*rate+fixed_addon_czk
     mx=amount*variable_max/100+(offer.get('fixed_fee_max') or 0)*rate+fixed_addon_czk
     minimum=(offer.get('minimum_fee') or 0)*rate
     mn=max(mn,minimum)
     mx=max(mx,minimum)
+    mn,mx=apply_monthly_fee(mn,mx)
     return {'fee_min_czk':round(mn,4),'fee_max_czk':round(mx,4),'effective_min_pct':round(mn/amount*100,4),'effective_max_pct':round(mx/amount*100,4)}
 
 
@@ -1709,6 +1742,10 @@ def main()->int:
     cee_audit=build_cee_audit(registry,offers)
     europe_audit=build_registry_audit(europe_registry,offers)
     watchlist_audit=build_registry_audit(watchlist,offers)
+    unresolved_acquiring_candidates=[
+        item for item in master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])
+        if item.get('category')=='regulatory_acquiring_candidate'
+    ]
     unpriced=[offer for offer in offers if offer.get('variable_pct_min') is None]
     data_quality={
         'offer_row_count':len(offers),
@@ -1727,17 +1764,19 @@ def main()->int:
         'manual_monitoring_row_count':sum(1 for offer in offers if offer.get('monitoring_level')=='manual'),
         'last_attempt_failed_row_count':sum(1 for offer in offers if str(offer.get('source_last_attempt_status','')).startswith('error')),
         'recurring_fee_row_count':sum(1 for offer in offers if (offer.get('monthly_fee') or 0)>0),
+        'unresolved_acquiring_candidate_count':len(unresolved_acquiring_candidates),
+        'all_offer_source_audit_frequency':'weekly',
         'counting_note':'Dashboard keeps distinct tariff, channel and card-profile rows. Exact duplicate economics may be collapsed; the export keeps every source row.',
     }
     changes=ensure_current_overlay_additions(append_dataset_changes(changes,previous.get('offers',[]),offers,now),offers,now)
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.2',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.3',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
-            'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'eea_scheme_fee_scenarios':[dict(item) for item in ICPP_EEA_SCHEME_FEE_SCENARIOS],'uk_scheme_fee_scenarios':[dict(item) for item in ICPP_UK_SCHEME_FEE_SCENARIOS],'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
+            'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','monthly_acceptance_turnover_eur':REFERENCE_MONTHLY_ACCEPTANCE_TURNOVER_EUR,'monthly_fee_method':'Additional recurring fees are allocated over the reference monthly acceptance turnover; minimum commitments are applied as a floor.','headline_scope':'Online or channel-unspecified consumer-card offers; all-card tariffs are included because they also apply to consumer cards. POS, commercial-card and card-profile-unspecified offers are excluded.','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'eea_scheme_fee_scenarios':[dict(item) for item in ICPP_EEA_SCHEME_FEE_SCENARIOS],'uk_scheme_fee_scenarios':[dict(item) for item in ICPP_UK_SCHEME_FEE_SCENARIOS],'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},
             'europe_acquirer_registry':{'as_of':europe_registry.get('as_of'),'provider_count':len(europe_registry.get('providers',[])),'country_count':len({item.get('country_iso2') for item in europe_registry.get('providers',[])})},
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},
             'watchlist_audit':watchlist_audit,
-            'provider_master_crosscheck':{'as_of':master_crosscheck.get('as_of'),'normalised_group_count':master_crosscheck.get('regulatory_master',{}).get('normalised_group_count',0),'new_candidate_group_count':len(master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])),'verified_country_addition_count':len(master_crosscheck.get('verified_country_additions',[]))},
+            'provider_master_crosscheck':{'as_of':master_crosscheck.get('as_of'),'normalised_group_count':master_crosscheck.get('regulatory_master',{}).get('normalised_group_count',0),'new_candidate_group_count':len(master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])),'unresolved_acquiring_candidate_count':len(unresolved_acquiring_candidates),'verified_country_addition_count':len(master_crosscheck.get('verified_country_additions',[]))},
             'data_quality':data_quality,
             'cee_audit':cee_audit,
             'europe_audit':europe_audit,

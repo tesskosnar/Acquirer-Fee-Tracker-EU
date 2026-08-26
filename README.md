@@ -15,7 +15,8 @@ Pro objevování dalších jmen se používají i kvalitní oborové zdroje, zej
 - Dashboard ukazuje jeden sloupec **Celková sazba** pro jednotnou referenční transakci 20 EUR.
 - Pevná transakční složka se převede kurzem a zahrne přímo do výsledného procenta; její rozpad se v tabulce neopakuje.
 - Odlišné produkty, online/POS kanály, karetní profily a cenové modely zůstávají jako samostatné řádky. Slučují se jen ekonomicky totožné záznamy.
-- Měsíční paušál je vidět ve sloupci **Další poplatky**. Pokud ceník neposkytuje vlastní objemový základ, nabídka nevstupuje do pořadí podle celkové sazby; paušál ani jednorázová aktivace či hardware se svévolně nerozpouštějí do transakce. Výjimkou jsou balíčky s veřejným limitem, z něhož lze efektivní sazbu přímo odvodit.
+- Měsíční paušál je vidět ve sloupci **Další poplatky** a pro jednotné srovnání se rozpočítává při referenčním měsíčním obratu 5 000 EUR. Minimální měsíční plnění se použije jako spodní hranice, nikoli jako další příplatek. Jednorázová aktivace a hardware se do transakční sazby nezapočítávají. Balíčky s vlastním veřejným limitem používají tento limit.
+- Hlavní KPI a mapa používají online (nebo kanálově neuvedené) spotřebitelské karetní nabídky. Zahrnují i tarify platné pro všechny karty, protože platí také pro spotřebitelskou kartu; POS, firemní a profilově neurčené sazby do KPI nevstupují. Tabulka a export je nadále obsahují.
 - **Individuální nabídka** zůstane bez vymyšleného čísla.
 - U tarifního rozmezí se řazení, medián a výběr nejlevnější nabídky opírají o horní hranici. Dashboard tak neprezentuje nejlepší obratové pásmo jako obecně dostupnou cenu.
 - Znak `≈` označuje modelovaný výsledek (například dopočet IC++ nebo plné využití veřejného balíčku), nikoli přesnou garantovanou sazbu.

@@ -318,7 +318,7 @@ tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
     <div class="kpi"><span>Nejnižší sazba</span><strong id="kpiMin">—</strong><small id="kpiMinName">—</small></div>
     <div class="kpi"><span>Nejvyšší sazba</span><strong id="kpiMax">—</strong><small id="kpiMaxName">—</small></div>
     <div class="kpi"><span>Medián</span><strong id="kpiMedian">—</strong><small>z horních hranic porovnatelných sazeb</small></div>
-    <div class="kpi"><span>Srovnávací transakce</span><strong>20 €</strong><small>včetně fixního poplatku</small></div>
+    <div class="kpi"><span>Srovnávací profil</span><strong>20 €</strong><small>paušál při obratu 5 000 € měsíčně</small></div>
   </section>
 
   <section class="panel" style="padding:19px 21px">
@@ -364,7 +364,8 @@ tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
       <div><dt>Ostatní karetní schémata</dt><dd id="otherSchemesGlossary">Schémata mimo Visa/MC a národní systémy.</dd></div>
       <div><dt>A2A převod</dt><dd>Platba iniciovaná přímo z účtu zákazníka na účet obchodníka, bez karetní sítě.</dd></div>
       <div><dt>IC++</dt><dd>Interchange + scheme fee + marže. Odhad zahrnuje procentní i pevnou scheme složku; výsledek označuje ≈.</dd></div>
-      <div><dt>Celková sazba</dt><dd>Transakční náklad v % z 20 €, včetně fixní složky a označených odhadů.</dd></div>
+      <div><dt>Celková sazba</dt><dd>Náklad v % z 20 €; paušál se rozpočítá při měsíčním obratu 5 000 €.</dd></div>
+      <div><dt>KPI a mapa</dt><dd>Online spotřebitelská karta; POS, firemní a neurčené profily jsou mimo.</dd></div>
     </dl>
   </details>
 
@@ -585,7 +586,21 @@ function calc(o) {
   const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const packageEffectivePct = o.package_effective_pct;
-  if ((o.monthly_fee || 0) > 0 && packageEffectivePct == null) return {min:null, max:null, emin:null, emax:null};
+  const monthlyFee=o.monthly_fee || 0;
+  const monthlyCurrency=o.monthly_currency || o.fee_currency;
+  const monthlyFx=S.data.fx.rates[monthlyCurrency]?.czk_per_unit ?? 1;
+  const monthlyTurnoverEur=S.data.comparison_profile?.monthly_acceptance_turnover_eur ?? 5000;
+  const monthlyTurnoverCzk=monthlyTurnoverEur*eurRate;
+  const monthlyPct=monthlyFee && monthlyTurnoverCzk ? monthlyFee*monthlyFx/monthlyTurnoverCzk*100 : 0;
+  const applyMonthlyFee=(minCzk,maxCzk) => {
+    if (!monthlyPct || packageEffectivePct != null) return [minCzk,maxCzk];
+    if (o.monthly_fee_mode === 'minimum_commitment') {
+      const floor=amountCzk*monthlyPct/100;
+      return [Math.max(minCzk,floor),Math.max(maxCzk,floor)];
+    }
+    const addon=amountCzk*monthlyPct/100;
+    return [minCzk+addon,maxCzk+addon];
+  };
   const schemeScenarios = comparison.scheme_fee_scenarios || [];
   if (schemeScenarios.length && packageEffectivePct == null) {
     const interchangePct = comparison.interchange_pct || 0;
@@ -599,16 +614,18 @@ function calc(o) {
       };
     });
     const minimumCzk = (o.minimum_fee || 0) * fx;
-    const minCzk = Math.max(Math.min(...scenarioValues.map(value => value.min)), minimumCzk);
-    const maxCzk = Math.max(Math.max(...scenarioValues.map(value => value.max)), minimumCzk);
+    let minCzk = Math.max(Math.min(...scenarioValues.map(value => value.min)), minimumCzk);
+    let maxCzk = Math.max(Math.max(...scenarioValues.map(value => value.max)), minimumCzk);
+    [minCzk,maxCzk]=applyMonthlyFee(minCzk,maxCzk);
     const toDisplay = value => S.ccy === 'EUR' ? value / eurRate : value;
     return {min:toDisplay(minCzk), max:toDisplay(maxCzk), emin:minCzk / amountCzk * 100, emax:maxCzk / amountCzk * 100};
   }
   const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddonMin);
   const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddonMax);
   const minimumCzk = (o.minimum_fee || 0) * fx;
-  const minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
-  const maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
+  let minCzk = Math.max(amountCzk * variableMin / 100 + (o.fixed_fee_min || 0) * fx + fixedAddonCzk, minimumCzk);
+  let maxCzk = Math.max(amountCzk * variableMax / 100 + (o.fixed_fee_max || 0) * fx + fixedAddonCzk, minimumCzk);
+  [minCzk,maxCzk]=applyMonthlyFee(minCzk,maxCzk);
   const toDisplay = v => S.ccy === 'EUR' ? v / eurRate : v;
   return { min: toDisplay(minCzk), max: toDisplay(maxCzk), emin: minCzk / amountCzk * 100, emax: maxCzk / amountCzk * 100 };
 }
@@ -625,8 +642,14 @@ function isComparable(o) {
   return o.promo !== true && o.tax_treatment !== 'excluding_vat' && o._c?.emin != null && isFullyCalculable(o) && isSourceReviewed(o);
 }
 
+function isHeadlineComparable(o) {
+  if (!isComparable(o)) return false;
+  if (o.method !== 'card') return true;
+  return o.channel !== 'pos' && ['consumer','all'].includes(o.card_profile);
+}
+
 function isApproximate(o) {
-  return o.comparison_estimate === true || o.package_effective_pct != null;
+  return o.comparison_estimate === true || o.package_effective_pct != null || (o.monthly_fee || 0) > 0;
 }
 
 function comparisonRate(o) {
@@ -667,11 +690,13 @@ function effectiveRate(o) {
     if (o.package_effective_pct != null) return `≈ ${value} při využití limitu`;
     if (o.promo === true && o._c.emin === 0) return `akční ${value}`;
     if (o.comparison_estimate === true) return `≈ ${value}`;
+    if ((o.monthly_fee || 0) > 0) return `≈ ${model === 'from' ? 'od ' : ''}${value}`;
     if (model === 'from') return `od ${value}`;
     if (model === 'up_to') return `max. ${value}`;
     return value;
   }
   if (o.comparison_estimate === true) return `≈ ${value}`;
+  if ((o.monthly_fee || 0) > 0) return `≈ ${model === 'from' ? 'od ' : ''}${value}`;
   if (model === 'from') return `od ${value}`;
   if (model === 'up_to') return `max. ${value}`;
   return isFullyCalculable(o) ? value : `min. ${value}`;
@@ -750,6 +775,7 @@ function pricingReference(o) {
     }
   }
   if (o.package_effective_pct != null) parts.push('Celková sazba = paušál / zahrnutý obrat při plném využití limitu.');
+  else if ((o.monthly_fee || 0) > 0) parts.push(`Měsíční paušál je započten při srovnávacím obratu ${(S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000).toLocaleString('cs-CZ')} €.`);
   if (o.condition) parts.push(esc(o.condition));
   return parts.map(part => `<span class="sub">${part}</span>`).join('');
 }
@@ -833,26 +859,28 @@ function render() {
 }
 
 function renderKpis() {
-  const rows = compactOffers(contextOffers()).filter(o => isComparable(o));
-  const vals = rows.filter(o => o._c.emax != null).map(o => o._c.emax);
+  const rows = compactOffers(contextOffers()).filter(o => isHeadlineComparable(o));
   const byMin = [...rows.filter(o => o._c.emax != null)].sort((a,b) => a._c.emax - b._c.emax);
   const byMax = [...rows.filter(o => o._c.emax != null)].sort((a,b) => b._c.emax - a._c.emax);
   const best = byMin[0], worst = byMax[0];
-  const sorted = vals.sort((a,b) => a-b);
-  const median = sorted.length ? sorted[Math.floor(sorted.length/2)] : null;
+  const sortedRows = [...rows.filter(o => o._c.emax != null)].sort((a,b) => a._c.emax-b._c.emax);
+  const upperIndex=Math.floor(sortedRows.length/2);
+  const lowerIndex=Math.max(0,Math.ceil(sortedRows.length/2)-1);
+  const median = sortedRows.length ? (sortedRows[lowerIndex]._c.emax+sortedRows[upperIndex]._c.emax)/2 : null;
+  const medianApprox=sortedRows.length ? [sortedRows[lowerIndex],sortedRows[upperIndex]].some(isApproximate) : false;
 
   document.getElementById('kpiMin').textContent = best ? comparisonRate(best) : '—';
   document.getElementById('kpiMinName').textContent = best ? `${best.provider} · ${best.country_iso2}` : '—';
   document.getElementById('kpiMax').textContent = worst ? comparisonRate(worst) : '—';
   document.getElementById('kpiMaxName').textContent = worst ? `${worst.provider} · ${worst.country_iso2}` : '—';
-  document.getElementById('kpiMedian').textContent = fmtPct(median);
+  document.getElementById('kpiMedian').textContent = `${medianApprox ? '≈ ' : ''}${fmtPct(median)}`;
   document.getElementById('kpiMin').title='Vybráno podle nejnižší horní hranice sazby.';
   document.getElementById('kpiMax').title='Použita horní hranice sazby.';
 }
 
 function renderMap() {
   const svg = document.getElementById('map');
-  const base = allWithCalc().filter(o => isComparable(o) && matchSearch(o) && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o));
+  const base = allWithCalc().filter(o => isHeadlineComparable(o) && matchSearch(o) && (!S.provider || o.provider === S.provider) && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o));
 
   let byCountry = {};
   for (const o of base) {
@@ -931,8 +959,8 @@ function renderMapDetail() {
   }
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
-  const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
-  const withVal = rows.filter(o => isComparable(o) && o._c.emax != null).sort((a,b) => a._c.emax - b._c.emax);
+  const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && (!S.provider || o.provider === S.provider) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
+  const withVal = rows.filter(o => isHeadlineComparable(o) && o._c.emax != null).sort((a,b) => a._c.emax - b._c.emax);
   const lo = withVal[0];
   const overallMin=withVal.length ? Math.min(...withVal.map(o => o._c.emin)) : null;
   const overallMax=withVal.length ? Math.max(...withVal.map(o => o._c.emax)) : null;
@@ -1189,6 +1217,7 @@ function renderAuditSummary() {
   }).join('');
   document.getElementById('auditContent').innerHTML=`
     <b>${quality.active_price_parser_row_count || 0}</b> řádků má automatický cenový parser, <b>${quality.source_monitor_row_count || 0}</b> další sledují dostupnost oficiálního zdroje a <b>${quality.manual_monitoring_row_count || 0}</b> se reviduje ručně.
+    <br>Každý týden se navíc prověřují oficiální zdroje všech nabídek; nalezené cenové stopy čekají na významovou kontrolu před změnou ceny.
     ${failed ? `<br><b>${failed}</b> posledních pokusů o kontrolu zdroje selhalo; poslední dobrá cena zůstala zachována.` : ''}
     <br>Číselná cena: <b>${quality.numeric_price_row_count || 0}</b> · bez veřejného čísla: <b>${quality.no_numeric_price_row_count || 0}</b>.
     <br>Poslední zachycené změny:
@@ -1210,17 +1239,17 @@ function renderGlossary() {
 
 function exportCsv() {
   const selected=contextOffers();
-  const rows=(selected.length ? selected : allWithCalc()).sort((a,b) =>
+  const rows=selected.sort((a,b) =>
     a.country_iso2.localeCompare(b.country_iso2) ||
     a.provider.localeCompare(b.provider,'cs') ||
     (a.method || '').localeCompare(b.method) ||
     (a.product || '').localeCompare(b.product,'cs')
   );
-  const head = ['country','provider','provider_type','product','method','card_scheme','published_rate','reference_transaction','reference_currency','effective_min_pct','effective_max_pct','comparison_estimate','source_url','comparison_source_url'];
+  const head = ['country','provider','provider_type','provider_role','product','method','channel','card_schemes','card_profile','pricing_model','pricing_model_code','published_rate','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','setup_fee','setup_currency','non_transaction_fees','reference_transaction','reference_currency','reference_monthly_turnover_eur','effective_min_pct','effective_max_pct','comparison_estimate','promo','condition','price_verified_on','source_url','comparison_source_url'];
   const lines = [head.join(',')];
   for (const o of rows) {
     const c = o._c;
-    lines.push([o.country_iso2, o.provider, o.provider_type, o.product, o.method, o.card_scheme || '', published(o), S.amount, S.ccy, c.emin, c.emax, o.comparison_estimate === true, o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '']
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.provider_role, o.product, o.method, o.channel || '', (o.card_schemes || []).join('|'), o.card_profile || '', o.pricing_model, o.pricing_model_code, published(o), o.variable_pct_min, o.variable_pct_max, o.fixed_fee_min, o.fixed_fee_max, o.minimum_fee, o.fee_currency, o.monthly_fee, o.monthly_currency, o.monthly_fee_mode, o.setup_fee, o.setup_currency, JSON.stringify(o.non_transaction_fees || []), S.amount, S.ccy, S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000, c.emin, c.emax, o.comparison_estimate === true, o.promo === true, o.condition || '', o.price_verified_on || '', o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '']
       .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
   }
   const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});

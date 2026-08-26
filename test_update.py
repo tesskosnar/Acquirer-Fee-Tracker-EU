@@ -96,14 +96,24 @@ def test_package_fee_is_converted_to_effective_rate_at_full_limit_usage():
     assert x['effective_min_pct']==1.3267
 
 
-def test_monthly_fee_without_public_volume_basis_is_not_ranked():
+def test_monthly_fee_is_allocated_over_explicit_reference_turnover():
     offer={
         'variable_pct_min':0,'variable_pct_max':0,'fixed_fee_min':0,'fixed_fee_max':0,
-        'monthly_fee':5,'fee_currency':'EUR',
+        'monthly_fee':5,'monthly_currency':'EUR','monthly_fee_mode':'additional','fee_currency':'EUR',
     }
     fx={'EUR':{'czk_per_unit':25.0}}
     x=calc(offer,fx)
-    assert x['effective_min_pct'] is None
+    assert x['fee_min_czk']==0.5
+    assert x['effective_min_pct']==0.1
+
+
+def test_monthly_minimum_commitment_is_a_floor_not_an_addon():
+    offer={
+        'variable_pct_min':0.5,'variable_pct_max':0.5,'fixed_fee_min':0,'fixed_fee_max':0,
+        'monthly_fee':50,'monthly_currency':'EUR','monthly_fee_mode':'minimum_commitment','fee_currency':'EUR',
+    }
+    result=calc(offer,{'EUR':{'czk_per_unit':25.0}})
+    assert result['effective_min_pct']==1.0
 
 
 def test_cee_overlay_replaces_wrong_rows_and_adds_local_acquirers():
@@ -206,6 +216,8 @@ def test_master_crosscheck_keeps_passporting_and_facilitators_out_of_country_reg
     decisions={item['name']:item['decision'] for item in crosscheck['source_assessment']}
     assert decisions['Mastercard registered payment facilitators']=='discovery_only'
     assert decisions['Visa Singapore acquirers']=='excluded_from_europe_crosscheck'
+    unresolved=[item for item in master['new_candidate_groups'] if item['category']=='regulatory_acquiring_candidate']
+    assert len(unresolved)==crosscheck['candidate_review']['unresolved_regulatory_acquiring_candidates']==22
 
 
 def test_a2a_country_coverage_is_verified_for_reported_gaps():
@@ -470,14 +482,15 @@ def test_external_ai_leads_are_added_only_as_verified_acquirers():
     assert by_provider[('GR','NBG Pay / IRIS Commerce','a2a')]['cap']==0.5
 
 
-def test_ccv_netherlands_keeps_debit_and_credit_as_an_honest_range():
+def test_ccv_netherlands_keeps_debit_and_credit_as_separate_scenarios():
     baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
     offers=apply_europe_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
-    ccv=next(offer for offer in offers if offer['id']=='NL-ccv-debit-credit-card')
-    assert ccv['variable_pct_min']==0
-    assert ccv['variable_pct_max']==1.3
-    assert ccv['fixed_fee_min']==0.068
-    assert ccv['fixed_fee_max']==0
+    by_id={offer['id']:offer for offer in offers}
+    debit=by_id['NL-ccv-domestic-consumer-debit-card']
+    credit=by_id['NL-ccv-eea-consumer-credit-card']
+    assert (debit['variable_pct_min'],debit['fixed_fee_min'])==(0,0.068)
+    assert (credit['variable_pct_min'],credit['fixed_fee_min'])==(1.3,0)
+    assert debit['channel']==credit['channel']=='pos'
 
 
 def test_german_and_portuguese_public_price_corrections_are_kept():
@@ -715,11 +728,30 @@ def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():
 def test_dashboard_does_not_treat_promos_or_monthly_fees_as_zero_total():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     assert 'o.promo !== true' in dashboard
-    assert "(o.monthly_fee || 0) > 0 && packageEffectivePct == null" in dashboard
+    assert 'monthly_acceptance_turnover_eur ?? 5000' in dashboard
+    assert "o.monthly_fee_mode === 'minimum_commitment'" in dashboard
     assert 'id="monthlyTransactions"' not in dashboard
     assert 'akční ${value}' in dashboard
     assert 'při využití limitu' in dashboard
     assert 'return [...permanent, ...promos, ...withoutVal]' in dashboard
+
+
+def test_promo_pricing_model_always_sets_structured_promo_flag():
+    rows=[{'id':'promo','method':'card','pricing_model':'Promo','variable_pct_min':0.89,'variable_pct_max':0.89}]
+    update.normalise_offer_schema(rows)
+    assert rows[0]['pricing_model_code']=='promo'
+    assert rows[0]['promo'] is True
+
+
+def test_successful_source_attempt_populates_last_successful_fetch_timestamp():
+    offer={
+        'verification':'z rozšířeného datasetu',
+        'source_status':'seeded','source_checked_at':None,
+        'source_last_attempt_status':'ok','source_last_attempt_at':'2026-08-25T09:34:13+00:00',
+    }
+    initialise_temporal_metadata(offer)
+    assert offer['source_checked_at']=='2026-08-25T09:34:13+00:00'
+    assert offer['price_verified_on'] is None
 
 
 def test_dashboard_uses_structured_verification_pricing_and_audit_fields():
@@ -816,6 +848,31 @@ def test_dashboard_uses_conservative_ranges_and_clears_hidden_a2a_scheme_filter(
     assert "if (S.method !== 'card')" in dashboard
     assert "S.scheme = ''" in dashboard
     assert "return `${isApproximate(o) ? '≈ ' : ''}${range}`" in dashboard
+
+
+def test_dashboard_median_map_provider_and_current_export_regressions():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert '(sortedRows[lowerIndex]._c.emax+sortedRows[upperIndex]._c.emax)/2' in dashboard
+    assert "(!S.provider || o.provider === S.provider)" in dashboard
+    export=dashboard[dashboard.index('function exportCsv()'):dashboard.index('async function init()')]
+    assert 'const rows=selected.sort' in export
+    assert 'selected.length ? selected : allWithCalc()' not in export
+    assert "'monthly_fee','monthly_currency','monthly_fee_mode'" in export
+    assert 'JSON.stringify(o.non_transaction_fees || [])' in export
+
+
+def test_headline_metrics_exclude_explicit_pos_and_commercial_card_rows():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert "return o.channel !== 'pos' && ['consumer','all'].includes(o.card_profile)" in dashboard
+    assert 'filter(o => isHeadlineComparable(o))' in dashboard
+
+
+def test_bbva_standard_rate_has_explicit_all_card_profile_for_spanish_median():
+    baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
+    rows=apply_europe_verified_overlay([],baseline['countries'])
+    offer=next(row for row in rows if row['id']=='ES-bbva-tpv-virtual-standard-card')
+    assert offer['card_profile']=='all'
+    assert offer['variable_pct_min']==0.4
 
 
 def test_dashboard_includes_map_insets_unique_sources_expandable_rows_and_mobile_cards():

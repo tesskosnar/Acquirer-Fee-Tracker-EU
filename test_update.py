@@ -646,13 +646,20 @@ def test_dashboard_names_national_schemes_and_title_resets_all_filters():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     for country, scheme in {
         'BE':'Bancontact',
-        'CH':'PostFinance Card',
-        'DE':'Girocard',
+        'BG':'Bcard',
+        'DE':'girocard',
         'DK':'Dankort',
         'FR':'Cartes Bancaires (CB)',
         'IT':'PagoBANCOMAT',
+        'PT':'MULTIBANCO',
+        'SI':'Karanta',
+        'MT':'CashlinkMALTA',
+        'CH':'PostFinance Card',
     }.items():
-        assert f"{country}:'{scheme}'" in dashboard
+        assert f"{country}:{{name:'{scheme}'" in dashboard
+    assert dashboard.count('ecb2024:true')==9
+    assert 'class="national-scheme-key"' in dashboard
+    assert "nationalScheme=NATIONAL_SCHEMES[S.country]" in dashboard
     assert 'id="homeReset"' in dashboard
     assert 'data-scheme-tooltip=' in dashboard
     assert 'Object.assign(S, DEFAULT_FILTERS)' in dashboard
@@ -709,6 +716,22 @@ def test_dashboard_search_offers_five_fuzzy_keyboard_accessible_suggestions():
     assert '.slice(0,5)' in dashboard
     assert "e.key === 'ArrowDown'" in dashboard
     assert "e.key === 'Enter'" in dashboard
+    search_handler=dashboard[dashboard.index("document.getElementById('search').oninput"):dashboard.index("document.getElementById('search').onfocus")]
+    suggestion_handler=dashboard[dashboard.index('function selectSearchSuggestion'):dashboard.index('function renderSearchSuggestions')]
+    assert "S.provider = ''" not in search_handler
+    assert "S.provider=''" not in suggestion_handler
+    assert "(!S.country || o.country_iso2 === S.country)" in dashboard
+    assert "if (S.provider) rows = rows.filter" in dashboard
+    assert "if (S.country) rows = rows.filter" in dashboard
+
+
+def test_dashboard_uses_update_date_and_omits_duplicate_fx_note():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert 'Změny k poslední aktualizaci k dni <span id="auditUpdatedDate">—</span>' in dashboard
+    assert "formatIsoDate(String(S.data.generated_at).slice(0,10))" in dashboard
+    assert 'Přepočteno dle kurzu ČNB ze dne' not in dashboard
+    assert 'id="fxdate2"' not in dashboard
+    assert 'Srovnání poplatků za acquiring' in dashboard
 
 
 def test_barion_ranges_cover_all_public_cee_tariffs_without_first_tier_shortcut():

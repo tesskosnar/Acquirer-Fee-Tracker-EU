@@ -642,7 +642,7 @@ def test_country_suffix_is_removed_from_provider_display_name():
     ]
 
 
-def test_dashboard_names_national_schemes_and_title_resets_all_filters():
+def test_dashboard_names_national_schemes_only_on_relevant_offers_and_title_resets_all_filters():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     for country, scheme in {
         'BE':'Bancontact',
@@ -658,8 +658,10 @@ def test_dashboard_names_national_schemes_and_title_resets_all_filters():
     }.items():
         assert f"{country}:{{name:'{scheme}'" in dashboard
     assert dashboard.count('ecb2024:true')==9
-    assert 'class="national-scheme-key"' in dashboard
-    assert "nationalScheme=NATIONAL_SCHEMES[S.country]" in dashboard
+    assert 'national-scheme-key' not in dashboard
+    assert 'has-national-scheme' not in dashboard
+    assert "nationalScheme=NATIONAL_SCHEMES[S.country]" not in dashboard
+    assert 'Národní karetní schéma</div><div class="val"' not in dashboard
     assert 'id="homeReset"' in dashboard
     assert 'data-scheme-tooltip=' in dashboard
     assert 'Object.assign(S, DEFAULT_FILTERS)' in dashboard

@@ -125,19 +125,15 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,[t
 .map-svg-host svg{width:100%;height:auto;display:block}
 .country-shape{stroke:var(--light-bg);stroke-width:1;transition:.15s}
 .country-shape.context{fill:#e5e0cf;stroke:var(--light-bg)}
-.country-shape.has-national-scheme{stroke:#9a4f8f;stroke-width:2}
 .country-shape.active-country{cursor:pointer}
 .country-shape.active-country:hover{stroke:var(--navy);stroke-width:2}
 .country-shape.selected{stroke:#e8543f;stroke-width:3}
 .country-shape.dimmed{opacity:.22}
 .legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:10px;flex-wrap:wrap}
 .legend .grad{width:120px;height:7px;border-radius:20px;background:linear-gradient(90deg,var(--scale-0),var(--scale-1),var(--scale-2),var(--scale-3),var(--scale-4),var(--scale-5),var(--scale-6),var(--scale-7))}
-.national-scheme-key{display:inline-flex;align-items:center;gap:5px;margin-left:8px}
-.national-scheme-key::before{content:'';width:10px;height:10px;border:2px solid #9a4f8f;border-radius:3px;background:#efe9d8}
 .map-insets{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
 .map-inset{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--light-line);border-radius:8px;background:var(--light-bg);color:var(--light-ink);padding:5px 8px;font-size:11px;font-weight:700;cursor:pointer}
 .map-inset:hover{border-color:var(--navy)}
-.map-inset.has-national-scheme{border:2px solid #9a4f8f}
 .map-inset.selected{outline:2px solid #e8543f;outline-offset:1px}
 .map-inset.dimmed{opacity:.35}
 .map-inset .swatch{width:9px;height:9px;border-radius:50%;background:#efe9d8;flex:0 0 auto}
@@ -332,7 +328,7 @@ tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
     <div class="map-wrap">
       <div>
         <div class="map-svg-host"><svg id="map" viewBox="0 0 600 700" aria-label="Mapa Evropy"></svg></div>
-        <div class="legend"><span id="legendLo">—</span><span class="grad"></span><span id="legendHi">—</span><span class="national-scheme-key">národní karetní schéma</span></div>
+        <div class="legend"><span id="legendLo">—</span><span class="grad"></span><span id="legendHi">—</span></div>
         <div class="map-insets" id="mapInsets" aria-label="Ostrovní státy mimo výřez mapy"></div>
       </div>
       <div class="map-detail" id="mapDetail"></div>
@@ -851,16 +847,13 @@ function renderMap() {
     const offer = byCountry[p.iso2];
     const v = offer?._c.emax;
     const hasData = offer != null;
-    const nationalScheme = NATIONAL_SCHEMES[p.iso2];
-    const ecbNationalScheme=nationalScheme?.ecb2024 === true;
-    const interactive = hasData || ecbNationalScheme;
+    const interactive = hasData;
     const isSelected = S.country === p.iso2;
     const inRegion = !S.region || REGION_COUNTRIES[S.region].includes(p.iso2);
     const fill = hasData ? scaleColor(v, mn, mx) : '#efe9d8';
-    const cls = ['country-shape', interactive ? 'active-country' : '', ecbNationalScheme ? 'has-national-scheme' : '', isSelected ? 'selected' : '', !inRegion ? 'dimmed' : ''].filter(Boolean).join(' ');
+    const cls = ['country-shape', interactive ? 'active-country' : '', isSelected ? 'selected' : '', !inRegion ? 'dimmed' : ''].filter(Boolean).join(' ');
     const rateLabel=hasData ? `srovnávací sazba ${comparisonRate(offer)}` : 'zatím bez porovnatelné sazby';
-    const schemeLabel=nationalScheme ? `, národní schéma ${nationalScheme.name}` : '';
-    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}" ${interactive ? `tabindex="0" role="button" aria-label="${esc(p.name)}, ${esc(rateLabel + schemeLabel)}"` : ''}><title>${esc(p.name)} · ${esc(rateLabel)}${nationalScheme ? ` · národní schéma ${esc(nationalScheme.name)}` : ''}</title></path>`;
+    return `<path class="${cls}" data-iso="${p.iso2}" d="${p.d}" fill-rule="evenodd" style="fill:${fill}" ${interactive ? `tabindex="0" role="button" aria-label="${esc(p.name)}, ${esc(rateLabel)}"` : ''}><title>${esc(p.name)} · ${esc(rateLabel)}</title></path>`;
   });
   svg.innerHTML = shapes.join('');
   svg.setAttribute('viewBox', S.map.viewBoxes?.all || '0 0 600 700');
@@ -868,14 +861,12 @@ function renderMap() {
   const insetCountries=['IS','MT','CY'];
   document.getElementById('mapInsets').innerHTML=insetCountries.map(iso => {
     const offer=byCountry[iso];
-    const nationalScheme=NATIONAL_SCHEMES[iso];
-    const ecbNationalScheme=nationalScheme?.ecb2024 === true;
-    const interactive=offer || ecbNationalScheme;
+    const interactive=offer;
     const name=S.data.countries[iso]?.name || iso;
     const inRegion=!S.region || REGION_COUNTRIES[S.region].includes(iso);
-    const classes=['map-inset',ecbNationalScheme?'has-national-scheme':'',S.country===iso?'selected':'',!inRegion?'dimmed':''].filter(Boolean).join(' ');
+    const classes=['map-inset',S.country===iso?'selected':'',!inRegion?'dimmed':''].filter(Boolean).join(' ');
     const fill=offer ? scaleColor(offer._c.emax,mn,mx) : '#efe9d8';
-    return `<button class="${classes}" data-iso="${iso}" ${interactive ? '' : 'disabled'} title="${esc(name)}${offer ? ` · ${comparisonRate(offer)}` : ' · zatím bez porovnatelné sazby'}${nationalScheme ? ` · národní schéma ${esc(nationalScheme.name)}` : ''}"><span class="swatch" style="background:${fill}"></span>${esc(iso)}</button>`;
+    return `<button class="${classes}" data-iso="${iso}" ${interactive ? '' : 'disabled'} title="${esc(name)}${offer ? ` · ${comparisonRate(offer)}` : ' · zatím bez porovnatelné sazby'}"><span class="swatch" style="background:${fill}"></span>${esc(iso)}</button>`;
   }).join('');
 
   svg.querySelectorAll('.active-country').forEach(el => {
@@ -915,7 +906,6 @@ function renderMapDetail() {
   }
   const name = S.data.countries[S.country]?.name || S.country;
   const region = S.data.countries[S.country]?.region || '';
-  const nationalScheme=NATIONAL_SCHEMES[S.country];
   const rows = compactOffers(allWithCalc().filter(o => isSourceReviewed(o) && matchSearch(o) && o.country_iso2 === S.country && (!S.method || o.method === S.method) && matchScheme(o) && matchRole(o)));
   const withVal = rows.filter(o => isComparable(o) && o._c.emax != null).sort((a,b) => a._c.emax - b._c.emax);
   const lo = withVal[0];
@@ -934,7 +924,6 @@ function renderMapDetail() {
   host.innerHTML = `
     <p class="name">${esc(name)}</p>
     <p class="region">${esc(region)}</p>
-    ${nationalScheme ? `<div class="label">Národní karetní schéma</div><div class="val"><a class="source-link" href="${esc(nationalScheme.url)}" target="_blank" rel="noopener">${esc(nationalScheme.name)} ↗</a> · ${esc(nationalScheme.cards)}</div>` : ''}
     <div class="label">Rozmezí sazeb</div>
     <div class="val" style="font-size:20px">${rangeText}</div>
     <div class="label">Nejnižší nabídka</div>

@@ -76,6 +76,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,[t
 .seg button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:12.5px;padding:7px 11px;border-radius:7px;cursor:pointer;white-space:nowrap}
 .seg button.active{background:var(--navy);color:#fff}
 .seg button:hover:not(.active){background:rgba(255,255,255,.06);color:var(--ink)}
+.seg button:disabled{opacity:.3;cursor:not-allowed;background:transparent;color:var(--muted)}
 .kpi-amount{display:flex;flex-direction:column;justify-content:center}
 .kpi-amount-row{display:flex;align-items:baseline;gap:7px;margin-top:7px}
 .kpi-amount input{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:7px 10px;font-family:inherit;font-size:23px;font-weight:700;color:var(--ink);background:var(--panel-alt)}
@@ -356,14 +357,14 @@ tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
   <details class="panel glossary-details">
     <summary>Vysvětlivky</summary>
     <dl class="glossary-grid">
-      <div><dt>Acquirer + PSP</dt><dd>Přímí acquireři, jejich prodejní kanály a PSP s karetní akceptací.</dd></div>
-      <div><dt>Přímý acquirer</dt><dd>Smluvní protistrana obchodníka pro karetní akceptaci a vypořádání plateb.</dd></div>
-      <div><dt>PSP</dt><dd>Poskytovatel platebních služeb; acquiring zajišťuje sám nebo přes licencovaného partnera.</dd></div>
+      <div><dt>Acquirer + PSP</dt><dd>Acquireři, jejich prodejní kanály a PSP s karetní akceptací.</dd></div>
+      <div><dt>Přímý acquirer</dt><dd>Zajišťuje obchodníkovi karetní acquiring a vypořádání plateb.</dd></div>
+      <div><dt>PSP</dt><dd>Zprostředkuje platby; acquiring poskytuje sám nebo přes partnera.</dd></div>
       <div><dt>Národní schéma</dt><dd>Domácí karetní síť, např. Girocard (DE) nebo Dankort (DK).</dd></div>
       <div><dt>Ostatní karetní schémata</dt><dd id="otherSchemesGlossary">Schémata mimo Visa/MC a národní systémy.</dd></div>
-      <div><dt>A2A převod</dt><dd>Platba mezi bankovními účty bez karetního schématu.</dd></div>
-      <div><dt>IC++</dt><dd>Interchange + scheme fee + marže poskytovatele; chybějící složky používají označený odhad.</dd></div>
-      <div><dt>Reálná sazba</dt><dd>Celkový náklad transakce 20 € v %, včetně fixního poplatku a označeného IC++ odhadu.</dd></div>
+      <div><dt>A2A převod</dt><dd>Platba iniciovaná přímo z účtu zákazníka na účet obchodníka, bez karetní sítě.</dd></div>
+      <div><dt>IC++</dt><dd>Interchange + scheme fee + marže. Chybějící složky standardně odhadujeme na 0,20 + 0,15 p. b.; výsledek označuje ≈.</dd></div>
+      <div><dt>Celková sazba</dt><dd>Transakční náklad v % z 20 €, včetně fixní složky a označených odhadů.</dd></div>
     </dl>
   </details>
 
@@ -412,6 +413,15 @@ function matchScheme(o) {
   if (S.scheme==='other') return schemes.some(s => !['visa','mastercard','national'].includes(s));
   if (S.scheme==='domestic') return schemes.includes('national') || schemeBucket(o.card_scheme,o.provider,schemes)==='domestic';
   return schemes.includes('visa') || schemes.includes('mastercard') || schemeBucket(o.card_scheme,o.provider,schemes)==='intl';
+}
+
+function matchesSchemeValue(o,value) {
+  if (o.method !== 'card') return false;
+  const schemes=o.card_schemes || [];
+  if (value==='other') return schemes.some(s => !['visa','mastercard','national'].includes(s));
+  if (value==='domestic') return schemes.includes('national') || schemeBucket(o.card_scheme,o.provider,schemes)==='domestic';
+  if (value==='intl') return schemes.includes('visa') || schemes.includes('mastercard') || schemeBucket(o.card_scheme,o.provider,schemes)==='intl';
+  return true;
 }
 function searchText(value) { return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
 
@@ -638,7 +648,10 @@ function effectiveRate(o) {
 
 function additionalFees(o) {
   const labels={monthly_service:'Měsíční poplatek',low_volume_fee:'Poplatek při nízkém obratu',terminal_rental:'Pronájem terminálu',activation:'Aktivace',service_and_terminal:'Služba a terminál',card_reader_purchase:'Čtečka',card_reader_purchase_from:'Čtečka od',terminal_purchase:'Terminál'};
-  const fees=(o.non_transaction_fees || []).map(fee => `${labels[fee.kind] || fee.kind}: ${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`);
+  const fees=(o.non_transaction_fees || []).map(fee => {
+    const amount=`${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`;
+    return fee.kind === 'monthly_service' ? amount : `${labels[fee.kind] || fee.kind}: ${amount}`;
+  });
   return fees.length ? fees.join('<br>') : '—';
 }
 
@@ -927,6 +940,24 @@ function updateSchemeControlVisibility() {
   if (!control || !S.data) return;
   const hasCardSchemes=S.data.offers.some(o => o.method === 'card' && (o.card_schemes || []).length);
   control.style.display=hasCardSchemes && S.method !== 'a2a' ? '' : 'none';
+  const relevant=S.data.offers.filter(o =>
+    isSourceReviewed(o) && o.method === 'card' &&
+    (!S.country || o.country_iso2 === S.country) &&
+    (!S.provider || o.provider === S.provider) &&
+    (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) &&
+    matchRole(o)
+  );
+  document.querySelectorAll('#scheme-seg button[data-v]').forEach(button => {
+    if (!button.dataset.v) return;
+    const available=relevant.some(o => matchesSchemeValue(o,button.dataset.v));
+    button.disabled=!available;
+    button.title=available ? (button.id === 'otherSchemeFilter' ? button.dataset.availableTitle || '' : '') : 'Pro aktuální výběr nejsou dostupná data tohoto schématu.';
+  });
+  const selected=document.querySelector(`#scheme-seg button[data-v="${S.scheme}"]`);
+  if (S.scheme && selected?.disabled) {
+    S.scheme='';
+    setActiveSegment('scheme-seg','');
+  }
 }
 
 function hideSchemeTooltip() {
@@ -1006,9 +1037,9 @@ function renderCompare() {
     <div class="tablewrap"><table>
       <thead><tr>
         <th>${S.provider ? 'Země' : 'Poskytovatel'}</th>
-        <th>Metoda</th>
-        <th title="Sazba z veřejného ceníku bez přepočtu na referenční transakci">Publikovaná sazba</th>
+        <th>Schéma / metoda</th>
         <th aria-sort="${S.sortKey === 'rate' ? (S.sortAsc ? 'ascending' : 'descending') : 'none'}"><button class="sortbtn ${activeCls('rate')}" data-sort="rate" aria-label="Seřadit podle horní hranice celkové sazby" title="Řazení používá horní hranici sazby">Celková sazba <span class="arrow">${arrow('rate')}</span></button></th>
+        <th title="Sazba z veřejného ceníku bez přepočtu na referenční transakci">Publikovaná sazba</th>
         <th>Další poplatky</th>
         <th>Zdroj</th>
       </tr></thead>
@@ -1035,11 +1066,14 @@ function renderCompare() {
             ? `<b>${esc(o.country_iso2)}</b>${providerRole}<span class="sub">${esc(o.country)}</span>`
             : `<a class="provider-link" data-provider="${esc(o.provider)}">${esc(o.provider)}</a>${providerRole}${!S.country ? `<span class="sub">${esc(o.country)}</span>` : ''}`;
           const detailId=`offer-detail-${index}`;
+          const methodCell=o.method === 'card'
+            ? `${schemeBadge}${extraSchemeBadges}`
+            : '<span class="pill a2a">A2A převod</span>';
           return `<tr class="offerrow ${o.variable_pct_min == null ? 'unpriced-row' : ''}" data-provider="${esc(o.provider)}" data-detail-id="${detailId}" tabindex="0" role="button" aria-expanded="false" aria-controls="${detailId}">
             <td data-label="${S.provider ? 'Země' : 'Poskytovatel'}">${nameCell}</td>
-            <td data-label="Metoda"><span class="pill ${o.method}">${o.method === 'card' ? 'Karta' : 'A2A převod'}</span>${schemeBadge}${extraSchemeBadges}</td>
-            <td data-label="Publikovaná sazba" class="published-rate">${published(o)}</td>
+            <td data-label="Schéma / metoda">${methodCell}</td>
             <td data-label="Celková sazba" class="effective">${effectiveRate(o)}${o.comparison_estimate === true ? '<span class="sub">včetně srovnávacího IC++</span>' : ''}</td>
+            <td data-label="Publikovaná sazba" class="published-rate">${published(o)}</td>
             <td data-label="Další poplatky" class="rate">${additionalFees(o)}</td>
             <td data-label="Zdroj">
               <a class="source" target="_blank" rel="noopener" href="${esc(o.source_url)}">${sourceLabel(o)}</a>
@@ -1126,9 +1160,11 @@ function renderGlossary() {
   const other=[...new Set(S.data.offers.flatMap(offer => offer.card_schemes || []).filter(scheme => !known.has(scheme)))]
     .map(scheme => labels[scheme] || scheme)
     .sort((a,b) => a.localeCompare(b,'cs'));
-  const suffix=other.length ? ` Aktuálně: ${other.map(esc).join(', ')}.` : ' Aktuálně v této skupině není žádná nabídka.';
-  document.getElementById('otherSchemesGlossary').innerHTML=`Schémata mimo Visa/MC a národní systémy.${suffix}`;
-  document.getElementById('otherSchemeFilter').title=other.length ? `Aktuálně: ${other.join(', ')}` : 'Další karetní schémata zastoupená v datech';
+  const suffix=other.length ? `: ${other.map(esc).join(', ')}.` : '; v datech zatím nejsou zastoupena.';
+  document.getElementById('otherSchemesGlossary').innerHTML=`Schémata mimo Visa/MC a národní systémy${suffix}`;
+  const otherTitle=other.length ? other.join(', ') : 'Další karetní schémata zastoupená v datech';
+  document.getElementById('otherSchemeFilter').dataset.availableTitle=otherTitle;
+  document.getElementById('otherSchemeFilter').title=otherTitle;
 }
 
 function exportCsv() {
@@ -1206,7 +1242,7 @@ async function init() {
     if (!btn) return;
     S.method = btn.dataset.v;
     setActiveSegment('method-seg',S.method);
-    if (S.method === 'a2a') {
+    if (S.method !== 'card') {
       S.scheme = '';
       setActiveSegment('scheme-seg','');
     }
@@ -1232,6 +1268,10 @@ async function init() {
     if (!btn) return;
     S.scheme = btn.dataset.v;
     setActiveSegment('scheme-seg',S.scheme);
+    if (S.scheme) {
+      S.method='card';
+      setActiveSegment('method-seg','card');
+    }
     render();
   });
   document.getElementById('region-seg').addEventListener('click', e => {

@@ -759,7 +759,7 @@ def test_dashboard_uses_conservative_ranges_and_clears_hidden_a2a_scheme_filter(
     assert "S.sortKey === 'rate' ? 'emax' : 'max'" in dashboard
     assert 'o._c.emax < current._c.emax' in dashboard
     assert "if (o.method !== 'card') return true" in dashboard
-    assert "if (S.method === 'a2a')" in dashboard
+    assert "if (S.method !== 'card')" in dashboard
     assert "S.scheme = ''" in dashboard
     assert "return `${isApproximate(o) ? '≈ ' : ''}${range}`" in dashboard
 
@@ -776,6 +776,21 @@ def test_dashboard_includes_map_insets_unique_sources_expandable_rows_and_mobile
     assert "low_volume_fee:'Poplatek při nízkém obratu'" in dashboard
     assert "fee.interval === 'monthly' ? ' měsíčně'" in dashboard
     assert "schemeLbl === 'Amex'" in dashboard
+
+
+def test_dashboard_orders_total_rate_first_and_keeps_scheme_filter_methodologically_valid():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    table=dashboard[dashboard.index('body.innerHTML = `',dashboard.index('function renderCompare')):dashboard.index('</table></div>`',dashboard.index('function renderCompare'))]
+    assert table.index('Celková sazba') < table.index('Publikovaná sazba')
+    assert '<th>Schéma / metoda</th>' in table
+    assert "const methodCell=o.method === 'card'" in table
+    assert "o.method === 'card' ? 'Karta' : 'A2A převod'" not in table
+    assert 'button.disabled=!available' in dashboard
+    assert "if (S.scheme && selected?.disabled)" in dashboard
+    assert "S.method='card'" in dashboard
+    assert "const amount=`${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`" in dashboard
+    assert "fee.kind === 'monthly_service' ? amount" in dashboard
+    assert ' Aktuálně:' not in dashboard
 
 
 def test_provider_type_is_derived_from_structured_role_and_csv_is_country_sorted(tmp_path,monkeypatch):

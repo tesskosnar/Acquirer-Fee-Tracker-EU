@@ -1,15 +1,42 @@
 {
-  "generated_at": "2026-08-25T14:52:33+00:00",
+  "generated_at": "2026-08-26T08:30:39+00:00",
   "update_frequency": "weekly",
   "default_transaction_eur": 20.0,
-  "methodology_version": "2.1",
+  "methodology_version": "2.2",
   "scope_note": "Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.",
   "comparison_profile": {
     "transaction_amount": 20.0,
     "transaction_currency": "EUR",
     "icpp_profile": "authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit",
     "interchange_reference_pct": 0.2,
-    "scheme_fee_reference_pct": 0.15,
+    "eea_scheme_fee_scenarios": [
+      {
+        "scheme": "Visa Debit",
+        "pct": 0.116,
+        "fixed": 0.035,
+        "currency": "EUR"
+      },
+      {
+        "scheme": "Mastercard Debit",
+        "pct": 0.121,
+        "fixed": 0.045,
+        "currency": "EUR"
+      }
+    ],
+    "uk_scheme_fee_scenarios": [
+      {
+        "scheme": "Visa Debit",
+        "pct": 0.1,
+        "fixed": 0.039,
+        "currency": "GBP"
+      },
+      {
+        "scheme": "Mastercard Debit",
+        "pct": 0.136,
+        "fixed": 0.034,
+        "currency": "GBP"
+      }
+    ],
     "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
     "switzerland": {
       "interchange_pct": 0.28,
@@ -1336,7 +1363,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -1347,7 +1374,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -1370,9 +1397,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -1382,10 +1425,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -1779,7 +1822,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -1790,7 +1833,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -1813,9 +1856,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -1825,10 +1884,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -2298,7 +2357,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -2309,7 +2368,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -2332,9 +2391,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -2344,10 +2419,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -2809,7 +2884,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -2820,7 +2895,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -2843,9 +2918,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -2855,10 +2946,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -3252,7 +3343,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -3263,7 +3354,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -3286,9 +3377,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -3298,10 +3405,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -3830,7 +3937,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -3841,7 +3948,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -3864,9 +3971,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -3876,10 +3999,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -4341,7 +4464,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -4352,7 +4475,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -4375,9 +4498,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -4387,10 +4526,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -4852,7 +4991,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -4863,7 +5002,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -4886,9 +5025,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -4898,10 +5053,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -5607,7 +5762,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -5618,7 +5773,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -5641,9 +5796,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -5653,10 +5824,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -6185,7 +6356,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -6196,7 +6367,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -6219,9 +6390,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -6231,10 +6418,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -6628,7 +6815,7 @@
       "cap_currency": null,
       "monthly_fee": 0,
       "monthly_currency": "EUR",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "source_id": "src_5",
       "source_url": "https://www.adyen.com/pricing",
@@ -6639,7 +6826,7 @@
         "auto_parse": true,
         "expected_currency": "EUR"
       },
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -6662,9 +6849,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
@@ -6674,10 +6877,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -8339,12 +8542,28 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20,
+          "reference_transaction_currency": "EUR",
           "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
         }
       },
-      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
       "card_scheme": "intl",
       "verification": "ručně ověřeno v aktuálním oficiálním ceníku Barion platném od 22. 4. 2026 dne 25. 8. 2026",
@@ -8370,10 +8589,10 @@
       "last_changed_at": null,
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 3.0842,
-        "fee_max_czk": 6.9394,
-        "effective_min_pct": 0.64,
-        "effective_max_pct": 1.44
+        "fee_min_czk": 3.7636,
+        "fee_max_czk": 7.8839,
+        "effective_min_pct": 0.781,
+        "effective_max_pct": 1.636
       },
       "variable_pct_basis": "provider_published",
       "pricing_model_code": "icpp",
@@ -11920,12 +12139,28 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20,
+          "reference_transaction_currency": "EUR",
           "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
         }
       },
-      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
       "card_scheme": "intl",
       "verification": "ručně ověřeno v aktuálním oficiálním ceníku Barion platném od 22. 4. 2026 dne 25. 8. 2026",
@@ -11951,10 +12186,10 @@
       "last_changed_at": null,
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 3.0842,
-        "fee_max_czk": 6.9394,
-        "effective_min_pct": 0.64,
-        "effective_max_pct": 1.44
+        "fee_min_czk": 3.7636,
+        "fee_max_czk": 7.8839,
+        "effective_min_pct": 0.781,
+        "effective_max_pct": 1.636
       },
       "variable_pct_basis": "provider_published",
       "pricing_model_code": "icpp",
@@ -12111,12 +12346,28 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20,
+          "reference_transaction_currency": "EUR",
           "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
         }
       },
-      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
       "card_scheme": "intl",
       "verification": "ručně ověřeno v aktuálním oficiálním ceníku Barion platném od 22. 4. 2026 dne 25. 8. 2026",
@@ -12142,10 +12393,10 @@
       "last_changed_at": null,
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 3.0842,
-        "fee_max_czk": 6.9394,
-        "effective_min_pct": 0.64,
-        "effective_max_pct": 1.44
+        "fee_min_czk": 3.7636,
+        "fee_max_czk": 7.8839,
+        "effective_min_pct": 0.781,
+        "effective_max_pct": 1.636
       },
       "variable_pct_basis": "provider_published",
       "pricing_model_code": "icpp",
@@ -12508,12 +12759,28 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20,
+          "reference_transaction_currency": "EUR",
           "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
         }
       },
-      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "condition": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
       "card_scheme": "intl",
       "verification": "ručně ověřeno v aktuálním oficiálním ceníku Barion platném od 22. 4. 2026 dne 25. 8. 2026",
@@ -12539,10 +12806,10 @@
       "last_changed_at": null,
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 3.0842,
-        "fee_max_czk": 6.9394,
-        "effective_min_pct": 0.64,
-        "effective_max_pct": 1.44
+        "fee_min_czk": 3.7636,
+        "fee_max_czk": 7.8839,
+        "effective_min_pct": 0.781,
+        "effective_max_pct": 1.636
       },
       "variable_pct_basis": "provider_published",
       "pricing_model_code": "icpp",
@@ -17121,12 +17388,28 @@
         "comparison_reference": {
           "profile": "EEA spotřebitelská debetní karta",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20,
+          "reference_transaction_currency": "EUR",
           "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
         }
       },
-      "condition": "Pro stávající obchodníky připojené přes Számlázz.hu. Publikovaný merchant fee je 0,89 %; srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Pro stávající obchodníky připojené přes Számlázz.hu. Publikovaný merchant fee je 0,89 %; srovnávací sazba používá 0,20 % interchange a Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "source_url": "https://simplepay.hu/wp-content/uploads/2026/02/Hirdetmeny_szamlazz_hu_szolgaltatasra_vonatkozo_dijakrol_20260226.pdf",
       "verification": "ručně ověřeno v oficiálním oznámení SimplePay účinném od 26. 2. 2026 a strukturováno podle jednotné IC++ metodiky 20. 8. 2026",
       "country": "Maďarsko",
@@ -17148,10 +17431,10 @@
       "last_changed_at": null,
       "price_verified_on": "2026-08-20",
       "calculation_reference": {
-        "fee_min_czk": 5.9756,
-        "fee_max_czk": 5.9756,
-        "effective_min_pct": 1.24,
-        "effective_max_pct": 1.24
+        "fee_min_czk": 6.655,
+        "fee_max_czk": 6.9201,
+        "effective_min_pct": 1.381,
+        "effective_max_pct": 1.436
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -28018,10 +28301,10 @@
       "monthly_fee": 0,
       "card_scheme": "intl",
       "source_url": "https://www.adyen.com/pricing",
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "price_lead_review": null,
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "all_in_complete": false,
       "country": "Nizozemsko",
       "channel": "online",
@@ -28060,9 +28343,25 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "comparison_estimate": true,
@@ -28070,10 +28369,10 @@
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -31418,15 +31717,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -31441,17 +31756,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -31502,15 +31817,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -31525,17 +31856,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -31587,9 +31918,9 @@
         "comparison_reference": {
           "profile": "Swiss domestic consumer debit card, e-commerce; conservative Mastercard reference",
           "interchange_pct": 0.28,
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
           "scheme_fee_pct": 0.138,
           "total_addon_pct": 0.418,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
           "fixed_addon": {
             "amount": 0.052,
             "currency": "CHF"
@@ -31676,15 +32007,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -31699,17 +32046,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -31760,15 +32107,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -31783,17 +32146,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -31844,15 +32207,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -31867,17 +32246,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -31928,15 +32307,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -31951,17 +32346,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32012,15 +32407,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32035,17 +32446,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32096,15 +32507,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32119,17 +32546,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32180,15 +32607,31 @@
         "comparison_reference": {
           "profile": "UK domestic consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.1,
+              "fixed": 0.039,
+              "currency": "GBP"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.136,
+              "fixed": 0.034,
+              "currency": "GBP"
+            }
+          ],
+          "total_addon_pct_min": 0.3,
+          "total_addon_pct_max": 0.336,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses a domestic UK consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "ručně ověřeno na aktuálním oficiálním ceníku Adyen dne 25. 8. 2026",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32203,17 +32646,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a domácí UK Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "price_verified_on": "2026-08-25",
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "calculation_reference": {
-        "fee_min_czk": 7.6763,
-        "fee_max_czk": 7.6763,
-        "effective_min_pct": 1.5929,
-        "effective_max_pct": 1.5929
+        "fee_min_czk": 8.5338,
+        "fee_max_czk": 8.5665,
+        "effective_min_pct": 1.7709,
+        "effective_max_pct": 1.7776
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32264,15 +32707,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32287,17 +32746,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32348,15 +32807,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32371,17 +32846,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32432,15 +32907,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32455,17 +32946,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32516,15 +33007,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32539,17 +33046,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32600,15 +33107,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32623,17 +33146,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32684,15 +33207,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32707,17 +33246,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32768,15 +33307,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32791,17 +33346,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32852,15 +33407,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32875,17 +33446,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -32936,15 +33507,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -32959,17 +33546,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -33020,15 +33607,31 @@
         "comparison_reference": {
           "profile": "EEA consumer debit card, authenticated Visa/Mastercard",
           "interchange_pct": 0.2,
-          "scheme_fee_pct": 0.15,
-          "total_addon_pct": 0.35,
-          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees"
+          "scheme_fee_source_url": "https://www.paybyrd.com/pricing/scheme-fees",
+          "scheme_fee_scenarios": [
+            {
+              "scheme": "Visa Debit",
+              "pct": 0.116,
+              "fixed": 0.035,
+              "currency": "EUR"
+            },
+            {
+              "scheme": "Mastercard Debit",
+              "pct": 0.121,
+              "fixed": 0.045,
+              "currency": "EUR"
+            }
+          ],
+          "total_addon_pct_min": 0.316,
+          "total_addon_pct_max": 0.321,
+          "reference_transaction_amount": 20.0,
+          "reference_transaction_currency": "EUR"
         }
       },
       "all_in_complete": false,
       "comparison_estimate": true,
       "variable_pct_basis": "provider_published",
-      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote.",
+      "notes": "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote.",
       "verification": "auto-checked by country (Adyen pricing + payment-method API)",
       "source_status": "ok",
       "source_checked_at": "2026-08-25T14:06:11+00:00",
@@ -33043,17 +33646,17 @@
       "minimum_fee": null,
       "cap": null,
       "cap_currency": null,
-      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "condition": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
       "promo": false,
       "last_changed_at": null,
       "source_last_attempt_at": "2026-08-25T14:06:11+00:00",
       "source_last_attempt_status": "ok",
       "price_verified_on": "2026-08-25",
       "calculation_reference": {
-        "fee_min_czk": 7.2285,
-        "fee_max_czk": 7.2285,
-        "effective_min_pct": 1.5,
-        "effective_max_pct": 1.5
+        "fee_min_czk": 7.908,
+        "fee_max_czk": 8.173,
+        "effective_min_pct": 1.641,
+        "effective_max_pct": 1.696
       },
       "pricing_model_code": "icpp",
       "card_schemes": [
@@ -34357,474 +34960,6 @@
     }
   ],
   "change_log": [
-    {
-      "detected_at": "2026-08-25T12:41:19+00:00",
-      "offer_id": "SK-unicredit-online-card",
-      "provider": "UniCredit Bank",
-      "country_iso2": "SK",
-      "method": "card",
-      "field": "condition",
-      "old": "",
-      "new": "Transakční provize není veřejná; veřejný sazebník uvádí 125 EUR za zřízení GP WebPay a 10 EUR měsíčně při obratu pod 1 499,99 EUR.",
-      "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:41:19+00:00",
-      "offer_id": "SK-unicredit-online-card",
-      "provider": "UniCredit Bank",
-      "country_iso2": "SK",
-      "method": "card",
-      "field": "source_url",
-      "old": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/uzitocne_informacie/Pokyny_pro_obchodnika_A5_SK_v03.pdf",
-      "new": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
-      "source_url": "https://www.unicreditbank.sk/content/dam/cee2020-pws-sk/sk-dokumenty/ostatne/cenniky/Sazebnik_SB_01_2026_SK.pdf",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "MT-apstrustpayments-card-registry",
-      "provider": "APS / Trust Payments",
-      "country_iso2": "MT",
-      "method": "card",
-      "field": "offer",
-      "old": null,
-      "new": "added",
-      "source_url": "https://www.apsbank.com.mt/merchant-acquiring/",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "MT-apsworldline-card-registry",
-      "provider": "APS / Worldline",
-      "country_iso2": "MT",
-      "method": "card",
-      "field": "offer",
-      "old": "present",
-      "new": "removed",
-      "source_url": "https://www.apsbank.com.mt/",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "product",
-      "old": "Merchant acquiring",
-      "new": "E-commerce – EEA spotřebitelské Visa/Mastercard",
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "pricing_model_code",
-      "old": "not_public",
-      "new": "blended",
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "variable_pct_min",
-      "old": null,
-      "new": 2.0,
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "variable_pct_max",
-      "old": null,
-      "new": 2.1,
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "fixed_fee_min",
-      "old": null,
-      "new": 0,
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "fixed_fee_max",
-      "old": null,
-      "new": 0,
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "all_in_complete",
-      "old": false,
-      "new": true,
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "condition",
-      "old": "",
-      "new": "Online sazba: základ 1,10 % pro regulované debitní karty nebo 1,20 % pro kreditní karty + veřejný e-commerce/MO-TO příplatek 0,90 p. b.",
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "source_url",
-      "old": "https://www.europabank.be/",
-      "new": "https://www.europabank.be/nl/download/standaardtarieven",
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "BE-europabank-card-registry",
-      "provider": "Europabank",
-      "country_iso2": "BE",
-      "method": "card",
-      "field": "card_profile",
-      "old": "unspecified",
-      "new": "consumer",
-      "source_url": "https://www.europabank.be/nl/download/standaardtarieven",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "DK-flatpaydenmark-a2a-registry",
-      "provider": "Flatpay",
-      "country_iso2": "DK",
-      "method": "a2a",
-      "field": "condition",
-      "old": "Poplatek účtuje MobilePay/Frisbii v integraci nabízené přes Flatpay; nejde o karetní acquiringovou sazbu Flatpay.",
-      "new": "Příplatek MobilePay k Flatpay Online: 0,99 DKK za transakci a 49 DKK měsíčně; základní karetní Flatpay sazba je vedena samostatně.",
-      "source_url": "https://www.flatpay.com/da/produkter/online-payments",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "DK-flatpaydenmark-a2a-registry",
-      "provider": "Flatpay",
-      "country_iso2": "DK",
-      "method": "a2a",
-      "field": "source_url",
-      "old": "https://help.flatpay.com/da/support/solutions/articles/201000042459-online-faq",
-      "new": "https://www.flatpay.com/da/produkter/online-payments",
-      "source_url": "https://www.flatpay.com/da/produkter/online-payments",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "HR-otp-bank-card",
-      "provider": "OTP banka",
-      "country_iso2": "HR",
-      "method": "card",
-      "field": "condition",
-      "old": "",
-      "new": "Aktuální podmínky popisují IC++ složky, ale merchant provize je určena smlouvou a veřejné all-in číslo není uvedeno.",
-      "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "HR-otp-bank-card",
-      "provider": "OTP banka",
-      "country_iso2": "HR",
-      "method": "card",
-      "field": "source_url",
-      "old": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025.pdf",
-      "new": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
-      "source_url": "https://www.otpbanka.hr/sites/default/files/dokumenti/opci-uvjeti/Novi%20OU%20FINAL%2010%202025_0.pdf",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "MT-bankofvallettamerchantservices-card-registry",
-      "provider": "Bank of Valletta Merchant Services",
-      "country_iso2": "MT",
-      "method": "card",
-      "field": "setup_fee",
-      "old": null,
-      "new": 70,
-      "source_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "MT-bankofvallettamerchantservices-card-registry",
-      "provider": "Bank of Valletta Merchant Services",
-      "country_iso2": "MT",
-      "method": "card",
-      "field": "condition",
-      "old": "",
-      "new": "E-commerce merchant účet má veřejný aktivační poplatek 70 EUR; transakční provize je vyjednávaná podle obratu, oboru a historie účtu.",
-      "source_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "MT-bankofvallettamerchantservices-card-registry",
-      "provider": "Bank of Valletta Merchant Services",
-      "country_iso2": "MT",
-      "method": "card",
-      "field": "source_url",
-      "old": "https://www.bov.com/meta/downloads/bov-ecommerce-application-form",
-      "new": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
-      "source_url": "https://www.bov.com/meta/downloads?path=%2Fbov-ecommerce-product-information-guide",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "PT-sibs-gateway-card",
-      "provider": "SIBS",
-      "country_iso2": "PT",
-      "method": "card",
-      "field": "condition",
-      "old": "Lokální služba je ověřena; kompletní veřejná merchant sazba nebyla na oficiálním webu nalezena.",
-      "new": "SIBS Gateway potvrzuje přijímání karet, MB WAY a Multibanco; cenu obchodník sjednává přes banku nebo SIBS a veřejný merchant tarif není uveden.",
-      "source_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "PT-sibs-gateway-card",
-      "provider": "SIBS",
-      "country_iso2": "PT",
-      "method": "card",
-      "field": "source_url",
-      "old": "https://www.sibs.com/en/",
-      "new": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
-      "source_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "SE-swish-a2a-registry",
-      "provider": "Swish",
-      "country_iso2": "SE",
-      "method": "a2a",
-      "field": "source_url",
-      "old": "https://seb.se/foretag/betala-och-ta-betalt/ta-betalt/swish-foretag",
-      "new": "https://seb.se/foretag/digitala-tjanster/swish-foretag",
-      "source_url": "https://seb.se/foretag/digitala-tjanster/swish-foretag",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T12:48:00+00:00",
-      "offer_id": "SE-swish-swedbank-a2a",
-      "provider": "Swedbank",
-      "country_iso2": "SE",
-      "method": "a2a",
-      "field": "source_url",
-      "old": "https://www.swedbank.se/foretag/betala-och-ta-betalt/ta-betalt/swish/swish-handel.html",
-      "new": "https://www.swedbank.se/foretag/betala-och-ta-betalt/swish.html",
-      "source_url": "https://www.swedbank.se/foretag/betala-och-ta-betalt/swish.html",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "BG-viva-online-eea-consumer-card",
-      "provider": "Viva.com",
-      "country_iso2": "BG",
-      "method": "card",
-      "field": "monthly_fee_mode",
-      "old": "additional",
-      "new": "minimum_commitment",
-      "source_url": "https://www.viva.com/en-bg/pricing",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CY-viva-inperson-card-registry",
-      "provider": "Viva.com",
-      "country_iso2": "CY",
-      "method": "card",
-      "field": "monthly_fee_mode",
-      "old": "additional",
-      "new": "minimum_commitment",
-      "source_url": "https://www.viva.com/en-cy/pricing",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
-      "provider": "Global Payments",
-      "country_iso2": "CZ",
-      "method": "a2a",
-      "field": "fixed_fee_min",
-      "old": 0,
-      "new": 0.99,
-      "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
-      "provider": "Global Payments",
-      "country_iso2": "CZ",
-      "method": "a2a",
-      "field": "fixed_fee_max",
-      "old": 0,
-      "new": 0.99,
-      "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
-      "provider": "Global Payments",
-      "country_iso2": "CZ",
-      "method": "a2a",
-      "field": "setup_fee",
-      "old": null,
-      "new": 299,
-      "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
-      "provider": "Global Payments",
-      "country_iso2": "CZ",
-      "method": "a2a",
-      "field": "condition",
-      "old": "Maximálně 0,79 % z transakce; pro velké objemy individuální kalkulace. Jde o garantovanou platbu z bankovního účtu přes QR, nikoli karetní QR checkout.",
-      "new": "QR platba z účtu přes terminál nebo terminál v mobilu: maximálně 0,79 % + 0,99 Kč za transakci; aktivace terminálu v mobilu stojí jednorázově 299 Kč.",
-      "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CZ-globalpayments-qr-platba-uctem-a2a-verified",
-      "provider": "Global Payments",
-      "country_iso2": "CZ",
-      "method": "a2a",
-      "field": "source_url",
-      "old": "https://www.globalpayments.cz/terminal-v-mobilu/qr-platba-uctem",
-      "new": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "CZ-viva-online-domestic-consumer-card",
-      "provider": "Viva.com",
-      "country_iso2": "CZ",
-      "method": "card",
-      "field": "monthly_fee_mode",
-      "old": "additional",
-      "new": "minimum_commitment",
-      "source_url": "https://www.viva.com/en-cz/pricing",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "DK-nets-dankort-card",
-      "provider": "Nets / Nexi",
-      "country_iso2": "DK",
-      "method": "card",
-      "field": "product",
-      "old": "All-in-one – Dankort",
-      "new": "SmartPOS – Dankort",
-      "source_url": "https://payments.nets.eu/da-DK/smartpos",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "DK-nets-dankort-card",
-      "provider": "Nets / Nexi",
-      "country_iso2": "DK",
-      "method": "card",
-      "field": "variable_pct_min",
-      "old": 1,
-      "new": 0.19,
-      "source_url": "https://payments.nets.eu/da-DK/smartpos",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
-    {
-      "detected_at": "2026-08-25T13:26:36+00:00",
-      "offer_id": "DK-nets-dankort-card",
-      "provider": "Nets / Nexi",
-      "country_iso2": "DK",
-      "method": "card",
-      "field": "variable_pct_max",
-      "old": 1,
-      "new": 0.55,
-      "source_url": "https://payments.nets.eu/da-DK/smartpos",
-      "confidence": 1.0,
-      "change_origin": "dataset"
-    },
     {
       "detected_at": "2026-08-25T13:26:36+00:00",
       "offer_id": "DK-nets-dankort-card",
@@ -37606,6 +37741,474 @@
       "source_url": "https://www.pay.sibs.com/solucoes/api-market/api-sibs-gateway/",
       "confidence": 1.0,
       "change_origin": "reviewed_overlay"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "AT-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "AT",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "BE-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "BE",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "BG-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "BG",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "CY-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "CY",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "CZ-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "CZ",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "CZ-barion-icpp-card",
+      "provider": "Barion",
+      "country_iso2": "CZ",
+      "method": "card",
+      "field": "condition",
+      "old": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "new": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
+      "source_url": "https://www.barion.com/en/prices-and-conditions/",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "DE-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "DE",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "DK-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "DK",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "EE-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "EE",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "ES-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "ES",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "FI-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "FI",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "FR-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "FR",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "GB-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "GB",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a domácí UK Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "GR-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "GR",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "HR-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "HR",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "HU-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "HU",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "HU-barion-icpp-card",
+      "provider": "Barion",
+      "country_iso2": "HU",
+      "method": "card",
+      "field": "condition",
+      "old": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "new": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
+      "source_url": "https://www.barion.com/en/prices-and-conditions/",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "HU-simplepay-szamlazz-card",
+      "provider": "OTP Bank / SimplePay",
+      "country_iso2": "HU",
+      "method": "card",
+      "field": "condition",
+      "old": "Pro stávající obchodníky připojené přes Számlázz.hu. Publikovaný merchant fee je 0,89 %; srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Pro stávající obchodníky připojené přes Számlázz.hu. Publikovaný merchant fee je 0,89 %; srovnávací sazba používá 0,20 % interchange a Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://simplepay.hu/wp-content/uploads/2026/02/Hirdetmeny_szamlazz_hu_szolgaltatasra_vonatkozo_dijakrol_20260226.pdf",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "IE-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "IE",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "IS-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "IS",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "IT-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "IT",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "LI-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "LI",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "LT-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "LT",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "LU-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "LU",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "LV-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "LV",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "MT-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "MT",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "NL-adyen-card-registry",
+      "provider": "Adyen",
+      "country_iso2": "NL",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "NO-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "NO",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "PL-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "PL",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "PL-barion-icpp-card",
+      "provider": "Barion",
+      "country_iso2": "PL",
+      "method": "card",
+      "field": "condition",
+      "old": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "new": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
+      "source_url": "https://www.barion.com/en/prices-and-conditions/",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "PT-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "PT",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "RO-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "RO",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "SE-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "SE",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "SI-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "SI",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "SK-adyen-visa-mastercard-markup-card",
+      "provider": "Adyen",
+      "country_iso2": "SK",
+      "method": "card",
+      "field": "condition",
+      "old": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee.",
+      "new": "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky.",
+      "source_url": "https://www.adyen.com/pricing",
+      "confidence": 1.0,
+      "change_origin": "dataset"
+    },
+    {
+      "detected_at": "2026-08-26T08:30:39+00:00",
+      "offer_id": "SK-barion-icpp-card",
+      "provider": "Barion",
+      "country_iso2": "SK",
+      "method": "card",
+      "field": "condition",
+      "old": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá jednotný srovnávací odhad +0,35 p. b. Advanced vyžaduje Full Barion Pixel.",
+      "new": "Veřejná přirážka k IC++ je 0,29–1,09 % podle tarifu a obratu; celková sazba používá srovnávací Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky. Advanced vyžaduje Full Barion Pixel.",
+      "source_url": "https://www.barion.com/en/prices-and-conditions/",
+      "confidence": 1.0,
+      "change_origin": "dataset"
     }
   ]
 }

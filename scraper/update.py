@@ -47,8 +47,15 @@ ADYEN_ICPP_REFERENCE_COUNTRIES = ADYEN_CARD_COUNTRIES
 ADYEN_A2A_TYPES = {"Online banking", "Real-time payments", "Direct debit", "Bank transfer"}
 REFERENCE_TRANSACTION_EUR = 20.0
 ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT = 0.20
-ICPP_EEA_SCHEME_FEE_REFERENCE_PCT = 0.15
 ICPP_SCHEME_FEE_SOURCE_URL = "https://www.paybyrd.com/pricing/scheme-fees"
+ICPP_EEA_SCHEME_FEE_SCENARIOS = (
+    {"scheme": "Visa Debit", "pct": 0.116, "fixed": 0.035, "currency": "EUR"},
+    {"scheme": "Mastercard Debit", "pct": 0.121, "fixed": 0.045, "currency": "EUR"},
+)
+ICPP_UK_SCHEME_FEE_SCENARIOS = (
+    {"scheme": "Visa Debit", "pct": 0.100, "fixed": 0.039, "currency": "GBP"},
+    {"scheme": "Mastercard Debit", "pct": 0.136, "fixed": 0.034, "currency": "GBP"},
+)
 ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT = 0.28
 ICPP_CH_SCHEME_FEE_REFERENCE_PCT = 0.138
 ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF = 0.052
@@ -726,10 +733,17 @@ def adyen_pricing_components(processing: dict, method_fee: dict | None, card: bo
             interchange_pct = ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT
             scheme_pct = ICPP_CH_SCHEME_FEE_REFERENCE_PCT
             profile = "Swiss domestic consumer debit card, e-commerce; conservative Mastercard reference"
+            scheme_scenarios = None
+        elif country_code == "GB":
+            interchange_pct = ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT
+            scheme_pct = None
+            profile = "UK domestic consumer debit card, authenticated Visa/Mastercard"
+            scheme_scenarios = ICPP_UK_SCHEME_FEE_SCENARIOS
         else:
             interchange_pct = ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT
-            scheme_pct = ICPP_EEA_SCHEME_FEE_REFERENCE_PCT
+            scheme_pct = None
             profile = "EEA consumer debit card, authenticated Visa/Mastercard"
+            scheme_scenarios = ICPP_EEA_SCHEME_FEE_SCENARIOS
         components.update({
             "adyen_markup_pct": 0.6,
             "interchange": {
@@ -741,11 +755,22 @@ def adyen_pricing_components(processing: dict, method_fee: dict | None, card: bo
             "comparison_reference": {
                 "profile": profile,
                 "interchange_pct": interchange_pct,
-                "scheme_fee_pct": scheme_pct,
-                "total_addon_pct": round(interchange_pct + scheme_pct, 4),
                 "scheme_fee_source_url": ICPP_SCHEME_FEE_SOURCE_URL,
             },
         })
+        if scheme_scenarios:
+            components["comparison_reference"].update({
+                "scheme_fee_scenarios": [dict(item) for item in scheme_scenarios],
+                "total_addon_pct_min": round(interchange_pct + min(item["pct"] for item in scheme_scenarios), 4),
+                "total_addon_pct_max": round(interchange_pct + max(item["pct"] for item in scheme_scenarios), 4),
+                "reference_transaction_amount": REFERENCE_TRANSACTION_EUR,
+                "reference_transaction_currency": "EUR",
+            })
+        else:
+            components["comparison_reference"].update({
+                "scheme_fee_pct": scheme_pct,
+                "total_addon_pct": round(interchange_pct + scheme_pct, 4),
+            })
         if country_code == "CH":
             components["interchange"]["ch_domestic_cnp_debit_reference_pct"] = interchange_pct
             components["comparison_reference"].update({
@@ -888,7 +913,9 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             "notes": (
                 "Adyen processing fee + 0.60% acquiring markup. For Switzerland the dashboard adds a conservative domestic e-commerce debit reference: 0.28% interchange plus Mastercard scheme fees of 0.138% + CHF 0.052. This is a modelled comparison value, not a guaranteed quote."
                 if code == "CH" else
-                "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison adds a uniform domestic/EEA consumer-debit reference of 0.20% interchange + 0.15% scheme fees. This is a modelled comparison value, not a guaranteed transaction quote."
+                "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses a domestic UK consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote."
+                if code == "GB" else
+                "Adyen processing fee + 0.60% acquiring markup. The dashboard comparison uses an authenticated EEA consumer-debit reference of 0.20% interchange and separate Visa Debit / Mastercard Debit percentage-plus-fixed scheme-fee scenarios. This is a modelled comparison value, not a guaranteed transaction quote."
             ),
             "verification": "auto-checked by country (Adyen pricing + payment-method API)" if catalog else "retained from last verified Adyen country audit",
             "source_status": "ok" if catalog else "seeded",
@@ -909,7 +936,9 @@ def sync_adyen_cee_offers(offers: list[dict], countries: dict, checked_at: str,
             "condition": (
                 "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,28 % interchange a 0,138 % scheme fee + 0,052 CHF."
                 if code == "CH" else
-                "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba samostatně přičítá odhad 0,20 % interchange a 0,15 % scheme fee."
+                "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a domácí UK Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky."
+                if code == "GB" else
+                "Publikovaná cena je 0,60 % + zpracovatelský poplatek. Srovnávací sazba používá 0,20 % interchange a EEA Visa/Mastercard debit benchmark včetně procentní a pevné scheme složky."
             ),
             "promo": False,
             "last_changed_at": offer.get("last_changed_at"),
@@ -1084,6 +1113,21 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     else:
         variable_min=offer['variable_pct_min']+addon_min
         variable_max=offer['variable_pct_max']+addon_max
+    scheme_scenarios=comparison.get('scheme_fee_scenarios') or []
+    if scheme_scenarios and package_effective_pct is None:
+        scenario_min=[]
+        scenario_max=[]
+        interchange_pct=comparison.get('interchange_pct',0) or 0
+        for scenario in scheme_scenarios:
+            scenario_rate=fx.get(scenario.get('currency'),{'czk_per_unit':1})['czk_per_unit']
+            scenario_fixed=(scenario.get('fixed') or 0)*scenario_rate
+            scenario_pct=interchange_pct+(scenario.get('pct') or 0)
+            scenario_min.append(amount*(offer['variable_pct_min']+scenario_pct)/100+(offer.get('fixed_fee_min') or 0)*rate+scenario_fixed)
+            scenario_max.append(amount*(offer['variable_pct_max']+scenario_pct)/100+(offer.get('fixed_fee_max') or 0)*rate+scenario_fixed)
+        minimum=(offer.get('minimum_fee') or 0)*rate
+        mn=max(min(scenario_min),minimum)
+        mx=max(max(scenario_max),minimum)
+        return {'fee_min_czk':round(mn,4),'fee_max_czk':round(mx,4),'effective_min_pct':round(mn/amount*100,4),'effective_max_pct':round(mx/amount*100,4)}
     mn=amount*variable_min/100+(offer.get('fixed_fee_min') or 0)*rate+fixed_addon_czk
     mx=amount*variable_max/100+(offer.get('fixed_fee_max') or 0)*rate+fixed_addon_czk
     minimum=(offer.get('minimum_fee') or 0)*rate
@@ -1686,9 +1730,9 @@ def main()->int:
         'counting_note':'Dashboard keeps distinct tariff, channel and card-profile rows. Exact duplicate economics may be collapsed; the export keeps every source row.',
     }
     changes=ensure_current_overlay_additions(append_dataset_changes(changes,previous.get('offers',[]),offers,now),offers,now)
-    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.1',
+    output={'generated_at':now,'update_frequency':'weekly','default_transaction_eur':REFERENCE_TRANSACTION_EUR,'methodology_version':'2.2',
             'scope_note':'Publicly displayed merchant acceptance prices. Acquirers, PSPs, gateways and A2A wallets are separated by provider type; they are not automatically treated as economically identical.',
-            'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_reference_pct':ICPP_EEA_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
+            'comparison_profile':{'transaction_amount':REFERENCE_TRANSACTION_EUR,'transaction_currency':'EUR','icpp_profile':'authenticated EEA consumer debit / domestic UK consumer debit; Swiss domestic e-commerce debit','interchange_reference_pct':ICPP_EEA_DEBIT_INTERCHANGE_REFERENCE_PCT,'eea_scheme_fee_scenarios':[dict(item) for item in ICPP_EEA_SCHEME_FEE_SCENARIOS],'uk_scheme_fee_scenarios':[dict(item) for item in ICPP_UK_SCHEME_FEE_SCENARIOS],'scheme_fee_source_url':ICPP_SCHEME_FEE_SOURCE_URL,'switzerland':{'interchange_pct':ICPP_CH_CNP_DEBIT_INTERCHANGE_REFERENCE_PCT,'scheme_fee_pct':ICPP_CH_SCHEME_FEE_REFERENCE_PCT,'scheme_fee_fixed_chf':ICPP_CH_SCHEME_FEE_REFERENCE_FIXED_CHF,'interchange_source_url':ICPP_CH_INTERCHANGE_SOURCE_URL}},
             'cee_acquirer_registry':{'as_of':registry.get('as_of'),'provider_count':len(registry.get('providers',[]))},
             'europe_acquirer_registry':{'as_of':europe_registry.get('as_of'),'provider_count':len(europe_registry.get('providers',[])),'country_count':len({item.get('country_iso2') for item in europe_registry.get('providers',[])})},
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},

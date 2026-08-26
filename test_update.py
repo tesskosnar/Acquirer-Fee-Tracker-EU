@@ -163,7 +163,9 @@ def test_czech_review_uses_all_in_rates_and_real_acquiring_entities():
     assert (by_id['CZ-barion-fixed-card']['variable_pct_min'],by_id['CZ-barion-fixed-card']['variable_pct_max'])==(0.69,1.49)
     assert (by_id['CZ-barion-fixed-a2a']['variable_pct_min'],by_id['CZ-barion-fixed-a2a']['variable_pct_max'])==(0.29,1.09)
     assert by_id['CZ-barion-icpp-card']['comparison_estimate'] is True
-    assert by_id['CZ-barion-icpp-card']['pricing_components']['comparison_reference']['total_addon_pct']==0.35
+    barion_reference=by_id['CZ-barion-icpp-card']['pricing_components']['comparison_reference']
+    assert (barion_reference['total_addon_pct_min'],barion_reference['total_addon_pct_max'])==(0.316,0.321)
+    assert [item['scheme'] for item in barion_reference['scheme_fee_scenarios']]==['Visa Debit','Mastercard Debit']
     assert 'CZ-barion-advanced-low-card' not in by_id
     assert by_id['CZ-kb-smartpay-ecommerce-card']['provider']=='Worldline / KB SmartPay'
     offers=apply_audit_corrections(update.apply_provider_gap_overlay(
@@ -327,8 +329,12 @@ def test_adyen_catalog_classifies_a2a_from_official_type_not_name(monkeypatch):
     discovered=next(o for o in offers if o['method']=='a2a')
     assert corrected['fixed_fee_min']==0.11 and corrected['fee_currency']=='EUR'
     assert corrected['pricing_components']['interchange']['eea_consumer_debit_reference_pct']==0.2
-    assert corrected['pricing_components']['comparison_reference']['scheme_fee_pct']==0.15
-    assert corrected['pricing_components']['comparison_reference']['total_addon_pct']==0.35
+    reference=corrected['pricing_components']['comparison_reference']
+    assert reference['scheme_fee_scenarios']==[
+        {'scheme':'Visa Debit','pct':0.116,'fixed':0.035,'currency':'EUR'},
+        {'scheme':'Mastercard Debit','pct':0.121,'fixed':0.045,'currency':'EUR'},
+    ]
+    assert (reference['total_addon_pct_min'],reference['total_addon_pct_max'])==(0.316,0.321)
     assert corrected['comparison_estimate'] is True
     assert discovered['product']=='Bank Button (A2A)'
     assert discovered['fixed_fee_min']==0.11 and discovered['variable_pct_min']==2.0
@@ -341,14 +347,37 @@ def test_calc_presents_icpp_as_a_clearly_modelled_debit_reference():
         'pricing_components':{'interchange':{
             'eea_consumer_debit_reference_pct':0.2,
             'eea_consumer_credit_reference_pct':0.3,
-        },'comparison_reference':{'total_addon_pct':0.35}},
+        },'comparison_reference':{
+            'interchange_pct':0.2,
+            'scheme_fee_scenarios':[
+                {'scheme':'Visa Debit','pct':0.116,'fixed':0.035,'currency':'EUR'},
+                {'scheme':'Mastercard Debit','pct':0.121,'fixed':0.045,'currency':'EUR'},
+            ],
+        }},
         'all_in_complete':False,
         'comparison_estimate':True,
     }
     result=update.calc(offer,{'EUR':{'czk_per_unit':25}},amount=500)
-    assert result['fee_min_czk']==7.5
-    assert result['effective_min_pct']==1.5
-    assert result['effective_max_pct']==1.5
+    assert result['fee_min_czk']==8.205
+    assert result['fee_max_czk']==8.48
+    assert result['effective_min_pct']==1.641
+    assert result['effective_max_pct']==1.696
+
+
+def test_dashboard_and_generic_eea_icpp_rows_use_percentage_plus_fixed_scheme_scenarios():
+    dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
+    assert 'comparison.scheme_fee_scenarios || []' in dashboard
+    assert 'scheme fee ${scenarioText}' in dashboard
+    offers=update.apply_cee_verified_overlay(
+        json.loads(BASELINE.read_text(encoding='utf-8'))['offers'],
+        json.loads(BASELINE.read_text(encoding='utf-8'))['countries'],
+    )
+    by_id={offer['id']:offer for offer in offers}
+    for offer_id in ('CZ-barion-icpp-card','HU-simplepay-szamlazz-card'):
+        reference=by_id[offer_id]['pricing_components']['comparison_reference']
+        assert reference['scheme_fee_scenarios'][0]=={'scheme':'Visa Debit','pct':0.116,'fixed':0.035,'currency':'EUR'}
+        assert reference['scheme_fee_scenarios'][1]=={'scheme':'Mastercard Debit','pct':0.121,'fixed':0.045,'currency':'EUR'}
+        assert 'scheme_fee_pct' not in reference
 
 
 def test_swiss_icpp_reference_includes_domestic_cnp_interchange_and_fixed_scheme_fee():

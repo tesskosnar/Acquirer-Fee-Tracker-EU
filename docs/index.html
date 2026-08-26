@@ -363,7 +363,7 @@ tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
       <div><dt>Národní schéma</dt><dd>Domácí karetní síť, např. Girocard (DE) nebo Dankort (DK).</dd></div>
       <div><dt>Ostatní karetní schémata</dt><dd id="otherSchemesGlossary">Schémata mimo Visa/MC a národní systémy.</dd></div>
       <div><dt>A2A převod</dt><dd>Platba iniciovaná přímo z účtu zákazníka na účet obchodníka, bez karetní sítě.</dd></div>
-      <div><dt>IC++</dt><dd>Interchange + scheme fee + marže. Chybějící složky standardně odhadujeme na 0,20 + 0,15 p. b.; výsledek označuje ≈.</dd></div>
+      <div><dt>IC++</dt><dd>Interchange + scheme fee + marže. Odhad zahrnuje procentní i pevnou scheme složku; výsledek označuje ≈.</dd></div>
       <div><dt>Celková sazba</dt><dd>Transakční náklad v % z 20 €, včetně fixní složky a označených odhadů.</dd></div>
     </dl>
   </details>
@@ -586,6 +586,24 @@ function calc(o) {
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const packageEffectivePct = o.package_effective_pct;
   if ((o.monthly_fee || 0) > 0 && packageEffectivePct == null) return {min:null, max:null, emin:null, emax:null};
+  const schemeScenarios = comparison.scheme_fee_scenarios || [];
+  if (schemeScenarios.length && packageEffectivePct == null) {
+    const interchangePct = comparison.interchange_pct || 0;
+    const scenarioValues = schemeScenarios.map(scenario => {
+      const scenarioFx = S.data.fx.rates[scenario.currency]?.czk_per_unit ?? 1;
+      const scenarioFixedCzk = (scenario.fixed || 0) * scenarioFx;
+      const scenarioPct = interchangePct + (scenario.pct || 0);
+      return {
+        min: amountCzk * (o.variable_pct_min + scenarioPct) / 100 + (o.fixed_fee_min || 0) * fx + scenarioFixedCzk,
+        max: amountCzk * (o.variable_pct_max + scenarioPct) / 100 + (o.fixed_fee_max || 0) * fx + scenarioFixedCzk,
+      };
+    });
+    const minimumCzk = (o.minimum_fee || 0) * fx;
+    const minCzk = Math.max(Math.min(...scenarioValues.map(value => value.min)), minimumCzk);
+    const maxCzk = Math.max(Math.max(...scenarioValues.map(value => value.max)), minimumCzk);
+    const toDisplay = value => S.ccy === 'EUR' ? value / eurRate : value;
+    return {min:toDisplay(minCzk), max:toDisplay(maxCzk), emin:minCzk / amountCzk * 100, emax:maxCzk / amountCzk * 100};
+  }
   const variableMin = packageEffectivePct ?? (o.variable_pct_min + comparisonAddonMin);
   const variableMax = packageEffectivePct ?? (o.variable_pct_max + comparisonAddonMax);
   const minimumCzk = (o.minimum_fee || 0) * fx;
@@ -718,11 +736,18 @@ function pricingReference(o) {
   const reference = o.pricing_components?.comparison_reference;
   const parts = [];
   if (reference) {
+    const scenarios=reference.scheme_fee_scenarios || [];
+    if (scenarios.length) {
+      const localized=value => Number(value).toLocaleString('cs-CZ',{maximumFractionDigits:4});
+      const scenarioText=scenarios.map(item => `${item.scheme}: ${localized(item.pct)} % + ${localized(item.fixed)} ${item.currency}`).join('; ');
+      parts.push(`Srovnávací IC++ odhad pro 20 €: interchange ${localized(reference.interchange_pct)} %; scheme fee ${scenarioText}. Není součástí publikované sazby.`);
+    } else {
     const min=reference.total_addon_pct_min ?? reference.total_addon_pct;
     const max=reference.total_addon_pct_max ?? reference.total_addon_pct;
     const localized=value => Number(value).toLocaleString('cs-CZ',{maximumFractionDigits:4});
     const addon=min == null ? '' : min === max ? `+${localized(min)} p. b.` : `+${localized(min)} až +${localized(max)} p. b.`;
     parts.push(`Srovnávací IC++ odhad${addon ? `: ${addon}` : ''}; není součástí publikované sazby.`);
+    }
   }
   if (o.package_effective_pct != null) parts.push('Celková sazba = paušál / zahrnutý obrat při plném využití limitu.');
   if (o.condition) parts.push(esc(o.condition));

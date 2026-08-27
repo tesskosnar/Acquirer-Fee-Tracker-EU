@@ -268,7 +268,7 @@ tr.offerrow[aria-expanded="true"] td{background:rgba(47,111,176,.07)}
     <div class="control-primary">
       <div class="control control-search">
         <label for="search">Hledat</label>
-        <input id="search" type="search" placeholder="Poskytovatel, země nebo produkt…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="searchSuggestions" aria-expanded="false">
+        <input id="search" type="search" placeholder="Poskytovatel nebo země…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="searchSuggestions" aria-expanded="false">
         <div id="searchSuggestions" class="search-suggestions" role="listbox" hidden></div>
       </div>
       <div class="control country">
@@ -467,25 +467,27 @@ function searchSuggestionCandidates(query) {
     const key = `${candidate.type}|${searchText(candidate.label)}|${searchText(candidate.context || '')}`;
     if (!candidates.has(key)) candidates.set(key, candidate);
   };
-  const reviewed = S.data.offers.filter(o =>
-    isSourceReviewed(o) &&
-    (!S.method || o.method === S.method) &&
-    (!S.country || o.country_iso2 === S.country) &&
-    (!S.provider || o.provider === S.provider) &&
-    (!S.region || REGION_COUNTRIES[S.region].includes(o.country_iso2)) &&
-    matchScheme(o) && matchRole(o)
-  );
-  const providerCountries = new Map();
-  reviewed.forEach(o => {
-    if (!providerCountries.has(o.provider)) providerCountries.set(o.provider,new Set());
-    providerCountries.get(o.provider).add(o.country_iso2);
+  // Našeptávač je globální: aktivní filtry nesmějí skrýt poskytovatele,
+  // kterého se uživatel právě snaží najít.
+  const reviewed = S.data.offers.filter(o => isSourceReviewed(o));
+  const providerMeta = new Map();
+  reviewed.filter(o => ['acquirer','acquirer_sales_channel','psp'].includes(o.provider_role)).forEach(o => {
+    if (!providerMeta.has(o.provider)) providerMeta.set(o.provider,{countries:new Set(),roles:new Set(),methods:new Set(),offers:[]});
+    const meta=providerMeta.get(o.provider);
+    meta.countries.add(o.country_iso2);
+    meta.roles.add(o.provider_role);
+    meta.methods.add(o.method);
+    meta.offers.push(o);
   });
-  providerCountries.forEach((countries,provider) => add({label:provider,type:'Poskytovatel',context:[...countries].sort().join(', '),priority:0}));
+  providerMeta.forEach((meta,provider) => add({
+    label:provider,type:'Poskytovatel',kind:'provider',
+    context:[...meta.countries].sort().join(', '),priority:0,
+    roles:[...meta.roles],methods:[...meta.methods],offers:meta.offers,
+  }));
   [...new Set(reviewed.map(o => o.country_iso2))].forEach(iso => {
     const country=S.data.countries[iso];
-    if (country) add({label:country.name,type:'Země',context:iso,priority:1});
+    if (country) add({label:country.name,type:'Země',kind:'country',iso,context:iso,priority:1});
   });
-  reviewed.forEach(o => add({label:o.product,type:'Produkt',context:o.provider,priority:2}));
   return [...candidates.values()]
     .map(candidate => ({...candidate,score:searchCandidateScore(candidate,normalizedQuery)}))
     .filter(candidate => candidate.score <= 1.55)
@@ -509,6 +511,35 @@ function selectSearchSuggestion(index) {
   const input=document.getElementById('search');
   input.value=suggestion.label;
   S.search=suggestion.label;
+  if (suggestion.kind === 'provider') {
+    S.provider=suggestion.label;
+    S.country='';
+    S.region='';
+    document.getElementById('country').value='';
+    setActiveSegment('region-seg','');
+    if (S.method && !suggestion.methods.includes(S.method)) {
+      S.method='';
+      setActiveSegment('method-seg','');
+    }
+    const roleFits=S.role === 'all'
+      || (S.role === 'acquirer' && suggestion.roles.includes('acquirer'))
+      || (S.role === 'psp' && suggestion.roles.includes('psp'))
+      || (S.role === 'merchant' && suggestion.roles.some(role => ['acquirer','acquirer_sales_channel','psp'].includes(role)));
+    if (!roleFits) {
+      S.role='merchant';
+      setActiveSegment('role-seg','merchant');
+    }
+    if (S.scheme && !suggestion.offers.some(o => o.method === 'card' && matchesSchemeValue(o,S.scheme))) {
+      S.scheme='';
+      setActiveSegment('scheme-seg','');
+    }
+  } else if (suggestion.kind === 'country') {
+    S.country=suggestion.iso;
+    S.provider='';
+    S.region='';
+    document.getElementById('country').value=suggestion.iso;
+    setActiveSegment('region-seg','');
+  }
   hideSearchSuggestions();
   render();
 }

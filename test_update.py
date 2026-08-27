@@ -771,10 +771,11 @@ def test_provider_gap_overlay_adds_reviewed_high_visibility_providers():
     assert all(offer.get('price_verified_on')=='2026-08-25' for offer in offers)
 
 
-def test_dashboard_search_offers_five_fuzzy_keyboard_accessible_suggestions():
+def test_dashboard_search_offers_global_provider_and_country_suggestions_only():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
     assert 'id="searchSuggestions"' in dashboard
     assert 'aria-autocomplete="list"' in dashboard
+    assert 'placeholder="Poskytovatel nebo země…"' in dashboard
     assert 'function editDistance(a, b)' in dashboard
     assert '.slice(0,5)' in dashboard
     assert "e.key === 'ArrowDown'" in dashboard
@@ -782,7 +783,14 @@ def test_dashboard_search_offers_five_fuzzy_keyboard_accessible_suggestions():
     search_handler=dashboard[dashboard.index("document.getElementById('search').oninput"):dashboard.index("document.getElementById('search').onfocus")]
     suggestion_handler=dashboard[dashboard.index('function selectSearchSuggestion'):dashboard.index('function renderSearchSuggestions')]
     assert "S.provider = ''" not in search_handler
-    assert "S.provider=''" not in suggestion_handler
+    candidate_handler=dashboard[dashboard.index('function searchSuggestionCandidates'):dashboard.index('function hideSearchSuggestions')]
+    assert "const reviewed = S.data.offers.filter(o => isSourceReviewed(o))" in candidate_handler
+    assert "kind:'provider'" in candidate_handler
+    assert "kind:'country'" in candidate_handler
+    assert "type:'Produkt'" not in candidate_handler
+    assert 'o.product' not in candidate_handler
+    assert 'S.provider=suggestion.label' in suggestion_handler
+    assert "S.role='merchant'" in suggestion_handler
     assert "(!S.country || o.country_iso2 === S.country)" in dashboard
     assert "if (S.provider) rows = rows.filter" in dashboard
     assert "if (S.country) rows = rows.filter" in dashboard

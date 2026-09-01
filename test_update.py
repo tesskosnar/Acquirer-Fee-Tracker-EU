@@ -686,20 +686,14 @@ def test_country_suffix_is_removed_from_provider_display_name():
 
 def test_dashboard_names_national_schemes_only_on_relevant_offers_and_title_resets_all_filters():
     dashboard=(update.ROOT/'docs'/'index.html').read_text(encoding='utf-8')
-    for country, scheme in {
-        'BE':'Bancontact',
-        'BG':'Bcard',
-        'DE':'girocard',
-        'DK':'Dankort',
-        'FR':'Cartes Bancaires (CB)',
-        'IT':'PagoBANCOMAT',
-        'PT':'MULTIBANCO',
-        'SI':'Karanta',
-        'MT':'CashlinkMALTA',
-        'CH':'PostFinance Card',
-    }.items():
-        assert f"{country}:{{name:'{scheme}'" in dashboard
-    assert dashboard.count('ecb2024:true')==9
+    registry=json.loads(update.NATIONAL_PAYMENT_INFRASTRUCTURE.read_text(encoding='utf-8'))
+    active=registry['active_national_card_schemes']
+    assert {item['country_iso2'] for item in active if item['ecb_2024']}=={
+        'BE','BG','DE','DK','FR','IT','PT','SI','MT',
+    }
+    assert {item['country_iso2']:item['name'] for item in active}['NO']=='BankAxept'
+    assert 'active_national_card_schemes' in dashboard
+    assert 'item.country_iso2,{name:item.name,url:item.source_url}' in dashboard
     assert 'national-scheme-key' not in dashboard
     assert 'has-national-scheme' not in dashboard
     assert "nationalScheme=NATIONAL_SCHEMES[S.country]" not in dashboard
@@ -711,6 +705,29 @@ def test_dashboard_names_national_schemes_only_on_relevant_offers_and_title_rese
     assert "setActiveSegment('role-seg', S.role)" in dashboard
     assert "setActiveSegment('scheme-seg', S.scheme)" in dashboard
     assert "setActiveSegment('region-seg', S.region)" in dashboard
+
+
+def test_switches_are_not_misclassified_as_national_card_schemes():
+    registry=json.loads(update.NATIONAL_PAYMENT_INFRASTRUCTURE.read_text(encoding='utf-8'))
+    active={item['name'] for item in registry['active_national_card_schemes']}
+    infrastructure={item['name'] for item in registry['switches_processors_and_legacy_systems']}
+    assert {'ROMCARD','DIAS','STMP / SNCE','Krajowy System Rozliczeń (KSR)','Inkart','PSA Payment Services Austria'} <= infrastructure
+    assert not active & infrastructure
+    assert next(item for item in registry['switches_processors_and_legacy_systems'] if item['name']=='Inkart')['ended_on']=='2019-06-30'
+
+
+def test_national_scheme_metadata_is_added_only_to_national_offer_rows():
+    registry=json.loads(update.NATIONAL_PAYMENT_INFRASTRUCTURE.read_text(encoding='utf-8'))
+    offers=[
+        {'id':'NO-national','country_iso2':'NO','method':'card','card_schemes':['national']},
+        {'id':'NO-visa','country_iso2':'NO','method':'card','card_schemes':['visa','mastercard']},
+        {'id':'NO-a2a','country_iso2':'NO','method':'a2a','card_schemes':[]},
+    ]
+    update.annotate_national_card_schemes(offers,registry)
+    assert offers[0]['national_scheme_name']=='BankAxept'
+    assert offers[0]['national_scheme_source_url'].startswith('https://bankaxept.no/')
+    assert 'national_scheme_name' not in offers[1]
+    assert 'national_scheme_name' not in offers[2]
 
 
 def test_dashboard_keeps_compact_title_sticky_and_moves_csv_export_to_footer():

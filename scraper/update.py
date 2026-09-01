@@ -33,6 +33,7 @@ EUROPE_VERIFIED = Path(__file__).with_name("europe_verified_offers.json")
 PROVIDER_GAPS = Path(__file__).with_name("provider_gap_offers.json")
 AUDIT_CORRECTIONS = Path(__file__).with_name("audit_corrections.json")
 PROVIDER_MASTER_CROSSCHECK = Path(__file__).with_name("provider_master_crosscheck.json")
+NATIONAL_PAYMENT_INFRASTRUCTURE = Path(__file__).with_name("national_payment_infrastructure.json")
 CNB_URL = "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
 USER_AGENT = "AcquirerFeeTrackerBot/1.0 (public-interest research; weekly read-only check of public pricing pages)"
 TIMEOUT = 30
@@ -330,6 +331,29 @@ def normalise_offer_schema(offers: list[dict]) -> list[dict]:
             offer['source_checked_at']=offer['source_last_attempt_at']
         offer['verification_state']=verification_state(offer)
         offer['verification_scope']='price' if numeric else 'service_or_role'
+    return offers
+
+
+def annotate_national_card_schemes(offers: list[dict], infrastructure: dict) -> list[dict]:
+    """Attach the verified scheme name only to actual national-scheme rows.
+
+    The infrastructure register also contains switches and processors.  Those
+    entries must never turn a Visa/Mastercard offer into a national-card offer.
+    """
+    schemes={
+        item['country_iso2']:item
+        for item in infrastructure.get('active_national_card_schemes',[])
+    }
+    for offer in offers:
+        if offer.get('method')=='card' and 'national' in (offer.get('card_schemes') or []):
+            scheme=schemes.get(offer.get('country_iso2'))
+            if not scheme:
+                raise ValueError(f"National scheme is not registered for {offer.get('id')}")
+            offer['national_scheme_name']=scheme['name']
+            offer['national_scheme_source_url']=scheme['source_url']
+        else:
+            offer.pop('national_scheme_name',None)
+            offer.pop('national_scheme_source_url',None)
     return offers
 
 
@@ -1557,7 +1581,7 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['id','country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_basis','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
+    cols=['id','country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_basis','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','national_scheme_name','national_scheme_source_url','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         offers=sorted(output['offers'],key=lambda o:(o.get('country_iso2',''),(o.get('provider') or '').casefold(),o.get('method',''),o.get('product',''),o.get('id','')))
@@ -1730,6 +1754,8 @@ def main()->int:
         if not offer.get('price_verified_on'):
             offer['price_verified_on']=infer_price_verified_on(offer)
     normalise_offer_schema(offers)
+    payment_infrastructure=json.loads(NATIONAL_PAYMENT_INFRASTRUCTURE.read_text(encoding='utf-8'))
+    annotate_national_card_schemes(offers,payment_infrastructure)
     assign_provider_roles(offers)
     normalise_provider_types(offers)
     validate_temporal_metadata(offers,now)
@@ -1777,6 +1803,7 @@ def main()->int:
             'europe_acquirer_watchlist':{'as_of':watchlist.get('as_of'),'provider_count':len(watchlist.get('providers',[])),'country_count':len({item.get('country_iso2') for item in watchlist.get('providers',[])})},
             'watchlist_audit':watchlist_audit,
             'provider_master_crosscheck':{'as_of':master_crosscheck.get('as_of'),'normalised_group_count':master_crosscheck.get('regulatory_master',{}).get('normalised_group_count',0),'new_candidate_group_count':len(master_crosscheck.get('regulatory_master',{}).get('new_candidate_groups',[])),'unresolved_acquiring_candidate_count':len(unresolved_acquiring_candidates),'verified_country_addition_count':len(master_crosscheck.get('verified_country_additions',[]))},
+            'national_payment_infrastructure':payment_infrastructure,
             'data_quality':data_quality,
             'cee_audit':cee_audit,
             'europe_audit':europe_audit,

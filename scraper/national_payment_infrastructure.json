@@ -1,0 +1,158 @@
+{
+  "as_of": "2026-09-01",
+  "methodology": "A national card scheme defines scheme rules and governance for cards used primarily in one country. Card processors, switches, clearing systems and acquirers are recorded separately and never converted into national-card merchant offers without an official merchant tariff.",
+  "primary_reference": "https://www.ecb.europa.eu/pub/pdf/other/ecb.reportcardschemes202502~1614226b0a.en.pdf",
+  "active_national_card_schemes": [
+    {
+      "country_iso2": "BE",
+      "name": "Bancontact",
+      "card_types": "debit",
+      "ecb_2024": true,
+      "source_url": "https://www.bancontact.com/en/consumer/bancontact-card"
+    },
+    {
+      "country_iso2": "BG",
+      "name": "Bcard",
+      "card_types": "debit_credit_prepaid",
+      "ecb_2024": true,
+      "source_url": "https://www.borica.bg/about/history",
+      "submitted_aliases": ["Bard"]
+    },
+    {
+      "country_iso2": "DK",
+      "name": "Dankort",
+      "card_types": "debit",
+      "ecb_2024": true,
+      "source_url": "https://dankort.dk/en-GB/dankort"
+    },
+    {
+      "country_iso2": "DE",
+      "name": "girocard",
+      "card_types": "debit",
+      "ecb_2024": true,
+      "source_url": "https://www.girocard.eu/"
+    },
+    {
+      "country_iso2": "FR",
+      "name": "Cartes Bancaires (CB)",
+      "card_types": "debit_credit_prepaid",
+      "ecb_2024": true,
+      "source_url": "https://www.cartes-bancaires.com/"
+    },
+    {
+      "country_iso2": "IT",
+      "name": "PagoBANCOMAT",
+      "card_types": "debit_prepaid",
+      "ecb_2024": true,
+      "source_url": "https://bancomat.it/it/pagobancomat"
+    },
+    {
+      "country_iso2": "MT",
+      "name": "CashlinkMALTA",
+      "card_types": "debit",
+      "ecb_2024": true,
+      "source_url": "https://www.centralbankmalta.org/site/Publications/QR-2021-4.pdf"
+    },
+    {
+      "country_iso2": "PT",
+      "name": "MULTIBANCO",
+      "card_types": "debit_prepaid",
+      "ecb_2024": true,
+      "source_url": "https://www.sibs.com/en/brands/multibanco/"
+    },
+    {
+      "country_iso2": "SI",
+      "name": "Karanta",
+      "card_types": "credit",
+      "ecb_2024": true,
+      "source_url": "https://px.bsi.si/pxweb/en/serije_ang/serije_ang__10_denar_mfi__95_SPI/pcnsE.px/",
+      "note": "Activa remains a Slovenian card product/brand, often co-badged with an international scheme. The current ECB national-scheme count and Banka Slovenije statistics identify Karanta as the relevant domestic credit-card scheme."
+    },
+    {
+      "country_iso2": "NO",
+      "name": "BankAxept",
+      "card_types": "debit",
+      "ecb_2024": false,
+      "source_url": "https://bankaxept.no/en/norways-national-payment-card",
+      "note": "Norway is outside the EU count of nine schemes. BankAxept publishes a scheme charge, but merchants also need a separate acquiring agreement with a bank; the scheme charge is therefore not a complete acquiring offer.",
+      "merchant_scheme_pricing": {
+        "effective_from": "2026-07-01",
+        "variable_pct": 0.161,
+        "monthly_fee": 150,
+        "transaction_fee_cap": 15,
+        "currency": "NOK",
+        "complete_acquiring_price": false,
+        "source_url": "https://bankaxept.no/hjelp/priser-for-bankaxept"
+      }
+    },
+    {
+      "country_iso2": "CH",
+      "name": "PostFinance Card",
+      "card_types": "debit",
+      "ecb_2024": false,
+      "source_url": "https://www.postfinance.ch/en/business/products/payment-collection/payment-solutions/combo-payment-methods.html",
+      "note": "Switzerland is outside the EU count of nine schemes."
+    }
+  ],
+  "switches_processors_and_legacy_systems": [
+    {
+      "country_iso2": "AT",
+      "name": "PSA Payment Services Austria",
+      "classification": "processor_and_clearing_mechanism",
+      "source_url": "https://www.psa.at/en/card-payment-services",
+      "reason_not_national_card_scheme": "PSA provides issuing support and processing for international card products and operates account-payment infrastructure; it is not a separate merchant card scheme."
+    },
+    {
+      "country_iso2": "CY",
+      "name": "JCC Cards Payment System",
+      "classification": "acquirer_processor_clearing_system",
+      "source_url": "https://www.centralbank.cy/en/financial-market-infrastructures-payments/financial-market-infrastructures-instruments/retail-payment-systems",
+      "submitted_aliases": ["ICC"],
+      "reason_not_national_card_scheme": "JCC acquires, processes, clears and settles cards issued under international scheme licences; the submitted name ICC appears to be a typo for JCC."
+    },
+    {
+      "country_iso2": "ES",
+      "name": "STMP / SNCE",
+      "classification": "card_clearing_and_settlement_systems",
+      "source_url": "https://www.bde.es/wbe/en/areas-actuacion/sistemas-pago/los-sistemas-pago-espana/STMP/",
+      "submitted_aliases": ["stop", "snct"],
+      "reason_not_national_card_scheme": "STMP clears mainly Visa and Mastercard transactions and SNCE settles them. ECB explicitly reclassified STMP as a clearing system; Spain has no current national card scheme."
+    },
+    {
+      "country_iso2": "GR",
+      "name": "DIAS",
+      "classification": "national_ach_and_payment_infrastructure",
+      "source_url": "https://www.dias.com.gr/en/about-us/",
+      "reason_not_national_card_scheme": "DIAS is Greece's national automated clearing house and operates IRIS/account-payment services; it is not a card scheme."
+    },
+    {
+      "country_iso2": "PL",
+      "name": "Krajowy System Rozliczeń (KSR)",
+      "classification": "domestic_card_clearing_system",
+      "source_url": "https://nbp.pl/wp-content/uploads/2025/11/Ocena-I-polrocze_2025.pdf",
+      "reason_not_national_card_scheme": "KSR, operated by Fiserv Polska, clears domestic card transactions and exchanges data between issuers and acquirers; it does not define a separate card brand."
+    },
+    {
+      "country_iso2": "PL",
+      "name": "Inkart",
+      "classification": "former_retail_payment_system",
+      "source_url": "https://nbp.pl/wp-content/uploads/2023/01/Polish-Payment-System-Oversight-Report-for-2019.pdf",
+      "ended_on": "2019-06-30",
+      "reason_not_national_card_scheme": "The Inkart payment system ceased operation on 30 June 2019."
+    },
+    {
+      "country_iso2": "RO",
+      "name": "ROMCARD",
+      "classification": "card_processor_switch_and_clearing_provider",
+      "source_url": "https://new.romcard.ro/despre-companie/",
+      "reason_not_national_card_scheme": "ROMCARD provides processing, switching, clearing and 3-D Secure services for international schemes; it is not a Romanian card brand."
+    },
+    {
+      "country_iso2": "SI",
+      "name": "Activa / Bankart",
+      "classification": "card_brand_and_processor",
+      "source_url": "https://www.bankart.si/en/company/",
+      "reason_not_national_card_scheme": "Bankart is a processor. Activa is retained as a local product/brand but is not counted as an additional current national scheme alongside Karanta."
+    }
+  ]
+}

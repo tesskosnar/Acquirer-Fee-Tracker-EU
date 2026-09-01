@@ -382,18 +382,7 @@ const REGION_COUNTRIES = {
 };
 const REGION_LABELS = {CEE:"CEE", Western:"Western", Nordic:"Nordic", Southern:"Southern"};
 const DEFAULT_FILTERS = Object.freeze({country:'', provider:'', region:'', method:'card', role:'acquirer', scheme:'', search:'', sortKey:'rate', sortAsc:true});
-const NATIONAL_SCHEMES = Object.freeze({
-  BE:{name:'Bancontact',cards:'debetní',ecb2024:true,url:'https://www.bancontact.com/en/consumer/bancontact-card'},
-  BG:{name:'Bcard',cards:'debetní, kreditní a předplacené',ecb2024:true,url:'https://www.borica.bg/en/latest/novini/borika-s-novo-ime-nova-viziya-i-nov-pazaren-podhod'},
-  DK:{name:'Dankort',cards:'debetní',ecb2024:true,url:'https://dankort.dk/en-GB/dankort'},
-  DE:{name:'girocard',cards:'debetní',ecb2024:true,url:'https://www.girocard.eu/'},
-  FR:{name:'Cartes Bancaires (CB)',cards:'debetní, kreditní a předplacené',ecb2024:true,url:'https://www.cartes-bancaires.com/'},
-  IT:{name:'PagoBANCOMAT',cards:'debetní a předplacené',ecb2024:true,url:'https://bancomat.it/it/pagobancomat'},
-  PT:{name:'MULTIBANCO',cards:'debetní a předplacené',ecb2024:true,url:'https://www.sibs.com/en/brands/multibanco/'},
-  SI:{name:'Karanta',cards:'kreditní',ecb2024:true,url:'https://www.nlb.si/osebno/kartice/kreditna-kartica-karanta'},
-  MT:{name:'CashlinkMALTA',cards:'debetní',ecb2024:true,url:'https://www.centralbankmalta.org/site/Publications/QR-2021-4.pdf?revcount=9695'},
-  CH:{name:'PostFinance Card',cards:'debetní',ecb2024:false,url:'https://www.postfinance.ch/en/business/products/payment-collection/payment-solutions/combo-payment-methods.html'},
-});
+let NATIONAL_SCHEMES = Object.freeze({});
 const S = { data:null, map:null, amount:20, ccy:'EUR', ...DEFAULT_FILTERS };
 
 // card_scheme na nabídce je jemnozrnné (domestic / intl_debit / intl_credit / intl),
@@ -1275,11 +1264,11 @@ function exportCsv() {
     (a.method || '').localeCompare(b.method) ||
     (a.product || '').localeCompare(b.product,'cs')
   );
-  const head = ['country','provider','provider_type','provider_role','product','method','channel','card_schemes','card_profile','pricing_model','pricing_model_code','published_rate','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','setup_fee','setup_currency','non_transaction_fees','reference_transaction','reference_currency','reference_monthly_turnover_eur','effective_min_pct','effective_max_pct','comparison_estimate','promo','condition','price_verified_on','source_url','comparison_source_url'];
+  const head = ['country','provider','provider_type','provider_role','product','method','channel','card_schemes','national_scheme_name','national_scheme_source_url','card_profile','pricing_model','pricing_model_code','published_rate','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','setup_fee','setup_currency','non_transaction_fees','reference_transaction','reference_currency','reference_monthly_turnover_eur','effective_min_pct','effective_max_pct','comparison_estimate','promo','condition','price_verified_on','source_url','comparison_source_url'];
   const lines = [head.join(',')];
   for (const o of rows) {
     const c = o._c;
-    lines.push([o.country_iso2, o.provider, o.provider_type, o.provider_role, o.product, o.method, o.channel || '', (o.card_schemes || []).join('|'), o.card_profile || '', o.pricing_model, o.pricing_model_code, published(o), o.variable_pct_min, o.variable_pct_max, o.fixed_fee_min, o.fixed_fee_max, o.minimum_fee, o.fee_currency, o.monthly_fee, o.monthly_currency, o.monthly_fee_mode, o.setup_fee, o.setup_currency, JSON.stringify(o.non_transaction_fees || []), S.amount, S.ccy, S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000, c.emin, c.emax, o.comparison_estimate === true, o.promo === true, o.condition || '', o.price_verified_on || '', o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '']
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.provider_role, o.product, o.method, o.channel || '', (o.card_schemes || []).join('|'), o.national_scheme_name || '', o.national_scheme_source_url || '', o.card_profile || '', o.pricing_model, o.pricing_model_code, published(o), o.variable_pct_min, o.variable_pct_max, o.fixed_fee_min, o.fixed_fee_max, o.minimum_fee, o.fee_currency, o.monthly_fee, o.monthly_currency, o.monthly_fee_mode, o.setup_fee, o.setup_currency, JSON.stringify(o.non_transaction_fees || []), S.amount, S.ccy, S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000, c.emin, c.emax, o.comparison_estimate === true, o.promo === true, o.condition || '', o.price_verified_on || '', o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '']
       .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
   }
   const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});
@@ -1295,6 +1284,10 @@ async function init() {
     fetch('data/latest.json').then(r => r.json()),
     fetch('assets/europe-paths.json').then(r => r.json()),
   ]);
+  NATIONAL_SCHEMES = Object.freeze(Object.fromEntries(
+    (S.data.national_payment_infrastructure?.active_national_card_schemes || [])
+      .map(item => [item.country_iso2,{name:item.name,url:item.source_url}])
+  ));
   document.getElementById('generated').textContent = new Date(S.data.generated_at).toLocaleString('cs-CZ');
   document.getElementById('fxdate').textContent = formatIsoDate(S.data.fx.date);
   document.getElementById('auditUpdatedDate').textContent = formatIsoDate(String(S.data.generated_at).slice(0,10));

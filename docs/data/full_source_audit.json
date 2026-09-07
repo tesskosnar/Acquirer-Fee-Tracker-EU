@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-09-07T05:09:19+00:00",
-  "dataset_generated_at": "2026-09-07T05:06:47+00:00",
+  "generated_at": "2026-09-07T09:51:06+00:00",
+  "dataset_generated_at": "2026-09-07T09:47:50+00:00",
   "scope": "All-offer official-source audit. Automated matches are triage evidence, never authority to change a merchant price without semantic review.",
   "offer_rows_scanned": 511,
   "unique_official_urls_scanned": 299,
   "source_outcomes": {
-    "ok": 251,
-    "source_unavailable_or_blocked": 48
+    "ok": 215,
+    "source_unavailable_or_blocked": 84
   },
   "row_outcomes": {
-    "priced_row_manually_verified_parser_mismatch": 121,
-    "source_blocked_but_previously_verified": 54,
-    "stored_components_found_on_official_source": 261,
-    "unpriced_manually_verified_without_public_number": 56,
+    "priced_row_manually_verified_parser_mismatch": 114,
+    "source_blocked_but_previously_verified": 95,
+    "stored_components_found_on_official_source": 235,
+    "unpriced_manually_verified_without_public_number": 48,
     "unpriced_numeric_lead_rejected_after_manual_review": 19
   },
   "rows": [
@@ -247,20 +247,20 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://czech.payu.com/en/activate-payments/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           1
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
@@ -268,9 +268,9 @@
           200
         ],
         "setup_matches": [
-          true
+          false
         ],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -284,20 +284,20 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://czech.payu.com/en/activate-payments/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           1
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
@@ -305,9 +305,9 @@
           200
         ],
         "setup_matches": [
-          true
+          false
         ],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -1413,12 +1413,10 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
-      "price_leads": [
-        "tercard) Make quick card payments, with no intemediary required. How can you benefit? Achieve conversion rates of up to 95%. Attract new customers with fast, safe online transactions. Ensure secure transactions, with 24/7 monitoring and 3DS st"
-      ]
+      "price_leads": []
     },
     {
       "id": "MT-shift4finaro-card-registry",
@@ -1454,14 +1452,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.9
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           1
@@ -1473,7 +1471,7 @@
           150
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
@@ -1491,8 +1489,8 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -1546,10 +1544,12 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
       "evidence_match": null,
-      "price_leads": []
+      "price_leads": [
+        "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
+      ]
     },
     {
       "id": "SK-skpay-card",
@@ -2197,26 +2197,26 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://poland.payu.com/commercial-offer/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.1
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.3
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -2230,26 +2230,26 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://poland.payu.com/commercial-offer/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.1
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.3
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -2263,26 +2263,26 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://poland.payu.com/commercial-offer/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.1
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.32
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -2412,34 +2412,34 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://romania.payu.com/en/commercial-offer/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.99
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.3
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [
           25
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [
           1
         ],
         "setup_matches": [
-          true
+          false
         ],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3438,14 +3438,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/da-dk/campaigns/new-cash-register-act",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.5
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -3471,26 +3471,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/de-ch/campaigns/ms/tap-to-pay-auf-dem-iphone",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.29
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.15
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3504,8 +3504,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/el-gr/home",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -3519,8 +3519,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -3534,26 +3534,26 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.7
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.19
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3567,14 +3567,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/fi-fi/home/main-navigation/git/partner-handelsbanken",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.45
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -3582,11 +3582,11 @@
           25
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3600,8 +3600,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/fr-fr/home",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -3615,26 +3615,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.39
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.25
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3648,26 +3648,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.15
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3681,26 +3681,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/hr-hr/campaigns/tap-on-mobile",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.69
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.07
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3714,14 +3714,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -3729,7 +3729,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3743,26 +3743,26 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.9
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.13
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3776,14 +3776,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/hu-hu/campaigns/worldline-tap-on-mobile",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.99
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -3791,7 +3791,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3805,14 +3805,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -3820,7 +3820,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3834,8 +3834,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/it-it/home",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -3911,26 +3911,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-pay-by-link",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.15
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -3944,20 +3944,20 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.1
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.15
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [
           5
@@ -3981,8 +3981,8 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -3990,7 +3990,7 @@
           0.063
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [
           5
@@ -4014,26 +4014,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-e-payments",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.15
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4047,14 +4047,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/no-no/home/main-navigation/git/nordea-merchants",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.3
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4062,11 +4062,11 @@
           299
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4080,14 +4080,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4095,7 +4095,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4109,26 +4109,26 @@
       "price_verified_on": "2026-08-19",
       "price_lead_review": null,
       "source_url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.25
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.39
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4142,14 +4142,14 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://worldline.com/sk-sk/campaigns/worldline-tap-on-mobile",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.49
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4157,11 +4157,11 @@
           2
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4175,14 +4175,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/sl-si/campaigns/tap-to-pay-on-iphone",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.5
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4190,11 +4190,11 @@
           2
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4208,14 +4208,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.35
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4223,7 +4223,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4237,14 +4237,14 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/sv-se/campaigns/ms/Move-5000",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.5
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4252,11 +4252,11 @@
           49
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4270,14 +4270,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://worldline.com/sv-se/home/main-navigation/git/svea-merchant",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.5
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -4285,11 +4285,11 @@
           99
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4369,26 +4369,26 @@
       "price_verified_on": "2026-09-07",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           2.0
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.11
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4480,8 +4480,8 @@
       "price_leads": []
     },
     {
-      "id": "LV-adyen-trustly-a2a",
-      "country_iso2": "LV",
+      "id": "LT-adyen-trustly-a2a",
+      "country_iso2": "LT",
       "provider": "Adyen",
       "method": "a2a",
       "pricing_model": "Blended",
@@ -4509,8 +4509,8 @@
       "price_leads": []
     },
     {
-      "id": "LT-adyen-trustly-a2a",
-      "country_iso2": "LT",
+      "id": "LV-adyen-trustly-a2a",
+      "country_iso2": "LV",
       "provider": "Adyen",
       "method": "a2a",
       "pricing_model": "Blended",
@@ -5651,7 +5651,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.apsbank.com.mt/merchant-acquiring/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "unpriced_manually_verified_without_public_number",
       "evidence_match": null,
       "price_leads": []
@@ -6277,8 +6277,8 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -6574,26 +6574,26 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.citadele.lt/en/business/e-commerce/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           1.3
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.1
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -6607,8 +6607,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.citadele.lt/en/business/e-commerce/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -6616,13 +6616,13 @@
           0.09
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -6636,26 +6636,26 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.citadele.lv/en/business/e-commerce/billing/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           1.3
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.1
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -6669,26 +6669,26 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.citadele.lv/en/business/e-commerce/billing/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           1.3
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.1
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -8550,8 +8550,8 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -8565,8 +8565,8 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.globalpayments.com/hu-hu/digitalis-fizetes-program",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -8590,14 +8590,14 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.globalpayments.cz/online-platby/gp-webpay",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.0
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -8605,7 +8605,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -8619,14 +8619,14 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.globalpayments.cz/online-platby/gp-webpay",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.0
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -8634,11 +8634,11 @@
           249
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -8652,20 +8652,20 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.79
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.99
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
@@ -8673,9 +8673,9 @@
           299
         ],
         "setup_matches": [
-          true
+          false
         ],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -8737,14 +8737,14 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.globalpayments.sk/online-platby/gp-webpay",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.0
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -8752,7 +8752,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -9006,8 +9006,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -11504,14 +11504,14 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.polcard.pl/rozwiazania-platnicze/platnosci-online/bramka-platnicza/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           0.99
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -11519,7 +11519,7 @@
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -15358,35 +15358,15 @@
     },
     {
       "source_url": "https://czech.payu.com/en/activate-payments/",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://czech.payu.com/en/activate-payments/",
           "final_url": "https://czech.payu.com/en/activate-payments/",
-          "status": "ok"
-        },
-        {
-          "url": "https://czech.payu.com/en/insights/",
-          "final_url": "https://czech.payu.com/en/insights/",
-          "status": "ok"
-        },
-        {
-          "url": "https://czech.payu.com/wp-content/uploads/sites/6/2026/01/PayU-CZ-pricelist-2026.png",
-          "final_url": "https://czech.payu.com/wp-content/uploads/sites/6/2026/01/PayU-CZ-pricelist-2026.png",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://czech.payu.com/en/activate-payments/",
-          "price_leads": [
-            "ty of your e-shop. Offer your customers a reliable payment gateway. It is easy: the fee for all main payment methods is 1 % + 1 CZK for the first three months. Deferred payments according to the price list below. Activation costs 200 CZK. We do not ch",
-            "y, Click to Pay 1 % + 1 CZK / transaction after 3 months: 1.45 % + 1 CZK Klarna 1 .99 % + 5,80 CZK / transaction Twisto 1 % + 1 CZK / transaction after 3 months: 1.45 % + 1 CZK Twisto Pay in 3 2.8 % / transaction Monthly fee 0 CZK Payouts 0 CZK Charge",
-            "after 3 months: 1.45 % + 1 CZK Klarna 1 .99 % + 5,80 CZK / transaction Twisto 1 % + 1 CZK / transaction after 3 months: 1.45 % + 1 CZK Twisto Pay in 3 2.8 % / transaction Monthly fee 0 CZK Payouts 0 CZK Chargebacks 0 CZK Terms and conditions Complete pri",
-            "Klarna 1 .99 % + 5,80 CZK / transaction Twisto 1 % + 1 CZK / transaction after 3 months: 1.45 % + 1 CZK Twisto Pay in 3 2.8 % / transaction Monthly fee 0 CZK Payouts 0 CZK Chargebacks 0 CZK Terms and conditions Complete pricelist How to activate"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://developer.squareup.com/docs/payments-pricing",
@@ -15956,22 +15936,15 @@
     },
     {
       "source_url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
           "final_url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
-          "price_leads": [
-            "tercard) Make quick card payments, with no intemediary required. How can you benefit? Achieve conversion rates of up to 95%. Attract new customers with fast, safe online transactions. Ensure secure transactions, with 24/7 monitoring and 3DS st"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-25-000011/0001794669-25-000011.pdf",
@@ -16005,26 +15978,15 @@
     },
     {
       "source_url": "https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex",
-          "final_url": "https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://kbsmartpay.cz/cs-cz/home/main-navigation/solutions/merchants/solutions-and-services/terminals/mobile-payment-terminals/link-2500-portable-flex",
-          "price_leads": [
-            "ními platebními metodami. Žádné fixní náklady a žádná minimální doba trvání smlouvy Za každou transakci zaplatíte pouze 1,9 %. Žádné fixní náklady ani základní poplatek. Funkce spropitného Zařízení Link/2500 Portable Flex má praktickou (voliteln",
-            "ávnická osoba, která v posledních 12 měsících neměla uzavřenou smlouvu na akceptaci platebních karet? Pronájem: 0 Kč* | 0% za transakci** * Po skončení bezplatného období nebo nesplnění obchodních podmínek nabídky Vám bude účtována běžná cena",
-            "atného období nebo nesplnění obchodních podmínek nabídky Vám bude účtována běžná cena (měsíční nájem 150 CZK a poplatek 1,90 % z transakce kartou vydanou v rámci EHP) ** do obratu 50 000 Kč, dále 1,9 % (min. 1,- Kč) za transakci Chci využít nabíd",
-            "ěžná cena (měsíční nájem 150 CZK a poplatek 1,90 % z transakce kartou vydanou v rámci EHP) ** do obratu 50 000 Kč, dále 1,9 % (min. 1,- Kč) za transakci Chci využít nabídku „Česko platí kartou“ a získat 100 % slevu na poplatky z transakcí do obj",
-            "i EHP) ** do obratu 50 000 Kč, dále 1,9 % (min. 1,- Kč) za transakci Chci využít nabídku „Česko platí kartou“ a získat 100 % slevu na poplatky z transakcí do objemu 50 000 Kč měsíčně na 12 měsíců. Souhlasím s podmínkami nabídky „Podmínky nabídk"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://market-pay.com/en",
@@ -16044,7 +16006,12 @@
       "pages_checked": [
         {
           "url": "https://merchants.fiserv.com/en-europe/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=1303c0fe-afde-4ae7-8972-1e9b38b4aa7f&ssb=33000264117&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2F&ssi=9854dbe6-cskb-4340-b080-0481bdb9e89f&ssk=botmanager_support@radware.com&ssm=06996727359680293105839507577893&ssn=537b7c24dc025f1dc88d1f22ced5a6348b764dbec3f4-c2be-48e6-a74e91&sso=920292e5-765890d1f79a8266735e305c496d9b2c67b005a9afa95c5b&ssp=74851723621788752852178878857396096&ssq=20697435762197216619757621922588729213502&ssr=ODYuNDkuMjUxLjE4OA==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA0ZGJlYzNmNC1jMmJlLTQ4ZTYtYTJlNS03NjU4OTBkMWY3OWExLTE3ODg3NTc2MjE5MzQwLTAwNDdkNzVlZmE0YWE5NzUyMTgxMCJ9",
+          "final_url": "https://merchants.fiserv.com/en-europe/",
+          "status": "ok"
+        },
+        {
+          "url": "https://merchants.fiserv.com/en-europe/corporate/",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=2bcf3f7b-7711-41bb-87f9-9b8a681c5607&ssb=85488200225&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=13a7b153-cskb-4606-8cc7-471d457fa4ad&ssk=botmanager_support@radware.com&ssm=53836532985019093134624234383494&ssn=fae94c8e531e7bb5e39a874c6858885baf21dd12b69e-18c1-4a4c-9c3dd9&sso=d9d4a03e-a321d7fc3d6021b8f293a8c0c4def996e4ad0dfa0f7b2032&ssp=84477011051788768674178873144433817&ssq=31443997450497066277374503372216370158377&ssr=NTcuMTUxLjEyMi4xNTY=&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBkZDEyYjY5ZS0xOGMxLTRhNGMtOTAzZS1hMzIxZDdmYzNkNjAxLTE3ODg3NzQ1MDM1MDE1MTUtMDA0MWZjYTQ0MzJiODRiMTk5YjEzIn0=",
           "status": "ok"
         }
       ],
@@ -16052,15 +16019,33 @@
     },
     {
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=7b4b82f6-e208-4600-90f7-a6f845fc2229&ssb=93821262363&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-uk%2Fresources%2Ffaqs%2F&ssi=5cf7c368-cskb-4f45-95d7-34e70ec63b94&ssk=botmanager_support@radware.com&ssm=47556058677031655109105824549398&ssn=b1ec87c3702ed0cee46a2c9087ec063cca946ed95d23-0792-4e33-9344c0&sso=6aabcf48-7fcddbb0e20b0b7a1f6af335a62df04f22b1d39ea9b6ff87&ssp=47586842511788799935178873903958827&ssq=50200815762267218967857622714292313372229&ssr=ODYuNDkuMjUxLjE4OA==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA2ZWQ5NWQyMy0wNzkyLTRlMzMtOWY0OC03ZmNkZGJiMGUyMGIxLTE3ODg3NTc2MjIwODEwLTAwNDMwNTc1YjZjZTg0NmViOTcxMCJ9",
+          "final_url": "https://uk.clover.com/help-centre/faqs/",
+          "status": "ok"
+        },
+        {
+          "url": "https://uk.clover.com/help-centre/faqs/",
+          "final_url": "https://uk.clover.com/help-centre/faqs/",
           "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://uk.clover.com/help-centre/faqs/",
+          "price_leads": [
+            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
+          ]
+        },
+        {
+          "url": "https://uk.clover.com/help-centre/faqs/",
+          "price_leads": [
+            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://mojapos.skpay.sk/",
@@ -16328,50 +16313,15 @@
     },
     {
       "source_url": "https://poland.payu.com/commercial-offer/",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://poland.payu.com/commercial-offer/",
           "final_url": "https://poland.payu.com/commercial-offer/",
-          "status": "ok"
-        },
-        {
-          "url": "https://poland.payu.com/our-solutions/cross-border-payments/multi-currency-pricing/",
-          "final_url": "https://poland.payu.com/our-solutions/cross-border-payments/multi-currency-pricing/",
-          "status": "ok"
-        },
-        {
-          "url": "https://poland.payu.com/wp-content/uploads/sites/14/2026/08/Price_list_PL_ENG4_01_2026.pdf",
-          "final_url": "https://poland.payu.com/wp-content/uploads/sites/14/2026/08/Price_list_PL_ENG4_01_2026.pdf",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://poland.payu.com/commercial-offer/",
-          "price_leads": [
-            "ion 1,49% Installments 5 x 0% 0,30 PLN + 1.1% / transaction 1,49% Deferred payments including: Twisto, PayPo 0,30 PLN + 1.1% / transaction 1,49% Terms and conditions Check the full price list For small and medium-sized businesses Add PayU to yo",
-            "nts 5 x 0% 0,30 PLN + 1.1% / transaction 1,49% Deferred payments including: Twisto, PayPo 0,30 PLN + 1.1% / transaction 1,49% Terms and conditions Check the full price list For small and medium-sized businesses Add PayU to your business and grow"
-          ]
-        },
-        {
-          "url": "https://poland.payu.com/wp-content/uploads/sites/14/2026/08/Price_list_PL_ENG4_01_2026.pdf",
-          "price_leads": [
-            "The following fees are charged for each transaction. Standard price Special offer price BLIK 0,32 PLN + 1,49% 0,32 PLN + 1,1% Online transfers and 0,30 PLN + 1,49% 0,30 PLN + 1,1% traditional transfers Debit or credit card 0,30 P",
-            "he following fees are charged for each transaction. Standard price Special offer price BLIK 0,32 PLN + 1,49% 0,32 PLN + 1,1% Online transfers and 0,30 PLN + 1,49% 0,30 PLN + 1,1% traditional transfers Debit or credit card 0,30 PLN + 1,49% 0,30",
-            "h transaction. Standard price Special offer price BLIK 0,32 PLN + 1,49% 0,32 PLN + 1,1% Online transfers and 0,30 PLN + 1,49% 0,30 PLN + 1,1% traditional transfers Debit or credit card 0,30 PLN + 1,49% 0,30 PLN + 1,1% Google Pay, Apple Pay, Clic",
-            "andard price Special offer price BLIK 0,32 PLN + 1,49% 0,32 PLN + 1,1% Online transfers and 0,30 PLN + 1,49% 0,30 PLN + 1,1% traditional transfers Debit or credit card 0,30 PLN + 1,49% 0,30 PLN + 1,1% Google Pay, Apple Pay, Click to Pay, Visa M",
-            "PLN + 1,1% Online transfers and 0,30 PLN + 1,49% 0,30 PLN + 1,1% traditional transfers Debit or credit card 0,30 PLN + 1,49% 0,30 PLN + 1,1% Google Pay, Apple Pay, Click to Pay, Visa Mobile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 P",
-            "e transfers and 0,30 PLN + 1,49% 0,30 PLN + 1,1% traditional transfers Debit or credit card 0,30 PLN + 1,49% 0,30 PLN + 1,1% Google Pay, Apple Pay, Click to Pay, Visa Mobile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30",
-            "d 0,30 PLN + 1,49% 0,30 PLN + 1,1% Google Pay, Apple Pay, Click to Pay, Visa Mobile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30 PLN + 1,1% Twisto 0,30 PLN + 1,49% 0,30 PLN + 1,1% Pragma Pay 1,99% (for companies only - p",
-            "PLN + 1,1% Google Pay, Apple Pay, Click to Pay, Visa Mobile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30 PLN + 1,1% Twisto 0,30 PLN + 1,49% 0,30 PLN + 1,1% Pragma Pay 1,99% (for companies only - payment deferral for 14/",
-            "e Pay, Apple Pay, Click to Pay, Visa Mobile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30 PLN + 1,1% Twisto 0,30 PLN + 1,49% 0,30 PLN + 1,1% Pragma Pay 1,99% (for companies only - payment deferral for 14/30/60 days or sp",
-            "to Pay, Visa Mobile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30 PLN + 1,1% Twisto 0,30 PLN + 1,49% 0,30 PLN + 1,1% Pragma Pay 1,99% (for companies only - payment deferral for 14/30/60 days or spreading payments over 3-",
-            "ile Deferred payments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30 PLN + 1,1% Twisto 0,30 PLN + 1,49% 0,30 PLN + 1,1% Pragma Pay 1,99% (for companies only - payment deferral for 14/30/60 days or spreading payments over 3-12 instalments I",
-            "ments Klarna 0,99 PLN + 1,99% PayPo 0,30 PLN + 1,49% 0,30 PLN + 1,1% Twisto 0,30 PLN + 1,49% 0,30 PLN + 1,1% Pragma Pay 1,99% (for companies only - payment deferral for 14/30/60 days or spreading payments over 3-12 instalments Installments 5 ins"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://pos-cash.de/tarifvergleich/",
@@ -16536,34 +16486,15 @@
     },
     {
       "source_url": "https://romania.payu.com/en/commercial-offer/",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://romania.payu.com/en/commercial-offer/",
           "final_url": "https://romania.payu.com/en/commercial-offer/",
-          "status": "ok"
-        },
-        {
-          "url": "https://romania.payu.com/en/cross-border-payments/multi-currency-pricing/",
-          "final_url": "https://romania.payu.com/en/cross-border-payments/multi-currency-pricing/",
-          "status": "ok"
-        },
-        {
-          "url": "https://romania.payu.com/en/other-services/",
-          "final_url": "https://romania.payu.com/en/other-services/",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://romania.payu.com/en/commercial-offer/",
-          "price_leads": [
-            "t fee 0 RON Commission per transaction for processing online payments through: Card payments included: Visa, MasterCard 0.99% + 0,3 RON/transaction Klarna 1.99% + 1.18 RON/transaction PayPo 2.50% + 0,3 RON/transaction Why work with us Quick start While fi",
-            "greement will be automatically generated for you to sign online. Better client retention Higher authorization rate by 5-10% and lower refund incidence up to 10%. Payment methods for increased sales Apart from cards payments, you’ll have access",
-            "ted for you to sign online. Better client retention Higher authorization rate by 5-10% and lower refund incidence up to 10%. Payment methods for increased sales Apart from cards payments, you’ll have access to Click2Pay which helps merchants b"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://seb.se/foretag/digitala-tjanster/swish-foretag",
@@ -17974,272 +17905,168 @@
     },
     {
       "source_url": "https://worldline.com/da-dk/campaigns/new-cash-register-act",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/da-dk/campaigns/new-cash-register-act",
-          "final_url": "https://worldline.com/da-dk/campaigns/new-cash-register-act",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/en/home/top-navigation/about-worldline/strategic-executive-board",
-          "final_url": "https://worldline.com/en/home/top-navigation/about-worldline/operational-executive-committee",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/da-dk/campaigns/new-cash-register-act"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/de-ch/campaigns/ms/tap-to-pay-auf-dem-iphone",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/de-ch/campaigns/ms/tap-to-pay-auf-dem-iphone",
-          "final_url": "https://worldline.com/de-ch/campaigns/ms/tap-to-pay-auf-dem-iphone",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/de-ch/campaigns/ms/tap-to-pay-auf-dem-iphone"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/de-ch/campaigns/ms/tap-to-pay-auf-dem-iphone",
-          "price_leads": [
-            "*Maximalgebühr für domestische Transaktionen: Debit Mastercard CHF 2.00; Visa Debit und V PAY CHF 3.50 Jetzt bestellen 1,29% + CHF 0.15 pro Transkation CHF 0.- monatliche Fixkosten und Aufschaltgebühren Zahlungsoptionen für die Tap on Mobile-App Zusätzlich",
-            "ür die Tap on Mobile-App Zusätzliche Informationen zu den Gebühren Debitkarten, Kreditkarten und alle anderen Zahlungen 1,29%+ CHF 0.15 pro Transaktion Maximalgebühr für Transaktionen mit innerhalb der Schweiz herausgegebenen Karten (domestisch): Debit Mas",
-            "V PAY CHF 3.50 Zuschlag für Transaktionen mit Karten, die ausserhalb der Schweiz herausgegeben werden (non-domestisch) 1,5% Zuschlag für Transaktionen mit internationalen Firmenkarten (Commercial Cards) 1,5% Chargeback-Fee CHF 30.- pro Transak",
-            "rausgegeben werden (non-domestisch) 1,5% Zuschlag für Transaktionen mit internationalen Firmenkarten (Commercial Cards) 1,5% Chargeback-Fee CHF 30.- pro Transaktion Aufschaltgebühren CHF 0.- Fragen und Antworten Akkordeon Alles ausblenden Alle"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/el-gr/home",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/el-gr/home",
-          "final_url": "https://worldline.com/el-gr/home",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/el-gr/home"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring",
-          "final_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/en-ch/home/main-navigation/solutions/merchants/acquiring"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "final_url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/en-ch/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/en-ch/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "price_leads": [
-            "problems, we are available 24 hours/7 days a week. No fixed costs You only pay for successfully completed transactions. 1.7% + 0.19 CHF per transaction . Find the perfect fit for your business ​ Accept payments without webshop? Worldline Pay by Link Accep"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/fi-fi/home/main-navigation/git/partner-handelsbanken",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/fi-fi/home/main-navigation/git/partner-handelsbanken",
-          "final_url": "https://worldline.com/fi-fi/home/main-navigation/git/partner-handelsbanken",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/fi-fi/home/main-navigation/git/partner-handelsbanken"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/fi-fi/home/main-navigation/git/partner-handelsbanken",
-          "price_leads": [
-            "ions cost? The standard price for Worldline One includes a terminal rent of 25 EUR per month and a transaction fee from 1.45% and down. The merchant's exact transaction fee depends, among other things, on turnover and card mix. What should I sug"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/fr-fr/home",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/fr-fr/home",
-          "final_url": "https://worldline.com/fr-fr/home",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/fr-fr/home/main-navigation/resources/toutes-temoignages-clients/une-experience-de-paiement-fluide-dans-la-strategie-de-subway",
-          "final_url": "https://worldline.com/fr-fr/home/main-navigation/resources/toutes-temoignages-clients/une-experience-de-paiement-fluide-dans-la-strategie-de-subway",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/fr-fr/home"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments",
-          "final_url": "https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/fr-lu/campaigns/ms/worldline-e-payments",
-          "price_leads": [
-            "lique Tchèque Non merci je reste ici Worldline E-Payments La solution de paiement idéale pour votre boutique en ligne ! 1.39% + EUR 0.25 par transaction EUR 0.- frais mensuels fixes et de configuration Voir l'offre Commandez maintenant Ouvrir dans un nouvel",
-            "emps réel 27 langues, 47 devises Remboursement et un seul versement pour tous les paiements Intégration facile de l’API 1.39% + EUR 0.25 par transaction EUR 0.- frais mensuels fixes et frais de configuration Commandez maintenant Ouvrir dans un nouvel onglet",
-            "ir dans un nouvel onglet Options d'acceptation des paiements pour Worldline E-Payments Informations sur les frais iDeal 1,39% + EUR 0,25 eBC 1,39% + EUR 0,25 Visa, VPay, Mastercard, Maestro 1,39% + EUR 0,25 Supplément cartes commerciales et transactions non",
-            "let Options d'acceptation des paiements pour Worldline E-Payments Informations sur les frais iDeal 1,39% + EUR 0,25 eBC 1,39% + EUR 0,25 Visa, VPay, Mastercard, Maestro 1,39% + EUR 0,25 Supplément cartes commerciales et transactions non domestiques 1.2% Pay",
-            "dline E-Payments Informations sur les frais iDeal 1,39% + EUR 0,25 eBC 1,39% + EUR 0,25 Visa, VPay, Mastercard, Maestro 1,39% + EUR 0,25 Supplément cartes commerciales et transactions non domestiques 1.2% PayPal EUR 0,25 + frais PayPal American Express EUR",
-            "UR 0,25 Visa, VPay, Mastercard, Maestro 1,39% + EUR 0,25 Supplément cartes commerciales et transactions non domestiques 1.2% PayPal EUR 0,25 + frais PayPal American Express EUR 0,25 + frais American Express Bank Transfer by Worldline 0,35% & mi",
-            "iques 1.2% PayPal EUR 0,25 + frais PayPal American Express EUR 0,25 + frais American Express Bank Transfer by Worldline 0,35% & min. EUR 0,15 / transaction Chargeback EUR 30.- Plug-in pour votre système de boutique en ligne Commencez à vendre en"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/hr-hr/campaigns/tap-on-mobile",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/hr-hr/campaigns/tap-on-mobile",
-          "final_url": "https://worldline.com/hr-hr/campaigns/tap-on-mobile",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hr-hr/home/top-navigation/media-relations",
-          "final_url": "https://worldline.com/hr-hr/home/top-navigation/media-relations",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/hr-hr/campaigns/tap-on-mobile"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/hr-hr/campaigns/tap-on-mobile",
-          "price_leads": [
-            "aplikaciji - Statistike u besplatnom online portalu myPortal EUR 0.- 0 EUR naknade za postavljanje i mjesečnih troškova 1,69% po transakciji za plaćanja debitnom i kreditnom karticom Naruči odmah Informacije o naknadama Minimalna naknada EUR 0.0",
-            "mah Informacije o naknadama Minimalna naknada EUR 0.07 po transakciji Transakcije izvan europskog gospodarskog područja 1.00% Poslovne transakcije 1.20% Postupak reklamacije kod banke izdavatelja EUR 30.- Naknada za postavljanje EUR 0.- Idealno",
-            "Minimalna naknada EUR 0.07 po transakciji Transakcije izvan europskog gospodarskog područja 1.00% Poslovne transakcije 1.20% Postupak reklamacije kod banke izdavatelja EUR 30.- Naknada za postavljanje EUR 0.- Idealno za male poduzetnike Tap on"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "final_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hr-hr/home/top-navigation/media-relations",
-          "final_url": "https://worldline.com/hr-hr/home/top-navigation/media-relations",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "price_leads": [
-            "nsparentno i predvidivo cijene Tečajevi se temelje na tečajevima ESB-a (Europske središnje banke) s fiksnom naknadom od 1% koja se primjenjuje na platitelja – bez skrivenih naknada i s potpunom vidljivošću konvertiranih iznosa za trgovca i ku",
-            "pport: integration.saferpay@worldline.com 4. Koja je cijena? Za transakcije s računa na račun naplaćuje se provizija od 0,35 %. Za vas nema troškova postavljanja. 5. Kako mogu omogućiti samo instant prijenos plaćanja? Zadana metoda plaćanja za Ac"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "final_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hr-hr/home/top-navigation/media-relations",
-          "final_url": "https://worldline.com/hr-hr/home/top-navigation/media-relations",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/hr-hr/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/hu-hu/campaigns/worldline-tap-on-mobile",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/hu-hu/campaigns/worldline-tap-on-mobile",
-          "final_url": "https://worldline.com/hu-hu/campaigns/worldline-tap-on-mobile",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/hu-hu/campaigns/worldline-tap-on-mobile"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "final_url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/hu-hu/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/it-it/home",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/it-it/home",
-          "final_url": "https://worldline.com/it-it/home",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/it-it/home"
         }
       ],
       "evidence": []
@@ -18251,215 +18078,139 @@
         {
           "url": "https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-promo-medical",
           "status": "error",
-          "error": "HTTPError: 404 Client Error: Not Found for url: https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-promo-medical"
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-promo-medical"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-pay-by-link",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-pay-by-link",
-          "final_url": "https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-pay-by-link",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-pay-by-link"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/nl-be/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-pay-by-link",
-          "price_leads": [
-            "pport Opent in een nieuw tabblad Login Webshop Contact Worldline Pay by Link Aanvaard online betalingen zonder webshop! 1.78% + EUR 0.25 per transactie EUR 0.- Activatie -en maandelijkse kosten Contact Maak nu uw account aan Opent in een nieuw tabblad Ideaa",
-            "oegang tot Saferpay Backoffice om betalingen in realtime te beheren Veilig: PCI DSS-certificering en 3D Secure-protocol 1.78% + EUR 0.25 per transactie EUR 0.- Activatie -en maandelijkse kosten Maak nu uw account aan Opent in een nieuw tabblad Betaalaccepta",
-            "voor Worldline Pay by Link Informatie over de kosten Bancontact EUR 0,38 iDeal EUR 0,29 Visa, VPay, Mastercard, Maestro 1,78% + EUR 0,25 Supplement voor commerciële kaarten en niet-binnenlandse transacties 1.2% PayPal EUR 0,25 + kosten PayPal American Expre",
-            "9 Visa, VPay, Mastercard, Maestro 1,78% + EUR 0,25 Supplement voor commerciële kaarten en niet-binnenlandse transacties 1.2% PayPal EUR 0,25 + kosten PayPal American Express EUR 0,25 + kosten American Express Bank Transfer by Worldline 0,35% &",
-            "ies 1.2% PayPal EUR 0,25 + kosten PayPal American Express EUR 0,25 + kosten American Express Bank Transfer by Worldline 0,35% & min. EUR 0,15 / transaction Chargeback EUR 30.- Voert u een specifiek bedrijfsmodel uit of heeft u een zeer hoog volu"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad",
-          "final_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/in-store/link2500-pinpad",
-          "price_leads": [
-            "over transactiekosten HTML Table Generator Debitcards* (Europese consumenten betaalpas): EUR 0,063 Mastercard en Visa* 1,1 %, min. EUR 0,15 Diners Club/Discover/UnionPay/JCB/AliPay/WeChatPay 2,65 %, min. EUR 0,15 Jaarlijkse Service Fee Complian",
-            "enten betaalpas): EUR 0,063 Mastercard en Visa* 1,1 %, min. EUR 0,15 Diners Club/Discover/UnionPay/JCB/AliPay/WeChatPay 2,65 %, min. EUR 0,15 Jaarlijkse Service Fee Compliancy kost (garantie van conformiteit van het dossierbeheer) EUR 60.- Inacti"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-e-payments",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-e-payments",
-          "final_url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-e-payments",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-e-payments"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/nl-nl/home/main-navigation/solutions/merchants/all-in-one-solutions/online-payments/worldline-e-payments",
-          "price_leads": [
-            "ent in een nieuw tabblad Login Webshop Contact Worldline E-Payments Zoek de juiste betaaloplossing voor je online shop! 1.79% + EUR 0.25 per transactie EUR 0.- maandelijkse kosten Bekijk aanbod Maak nu je account aan Opent in een nieuw tabblad Online verkop",
-            "n realtime te beheren 27 talen, 47 valuta's Teruggave en één uitbetaling voor alle betalingen Eenvoudige API-integratie 1.79% + EUR 0.25 per transactie EUR 0.- maandelijkse kosten Maak nu je account aan Opent in een nieuw tabblad Betaalacceptatieopties voor",
-            "voor Worldline E-Payments Informatie over de kosten Bancontact EUR 0,39 iDeal EUR 0,29 Visa, VPay, Mastercard, Maestro 1,79% + EUR 0,25 Supplement voor commerciële kaarten en niet-binnenlandse transacties 1.2% PayPal EUR 0,25 + kosten PayPal American Expre",
-            "9 Visa, VPay, Mastercard, Maestro 1,79% + EUR 0,25 Supplement voor commerciële kaarten en niet-binnenlandse transacties 1.2% PayPal EUR 0,25 + kosten PayPal American Express EUR 0,25 + kosten American Express Bank Transfer by Worldline 0,35% &",
-            "ies 1.2% PayPal EUR 0,25 + kosten PayPal American Express EUR 0,25 + kosten American Express Bank Transfer by Worldline 0,35% & min. EUR 0,15 / transaction Chargeback EUR 30.- Plug-in voor je online shopsysteem Begin eenvoudig online te verkopen"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/no-no/home/main-navigation/git/nordea-merchants",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/no-no/home/main-navigation/git/nordea-merchants",
-          "final_url": "https://worldline.com/no-no/home/main-navigation/git/nordea-merchants",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/en/home/top-navigation/about-worldline/strategic-executive-board",
-          "final_url": "https://worldline.com/en/home/top-navigation/about-worldline/operational-executive-committee",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/no-no/home/main-navigation/git/nordea-merchants"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "final_url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "final_url": "https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/pl-pl/home/main-navigation/solutions/merchants/solutions-and-services/e-commerce/online-payments"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/sk-sk/campaigns/worldline-tap-on-mobile",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/sk-sk/campaigns/worldline-tap-on-mobile",
-          "final_url": "https://worldline.com/sk-sk/campaigns/worldline-tap-on-mobile",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/sk-sk/campaigns/worldline-tap-on-mobile"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/sk-sk/campaigns/worldline-tap-on-mobile",
-          "price_leads": [
-            "a Opens in a new tab Kontaktujte nás Worldline Tap on Mobile Moderný a jednoduchý spôsob, ako akceptovať platby kartou. 0,49 % Transakčný poplatok 0 EUR počas 12 mesiacov, potom 2 EUR/mesiac Mesačný poplatok 0 EUR Inštalačný poplatok Mám záujem O",
-            "VISA, MasterCard, Maestro, Visa Debit, VPAY, Apple Pay, Google Pay Žiadne fixné náklady. Žiadna viazanosť. Platíte len 1.50% za platby regulovanými kartami. Žiadne fixné poplatky. Bez nákladov na dodatočný hardvér TAP-ON-MOBILE funguje na mobil",
-            "a doklady k zaúčtovaniu v obchodníckom portáli myPortal Finančné prostriedky pripísané na Váš účet zvyčajne do 48 hodín 0,49% Transakčný poplatok 0 EUR počas 12 mesiacov, potom 2 EUR/mesiac Mesačný poplatok 0 EUR Inštalačný poplatok Mám záujem O"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/sl-si/campaigns/tap-to-pay-on-iphone",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/sl-si/campaigns/tap-to-pay-on-iphone",
-          "final_url": "https://worldline.com/sl-si/campaigns/tap-to-pay-on-iphone",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/sl-si/home/top-navigation/media-relations",
-          "final_url": "https://worldline.com/sl-si/home/top-navigation/media-relations",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/sl-si/campaigns/tap-to-pay-on-iphone"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "final_url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/sl-si/home/top-navigation/media-relations",
-          "final_url": "https://worldline.com/sl-si/home/top-navigation/media-relations",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/terminals/integrated-payment-terminals",
-          "final_url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/terminals/integrated-payment-terminals",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/sl-si/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://worldline.com/sl-si/home/main-navigation/solutions/merchants/products/acceptance/account-to-account-payments",
-          "price_leads": [
-            "odporo: integration.saferpay@worldline.com 4. Koliko to stane? Za transakcije med računi se zaračuna provizija v višini 0,35 %. Stroškov ob vzpostavitvi ni. 5. Kako omogočiti samo takojšnji prenos plačila? Privzeti način plačila za rešitev Accoun"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://worldline.com/sv-se/campaigns/ms/Move-5000",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/sv-se/campaigns/ms/Move-5000",
-          "final_url": "https://worldline.com/sv-se/campaigns/ms/Move-5000",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/sv-se/campaigns/ms/Move-5000"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://worldline.com/sv-se/home/main-navigation/git/svea-merchant",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/sv-se/home/main-navigation/git/svea-merchant",
-          "final_url": "https://worldline.com/sv-se/home/main-navigation/git/svea-merchant",
-          "status": "ok"
-        },
-        {
-          "url": "https://worldline.com/en/home/top-navigation/about-worldline/strategic-executive-board",
-          "final_url": "https://worldline.com/en/home/top-navigation/about-worldline/operational-executive-committee",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/sv-se/home/main-navigation/git/svea-merchant"
         }
       ],
       "evidence": []
@@ -18571,66 +18322,15 @@
     },
     {
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-          "final_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/en_SG/pricing",
-          "final_url": "https://www.adyen.com/en_SG/pricing",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "final_url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "status": "ok"
+          "status": "error",
+          "error": "ReadTimeout: HTTPSConnectionPool(host='www.adyen.com', port=443): Read timed out. (read timeout=15)"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-          "price_leads": [
-            "ds for merchants and shoppers who want to increase the security of their transactions. Payment pricing Slovakia €0.11 + 2% Documentation Pricing Most popular alternative to cards Guaranteed transactions and secure payments Growing customer ba",
-            "e to cards for merchants and shoppers who want to increase the security of their transactions. Payment pricing Slovakia €0.11 + 2% Documentation Pricing Most popular alternative to cards Guaranteed transactions and secure payments Growing customer ba"
-          ]
-        },
-        {
-          "url": "https://www.adyen.com/en_SG/pricing",
-          "price_leads": [
-            "ion Region Europe Africa Latin America Asia Pacific North America Middle East Payment method Payment method fee €0.11 + 4% €0.11 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you",
-            "atin America Asia Pacific North America Middle East Payment method Payment method fee €0.11 + 4% €0.11 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you, giving you more transparenc",
-            ", giving you more transparency and lower fees overall. Learn more €0.11 + $ 0.27 More information United States €0.11 + 4.19% + $0.30 Canada €0.11 + 4.19% + C$0.30 United Kingdom €0.11 + Direct Contract with Affirm United States €0.11 + 4.49% +",
-            "y and lower fees overall. Learn more €0.11 + $ 0.27 More information United States €0.11 + 4.19% + $0.30 Canada €0.11 + 4.19% + C$0.30 United Kingdom €0.11 + Direct Contract with Affirm United States €0.11 + 4.49% + $0.30 Canada €0.11 + 4.49% +",
-            "stralia, New Zealand €0.11 + 4.99% + AUD/NZD 0.30 United Kingdom €0.11 + 4.19% + GBP 0.30 €0.11 + 3% €0.11 + 3% €0.11 + 3% More information 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard",
-            "nited Kingdom €0.11 + 4.19% + GBP 0.30 €0.11 + 3% €0.11 + 3% €0.11 + 3% More information 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Int",
-            "0 €0.11 + 3% €0.11 + 3% €0.11 + 3% More information 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0",
-            "formation 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.8",
-            ".11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North",
-            "% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Glob",
-            "80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Defined by card used €0.11 + 5%",
-            "American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Defined by card used €0.11 + 5% €0.11 + £ 0.55 €0.11 + Interchange+ + 0.60%"
-          ]
-        },
-        {
-          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "price_leads": [
-            "new and scalable revenue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of th",
-            "venue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions g",
-            "Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in m",
-            "nge fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in markets l",
-            "ons at merchants located in the EEA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for",
-            "EA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for",
-            "are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in",
-            "and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in 2010, caps debit card interchange",
-            "re, its debit and prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost i",
-            "prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost in card payments T",
-            "\"friendly fraud\". Friendly fraud is when customers claim a purchase was unauthorized or never arrived and accounts for 75% of all chargebacks. Because banks can’t physically verify the card or the cardholder's signature during an online check"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.adyen.com/nl_NL/betaalmethoden/ideal",
@@ -18919,15 +18619,41 @@
     },
     {
       "source_url": "https://www.apsbank.com.mt/merchant-acquiring/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.apsbank.com.mt/merchant-acquiring/",
           "final_url": "https://www.apsbank.com.mt/merchant-acquiring/",
           "status": "ok"
+        },
+        {
+          "url": "https://www.apsbank.com.mt/tariff-of-charges/",
+          "final_url": "https://www.apsbank.com.mt/tariff-of-charges/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.apsbank.com.mt/interest-rates/",
+          "final_url": "https://www.apsbank.com.mt/interest-rates/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.apsbank.com.mt/exchange-rates/",
+          "final_url": "https://www.apsbank.com.mt/exchange-rates/",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.apsbank.com.mt/interest-rates/",
+          "price_leads": [
+            "st €499,999.99 earns interest at 0.03% per annum (p.a.), generating €149.99. The remaining €50,000.01 earns interest at 0.00% p.a. and therefore earns no interest. Basic Payment Account 0.00% Online Account 0.25% (for amounts up to €4,999.99) 0.",
+            "g €149.99. The remaining €50,000.01 earns interest at 0.00% p.a. and therefore earns no interest. Basic Payment Account 0.00% Online Account 0.25% (for amounts up to €4,999.99) 0.50% (for amounts between €5,000.00 and €24,999.99) 0.10% (for amou",
+            "ing €50,000.01 earns interest at 0.00% p.a. and therefore earns no interest. Basic Payment Account 0.00% Online Account 0.25% (for amounts up to €4,999.99) 0.50% (for amounts between €5,000.00 and €24,999.99) 0.10% (for amounts of €25,000.00 and",
+            "0% p.a. and therefore earns no interest. Basic Payment Account 0.00% Online Account 0.25% (for amounts up to €4,999.99) 0.50% (for amounts between €5,000.00 and €24,999.99) 0.10% (for amounts of €25,000.00 and over) Representative example A depo",
+            "t Account 0.00% Online Account 0.25% (for amounts up to €4,999.99) 0.50% (for amounts between €5,000.00 and €24,999.99) 0.10% (for amounts of €25,000.00 and over) Representative example A deposit of €30,000.00 made on 1 January and kept unchange"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
@@ -19156,17 +18882,12 @@
     },
     {
       "source_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.boipa.com/en-ie/in-store/card-terminals",
           "final_url": "https://www.boipa.com/en-ie/in-store/card-terminals",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.boipa.com/en-ie/corporate",
-          "final_url": "https://www.boipa.com/en-ie/corporate",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
       "evidence": []
@@ -19556,27 +19277,76 @@
     },
     {
       "source_url": "https://www.citadele.lt/en/business/e-commerce/",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.citadele.lt/en/business/e-commerce/",
-          "status": "error",
-          "error": "ConnectionError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+          "final_url": "https://www.citadele.lt/en/business/e-commerce/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.citadele.lt/en/fees-business/",
+          "final_url": "https://www.citadele.lt/en/business/fees/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.citadele.lt/en/rates/",
+          "final_url": "https://www.citadele.lt/en/rates/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.citadele.lt/en/business/fees/",
+          "final_url": "https://www.citadele.lt/en/business/fees/",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.citadele.lt/en/business/e-commerce/",
+          "price_leads": [
+            "tation Pay less – receive more The e-commerce tool is available for no registration or subscription fee. Low rate: just 1.30 % per transaction (minimum fee 0.10 EUR). To receive a personalised offer, contact us. MultiLink online bank payments Pay",
+            "R* Payment processing with business cards and cards issued by non-EU/EEA banks, including Apple Pay and Google Pay from 2 % min. 0.20 EUR Payments in instalments for goods and services (BNPL) from 0.5 % Commission fee for claims processing 14.",
+            "s, including Apple Pay and Google Pay from 2 % min. 0.20 EUR Payments in instalments for goods and services (BNPL) from 0.5 % Commission fee for claims processing 14.23 EUR Installation and registration fee free Monthly subscription fee free Pay",
+            "s, including Apple Pay and Google Pay from 2 % min. 0.20 EUR Payments in instalments for goods and services (BNPL) from 0.5 % Commission fee for claims processing 14.23 EUR If your online turnover exceeds 5 000 EUR per month, we suggest you appl"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.citadele.lv/en/business/e-commerce/billing/",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.citadele.lv/en/business/e-commerce/billing/",
-          "status": "error",
-          "error": "ConnectionError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+          "final_url": "https://www.citadele.lv/en/business/e-commerce/billing/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.citadele.lv/en/business/fees/",
+          "final_url": "https://www.citadele.lv/en/business/fees/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.citadele.lv/en/rates/calculator/",
+          "final_url": "https://www.citadele.lv/en/rates/calculator/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.citadele.lv/en/rates/",
+          "final_url": "https://www.citadele.lv/en/rates/",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.citadele.lv/en/business/e-commerce/billing/",
+          "price_leads": [
+            "d registration fee free Monthly subscription fee free Payment processing for Online bank payments of major Baltic banks 1.3% min. 0.10 EUR* Payments with EU/EEA bank cards, Apple Pay, and Google Pay 1.3% min. 0.10 EUR* Payments with business ca",
+            "n. 0.10 EUR* Payments with business cards and cards issued by non-EU/EEA banks, including Apple Pay and Google Pay from 2% min. 0.20 EUR Commission fee for claims processing 14.23 EUR Installation and registration fee free Monthly subscriptio",
+            "n. 0.10 EUR* Payments with business cards and cards issued by non-EU/EEA banks, including Apple Pay and Google Pay from 2% min. 0.20 EUR Commission fee for claims processing 14.23 EUR * If your online turnover exceeds 5000 EUR per month, we s"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.clearhaus.com/dk/priser/",
@@ -20046,7 +19816,22 @@
       "pages_checked": [
         {
           "url": "https://www.epayworldwide.gr/en/about-us/",
-          "final_url": "https://www.epayworldwide.gr/en/about-us/",
+          "final_url": "https://epayworldwide.gr/en/about-us/",
+          "status": "ok"
+        },
+        {
+          "url": "https://epayworldwide.gr/en/integrated-solutions/",
+          "final_url": "https://epayworldwide.gr/en/integrated-solutions/",
+          "status": "ok"
+        },
+        {
+          "url": "https://epayworldwide.gr/wp-content/uploads/2025/03/Pricing-List-01.03.2025.pdf",
+          "final_url": "https://epayworldwide.gr/wp-content/uploads/2025/03/Pricing-List-01.03.2025.pdf",
+          "status": "ok"
+        },
+        {
+          "url": "https://epayworldwide.gr/en/about-us/",
+          "final_url": "https://epayworldwide.gr/en/about-us/",
           "status": "ok"
         }
       ],
@@ -20671,133 +20456,51 @@
     },
     {
       "source_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
           "final_url": "https://www.globalpayments.com/en-gb/online-quotation-tool",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
-          "final_url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
-          "final_url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/uk/gender-pay-report2025.pdf?rev=d68eedbe8ab94788be7ba2757f899d71",
-          "price_leads": [
-            "f 5 April 2025. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payment",
-            "ril 2025. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments take",
-            "25. Our Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepaymen",
-            "r Pay and Bonus Gender Pay Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Per",
-            "Gap Global Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who receive",
-            "lobal Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bo",
-            "Payments takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97",
-            "ts takepayments Mean Median Mean Median Difference in Pay 14.8% 10.0% 25.9% 39.2% Difference in Bonus 29.9% 21.4% 53.4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6",
-            "4% 49.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion",
-            "9.9% Proportion of Team Members Awarded a Bonus Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men",
-            "Global Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men and women who received a bonus for their per",
-            "bal Payments takepayments Percentage of Men who received a bonus 97% 80.6% Percentage of Women who received a bonus 97% 90.9% Within each legal entity, there is an almost equal proportion of men and women who received a bonus for their performan"
-          ]
-        },
-        {
-          "url": "https://www.globalpayments.com/-/media/project/global-payments/corporate/corporate/global-payments-2025-ireland-gender-pay-gap.pdf?rev=ee5e682f3b5d4d19938bb33731bc2ef5",
-          "price_leads": [
-            "h Pay and Shop Limited and GP Payments Acquiring International GmbH. Pay gap Mean Median Hourly pay gap – All employees 8.5% 11.0% Note – due to an insufficient sample size of part-time employees and with no temporary employees, we have not dis",
-            "and Shop Limited and GP Payments Acquiring International GmbH. Pay gap Mean Median Hourly pay gap – All employees 8.5% 11.0% Note – due to an insufficient sample size of part-time employees and with no temporary employees, we have not disclosed",
-            "y gap data for these employee groups. Our mean hourly pay gap shows the average hourly pay of men at Global Payments is 8.5% higher than the average pay of women. Our median hourly pay gap shows the average hourly pay of men at Global Payments",
-            "gher than the average pay of women. Our median hourly pay gap shows the average hourly pay of men at Global Payments is 11.0% higher than the average pay of women. This statistic falls slightly below the reported average mean pay gap of 11.2%1 a",
-            ", and in the lower quartile, which sees an overrepresentation of women. Bonus gap Mean Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our",
-            "in the lower quartile, which sees an overrepresentation of women. Bonus gap Mean Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our media",
-            "Median Bonus gap – All employees 1.6% 16.6% Our mean bonus gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our median bonus gap is 16.6% in favour of men. The difference in results suggest the bonu",
-            "gap shows the average bonus pay of men at Global Payments is 1.6% higher than it is for women. Our median bonus gap is 16.6% in favour of men. The difference in results suggest the bonus pay of a small number of employees has a large influence",
-            "ployees -1.7% 10.6% Men Women % of employees receiving a bonus 93.0% 91.2% % of employees in receipt of benefit in kind 93.0% 91.2% While Pay and Shop Limited, which makes up over half of the overall Global Payments employee population, still ha",
-            "s -1.7% 10.6% Men Women % of employees receiving a bonus 93.0% 91.2% % of employees in receipt of benefit in kind 93.0% 91.2% While Pay and Shop Limited, which makes up over half of the overall Global Payments employee population, still has a pa",
-            "size. Overall, we also notice some improvement in our bonus gap data compared to last year’s result (mean bonus gap of 10.9% and median pay gap of 13.2%, both in favour of men). Gender Pay Gap Reporting for GP Payments Acquiring International G",
-            "ce some improvement in our bonus gap data compared to last year’s result (mean bonus gap of 10.9% and median pay gap of 13.2%, both in favour of men). Gender Pay Gap Reporting for GP Payments Acquiring International GmbH During the reporting per"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.globalpayments.com/hu-hu/digitalis-fizetes-program",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.globalpayments.com/hu-hu/digitalis-fizetes-program",
           "final_url": "https://www.globalpayments.com/hu-hu/digitalis-fizetes-program",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.globalpayments.com/hu-hu/digitalis-fizetes-program",
-          "final_url": "https://www.globalpayments.com/hu-hu/digitalis-fizetes-program",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
       "evidence": []
     },
     {
       "source_url": "https://www.globalpayments.cz/online-platby/gp-webpay",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.globalpayments.cz/online-platby/gp-webpay",
           "final_url": "https://www.globalpayments.cz/online-platby/gp-webpay",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.globalpayments.cz/online-platby/gp-webpay",
-          "price_leads": [
-            "ntace platební brány je zcela zdarma. Pro menší e-shopy Obrat do 100 000 Kč měsíčně Měsíční poplatek 249 Kč Fixní sazba 1 % Detaily nabídky Zřízení a spuštění platební brány zdarma Jedna sazba pro všechny způsoby platby Cena platí pro běžné ka",
-            "y Zřízení a spuštění platební brány zdarma Jedna sazba pro všechny způsoby platby Cena platí pro běžné karty z ČR a EU (2 % pro firemní karty a karty mimo EU) Pro rostoucí podniky Obrat nad 100 000 Kč měsíčně Bez měsíčního paušálu Fixní sazba",
-            "pro firemní karty a karty mimo EU) Pro rostoucí podniky Obrat nad 100 000 Kč měsíčně Bez měsíčního paušálu Fixní sazba 1 % Detaily nabídky Zřízení a spuštění platební brány zdarma Jedna sazba pro všechny způsoby platby Cena platí pro běžné ka",
-            "y Zřízení a spuštění platební brány zdarma Jedna sazba pro všechny způsoby platby Cena platí pro běžné karty z ČR a EU (2 % pro firemní karty a karty mimo EU) Pro velké hráče Obrat nad 2 miliony Kč měsíčně Speciální cena Individuální nabídka D"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
           "final_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-          "final_url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-          "price_leads": [
-            "né bez přístupu do firemního bankovnictví. Atraktivní cena Pro QR platby z účtu nabízíme mimořádně nízké poplatky, max. 0,79 % z transakce. A jaká je cena QR plateb? Jen 0,79% + 0,99 Kč z každé transakce QR platbou přes platební terminál nebo ter",
-            "vní cena Pro QR platby z účtu nabízíme mimořádně nízké poplatky, max. 0,79 % z transakce. A jaká je cena QR plateb? Jen 0,79% + 0,99 Kč z každé transakce QR platbou přes platební terminál nebo terminál v mobilu 299 Kč jednorázový aktivační poplatek za t",
-            "ímo na telefonu, takže nepotřebujete přístup k podnikatelskému účtu. Jaké jsou poplatky? Cena za přijímání QR plateb je 0,79 % + 0,99 Kč z hodnoty transakce bez dalších skrytých poplatků. Jak rychle se peníze připíšou na účet? Platby jsou zúčtované a při"
-          ]
-        },
-        {
-          "url": "https://www.globalpayments.cz/platebni-terminaly/qr-platby",
-          "price_leads": [
-            "né bez přístupu do firemního bankovnictví. Atraktivní cena Pro QR platby z účtu nabízíme mimořádně nízké poplatky, max. 0,79 % z transakce. A jaká je cena QR plateb? Jen 0,79% + 0,99 Kč z každé transakce QR platbou přes platební terminál nebo ter",
-            "vní cena Pro QR platby z účtu nabízíme mimořádně nízké poplatky, max. 0,79 % z transakce. A jaká je cena QR plateb? Jen 0,79% + 0,99 Kč z každé transakce QR platbou přes platební terminál nebo terminál v mobilu 299 Kč jednorázový aktivační poplatek za t",
-            "ímo na telefonu, takže nepotřebujete přístup k podnikatelskému účtu. Jaké jsou poplatky? Cena za přijímání QR plateb je 0,79 % + 0,99 Kč z hodnoty transakce bez dalších skrytých poplatků. Jak rychle se peníze připíšou na účet? Platby jsou zúčtované a při"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.globalpayments.hr/",
@@ -20825,25 +20528,15 @@
     },
     {
       "source_url": "https://www.globalpayments.sk/online-platby/gp-webpay",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.globalpayments.sk/online-platby/gp-webpay",
           "final_url": "https://www.globalpayments.sk/online-platby/gp-webpay",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.globalpayments.sk/online-platby/gp-webpay",
-          "price_leads": [
-            "ia platobnej brány je úplne zadarmo. Pre menšie e-shopy Obrat do 4 000 EUR mesačne Mesačný poplatok 10 EUR Fixná sadzba 1% Detaily ponuky Zriadenie a spustenie platobnej brány zadarmo Jedna sadzba pre všetky spôsoby platby Cena platí pre bežn",
-            "denie a spustenie platobnej brány zadarmo Jedna sadzba pre všetky spôsoby platby Cena platí pre bežné karty zo SR a EÚ (2% pre podnikateľské karty a karty mimo EÚ) Pre rastúce podniky Obrat nad 4 000 EUR mesačne Bez mesačného paušálu Fixná sa",
-            "podnikateľské karty a karty mimo EÚ) Pre rastúce podniky Obrat nad 4 000 EUR mesačne Bez mesačného paušálu Fixná sadzba 1% Detaily ponuky Zriadenie a spustenie platobnej brány zadarmo Jedna sadzba pre všetky spôsoby platby Cena platí pre bežn",
-            "denie a spustenie platobnej brány zadarmo Jedna sadzba pre všetky spôsoby platby Cena platí pre bežné karty zo SR a EÚ (2% pre podnikateľské karty a karty mimo EÚ) Pre veľkých hráčov Obrat nad 80 000 EUR mesačne Špeciálna cena Individuálna po"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.gopay.com/cs/platebni-brana/",
@@ -20992,27 +20685,12 @@
     },
     {
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.lhv.ee/en/payment-acquiring/",
-          "final_url": "https://www.lhv.ee/en/payment-acquiring/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
-          "final_url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.lhv.ee/en/corporate-insurance",
-          "final_url": "https://www.lhv.ee/en/corporate-insurance",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
-          "final_url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
-          "status": "ok"
+          "status": "error",
+          "error": "ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
         }
       ],
       "evidence": []
@@ -21041,7 +20719,7 @@
         {
           "url": "http://www.lloydsbank.com/rates_and_charges.asp",
           "status": "error",
-          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.f4e1202.1788757665.521f3f22 (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno 8] nodename nor servname provided, or not known)\"))"
+          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.2e62645f.1788774556.8294c305 (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
         }
       ],
       "evidence": []
@@ -22513,6 +22191,16 @@
             "dispozici) Zdarma (pokud není potřeba provést převod měny ) Americký bankovní účet CZ, EE, GR, LT, LV, MT, SI, SK a SM 3 % (pokud není potřeba provést převod měny ) BG, CY, LI a RO Zdarma (pokud není potřeba provést převod měny ) Karty BG, RO",
             "d není potřeba provést převod měny ) BG, CY, LI a RO Zdarma (pokud není potřeba provést převod měny ) Karty BG, RO a SI 1 % z vybírané částky Minimální a maximální poplatky se uplatní v závislosti na měně výběru na kartu dle tabulky níže CY, E"
           ]
+        },
+        {
+          "url": "https://www.paypal.com/cz/enterprise/paypal-braintree-fees",
+          "price_leads": [
+            "Typ platby Popis Sazba za transakci Transakce z karet a digitálních peněženek třetích stran Pro standardní obchodníky 1 1,9 % + 0,30 EUR Transakce převedená službou American Express 2 0,30 EUR Zákaznická karta vydaná mimo EU/EHP Doplňkový poplatek 1 % Tran",
+            "0,30 EUR Transakce převedená službou American Express 2 0,30 EUR Zákaznická karta vydaná mimo EU/EHP Doplňkový poplatek 1 % Transakce ve více měnách vypořádaná v měně schématu Dodatečný poplatek ve výši 1,5 % Transakce ve více měnách vypořádan",
+            "ydaná mimo EU/EHP Doplňkový poplatek 1 % Transakce ve více měnách vypořádaná v měně schématu Dodatečný poplatek ve výši 1,5 % Transakce ve více měnách vypořádaná v exotické měně Dodatečný poplatek ve výši 3 % Chargeback 30,00 EUR Nástroje ochran",
+            "chématu Dodatečný poplatek ve výši 1,5 % Transakce ve více měnách vypořádaná v exotické měně Dodatečný poplatek ve výši 3 % Chargeback 30,00 EUR Nástroje ochrany před chargebacky (BG, CZ, EE, GR, LV, LT, MT, RO, SM, SK, SI) Ochrana před charge",
+            "59 % Nástroje ochrany před chargebacky (BG, CZ, EE, GR, LV, LT, MT, RO, SM, SK, SI) Jednoduchá ochrana před chargebacky 0,8 % Transakce ve službě PayPal V souladu s podmínkami platnými pro váš účet PayPal Poplatky za používání služby PayPal pro"
+          ]
         }
       ]
     },
@@ -22585,6 +22273,17 @@
             "ng balance for a business account and transactions for which a receiver has agreed to bear the currency conversion Rate 3% above the base exchange rate Withdrawals Out of PayPal You can typically withdraw money out of PayPal by standard withd",
             "where available) No Fee (when no currency conversion is involved) US bank account CZ, EE, GR, LT, LV, MT, SI, SK, & SM, 3% (when no currency conversion is involved) BG, CY, LI, & RO No Fee (when no currency conversion is involved) Cards BG, R",
             "o currency conversion is involved) BG, CY, LI, & RO No Fee (when no currency conversion is involved) Cards BG, RO, & SI 1% of amount transferred Minimum and maximum fees apply based on the card withdrawal currency, in the table below CY, EE,"
+          ]
+        },
+        {
+          "url": "https://www.paypal.com/li/enterprise/paypal-braintree-fees",
+          "price_leads": [
+            "ayment type Description Rate per transaction Cards and third-party digital wallet transactions For standard merchants 1 1.9% + 0.30 EUR Pass-through American Express transaction 2 0.30 EUR Customer card issued outside of the EU/EEA Additional 1% fee Multi",
+            "% + 0.30 EUR Pass-through American Express transaction 2 0.30 EUR Customer card issued outside of the EU/EEA Additional 1% fee Multi-currency transaction settled in a Scheme Currency Additional 1.5% fee Multi-currency transactions settled in",
+            "card issued outside of the EU/EEA Additional 1% fee Multi-currency transaction settled in a Scheme Currency Additional 1.5% fee Multi-currency transactions settled in an Exotic Currency Additional 3% fee Chargeback 30.00 EUR Chargeback Protect",
+            "n settled in a Scheme Currency Additional 1.5% fee Multi-currency transactions settled in an Exotic Currency Additional 3% fee Chargeback 30.00 EUR Chargeback Protection Tools (BG, CZ, EE, GR, LV, LT, MT, RO, SM, SK, SI) Chargeback Protection",
+            "fee Chargeback 30.00 EUR Chargeback Protection Tools (BG, CZ, EE, GR, LV, LT, MT, RO, SM, SK, SI) Chargeback Protection 0.59% Chargeback Protection Tools (BG, CZ, EE, GR, LV, LT, MT, RO, SM, SK, SI) Effortless Chargeback Protection 0.8% PayPal t",
+            "tection 0.59% Chargeback Protection Tools (BG, CZ, EE, GR, LV, LT, MT, RO, SM, SK, SI) Effortless Chargeback Protection 0.8% PayPal transactions Subject to the terms applicable to your PayPal account PayPal Merchant Fees 1 Discounted rates are"
           ]
         }
       ]
@@ -22659,6 +22358,17 @@
             "centage-based fee for international donations Where sender’s market/region is Fee EEA No fee UK 1.29% All other markets 1.99% Fixed fee for donations (based on currency received) Fee Table: Fixed fee for donations (based on currency received) Cu",
             "ng balance for a business account and transactions for which a receiver has agreed to bear the currency conversion Rate 3.0% above the base exchange rate Withdrawals Out of PayPal You can typically withdraw money out of PayPal by standard withd",
             "n no currency conversion is involved) Instant No Fee (when no currency conversion is involved) US bank account Standard 3.00% (when no currency conversion is involved) Cards Standard Fixed Fee based on withdrawal currency Withdrawal Fee Withdraw"
+          ]
+        },
+        {
+          "url": "https://www.paypal.com/lu/enterprise/paypal-braintree-fees",
+          "price_leads": [
+            "ayment type Description Rate per transaction Cards and third-party digital wallet transactions For standard merchants 1 1.9% + 0.30 EUR Pass-through American Express transaction 2 0.30 EUR Customer card issued outside of the EU/EEA Additional 1% fee Multi",
+            "% + 0.30 EUR Pass-through American Express transaction 2 0.30 EUR Customer card issued outside of the EU/EEA Additional 1% fee Multi-currency transaction settled in a Scheme Currency Additional 1.5% fee Multi-currency transactions settled in",
+            "card issued outside of the EU/EEA Additional 1% fee Multi-currency transaction settled in a Scheme Currency Additional 1.5% fee Multi-currency transactions settled in an Exotic Currency Additional 3% fee Chargeback 30.00 EUR Chargeback Protect",
+            "n settled in a Scheme Currency Additional 1.5% fee Multi-currency transactions settled in an Exotic Currency Additional 3% fee Chargeback 30.00 EUR Chargeback Protection Tools Chargeback Protection 0.59% Chargeback Protection Tools Effortless",
+            "settled in an Exotic Currency Additional 3% fee Chargeback 30.00 EUR Chargeback Protection Tools Chargeback Protection 0.59% Chargeback Protection Tools Effortless Chargeback Protection 0.8% PayPal transactions Subject to the terms applicable t",
+            "UR Chargeback Protection Tools Chargeback Protection 0.59% Chargeback Protection Tools Effortless Chargeback Protection 0.8% PayPal transactions Subject to the terms applicable to your PayPal account PayPal Merchant Fees 1 Discounted rates are"
           ]
         }
       ]
@@ -23176,15 +22886,22 @@
     },
     {
       "source_url": "https://www.polcard.pl/rozwiazania-platnicze/platnosci-online/bramka-platnicza/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.polcard.pl/rozwiazania-platnicze/platnosci-online/bramka-platnicza/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=c6f1f786-b99d-4b99-9228-03f5fc278783&ssb=70946287762&ssc=https%3A%2F%2Fwww.polcard.pl%2Frozwiazania-platnicze%2Fplatnosci-online%2Fbramka-platnicza%2F&ssi=44e24789-cpoz-46d9-92c4-65fdb6e5e4b6&ssk=botmanager_support@radware.com&ssm=48758748001844397100239702999534&ssn=c89e5c2888125a79db2fb4aeee34c679b9f11d099e60-bb91-4c26-8d3389&sso=d0077a47-3e530f036eca8c622e227f6102bdd80f455d297793784dce&ssp=10947106241788772596178875874423179&ssq=16837475768919136294757689312821772978776&ssr=ODYuNDkuMjUxLjE4OA==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJ1em14IjoiN2ZjMDAwYTU4ZmI1MDgtMGRmZi00MjdjLWJjZTUtNjhmNzc5MGRiZWU1MS0xNzg4NzU3Njg5MTIyMC0wMDQ3YzdjNmQwYjU0YjMwMjZjMTAiLCJfX3V6bWYiOiI3ZjkwMDAxZDA5OWU2MC1iYjkxLTRjMjYtOGE0Ny0zZTUzMGYwMzZlY2ExLTE3ODg3NTc2ODkxMjMwLTAwNDM3YzZlMTE0YjgxZWNiMWExMCIsInJkIjoicG9sY2FyZC5wbCJ9",
+          "final_url": "https://www.polcard.pl/rozwiazania-platnicze/platnosci-online/bramka-platnicza/",
           "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.polcard.pl/rozwiazania-platnicze/platnosci-online/bramka-platnicza/",
+          "price_leads": [
+            "erz pakiet e-commerce za 0 zł Brak opłaty aktywacyjnej Brak abonamentu Brak prowizji za wypłatę środków Prowizja już od 0,99% za transakcję Intuicyjna platforma raportowa Wsparcie przy wdrożeniu Specjalna oferta na terminal płatniczy W pakiecie"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.postbank.bg/-/media/2026_01_01_Tariff_Corporates_EN.pdf",

@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-09-07T09:51:06+00:00",
-  "dataset_generated_at": "2026-09-07T09:47:50+00:00",
+  "generated_at": "2026-09-14T10:13:03+00:00",
+  "dataset_generated_at": "2026-09-14T10:09:50+00:00",
   "scope": "All-offer official-source audit. Automated matches are triage evidence, never authority to change a merchant price without semantic review.",
   "offer_rows_scanned": 511,
   "unique_official_urls_scanned": 299,
   "source_outcomes": {
-    "ok": 215,
-    "source_unavailable_or_blocked": 84
+    "ok": 214,
+    "source_unavailable_or_blocked": 85
   },
   "row_outcomes": {
     "priced_row_manually_verified_parser_mismatch": 114,
-    "source_blocked_but_previously_verified": 95,
-    "stored_components_found_on_official_source": 235,
-    "unpriced_manually_verified_without_public_number": 48,
-    "unpriced_numeric_lead_rejected_after_manual_review": 19
+    "source_blocked_but_previously_verified": 98,
+    "stored_components_found_on_official_source": 233,
+    "unpriced_manually_verified_without_public_number": 50,
+    "unpriced_numeric_lead_rejected_after_manual_review": 16
   },
   "rows": [
     {
@@ -1544,12 +1544,10 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "unpriced_manually_verified_without_public_number",
       "evidence_match": null,
-      "price_leads": [
-        "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
-      ]
+      "price_leads": []
     },
     {
       "id": "SK-skpay-card",
@@ -4300,7 +4298,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_GB/payment-methods/blik",
       "source_outcome": "public_price_lead_found",
@@ -4333,7 +4331,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-czech-republic",
       "source_outcome": "public_price_lead_found",
@@ -4366,29 +4364,29 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           2.0
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.11
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -4544,7 +4542,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
       "source_outcome": "public_price_lead_found",
@@ -4577,7 +4575,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4610,7 +4608,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4643,7 +4641,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4676,7 +4674,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4709,7 +4707,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4742,7 +4740,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4775,7 +4773,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4808,7 +4806,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4841,7 +4839,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4874,7 +4872,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4907,7 +4905,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4940,7 +4938,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4973,7 +4971,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5006,7 +5004,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5039,7 +5037,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5072,7 +5070,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5105,7 +5103,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5138,7 +5136,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5171,7 +5169,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5204,7 +5202,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5237,7 +5235,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5303,7 +5301,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5336,7 +5334,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5369,7 +5367,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5402,7 +5400,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5435,7 +5433,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5468,7 +5466,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5501,7 +5499,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5534,7 +5532,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5567,7 +5565,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5600,7 +5598,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-07",
+      "price_verified_on": "2026-09-14",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5666,14 +5664,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.75
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5681,11 +5679,11 @@
           29
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -5699,14 +5697,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           1.99
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5714,11 +5712,11 @@
           29
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -5761,14 +5759,14 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.bancatransilvania.ro/companii/conturi-carduri/pachet-de-cont-curent-nelimitat/compara-pachetele-de-cont-curent",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.9
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5776,11 +5774,11 @@
           29
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -9006,8 +9004,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "unpriced_manually_verified_without_public_number",
       "evidence_match": null,
       "price_leads": []
     },
@@ -10525,13 +10523,10 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://www.paymove.io/en/contact/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
-      "price_leads": [
-        "are should be friendly! Fees Activation Fee Always free! 0 zł Transaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free!",
-        "ransaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free! The remaining boards are priced individually. 0 zł 🤩 Opportunit"
-      ]
+      "price_leads": []
     },
     {
       "id": "PL-paymove-qr-card-wallet-card",
@@ -10543,13 +10538,10 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://www.paymove.io/en/contact/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
-      "price_leads": [
-        "are should be friendly! Fees Activation Fee Always free! 0 zł Transaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free!",
-        "ransaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free! The remaining boards are priced individually. 0 zł 🤩 Opportunit"
-      ]
+      "price_leads": []
     },
     {
       "id": "BG-paynetics-card-acquiring",
@@ -16011,7 +16003,7 @@
         },
         {
           "url": "https://merchants.fiserv.com/en-europe/corporate/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=2bcf3f7b-7711-41bb-87f9-9b8a681c5607&ssb=85488200225&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=13a7b153-cskb-4606-8cc7-471d457fa4ad&ssk=botmanager_support@radware.com&ssm=53836532985019093134624234383494&ssn=fae94c8e531e7bb5e39a874c6858885baf21dd12b69e-18c1-4a4c-9c3dd9&sso=d9d4a03e-a321d7fc3d6021b8f293a8c0c4def996e4ad0dfa0f7b2032&ssp=84477011051788768674178873144433817&ssq=31443997450497066277374503372216370158377&ssr=NTcuMTUxLjEyMi4xNTY=&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBkZDEyYjY5ZS0xOGMxLTRhNGMtOTAzZS1hMzIxZDdmYzNkNjAxLTE3ODg3NzQ1MDM1MDE1MTUtMDA0MWZjYTQ0MzJiODRiMTk5YjEzIn0=",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=1228791c-3fc0-4917-8f75-861e8f5b9a65&ssb=59963283054&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=690873e8-cskb-44e7-a3df-0fb6d03f9bb2&ssk=botmanager_support@radware.com&ssm=11426848608089829130767825626740&ssn=8ed9e89e03ebc6a1b35bf7b926e3aa349f3da904f40c-50f3-4803-94e017&sso=e91db9b9-674c5d3d515308dc80a4c8972221ab21ce6a0ad6d076484b&ssp=91087607761789331616178938174596323&ssq=81156088061814566355180617767759486309941&ssr=MjAuMTA2LjE4Mi4xOTI=&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBhOTA0ZjQwYy01MGYzLTQ4MDMtOTliOS02NzRjNWQzZDUxNTMxLTE3ODkzODA2MTc5NzA0NzUtMDA0YzllMGFkMTE4N2M1ZTBhZTEzIn0=",
           "status": "ok"
         }
       ],
@@ -16019,33 +16011,15 @@
     },
     {
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "outcome": "public_price_lead_found",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-          "final_url": "https://uk.clover.com/help-centre/faqs/",
-          "status": "ok"
-        },
-        {
-          "url": "https://uk.clover.com/help-centre/faqs/",
-          "final_url": "https://uk.clover.com/help-centre/faqs/",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=fc0b4539-1b69-4e14-8d44-28c1d27a96c9&ssb=59963283054&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-uk%2Fresources%2Ffaqs%2F&ssi=2e65d434-cskb-4764-b03b-a1901708f94d&ssk=botmanager_support@radware.com&ssm=11426848608089829100767825626740&ssn=8ed9e89eb52c7c5cf0d1990eb544aa349f3dd8be1440-bfd5-4e9c-b4e017&sso=e91dbeb8-d8db5b0cbd4408dc80a47420b21b306646ecd821d076484b&ssp=91087607761789331616178938174596323&ssq=81156088061814566355180618767759486309941&ssr=MjAuMTA2LjE4Mi4xOTI=&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBkOGJlMTQ0MC1iZmQ1LTRlOWMtYmViOC1kOGRiNWIwY2JkNDQxLTE3ODkzODA2MTgyMzAwLTAwNDNmNTE5MDUzMTE5MDU4N2MxMCJ9",
           "status": "ok"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://uk.clover.com/help-centre/faqs/",
-          "price_leads": [
-            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
-          ]
-        },
-        {
-          "url": "https://uk.clover.com/help-centre/faqs/",
-          "price_leads": [
-            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://mojapos.skpay.sk/",
@@ -16206,7 +16180,8 @@
         {
           "url": "https://paypercut.com/pricing",
           "price_leads": [
-            "nimums or subscription charges No maintenance or support fees Cancel anytime Get started EEA consumer Visa / Mastercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + EUR 0.10 Your trans",
+            "ivation fees No monthly minimums or subscription charges No maintenance or support fees Cancel anytime Get started BLIK 1.29% + PLN 0.25 EEA consumer Visa / Mastercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Vis",
+            "charges No maintenance or support fees Cancel anytime Get started BLIK 1.29% + PLN 0.25 EEA consumer Visa / Mastercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + EUR 0.10 Your trans",
             "astercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + EUR 0.10 Your transaction fees Clear, straightforward rates for accepting online payments in your market. No activation fees No m",
             "nimums or subscription charges No maintenance or support fees Cancel anytime Get started EEA consumer Visa / Mastercard 0.99% + CZK 1.25 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + CZK 1.25 Rest of EU",
             "astercard 0.99% + CZK 1.25 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + CZK 1.25 Rest of EU Bulgaria Greece Romania Hungary Poland Czech Republic Great Britain Rest of EU BNPL aggregator pricing One si",
@@ -16217,7 +16192,8 @@
         {
           "url": "https://paypercut.com/pricing",
           "price_leads": [
-            "nimums or subscription charges No maintenance or support fees Cancel anytime Get started EEA consumer Visa / Mastercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + EUR 0.10 Your trans",
+            "ivation fees No monthly minimums or subscription charges No maintenance or support fees Cancel anytime Get started BLIK 1.29% + PLN 0.25 EEA consumer Visa / Mastercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Vis",
+            "charges No maintenance or support fees Cancel anytime Get started BLIK 1.29% + PLN 0.25 EEA consumer Visa / Mastercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + EUR 0.10 Your trans",
             "astercard 1.29% + EUR 0.10 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + EUR 0.10 Your transaction fees Clear, straightforward rates for accepting online payments in your market. No activation fees No m",
             "nimums or subscription charges No maintenance or support fees Cancel anytime Get started EEA consumer Visa / Mastercard 0.99% + CZK 1.25 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + CZK 1.25 Rest of EU",
             "astercard 0.99% + CZK 1.25 All other cards EEA business Visa / Mastercard cards and all non-EEA Visa / Mastercard cards 2.69% + CZK 1.25 Rest of EU Bulgaria Greece Romania Hungary Poland Czech Republic Great Britain Rest of EU BNPL aggregator pricing One si",
@@ -16541,6 +16517,11 @@
         {
           "url": "https://secupay.com/payments/zahlungsarten-in-ecom-und-am-pos",
           "final_url": "https://secupay.com/payments/zahlungsarten-in-ecom-und-am-pos",
+          "status": "ok"
+        },
+        {
+          "url": "https://secupay.com/wissen/ecommerce/kosten-senken-durch-google-apple-pay",
+          "final_url": "https://secupay.com/wissen/ecommerce/kosten-senken-durch-google-apple-pay",
           "status": "ok"
         }
       ],
@@ -17693,6 +17674,11 @@
           "url": "https://tpay.com/oferta",
           "final_url": "https://tpay.com/oferta",
           "status": "ok"
+        },
+        {
+          "url": "https://tpay.com/razem-z-pekao-dla-ecommerce",
+          "final_url": "https://tpay.com/razem-z-pekao-dla-ecommerce",
+          "status": "ok"
         }
       ],
       "evidence": [
@@ -18322,15 +18308,66 @@
     },
     {
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
-          "status": "error",
-          "error": "ReadTimeout: HTTPSConnectionPool(host='www.adyen.com', port=443): Read timed out. (read timeout=15)"
+          "final_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.adyen.com/en_SG/pricing",
+          "final_url": "https://www.adyen.com/en_SG/pricing",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
+          "final_url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
+          "price_leads": [
+            "ds for merchants and shoppers who want to increase the security of their transactions. Payment pricing Slovakia €0.11 + 2% Documentation Pricing Most popular alternative to cards Guaranteed transactions and secure payments Growing customer ba",
+            "e to cards for merchants and shoppers who want to increase the security of their transactions. Payment pricing Slovakia €0.11 + 2% Documentation Pricing Most popular alternative to cards Guaranteed transactions and secure payments Growing customer ba"
+          ]
+        },
+        {
+          "url": "https://www.adyen.com/en_SG/pricing",
+          "price_leads": [
+            "ion Region Europe Africa Latin America Asia Pacific North America Middle East Payment method Payment method fee €0.11 + 4% €0.11 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you",
+            "atin America Asia Pacific North America Middle East Payment method Payment method fee €0.11 + 4% €0.11 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you, giving you more transparenc",
+            ", giving you more transparency and lower fees overall. Learn more €0.11 + $ 0.27 More information United States €0.11 + 4.19% + $0.30 Canada €0.11 + 4.19% + C$0.30 United Kingdom €0.11 + Direct Contract with Affirm United States €0.11 + 4.49% +",
+            "y and lower fees overall. Learn more €0.11 + $ 0.27 More information United States €0.11 + 4.19% + $0.30 Canada €0.11 + 4.19% + C$0.30 United Kingdom €0.11 + Direct Contract with Affirm United States €0.11 + 4.49% + $0.30 Canada €0.11 + 4.49% +",
+            "stralia, New Zealand €0.11 + 4.99% + AUD/NZD 0.30 United Kingdom €0.11 + 4.19% + GBP 0.30 €0.11 + 3% €0.11 + 3% €0.11 + 3% More information 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard",
+            "nited Kingdom €0.11 + 4.19% + GBP 0.30 €0.11 + 3% €0.11 + 3% €0.11 + 3% More information 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Int",
+            "0 €0.11 + 3% €0.11 + 3% €0.11 + 3% More information 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0",
+            "formation 3x installments France €0.11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.8",
+            ".11 + 3.99% 4x installments France €0.11 + 4.70% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North",
+            "% More information Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Glob",
+            "80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Defined by card used €0.11 + 5%",
+            "American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 More information North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Defined by card used €0.11 + 5% €0.11 + £ 0.55 €0.11 + Interchange+ + 0.60%"
+          ]
+        },
+        {
+          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
+          "price_leads": [
+            "new and scalable revenue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of th",
+            "venue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions g",
+            "Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in m",
+            "nge fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in markets l",
+            "ons at merchants located in the EEA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for",
+            "EA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for",
+            "are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in",
+            "and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in 2010, caps debit card interchange",
+            "re, its debit and prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost i",
+            "prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost in card payments T",
+            "\"friendly fraud\". Friendly fraud is when customers claim a purchase was unauthorized or never arrived and accounts for 75% of all chargebacks. Because banks can’t physically verify the card or the cardholder's signature during an online check"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.adyen.com/nl_NL/betaalmethoden/ideal",
@@ -18657,23 +18694,15 @@
     },
     {
       "source_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
-          "final_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 503 Server Error: Service Unavailable for url: https://www.axeptabnpparibas.be/fr/devenir-client/"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
-          "price_leads": [
-            "ez votre pack Flex Votre solution flexible 29 € /mois Frais de transaction non inclus La location d’un terminal incluse 0,75% sur les cartes de débit et 1,99% sur les cartes de crédit Contrat de service inclus Découvrez tout sur Flex All-In-One",
-            "flexible 29 € /mois Frais de transaction non inclus La location d’un terminal incluse 0,75% sur les cartes de débit et 1,99% sur les cartes de crédit Contrat de service inclus Découvrez tout sur Flex All-In-One Grow Votre solution tout compris"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/",
@@ -18723,66 +18752,15 @@
     },
     {
       "source_url": "https://www.bancatransilvania.ro/companii/conturi-carduri/pachet-de-cont-curent-nelimitat/compara-pachetele-de-cont-curent",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.bancatransilvania.ro/companii/conturi-carduri/pachet-de-cont-curent-nelimitat/compara-pachetele-de-cont-curent",
           "final_url": "https://www.bancatransilvania.ro/companii/conturi-carduri/pachet-de-cont-curent-nelimitat/compara-pachetele-de-cont-curent",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.bancatransilvania.ro/companii/corporate",
-          "final_url": "https://www.bancatransilvania.ro/companii/corporate",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.bancatransilvania.ro/taxe-si-comisioane",
-          "final_url": "https://www.bancatransilvania.ro/taxe-si-comisioane",
-          "status": "ok"
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.bancatransilvania.ro/companii/conturi-carduri/pachet-de-cont-curent-nelimitat/compara-pachetele-de-cont-curent",
-          "price_leads": [
-            "oane acceptare carduri Comision de administrare BT POS APP 10 lei 10 lei 10 lei 10 lei Comision de procesare BT POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,",
-            "acceptare carduri Comision de administrare BT POS APP 10 lei 10 lei 10 lei 10 lei Comision de procesare BT POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9",
-            "P 10 lei 10 lei 10 lei 10 lei Comision de procesare BT POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00%",
-            "lei 10 lei 10 lei 10 lei Comision de procesare BT POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00%",
-            "cesare BT POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens",
-            "e BT POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a",
-            "POS APP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a new",
-            "PP 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a new tab R",
-            "9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a new tab Română",
-            "7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a new tab Română Engl",
-            ",1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a new tab Română English M",
-            "i 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei 0,9% 0,7% +0,1 lei Comision de procesare POS 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% 0,9% 0,7% Comision de procesare E-commerce 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% 1.00% 0,9% - opens in a new tab Română English Magyar"
-          ]
-        },
-        {
-          "url": "https://www.bancatransilvania.ro/companii/corporate",
-          "price_leads": [
-            "fonduri de investiții administrate de BT Asset Management . Produse speciale Factoring, hedging - puteți primi până la 100% din valoarea facturilor emise către clienți, înainte de scadența acestora. Carduri business Carduri business și carduri"
-          ]
-        },
-        {
-          "url": "https://www.bancatransilvania.ro/taxe-si-comisioane",
-          "price_leads": [
-            "0,9% min 4,5 EUR ATM* 0.5% min 3 EUR 10.000,01 – 99.999,99 EUR La ghișeul BT 1,5% ATM* N/A >=100.000 EUR La ghișeul BT 2% ATM* N/A Observații: Comisioanele pentru retragerile de numerar depind de tipul cardului utilizat, moneda tranzacției ș",
-            "ON pentru retragerile în RON se aplică doar pentru anumite tipuri de carduri și exclusiv la ATM-urile BT. Comisionul de 0,5% (min. 3 EUR) pentru retragerile în valută se aplică doar pentru retragerile în EUR efectuate la ATM-urile BT. Depuneri",
-            "15 LEI Online 5 LEI >= 50.000 LEI La ghișeul BT 25 LEI Online 10 LEI Plată BT – altă bancă (non SEPA ² ) La ghișeul BT 0,2% min 20 EUR (max 800 EUR) Online 0,1% min. 15 EUR (max. 600 EUR) Observații: ¹SEPA (Single Euro Payments Area) este un s",
-            "ghișeul BT 25 LEI Online 10 LEI Plată BT – altă bancă (non SEPA ² ) La ghișeul BT 0,2% min 20 EUR (max 800 EUR) Online 0,1% min. 15 EUR (max. 600 EUR) Observații: ¹SEPA (Single Euro Payments Area) este un sistem de plăți folosit numai pentru p",
-            "lying Blue Premium, MasterCard Forte pentru Medici, Visa Gold BT-Rotary Ordine de plat ă condiționată primite - avizare 0,1% min 200 LEI Ordine de plat ă condiționată primite - v erificare (dac ă este cazul) 0,1% min 120 LEI Plăți prin conturi",
-            "condiționată primite - avizare 0,1% min 200 LEI Ordine de plat ă condiționată primite - v erificare (dac ă este cazul) 0,1% min 120 LEI Plăți prin conturi deschise la BT în valuta RON Valoare comision La ghișeul BT Online Plăți BT - BT La ghiș",
-            ",01 – 499.999,99 LEI 0 LEI >= 500.000 LEI 0 LEI Cu card Visa Classic la ATM/ POS altă bancă RO 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LEI + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Cu card Visa Classic la ATM/ POS altă bancă str",
-            "0 LEI Cu card Visa Classic la ATM/ POS altă bancă RO 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LEI + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Cu card Visa Classic la ATM/ POS altă bancă străinătate 0 – 50.000 LEI 2.5 LEI + 0,5% 50.",
-            "ATM/ POS altă bancă RO 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LEI + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Cu card Visa Classic la ATM/ POS altă bancă străinătate 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LE",
-            "I + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Cu card Visa Classic la ATM/ POS altă bancă străinătate 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LEI + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Din cont de alocații Tip operațiune La ghișeul",
-            "card Visa Classic la ATM/ POS altă bancă străinătate 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LEI + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Din cont de alocații Tip operațiune La ghișeul BT 0 LEI BT Express/ BT Express Plus - POS",
-            "altă bancă străinătate 0 – 50.000 LEI 2.5 LEI + 0,5% 50.000,01 – 499.999,99 LEI 2.5 LEI + 0,5% >= 500.000 LEI 2.5 LEI + 0,5% Din cont de alocații Tip operațiune La ghișeul BT 0 LEI BT Express/ BT Express Plus - POS BT - Cu card Visa Classic la"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.bancsabadell.com/bsnacional/es/empresas/tpv/tpv-virtual/",
@@ -20559,7 +20537,7 @@
           "price_leads": [
             "cí Spuštění a ukončení zdarma Podrobný detail tarifu Začít zdarma Akce Růst Zdarma na 3 měsíce nebo do 500 tisíc Kč Pak 0,95 % + 0 Kč Pro nové obchodníky v GoPay Měsíční provoz: 80 Kč (do 50 000 Kč/měs.) Všechny platební metody +80 funkcí Spuštění a u",
             "bný detail tarifů Start 12 měs. zdarma Pro začínající obchodníky Platba kartou Zdarma na 12 měsíců do 50 tisíc Kč/m pak 0,95 % + 0 Kč Online Převody 0,95 % + 0 Kč QR Platba 0,95 % + 0 Kč Odložená platba 0,89 % Platba na třetiny 1,99 % Měsíční provoz Z",
-            "tění do 3 dnů Akce Začněte bez poplatků na 3 nebo 12 měsíců. Začněte přijímat platby Hotové pluginy pro: S GoPay máme o 7 % více dokončených plateb. Tipsport Produkty Platební brána Financování Terminály Osobní účet Pro municipality Ukázková b"
+            "tění do 3 dnů Akce Začněte bez poplatků na 3 nebo 12 měsíců. Začněte přijímat platby Hotové pluginy pro: S GoPay máme o 7 % více dokončených plateb. Tipsport Produkty Platební brána Financování Terminály Pro municipality Ukázková brána Srovnán"
           ]
         },
         {
@@ -20615,11 +20593,6 @@
         {
           "url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
           "final_url": "https://www.hpb.hr/hr/ecommerce-5570/5570",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.hpb.hr/hr/upozorenje-uoceni-lazni-telefonski-pozivi-u-ime-banke-10931/10931",
-          "final_url": "https://www.hpb.hr/hr/upozorenje-uoceni-lazni-telefonski-pozivi-u-ime-banke-10931/10931",
           "status": "ok"
         }
       ],
@@ -20685,12 +20658,27 @@
     },
     {
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://www.lhv.ee/en/payment-acquiring/",
-          "status": "error",
-          "error": "ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+          "final_url": "https://www.lhv.ee/en/payment-acquiring/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
+          "final_url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/corporate-insurance",
+          "final_url": "https://www.lhv.ee/en/corporate-insurance",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
+          "final_url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
+          "status": "ok"
         }
       ],
       "evidence": []
@@ -20719,7 +20707,7 @@
         {
           "url": "http://www.lloydsbank.com/rates_and_charges.asp",
           "status": "error",
-          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.2e62645f.1788774556.8294c305 (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
+          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.4f1a1202.1789380670.1799503a (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
         }
       ],
       "evidence": []
@@ -21959,23 +21947,15 @@
     },
     {
       "source_url": "https://www.paymove.io/en/contact/",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.paymove.io/en/contact/",
-          "final_url": "https://www.paymove.io/en/contact/",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 404 Client Error: Not Found for url: https://www.paymove.io/en/contact"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.paymove.io/en/contact/",
-          "price_leads": [
-            "are should be friendly! Fees Activation Fee Always free! 0 zł Transaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free!",
-            "ransaction Fee dependent on the number of location Up to 3% Service Fee (for your customer only) Payment Methods: Up to 5% Accessories Your first board Your first board for free! The remaining boards are priced individually. 0 zł 🤩 Opportunit"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.paynetics.digital/card-acquiring/",
@@ -22486,8 +22466,8 @@
           "status": "ok"
         },
         {
-          "url": "https://www.payplug.com/pricing/",
-          "final_url": "https://www.payplug.com/pricing/",
+          "url": "https://www.payplug.com/fr/optimiser-strategie-paiement-europe/",
+          "final_url": "https://www.payplug.com/fr/optimiser-strategie-paiement-europe/",
           "status": "ok"
         }
       ],
@@ -22529,28 +22509,22 @@
         {
           "url": "https://www.payplug.com/fr/accelerate/",
           "price_leads": [
-            "tion forte pour récupérer des ventes Une performance unique sur le marché français En tant que fintech du Groupe BPCE – 20% des transactions grand public en France – et membre principal du réseau Cartes Bancaires (CB), Payplug vous donne accès",
-            "à des programmes exclusifs d’optimisation de la performance. Fastpass , notre protocole de connexion, garantit jusqu’à 83% de demandes d’authentification sans friction acceptées sur les cartes émises par le Groupe BPCE. Safe’R by CB est un se",
-            "st un service qui permet aux commerçants ayant un faible taux de fraude de proposer davantage de parcours frictionless. 92,50% taux d’acceptation moyen net constaté chez nos clients Données Payplug, 2025 +7 pts de taux de frictionless sur les pai",
-            "plug, 2025 +7 pts de taux de frictionless sur les paiements CB par rapport à la moyenne du marché Données Payplug, 2024 83% taux d’acceptation moyen net des transactions frictionless Données Payplug, 2025 Ils font confiance à Payplug Allopneus",
-            "cceptation moyen net des transactions frictionless Données Payplug, 2025 Ils font confiance à Payplug Allopneus atteint 97% d’acceptation nette avec Payplug Veepee : +45 points de frictionless avec Fastpass Faguo booste son taux de conversion"
+            "Développez vos ventes sur le marché français. En France, la carte bancaire reste le moyen de paiement le plus répandu : 65 % des transactions sont réalisées via le réseau local Cartes Bancaires*. Grâce à notre connexion directe au Groupe BPCE e",
+            "a garantie de l’un des meilleurs taux d’ autorisation du marché sur les cartes bancaires françaises. Fastpass : jusqu’à 98 % de paiements acceptés sans friction sur les cartes du groupe BPCE et au-delà Notre programme Fastpass optimise le parco",
+            "là Notre programme Fastpass optimise le parcours d’authentification pour favoriser les paiements sans friction. Jusqu’à 98 % des demandes peuvent ainsi être acceptées directement, sans double authentification, sur les cartes bancaires émises pa",
+            "flux de paiement CB pour maximiser votre acceptation sur le réseau privilégié par les français. Safe’R by CB : jusqu’à 95% de demandes de paiement frictionless acceptées Payplug vous accompagne dans l’activation du programme Safe’R by CB pour",
+            "s Payplug vous accompagne dans l’activation du programme Safe’R by CB pour optimiser vos parcours frictionless. Jusqu’à 95 %* des demandes de paiement peuvent ainsi être acceptées sans friction sur les transactions de faible montant. CB, 2025 9",
+            "%* des demandes de paiement peuvent ainsi être acceptées sans friction sur les transactions de faible montant. CB, 2025 99,95% de continuité de service Données Payplug, 2025 92,5% de taux d’acceptation net constaté chez nos clients en France Donn",
+            "es sans friction sur les transactions de faible montant. CB, 2025 99,95% de continuité de service Données Payplug, 2025 92,5% de taux d’acceptation net constaté chez nos clients en France Données Payplug, 2025 +4 pts de taux de frictionless sur",
+            "sécurisé qui rassure vos acheteurs. Demander conseil à un expert Payplug Ils font confiance à Payplug Allopneus atteint 97% d’acceptation nette avec Payplug Veepee : +45 points de frictionless avec Fastpass Faguo booste son taux de conversion"
           ]
         },
         {
-          "url": "https://www.payplug.com/pricing/",
+          "url": "https://www.payplug.com/fr/optimiser-strategie-paiement-europe/",
           "price_leads": [
-            "activity Starter Indicative annual turnover: €100,000 or less Transaction fees Online In-store Euro zone consumer cards 1,5% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,5% +€0,10 Business 2,5% + €0,10 Internationa",
-            "cative annual turnover: €100,000 or less Transaction fees Online In-store Euro zone consumer cards 1,5% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,5% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscri",
-            "0,000 or less Transaction fees Online In-store Euro zone consumer cards 1,5% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,5% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €10 / month Get started",
-            "In-store Euro zone consumer cards 1,5% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,5% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €10 / month Get started with Starter (new tab) Includes: I",
-            "nsumer cards 1,5% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,5% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €10 / month Get started with Starter (new tab) Includes: Immediate onboarding In",
-            "siness 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,5% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €10 / month Get started with Starter (new tab) Includes: Immediate onboarding In-store payment Online payme",
-            "o Indicative annual turnover: between €100,000 and €1,000,000 Transaction fees Online In-store Euro zone consumer cards 1,1% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,1% +€0,10 Business 2,5% + €0,10 Internationa",
-            "urnover: between €100,000 and €1,000,000 Transaction fees Online In-store Euro zone consumer cards 1,1% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,1% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscri",
-            "nd €1,000,000 Transaction fees Online In-store Euro zone consumer cards 1,1% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,1% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €30 / month 3 months fre",
-            "In-store Euro zone consumer cards 1,1% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,1% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €30 / month 3 months free Get started with Pro (new tab) I",
-            "nsumer cards 1,1% +€0,25 Business 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,1% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €30 / month 3 months free Get started with Pro (new tab) Includes: One-click pay",
-            "siness 2,5% + €0,25 International 2,9% + €0,25 Euro zone consumer cards 1,1% +€0,10 Business 2,5% + €0,10 International 2,9% + €0,10 Subscription €30 / month 3 months free Get started with Pro (new tab) Includes: One-click payment Deferred payment Split"
+            "ys a ses propres habitudes d’achat : un client belge privilégie Bancontact , un acheteur néerlandais iDEAL (utilisé par 92 % des boutiques en ligne aux Pays-Bas), tandis que les cartes ou le paiement fractionné ( BNPL ) dominent ailleurs. Avec",
+            "tivation de Bancontact a été très simple, en quelques clics, le tour était joué. Depuis, c’est une véritable réussite : 58 % de nos paiements provenant de Belgique sont effectués via Bancontact. Nous avons la possibilité d’afficher ce mode de p",
+            "s DSP2 , vous protégez votre activité tout en offrant un parcours sans friction (frictionless) à vos clients légitimes. 96,65% Taux d’acceptation constaté chez nos clients utilisant le Smart 3D Secure Payplug Data, 2025 Maîtrisez le coût réel de"
           ]
         }
       ]
@@ -23243,7 +23217,8 @@
           "url": "https://www.satispay.com/it-it/privati/",
           "price_leads": [
             "liberi professionisti e tutte le attivitÃ senza sede fissa. Fino a settembre 2026 â Commissione sul singolo pagamento 1% Da settembre 2026 â Pagamenti inferiori a 10â¬ Gratis Da settembre 2026 â Pagamenti pari o superiori a 10â¬ 0,95%",
-            "ncellazione dal servizio Gratis Commissioni per specifiche attivitÃ Tabacchi ed edicole prevedono una commissione dello 0,5% per transazione, da Settembre 2026 non sarÃ prevista nessuna commissione per le transazioni sotto i 10â¬, applicata es"
+            "pplicate automaticamente le nuove condizioni economiche, che prevedono zero commissioni per transazioni sotto i 10â¬ e 0,95% per transazioni pari o sopra i 10â¬. Per gli esercenti giÃ registrati, provvederemo a comunicare le modalitÃ di aggior",
+            "vizio Satispay Business, contattando direttamente tutto il network. Tabacchi ed edicole prevedono una commissione dello 0,5% per transazioni pari o superiori a 10â¬ e zero commissioni per transazioni sotto i 10â¬. Per le altre tipologie di ne"
           ]
         }
       ]
@@ -23660,12 +23635,14 @@
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
+            "hronisieren Barcode-Scanfunktion aktivieren 39 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
+            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
+            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
-            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
           ]
         }
       ]
@@ -23680,18 +23657,18 @@
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/cs-cz/ceny/",
-          "final_url": "https://www.sumup.com/cs-cz/ceny/",
+          "url": "https://www.sumup.com/cs-cz/ceny/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "final_url": "https://www.sumup.com/cs-cz/ceny/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
-          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/hr-hr/cijene/",
-          "final_url": "https://www.sumup.com/hr-hr/cijene/",
+          "url": "https://www.sumup.com/hr-hr/cijene/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "final_url": "https://www.sumup.com/hr-hr/cijene/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
           "status": "ok"
         }
       ],
@@ -23713,7 +23690,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/cs-cz/ceny/",
+          "url": "https://www.sumup.com/cs-cz/ceny/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
           "price_leads": [
             "atky 0 Kč/měsíc ⓘ Ideální volba, když se vám tržby během roku mění, chcete být flexibilní a nemyslet na měsíční paušál. 1,95 % Transakční poplatek při použití všech karet (včetně American Express a prémiových karet) s osobní přítomností. Loading",
             "it více ↗ ⓘ Snižte si poplatky a ušetřete, pokud měsíčně zpracováváte 61 000 Kč či více. 7 dní zdarma, zrušení kdykoli. 0,95 % Transakční poplatek při použití debetní a kreditní karty s osobní přítomností. Při použití karet American Express a pré",
@@ -23729,7 +23706,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
           "price_leads": [
             "price, you’ll only be charged a fixed transaction fee when you take a payment. 1x One-time device cost $0 Monthly costs 1.40% Transaction fee Do you take more than $20,000 in payments per month? Talk to our Sales team to receive a special deal w",
             "e payment option to give your business an extra edge and to offer your customers even more ways to pay. $0 Monthly cost 2.10% Transaction fee Payment Links Share secure links with your customers to get paid from anywhere. Loading Learn more Some",
@@ -23738,7 +23715,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/hr-hr/cijene/",
+          "url": "https://www.sumup.com/hr-hr/cijene/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
           "price_leads": [
             "€/mjesečno ⓘ Savršeno ako vaša prodaja varira tijekom godine i ako želite potpunu fleksibilnost bez mjesečnih troškova. 1,95% Naknada za osobne transakcije koja se primjenjuje na sve kartice, uključujući karticu American Express i premium kartic",
             "e ↗ ⓘ Snizite svoje naknade i uštedite ako mjesečno obradite 3 700 € ili više. Besplatno na 7 dana, otkažite bilo kada. 0,79% Naknada za osobne transakcije debitnim i kreditnim karticama. Na transakcije premium karticama i karticom American Expr",
@@ -23831,18 +23808,18 @@
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/hu-hu/arkepzes/",
-          "final_url": "https://www.sumup.com/hu-hu/arkepzes/",
+          "url": "https://www.sumup.com/hu-hu/arkepzes/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "final_url": "https://www.sumup.com/hu-hu/arkepzes/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
-          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/",
-          "final_url": "https://www.sumup.com/de-at/preise/",
+          "url": "https://www.sumup.com/de-at/preise/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "final_url": "https://www.sumup.com/de-at/preise/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
           "status": "ok"
         }
       ],
@@ -23858,7 +23835,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/hu-hu/arkepzes/",
+          "url": "https://www.sumup.com/hu-hu/arkepzes/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
           "price_leads": [
             "osárhoz A Fizetési linkek, a Bookings és az egyéb digitális termékeken keresztül feldolgozott online fizetések esetében 2,50% díjat számítunk fel. Fizetési mód visa Fizetési mód vpay Fizetési mód mastercard Fizetési mód maestro Fizetési mód amex",
             "azható), majd minden egyes fizetéskor fix tranzakciós díjat számítunk fel. Személyes fizetések esetén a tranzakciós díj 1.95% . Online fizetés esetén tranzakciónként 1,69% -ot kell fizetnie. Ha előfizet a rugalmas havi megoldásunkra, a Fizetés –",
@@ -23868,7 +23845,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
           "price_leads": [
             "price, you’ll only be charged a fixed transaction fee when you take a payment. 1x One-time device cost $0 Monthly costs 1.40% Transaction fee Do you take more than $20,000 in payments per month? Talk to our Sales team to receive a special deal w",
             "e payment option to give your business an extra edge and to offer your customers even more ways to pay. $0 Monthly cost 2.10% Transaction fee Payment Links Share secure links with your customers to get paid from anywhere. Loading Learn more Some",
@@ -23877,18 +23854,20 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/",
+          "url": "https://www.sumup.com/de-at/preise/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
           "price_leads": [
             "al, wenn Ihre Umsätze im Laufe des Jahres schwanken und Sie sich volle Flexibilität ohne monatliche Fixkosten wünschen. 1,39 % Transaktionsgebühr für Vor-Ort-Zahlungen mit sämtlichen Karten, einschließlich American Express und Premium-Karten. Loa",
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
+            "hronisieren Barcode-Scanfunktion aktivieren 39 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
+            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
+            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
-            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
           ]
         }
       ]
@@ -23903,18 +23882,18 @@
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur",
-          "final_url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur",
+          "url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "final_url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur",
-          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur",
-          "final_url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur",
+          "url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "final_url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
           "status": "ok"
         }
       ],
@@ -23922,6 +23901,7 @@
         {
           "url": "https://www.sumup.com/pl-pl/cennik/",
           "price_leads": [
+            "Ceny i prowizje w SumUp - przejrzysty cennik i opłaty Nie przegap WIELKIEJ wyprzedaży. Do 50% zniżki Kup teraz ! Produkty Przegląd Solo Lite Solo Tap to Pay na Androida SumUp Card Submenu, Produkty Płatności zdaln",
             "rozwiązanie, jeśli Twoja sprzedaż zmienia się w ciągu roku i chcesz zyskać pełną elastyczność bez miesięcznych kosztów. 1,49% Prowizja od transakcji na miejscu wszystkimi kartami, w tym American Express i premium. Loading Kup Płatności Plus 89 z",
             "i dokonujesz transakcji na co najmniej 16 400 zł miesięcznie. Bezpłatnie przez 7 dni i w każdej chwili możesz anulować. 0,79% Prowizja od transakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest po",
             "ansakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest pobierana opłata 1,49% . Loading Dodaj do koszyka Od płatności online przy użyciu Płatności Linkiem, Bookings i innych produktów cyfrowych jes",
@@ -23935,8 +23915,9 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur",
+          "url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
           "price_leads": [
+            "Ceny i prowizje w SumUp - przejrzysty cennik i opłaty Nie przegap WIELKIEJ wyprzedaży. Do 50% zniżki Kup teraz ! Produkty Przegląd Solo Lite Solo Tap to Pay na Androida SumUp Card Submenu, Produkty Płatności zdaln",
             "rozwiązanie, jeśli Twoja sprzedaż zmienia się w ciągu roku i chcesz zyskać pełną elastyczność bez miesięcznych kosztów. 1,49% Prowizja od transakcji na miejscu wszystkimi kartami, w tym American Express i premium. Loading Kup Płatności Plus 89 z",
             "i dokonujesz transakcji na co najmniej 16 400 zł miesięcznie. Bezpłatnie przez 7 dni i w każdej chwili możesz anulować. 0,79% Prowizja od transakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest po",
             "ansakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest pobierana opłata 1,49% . Loading Dodaj do koszyka Od płatności online przy użyciu Płatności Linkiem, Bookings i innych produktów cyfrowych jes",
@@ -23950,7 +23931,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
           "price_leads": [
             "price, you’ll only be charged a fixed transaction fee when you take a payment. 1x One-time device cost $0 Monthly costs 1.40% Transaction fee Do you take more than $20,000 in payments per month? Talk to our Sales team to receive a special deal w",
             "e payment option to give your business an extra edge and to offer your customers even more ways to pay. $0 Monthly cost 2.10% Transaction fee Payment Links Share secure links with your customers to get paid from anywhere. Loading Learn more Some",
@@ -23959,18 +23940,20 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur",
+          "url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
           "price_leads": [
             "al, wenn Ihre Umsätze im Laufe des Jahres schwanken und Sie sich volle Flexibilität ohne monatliche Fixkosten wünschen. 1,39 % Transaktionsgebühr für Vor-Ort-Zahlungen mit sämtlichen Karten, einschließlich American Express und Premium-Karten. Loa",
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
+            "hronisieren Barcode-Scanfunktion aktivieren 39 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
+            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
+            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
-            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
           ]
         }
       ]
@@ -24047,12 +24030,14 @@
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
+            "hronisieren Barcode-Scanfunktion aktivieren 39 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
+            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
+            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
-            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
           ]
         }
       ]

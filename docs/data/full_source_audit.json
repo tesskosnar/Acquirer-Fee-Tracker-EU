@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-28T11:20:38+00:00",
-  "dataset_generated_at": "2026-09-28T11:17:27+00:00",
+  "generated_at": "2026-10-05T11:56:42+00:00",
+  "dataset_generated_at": "2026-10-05T11:53:24+00:00",
   "scope": "All-offer official-source audit. Automated matches are triage evidence, never authority to change a merchant price without semantic review.",
   "offer_rows_scanned": 511,
   "unique_official_urls_scanned": 299,
@@ -9,11 +9,11 @@
     "source_unavailable_or_blocked": 86
   },
   "row_outcomes": {
-    "priced_row_manually_verified_parser_mismatch": 113,
-    "source_blocked_but_previously_verified": 99,
-    "stored_components_found_on_official_source": 232,
-    "unpriced_manually_verified_without_public_number": 50,
-    "unpriced_numeric_lead_rejected_after_manual_review": 17
+    "priced_row_manually_verified_parser_mismatch": 114,
+    "source_blocked_but_previously_verified": 98,
+    "stored_components_found_on_official_source": 234,
+    "unpriced_manually_verified_without_public_number": 49,
+    "unpriced_numeric_lead_rejected_after_manual_review": 16
   },
   "rows": [
     {
@@ -1343,26 +1343,26 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://hobex.at/wp-content/uploads/2024/12/hobex_folder_allgemein.pdf",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           1.75
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.1
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -1376,30 +1376,30 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://hobex.at/wp-content/uploads/2024/12/hobex_folder_allgemein.pdf",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           1.35
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.1
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [
           4.9
         ],
         "monthly_matches": [
-          false
+          true
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -3504,8 +3504,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/el-gr/home",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -4300,7 +4300,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_GB/payment-methods/blik",
       "source_outcome": "public_price_lead_found",
@@ -4333,7 +4333,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-czech-republic",
       "source_outcome": "public_price_lead_found",
@@ -4366,7 +4366,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
       "source_outcome": "public_price_lead_found",
@@ -4544,29 +4544,29 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
           2.3
         ],
         "variable_matches": [
-          false
+          true
         ],
         "fixed_values": [
           0.11
         ],
         "fixed_matches": [
-          false
+          true
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": false
+        "all_stored_components_found": true
       },
       "price_leads": []
     },
@@ -4577,7 +4577,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4610,7 +4610,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4643,7 +4643,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4676,7 +4676,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4709,7 +4709,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4742,7 +4742,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4775,7 +4775,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4808,7 +4808,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4841,7 +4841,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4874,7 +4874,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4907,7 +4907,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4940,7 +4940,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4973,7 +4973,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5006,7 +5006,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5039,7 +5039,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5072,7 +5072,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5105,7 +5105,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5138,7 +5138,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5171,7 +5171,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5204,7 +5204,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5237,7 +5237,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5303,7 +5303,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5336,7 +5336,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5369,7 +5369,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5402,7 +5402,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5435,7 +5435,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5468,7 +5468,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5501,7 +5501,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5534,7 +5534,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5567,7 +5567,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5600,7 +5600,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-09-28",
+      "price_verified_on": "2026-10-05",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5833,6 +5833,7 @@
       "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
       "evidence_match": null,
       "price_leads": [
+        "s can support you with everything from chargebacks to building financial resilience and more. Get down to business with 99.99% authorisation availability Your busiest trading moments aren't the time to worry about payments. That's why over 160,00",
         "Visa or Mastercard personal debit card is used in person to buy a £50 item, you could pay: Example transaction charge (0.7%) – £0.35 + Authorisation fee (3p) – £0.03 = Total transaction fees – £0.38 By phone When a Visa or Mastercard personal",
         "Visa or Mastercard personal credit card is used by phone to buy a £50 item, you could pay: Example transaction charge (2.05%) – £1.03 + Authorisation fee (3p) – £0.03 = Total transaction fees – £1.06 Cancellation fees The amount you pay as a ca",
         "tances and borrowing history. Fees There's an annual account fee of £42. Charges Credit limit Cash Copies of statements 3% (minimum £3) £2 for a copy of any statement Repayments You must pay your balance off in full by the payment due date sh",
@@ -11909,13 +11910,13 @@
       "price_lead_review": null,
       "source_url": "https://www.reduniq.pt/aceitar-pagamentos/loja-fisica/easy/",
       "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
           1.5
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -11927,7 +11928,7 @@
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -14137,12 +14138,10 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
-      "price_leads": [
-        "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
-      ]
+      "price_leads": []
     },
     {
       "id": "RO-unicredit-ecommerce-card",
@@ -15910,15 +15909,23 @@
     },
     {
       "source_url": "https://hobex.at/wp-content/uploads/2024/12/hobex_folder_allgemein.pdf",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://hobex.at/wp-content/uploads/2024/12/hobex_folder_allgemein.pdf",
-          "status": "error",
-          "error": "SSLError: HTTPSConnectionPool(host='hobex.at', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/hobex_folder_allgemein.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+          "final_url": "https://www.hobex.at/wp-content/uploads/2024/12/hobex_folder_allgemein.pdf",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.hobex.at/wp-content/uploads/2024/12/hobex_folder_allgemein.pdf",
+          "price_leads": [
+            "he Gebühren € 0,00 € 4,90 * Hardware-Kosten € 99,00 € 0,00 Einzelhandel des Kartenlesegeräts Gebühren je Transaktion ** 1,75 % + € 0,10 1,35% + € 0,10 Mindestvertragslaufzeit keine Bindung 24 Monate *) Jahrespreis € 58,80, Abrechnungsperiode jährlich im Vo",
+            "00 € 4,90 * Hardware-Kosten € 99,00 € 0,00 Einzelhandel des Kartenlesegeräts Gebühren je Transaktion ** 1,75 % + € 0,10 1,35% + € 0,10 Mindestvertragslaufzeit keine Bindung 24 Monate *) Jahrespreis € 58,80, Abrechnungsperiode jährlich im Voraus **) gilt f"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://hungary.payu.com/card-payment-visa-and-mastercard-hungary/",
@@ -15997,7 +16004,7 @@
         },
         {
           "url": "https://merchants.fiserv.com/en-europe/corporate/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=d7a7a382-7dd1-4507-b9f0-e99b6bd61d0e&ssb=37427268999&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=fcba7079-cskb-4aca-92ad-0ba3b3e4f542&ssk=botmanager_support@radware.com&ssm=76396851855432554133944110947754&ssn=a34762c736862dc6978cfd33e04f7b44b41834bdb8f0-93ab-4da1-904190&sso=bb830a1e-e79699967234dfea223fbff64d12db9c40cf68103c545bcb&ssp=66155859291790580375179053715229382&ssq=89372449427869218293494278189387136418038&ssr=MjAuMTA5Ljg2LjIzMA==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDAzNGJkYjhmMC05M2FiLTRkYTEtOWExZS1lNzk2OTk5NjcyMzQxLTE3OTA1OTQyNzgxODc1MDctMDA1NGJjODFjNWYwY2Q4YTEyYjEzIn0=",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=0e4f57c2-1348-46ef-9f01-063b50b1ea13&ssb=79106241074&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=9acffcd2-cskb-4f0c-9195-c126588eb919&ssk=botmanager_support@radware.com&ssm=63177948003515431138305491625978&ssn=8a7f385771cd11f2ca50a099f50c921f87013baf4586-1b14-421c-9c8c84&sso=288ce2ba-522f67039d10035b73dcd5f993cae45190a75f802f823971&ssp=47271168541791294908179124819094498&ssq=53107210123555288839301235691244147104268&ssr=MjAuMTYxLjc4LjY5&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDAzYmFmNDU4Ni0xYjE0LTQyMWMtOTJiYS01MjJmNjcwMzlkMTAxLTE3OTEyMDEyMzUzNjU1MDMtMDA1OTRjMTg5MGVjODU3NGM2YjEzIn0=",
           "status": "ok"
         }
       ],
@@ -17785,9 +17792,9 @@
         {
           "url": "https://vippsmobilepay.com/da-DK/pricing",
           "price_leads": [
-            "købskurv Fysisk betaling MobilePay-nummer Valgfrit beløb Fysisk betaling · Fjernsalg Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsavtaler 0,59 % + 1 DKK per transaktion. Prisen ænd",
-            "Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsavtaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med pa",
-            "tegreret betaling Online Faste betalinger Betalingsavtaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per",
+            "købskurv Fysisk betaling MobilePay-nummer Valgfrit beløb Fysisk betaling · Fjernsalg Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsaftaler 0,59 % + 1 DKK per transaktion. Prisen ænd",
+            "Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsaftaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med pa",
+            "tegreret betaling Online Faste betalinger Betalingsaftaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per",
             "k til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per transaktion Donationer Fjernsalg · Faste betalinger 0,99 % + 1 DKK per transaktion for medlemmer af ISOBRO: 0,79% +",
             "n med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per transaktion Donationer Fjernsalg · Faste betalinger 0,99 % + 1 DKK per transaktion for medlemmer af ISOBRO: 0,79% + 1 kr. Kasseintegration Fysisk betaling For prisoversigt skal du kontak",
             "+ 1 DKK per transaktion Donationer Fjernsalg · Faste betalinger 0,99 % + 1 DKK per transaktion for medlemmer af ISOBRO: 0,79% + 1 kr. Kasseintegration Fysisk betaling For prisoversigt skal du kontakte din partner. Login og loyalitet Login Fra 300 kr."
@@ -17796,9 +17803,9 @@
         {
           "url": "https://vippsmobilepay.com/da-DK/pricing",
           "price_leads": [
-            "købskurv Fysisk betaling MobilePay-nummer Valgfrit beløb Fysisk betaling · Fjernsalg Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsavtaler 0,59 % + 1 DKK per transaktion. Prisen ænd",
-            "Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsavtaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med pa",
-            "tegreret betaling Online Faste betalinger Betalingsavtaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per",
+            "købskurv Fysisk betaling MobilePay-nummer Valgfrit beløb Fysisk betaling · Fjernsalg Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsaftaler 0,59 % + 1 DKK per transaktion. Prisen ænd",
+            "Mobilt kassesystem Fysisk betaling 0,99 % per transaktion Integreret betaling Online Faste betalinger Betalingsaftaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med pa",
+            "tegreret betaling Online Faste betalinger Betalingsaftaler 0,59 % + 1 DKK per transaktion. Prisen ændres automatisk til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per",
             "k til 0,89% + 1 DKK fra 1. januar 2027. Pris kan variere ved integration med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per transaktion Donationer Fjernsalg · Faste betalinger 0,99 % + 1 DKK per transaktion for medlemmer af ISOBRO: 0,79% +",
             "n med partner. Betalingslinks Online · Fjernsalg 1,49 % + 1 DKK per transaktion Donationer Fjernsalg · Faste betalinger 0,99 % + 1 DKK per transaktion for medlemmer af ISOBRO: 0,79% + 1 kr. Kasseintegration Fysisk betaling For prisoversigt skal du kontak",
             "+ 1 DKK per transaktion Donationer Fjernsalg · Faste betalinger 0,99 % + 1 DKK per transaktion for medlemmer af ISOBRO: 0,79% + 1 kr. Kasseintegration Fysisk betaling For prisoversigt skal du kontakte din partner. Login og loyalitet Login Fra 300 kr."
@@ -17927,12 +17934,12 @@
     },
     {
       "source_url": "https://worldline.com/el-gr/home",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://worldline.com/el-gr/home",
-          "final_url": "https://worldline.com/el-gr/home",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/el-gr/home"
         }
       ],
       "evidence": []
@@ -18515,15 +18522,59 @@
     },
     {
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-          "status": "error",
-          "error": "ReadTimeout: HTTPSConnectionPool(host='www.adyen.com', port=443): Read timed out. (read timeout=15)"
+          "final_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.adyen.com/pl_PL/cennik",
+          "final_url": "https://www.adyen.com/pl_PL/cennik",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
+          "final_url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.adyen.com/pl_PL/cennik",
+          "price_leads": [
+            "eryka Łacińska Ameryka Północna Azja i Pacyfik Bliski Wschód Europa Metoda płatności Opłata za metodę płatności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interc",
+            "nocna Azja i Pacyfik Bliski Wschód Europa Metoda płatności Opłata za metodę płatności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interchange++ przekazuje te opłaty",
+            "za metodę płatności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interchange++ przekazuje te opłaty bezpośrednio Tobie, zapewniając większą przejrzystość i ogólnie",
+            "tności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interchange++ przekazuje te opłaty bezpośrednio Tobie, zapewniając większą przejrzystość i ogólnie niższe opłat",
+            "e Królestwo €0.11 + 4.19% + GBP 0.30 €0.11 + 3% €0.11 + 3% €0.11 + 3% Więcej informacji 3x installments Francja €0.11 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + I",
+            "0.11 + 3% €0.11 + 3% €0.11 + 3% Więcej informacji 3x installments Francja €0.11 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 +",
+            "rmacji 3x installments Francja €0.11 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.8",
+            "1 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North",
+            "Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Glo",
+            "80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Zdefiniowane przez używaną kart",
+            "American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Zdefiniowane przez używaną kartę €0.11 + 5% €0.11 + £ 0.55 €0.11 + Intercha",
+            "0% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Zdefiniowane przez używaną kartę €0.11 + 5% €0.11 + £ 0.55 €0.11 + Interchange+ + 0.60% Opłaty interchan"
+          ]
+        },
+        {
+          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
+          "price_leads": [
+            "new and scalable revenue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of th",
+            "venue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions g",
+            "Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in m",
+            "nge fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in markets l",
+            "ons at merchants located in the EEA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for",
+            "EA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for",
+            "are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in",
+            "and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in 2010, caps debit card interchange",
+            "re, its debit and prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost i",
+            "prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost in card payments T",
+            "\"friendly fraud\". Friendly fraud is when customers claim a purchase was unauthorized or never arrived and accounts for 75% of all chargebacks. Because banks can’t physically verify the card or the cardholder's signature during an online check"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.adyen.com/pricing",
@@ -18779,6 +18830,7 @@
         {
           "url": "https://www.barclaycard.co.uk/business/accepting-payments",
           "price_leads": [
+            "s can support you with everything from chargebacks to building financial resilience and more. Get down to business with 99.99% authorisation availability Your busiest trading moments aren't the time to worry about payments. That's why over 160,00",
             "Visa or Mastercard personal debit card is used in person to buy a £50 item, you could pay: Example transaction charge (0.7%) – £0.35 + Authorisation fee (3p) – £0.03 = Total transaction fees – £0.38 By phone When a Visa or Mastercard personal",
             "Visa or Mastercard personal credit card is used by phone to buy a £50 item, you could pay: Example transaction charge (2.05%) – £1.03 + Authorisation fee (3p) – £0.03 = Total transaction fees – £1.06 Cancellation fees The amount you pay as a ca"
           ]
@@ -19542,7 +19594,7 @@
         {
           "url": "https://www.csob.sk/ucty-a-poplatky",
           "price_leads": [
-            "acim účtom a získate zvýhodnený úrok 3 % ročne. Pri Smart účte alebo detskom Smart účte Start úspory budú rásť s úrokom 2 % ročne Ponuka platí len pre nových klientov Výška úroku je garantovaná do 31. 12. 2026 Zriadiť online Zistiť viac Zavrie",
+            "im účtom a získate zvýhodnený úrok 3,3 % ročne. Pri Smart účte alebo detskom Smart účte Start úspory budú rásť s úrokom 2 % ročne Ponuka platí len pre nových klientov Výška úroku je garantovaná do 14. 3. 2027 Zriadiť online Zistiť viac Zavrieť",
             "acim účtom a získate zvýhodnený úrok 3 % ročne. Pri Smart účte alebo detskom Smart účte Start úspory budú rásť s úrokom 2 % ročne Ponuka platí len pre nových klientov Výška úroku je garantovaná do 31. 12. 2026 Zriadiť online Zistiť viac Sporen",
             "ť online Zriadiť Smart účet Premium 12 EUR mesačne Zriadiť online Zriadiť Odmena za využívanie produktov a služieb ČSOB 0 % mesačne 1,5 % max. 7 € mesačne 1,5 % max. 13 € mesačne Debetná karta Visa Classic Visa Classic alebo Mastercard Masterc",
             "adiť Smart účet Premium 12 EUR mesačne Zriadiť online Zriadiť Odmena za využívanie produktov a služieb ČSOB 0 % mesačne 1,5 % max. 7 € mesačne 1,5 % max. 13 € mesačne Debetná karta Visa Classic Visa Classic alebo Mastercard Mastercard Gold Druhá",
@@ -20154,7 +20206,7 @@
         {
           "url": "https://www.flatpay.com/en-gb/business-type/coffee-shop-pos",
           "price_leads": [
-            "ng smoothly – even at peak hours. Calculate savings Calculate savings Calculate savings £0 in monthly fee (yes, really) 1.69% flat transaction rate 24/7 human support Premium POS Pro POS Premium POS Kit Pro POS Kit Premium POS Play Play Watch th",
+            "ng smoothly – even at peak hours. Calculate savings Calculate savings Calculate savings £0 in monthly fee (yes, really) 1.69% flat transaction rate 24/7 human support Play Play Watch the Ad bNrdNgRfXHs What is a coffee shop POS system? A coffee",
             "g Solutions designed to make accepting payments faster, easier, and transparent. Below £200,000 in annual card turnover 1.69% Per transaction, all cards £0 In monthly fee Calculate savings Calculate savings Calculate savings Custom rate We creat",
             "than £200,000 in annual card turnover. Contact sales Contact sales Contact sales Above £200,000 in annual card turnover 0,99% Per transaction, all cards €0 Yes, it’s free to start Calculate savings Calculate savings Calculate savings Custom rate"
           ]
@@ -20387,9 +20439,9 @@
         {
           "url": "https://www.getnet.net/pt/tarifas/plana",
           "price_leads": [
-            "4.000€ 30 € 45 € 4 001 - 6 000 € 40 € 60 € 6 001 - 8 000 € 50 € 75 € 8 001 - 10 000 € 60 € 90 € Mais de 10 000 € 60€ + 1.5%¹ 90€ + 1.5%¹ Métodos de pagamento incluídos MB, MB Way, Visa, Mastercard, UPI⁴, Discover⁴ 3% por transação B2B⁵ (1) Get",
-            "45 € 4 001 - 6 000 € 40 € 60 € 6 001 - 8 000 € 50 € 75 € 8 001 - 10 000 € 60 € 90 € Mais de 10 000 € 60€ + 1.5%¹ 90€ + 1.5%¹ Métodos de pagamento incluídos MB, MB Way, Visa, Mastercard, UPI⁴, Discover⁴ 3% por transação B2B⁵ (1) Get Smart e Get",
-            "€ Mais de 10 000 € 60€ + 1.5%¹ 90€ + 1.5%¹ Métodos de pagamento incluídos MB, MB Way, Visa, Mastercard, UPI⁴, Discover⁴ 3% por transação B2B⁵ (1) Get Smart e Get Classic a 0 € apenas com a contratação da conta Grow no banco Santander. (2) UPI"
+            "€ 65 € 95 € 10 001 - 15 000 € 80 € 120 € 15 001 - 20 000 € 100 € 150 € 20 001 - 25 000 € 120 € 180 € > 25 000 € 120€ + 1.5% 180€ + 1.5% Métodos de pagamento incluídos MB, MB Way, Visa, Mastercard, UPI e Discover⁴ 3% por transação B2B⁵ (1) Get",
+            "10 001 - 15 000 € 80 € 120 € 15 001 - 20 000 € 100 € 150 € 20 001 - 25 000 € 120 € 180 € > 25 000 € 120€ + 1.5% 180€ + 1.5% Métodos de pagamento incluídos MB, MB Way, Visa, Mastercard, UPI e Discover⁴ 3% por transação B2B⁵ (1) Get Smart e Get",
+            "€ 180 € > 25 000 € 120€ + 1.5% 180€ + 1.5% Métodos de pagamento incluídos MB, MB Way, Visa, Mastercard, UPI e Discover⁴ 3% por transação B2B⁵ (1) Get Smart e Get Classic a 0 € apenas com a contratação da conta Grow no banco Santander. (2) UPI"
           ]
         }
       ]
@@ -20681,7 +20733,7 @@
         {
           "url": "http://www.lloydsbank.com/rates_and_charges.asp",
           "status": "error",
-          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.fb01302.1790594327.f139a386 (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
+          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.c62645f.1791201290.3c0958ff (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
         }
       ],
       "evidence": []
@@ -20731,14 +20783,14 @@
             "Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte kaarten 3,25% + â¬ 0,25 American Express 2,90% + â¬ 0,25 Apple Pay Tarief bepaald door gebruikte kaart Bancontact â¬ 0,39 Bekijk alle betaalmethoden Mastercard Cons",
             "e kaart Bancontact â¬ 0,39 Bekijk alle betaalmethoden Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
             "Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte kaarten 3,25% + â¬ 0,25 American Express 2,90% + â¬ 0,25 Apple Pay Tarief bepaald door gebruikte kaart Bancontact â¬ 0,39 Bekijk alle betaalmethoden In-person betal",
-            "nd Betaal alleen wanneer je verkoopt, geen contract of verplichting Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen",
-            "r je verkoopt, geen contract of verplichting Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lag",
-            "of verplichting Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste",
-            "toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste maandelijkse kosten. Lokale debetkaarten â¬ 0,15 + 0,20% Andere consumentenkaarten â¬ 0,10 + 1,50% American Express â¬ 0,10 + 1,80% Alle zakelijke kaarten â¬ 0,10 + 2,50% In",
+            "s you go Geen vaste maandkosten. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet onder",
+            "Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
+            "aal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "deals Transactietarieven per betaalmethode in BelgiÃ« Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "5 Bancontact â¬ 0,39 PayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â",
-            "ayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal",
-            "SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal in 3x vanaf 4,29% + â¬ 0,35 Billie Duitsland, Ooste"
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland,",
+            "rland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
         {
@@ -20748,14 +20800,14 @@
             "Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte kaarten 3,25% + â¬ 0,25 American Express 2,90% + â¬ 0,25 Apple Pay Tarief bepaald door gebruikte kaart Bancontact â¬ 0,39 Bekijk alle betaalmethoden Mastercard Cons",
             "e kaart Bancontact â¬ 0,39 Bekijk alle betaalmethoden Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
             "Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte kaarten 3,25% + â¬ 0,25 American Express 2,90% + â¬ 0,25 Apple Pay Tarief bepaald door gebruikte kaart Bancontact â¬ 0,39 Bekijk alle betaalmethoden In-person betal",
-            "nd Betaal alleen wanneer je verkoopt, geen contract of verplichting Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen",
-            "r je verkoopt, geen contract of verplichting Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lag",
-            "of verplichting Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste",
-            "toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste maandelijkse kosten. Lokale debetkaarten â¬ 0,15 + 0,20% Andere consumentenkaarten â¬ 0,10 + 1,50% American Express â¬ 0,10 + 1,80% Alle zakelijke kaarten â¬ 0,10 + 2,50% In",
+            "s you go Geen vaste maandkosten. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet onder",
+            "Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
+            "aal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "deals Transactietarieven per betaalmethode in BelgiÃ« Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "5 Bancontact â¬ 0,39 PayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â",
-            "ayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal",
-            "SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal in 3x vanaf 4,29% + â¬ 0,35 Billie Duitsland, Ooste"
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland,",
+            "rland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
         {
@@ -20796,12 +20848,12 @@
             ",90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
             "ican Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas",
             "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
-            "sans contrat ni engagement. Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% Un terminal matÃ©riel maximum IdÃ©al pour les paiements occ",
-            "ment. Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% Un terminal matÃ©riel maximum IdÃ©al pour les paiements occasionnels Pro 20 â¬/mo",
-            "grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% Un terminal matÃ©riel maximum IdÃ©al pour les paiements occasionnels Pro 20 â¬/mois Taux de transaction rÃ©duits, frai",
-            "is Taux de transaction rÃ©duits, frais mensuels fixes Cartes de dÃ©bit et de crÃ©dit grand public nationales 0,10 â¬ + 0,85% Autres cartes de consommation 0,10 â¬ + 1,50% American Express 0,10 â¬+ 1,80% Toutes les cartes commerciales 0,10 â¬",
+            "e et flexible IdÃ©al pour les paiements occasionnels 0 â¬ /mois Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% 1 terminal physique max",
             "Frais de transaction par mode de paiement en France Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "¬ PayPal Frais PayPal + 0,10 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de"
+            "+ 0,35 â¬ in3 3,99 % + 0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de",
+            "0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgiq",
+            "caire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie All",
+            "â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie Allemagne, Autriche & Suisse 3,49 % + 0,35 â¬ France, I"
           ]
         },
         {
@@ -20813,12 +20865,12 @@
             ",90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
             "ican Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas",
             "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
-            "sans contrat ni engagement. Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% Un terminal matÃ©riel maximum IdÃ©al pour les paiements occ",
-            "ment. Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% Un terminal matÃ©riel maximum IdÃ©al pour les paiements occasionnels Pro 20 â¬/mo",
-            "grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% Un terminal matÃ©riel maximum IdÃ©al pour les paiements occasionnels Pro 20 â¬/mois Taux de transaction rÃ©duits, frai",
-            "is Taux de transaction rÃ©duits, frais mensuels fixes Cartes de dÃ©bit et de crÃ©dit grand public nationales 0,10 â¬ + 0,85% Autres cartes de consommation 0,10 â¬ + 1,50% American Express 0,10 â¬+ 1,80% Toutes les cartes commerciales 0,10 â¬",
+            "e et flexible IdÃ©al pour les paiements occasionnels 0 â¬ /mois Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% 1 terminal physique max",
             "Frais de transaction par mode de paiement en France Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "¬ PayPal Frais PayPal + 0,10 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de"
+            "+ 0,35 â¬ in3 3,99 % + 0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de",
+            "0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgiq",
+            "caire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie All",
+            "â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie Allemagne, Autriche & Suisse 3,49 % + 0,35 â¬ France, I"
           ]
         }
       ]
@@ -20855,10 +20907,10 @@
             "per uso domestico 1,20% + 0,25 â¬ American Express 2.90% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona",
             "â¬ American Express 2.90% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona Non Ã¨ l'opzione giusta per te",
             "% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona Non Ã¨ l'opzione giusta per te? Contattaci Pay as you go",
-            "di, senza contratto o impegno. Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Massimo un terminale Perfetto per pagamenti occasionali Pro 20",
-            "mpegno. Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Massimo un terminale Perfetto per pagamenti occasionali Pro 20 â¬/mese Tariffe di tra",
-            "ito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Massimo un terminale Perfetto per pagamenti occasionali Pro 20 â¬/mese Tariffe di transazione piÃ¹ basse, canoni mensi",
-            "d Business benefits Commissioni per metodo di pagamento Mastercard Carte dei consumatori dello Spazio Economico Europeo 1,80% + 0,25 â¬ Carte Commerciali dello Spazio Economico Europeo 2,90% + 0,25 â¬ Carte non appartenenti allo Spazio Economico Europ"
+            "mplice e flessibile Ideale per pagamenti occasionali 0 â¬ /mese Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Fino a un terminale hardware",
+            "d Business benefits Commissioni per metodo di pagamento Mastercard Carte dei consumatori dello Spazio Economico Europeo 1,80% + 0,25 â¬ Carte Commerciali dello Spazio Economico Europeo 2,90% + 0,25 â¬ Carte non appartenenti allo Spazio Economico Europ",
+            "9% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â",
+            ",42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â¬ SEPA Direct Debit 0,35 â¬"
           ]
         },
         {
@@ -20872,10 +20924,10 @@
             "per uso domestico 1,20% + 0,25 â¬ American Express 2.90% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona",
             "â¬ American Express 2.90% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona Non Ã¨ l'opzione giusta per te",
             "% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona Non Ã¨ l'opzione giusta per te? Contattaci Pay as you go",
-            "di, senza contratto o impegno. Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Massimo un terminale Perfetto per pagamenti occasionali Pro 20",
-            "mpegno. Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Massimo un terminale Perfetto per pagamenti occasionali Pro 20 â¬/mese Tariffe di tra",
-            "ito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Massimo un terminale Perfetto per pagamenti occasionali Pro 20 â¬/mese Tariffe di transazione piÃ¹ basse, canoni mensi",
-            "d Business benefits Commissioni per metodo di pagamento Mastercard Carte dei consumatori dello Spazio Economico Europeo 1,80% + 0,25 â¬ Carte Commerciali dello Spazio Economico Europeo 2,90% + 0,25 â¬ Carte non appartenenti allo Spazio Economico Europ"
+            "mplice e flessibile Ideale per pagamenti occasionali 0 â¬ /mese Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Fino a un terminale hardware",
+            "d Business benefits Commissioni per metodo di pagamento Mastercard Carte dei consumatori dello Spazio Economico Europeo 1,80% + 0,25 â¬ Carte Commerciali dello Spazio Economico Europeo 2,90% + 0,25 â¬ Carte non appartenenti allo Spazio Economico Europ",
+            "9% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â",
+            ",42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â¬ SEPA Direct Debit 0,35 â¬"
           ]
         }
       ]
@@ -20912,15 +20964,15 @@
             "links Invoicing Checkout Terugkerend Online betalingen Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
             "Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte kaarten 3,25% + â¬ 0,25 American Express 2,90% + â¬ 0,25 Apple Pay Tarief bepaald door gebruikte kaart iDEAL | Wero â¬ 0,32 Bekijk alle betaalmethoden Mastercard Co",
             "kaart iDEAL | Wero â¬ 0,32 Bekijk alle betaalmethoden Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "maand Betaal alleen wanneer je verkoopt, geen contract of verplichting Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen",
-            "neer je verkoopt, geen contract of verplichting Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lag",
-            "ct of verplichting Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste",
-            "en toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste maandelijkse kosten. Maestro en V-pay â¬ 0,06 + 0,20% Andere consumentenkaarten â¬ 0,10 + 1,50% American Express â¬ 0,10 + 1,80% Alle zakelijke kaarten â¬ 0,10 + 2,50% In",
+            "y as you go Geen vaste maandkosten. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet onder",
+            "en. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
+            "Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "eals Transactietarieven per betaalmethode in Nederland Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "and Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 in3 3,99% + â¬ 0,95 Bancontact 1,40% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â",
-            "tact 1,40% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â",
-            "ayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal",
-            "SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal in 3x vanaf 4,29% + â¬ 0,35 Billie Duitsland, Ooste"
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Ned",
+            "â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland &",
+            "¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
         {
@@ -20929,15 +20981,15 @@
             "links Invoicing Checkout Terugkerend Online betalingen Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
             "Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte kaarten 3,25% + â¬ 0,25 American Express 2,90% + â¬ 0,25 Apple Pay Tarief bepaald door gebruikte kaart iDEAL | Wero â¬ 0,32 Bekijk alle betaalmethoden Mastercard Co",
             "kaart iDEAL | Wero â¬ 0,32 Bekijk alle betaalmethoden Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "maand Betaal alleen wanneer je verkoopt, geen contract of verplichting Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen",
-            "neer je verkoopt, geen contract of verplichting Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lag",
-            "ct of verplichting Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal Ã©Ã©n hardware terminal. Ideaal voor af en toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste",
-            "en toe betalingen Pro â¬20 per maand Lagere transactietarieven, vaste maandelijkse kosten. Maestro en V-pay â¬ 0,06 + 0,20% Andere consumentenkaarten â¬ 0,10 + 1,50% American Express â¬ 0,10 + 1,80% Alle zakelijke kaarten â¬ 0,10 + 2,50% In",
+            "y as you go Geen vaste maandkosten. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet onder",
+            "en. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
+            "Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "eals Transactietarieven per betaalmethode in Nederland Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "and Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 in3 3,99% + â¬ 0,95 Bancontact 1,40% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â",
-            "tact 1,40% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â",
-            "ayPal PayPal-kosten + â¬ 0,10 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal",
-            "SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swish 1,25% + â¬ 0,25 Alma Frankrijk Betaal in 3Ã vanaf 4,50% + â¬ 0,35 France Pay in 4Ã vanaf 5,50% + â¬ 0,35 BelgiÃ« Betaal in 3x vanaf 4,29% + â¬ 0,35 Billie Duitsland, Ooste"
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Ned",
+            "â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland &",
+            "¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
         {
@@ -20986,9 +21038,9 @@
             "ropean Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 American Express 2.90% + â¬0.25 Apple Pay Rate defined by card used SEPA Direct Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment met",
             "rect Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa",
             "ayment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa European Economic Area Consumer Cards 1.80% + â¬0.25 E",
-            "Pay as you go â¬0 per month Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for o",
-            "th Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬2",
-            "ll, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬20 per month Lower trans"
+            "go No monthly fee. Simple and flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported",
+            "nd flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Ge",
+            "ccasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Get started Pro Lower rat"
           ]
         },
         {
@@ -21003,9 +21055,9 @@
             "ropean Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 American Express 2.90% + â¬0.25 Apple Pay Rate defined by card used SEPA Direct Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment met",
             "rect Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa",
             "ayment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa European Economic Area Consumer Cards 1.80% + â¬0.25 E",
-            "Pay as you go â¬0 per month Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for o",
-            "th Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬2",
-            "ll, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬20 per month Lower trans"
+            "go No monthly fee. Simple and flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported",
+            "nd flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Ge",
+            "ccasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Get started Pro Lower rat"
           ]
         }
       ]
@@ -21048,9 +21100,9 @@
             "ropean Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 American Express 2.90% + â¬0.25 Apple Pay Rate defined by card used SEPA Direct Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment met",
             "rect Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa",
             "ayment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa European Economic Area Consumer Cards 1.80% + â¬0.25 E",
-            "Pay as you go â¬0 per month Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for o",
-            "th Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬2",
-            "ll, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬20 per month Lower trans"
+            "go No monthly fee. Simple and flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported",
+            "nd flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Ge",
+            "ccasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Get started Pro Lower rat"
           ]
         },
         {
@@ -21065,9 +21117,9 @@
             "ropean Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 American Express 2.90% + â¬0.25 Apple Pay Rate defined by card used SEPA Direct Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment met",
             "rect Debit â¬0.35 SEPA Bank Transfer â¬0.25 View all payment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa",
             "ayment methods Mastercard European Economic Area Consumer Cards 1.80% + â¬0.25 European Economic Area Commercial Cards 2.90% + â¬0.25 Non-European Economic Area Cards 3.25% + â¬0.25 Visa European Economic Area Consumer Cards 1.80% + â¬0.25 E",
-            "Pay as you go â¬0 per month Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for o",
-            "th Pay only when you sell, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬2",
-            "ll, no contract or commitment. Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% One hardware terminal maximum. Ideal for occasional payments Pro â¬20 per month Lower trans"
+            "go No monthly fee. Simple and flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported",
+            "nd flexible Ideal for occasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Ge",
+            "ccasional payments â¬0 /month Domestic consumer debit & credit cards 1.20% Other consumer cards 1.80% American Express 2.10% All commercial cards 2.90% 1 hardware terminal max (PAX not supported) â¢ Unlimited Tap apps Get started Pro Lower rat"
           ]
         }
       ]
@@ -21425,7 +21477,7 @@
         {
           "url": "https://www.nexi.it/shop/it/servizi-alla-persona",
           "price_leads": [
-            "S Mini con stampante Innovativo e portatile con stampante integrata € 22,50 al mese Installazione € 79 € 59 Commissioni da 0,99% App Cassa Fiscale già integrata Connettività Wi-fi e 4G con traffico SIM incluso Accetta buoni pasto e mance direttamen",
+            "OS Mini con stampante Innovativo e portatile con stampante integrata € 22,50 al mese Installazione € 79 € 0 Commissioni da 0,99% App Cassa Fiscale già integrata Connettività Wi-fi e 4G con traffico SIM incluso Accetta buoni pasto e mance direttamen",
             "rt Cassa Classic Cassa e POS tutto integrato in un solo terminale € 49 € 39 al mese Installazione € 100 € 0 Commissioni da 0,99% Soluzione all in one (POS, Cassa e stampante fiscale) Connettività Ethernet Stampante fiscale 80 mm con autocutter POS",
             "le inclusi ACQUISTA Scopri di più XPay Link Incassa online con un link senza un sito e‑commerce Canone ZERO Commissioni da 1,35% € 0,40 costo a transazione +30 metodi di pagamento accettati Accetta pagamenti dall'estero Incluso possibilità di ratei",
             "lità di rateizzazione e abbonamenti ACQUISTA Scopri di più XShop Crea il tuo negozio online Da € 25 al mese Commissioni da 1,30% Attiva il tuo shop online in pochi click Inclusi Boost, DCC, incassa senza pensieri e stampante cloud Whatsapp Business",
@@ -22357,34 +22409,34 @@
           "url": "https://www.paypal.com/uk/business/paypal-business-fees?locale.x=en_GB",
           "price_leads": [
             "od (APM) APM Transaction Rates Apply Card funded payment from a user of our Terms for Payments without a PayPal account 1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% +",
-            "m a user of our Terms for Payments without a PayPal account 1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee All Other Commercial Transactions 2.9% + fixed fe",
-            "1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee All Other Commercial Transactions 2.9% + fixed fee Receiving international transactions The applicable fee",
-            "and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee All Other Commercial Transactions 2.9% + fixed fee Receiving international transactions The applicable fee for receiving domestic commercial and QR Code trans",
+            "m a user of our Terms for Payments without a PayPal account 1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee",
+            "1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee All Other Commercial Transactions 2.9% + fixed fee (* exc",
+            "P and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee All Other Commercial Transactions 2.9% + fixed fee (* excludes PayPal Credit) Tiered rate plan for receivin",
+            "10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee All Other Commercial Transactions 2.9% + fixed fee (* excludes PayPal Credit) Tiered rate plan for receiving domestic transactions The tiered rate plan is an",
+            "e previous calendar month Rate United Kingdom (UK), Guernsey (GG), Jersey (JE) and Isle of Man (IM) 0.00 - 4,000.00 GBP 2.9% + fixed fee More than 4,000.00 GBP up to 8,000.00 GBP 2.4% + fixed fee More than 8,000.00 GBP 2.1% + fixed fee Unless a",
+            "y (GG), Jersey (JE) and Isle of Man (IM) 0.00 - 4,000.00 GBP 2.9% + fixed fee More than 4,000.00 GBP up to 8,000.00 GBP 2.4% + fixed fee More than 8,000.00 GBP 2.1% + fixed fee Unless and until PayPal confirms your enrolment in the tiered rate",
+            "0.00 - 4,000.00 GBP 2.9% + fixed fee More than 4,000.00 GBP up to 8,000.00 GBP 2.4% + fixed fee More than 8,000.00 GBP 2.1% + fixed fee Unless and until PayPal confirms your enrolment in the tiered rate plan, the standard rate for receiving do",
             "able: Additional percentage-based fee for international commercial transactions Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Additional service fee for recipients of EEA based international commercial transactions This f",
             "age-based fee for international commercial transactions Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Additional service fee for recipients of EEA based international commercial transactions This fee only applies to merch",
             "nsactions where the recipient’s market/region is registered or identified by PayPal as the UK (including GG, JE and IM) 1.29% Fixed fee for commercial transactions (based on currency received) Fee Table: Fixed fee for commercial transactions (ba",
-            "r receiving domestic donations Fee Table: Standard rate for receiving domestic donations Transaction Type Rate Donation 2.9% + fixed fee QR code Transactions – 10.01 GBP and above Commercial Transaction rates apply QR code Transactions – 10.00",
-            "onations Fee Table: Additional percentage-based fee for international donations Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Fixed fee for donations (based on currency received) Fee Table: Fixed fee for donations (based",
-            "tional percentage-based fee for international donations Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Fixed fee for donations (based on currency received) Fee Table: Fixed fee for donations (based on currency received) Cu",
-            "domestic charity transactions Fee Table: Receiving domestic charity transactions Transaction Rate Charity transactions 1.4% + fixed fee QR code Transactions – 10.01 GBP and above Commercial Transaction rates apply QR code Transactions – 10.00",
-            "esa, Mixx by Yas, Payattitude, PesaLink, Promptpay QR, PSE, Bre-B, Nigerian Bank Transfer (NIBBS), Nequi, VietQR, Coins 2.9% + fixed fee Thailand Online Bank Transfer, Latvian Online Bank Transfer, Lithuanian Online Bank Transfer, Skrill, Ovo P"
+            "r receiving domestic donations Fee Table: Standard rate for receiving domestic donations Transaction Type Rate Donation 2.9% + fixed fee QR code Transactions – 10.01 GBP and above Commercial Transaction rates apply QR code Transactions – 10.00"
           ]
         },
         {
           "url": "https://www.paypal.com/uk/business/fees?locale.x=en_GB",
           "price_leads": [
-            "Processing Fees | PayPal UK | PayPal UK Pricing Pricing to fit your business PayPal and Pay in 3¹ Standard domestic fee 2.9 % 2.9 % +£0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % +£0.30 per transaction POS and Tap to Pa",
-            "sing Fees | PayPal UK | PayPal UK Pricing Pricing to fit your business PayPal and Pay in 3¹ Standard domestic fee 2.9 % 2.9 % +£0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % +£0.30 per transaction POS and Tap to Pay* Standard do",
-            "ess PayPal and Pay in 3¹ Standard domestic fee 2.9 % 2.9 % +£0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % +£0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom prici",
-            "yPal and Pay in 3¹ Standard domestic fee 2.9 % 2.9 % +£0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % +£0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pricing available f",
-            "tion Card processing Standard domestic fee 1.2 % 1.2 % +£0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pricing available for eligible businesses with large payments volume or unique busi",
-            "rd processing Standard domestic fee 1.2 % 1.2 % +£0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pricing available for eligible businesses with large payments volume or unique business mo",
-            "rds or using Fastlane by PayPal Tailor your approach to risk management and your checkout experience. Learn More PayPal 2.9 % 2.9 % +£0.30 per transaction Pay in 3 2.9 % 2.9 % +£0.30 per transaction Card processing 1.2 % 1.2 % +£0.30 per transac",
-            "using Fastlane by PayPal Tailor your approach to risk management and your checkout experience. Learn More PayPal 2.9 % 2.9 % +£0.30 per transaction Pay in 3 2.9 % 2.9 % +£0.30 per transaction Card processing 1.2 % 1.2 % +£0.30 per transaction You might",
-            "approach to risk management and your checkout experience. Learn More PayPal 2.9 % 2.9 % +£0.30 per transaction Pay in 3 2.9 % 2.9 % +£0.30 per transaction Card processing 1.2 % 1.2 % +£0.30 per transaction You might be eligible for custom pricin",
-            "ch to risk management and your checkout experience. Learn More PayPal 2.9 % 2.9 % +£0.30 per transaction Pay in 3 2.9 % 2.9 % +£0.30 per transaction Card processing 1.2 % 1.2 % +£0.30 per transaction You might be eligible for custom pricing. Contact Sal",
-            "ience. Learn More PayPal 2.9 % 2.9 % +£0.30 per transaction Pay in 3 2.9 % 2.9 % +£0.30 per transaction Card processing 1.2 % 1.2 % +£0.30 per transaction You might be eligible for custom pricing. Contact Sales at 0207 949 3274 . Simplify in-per",
-            "Learn More PayPal 2.9 % 2.9 % +£0.30 per transaction Pay in 3 2.9 % 2.9 % +£0.30 per transaction Card processing 1.2 % 1.2 % +£0.30 per transaction You might be eligible for custom pricing. Contact Sales at 0207 949 3274 . Simplify in-person sales Star"
+            "Transaction & Processing Fees | PayPal UK | PayPal UK Pricing Pricing to fit your business PayPal Standard domestic fee 2.9 % 2.9 % + £0.30 per transaction Pay Later 1 Standard domestic fee 3.9 % 3.9 % + £0.30 per transaction Card processing Sta",
+            "ction & Processing Fees | PayPal UK | PayPal UK Pricing Pricing to fit your business PayPal Standard domestic fee 2.9 % 2.9 % + £0.30 per transaction Pay Later 1 Standard domestic fee 3.9 % 3.9 % + £0.30 per transaction Card processing Standard domestic",
+            "to fit your business PayPal Standard domestic fee 2.9 % 2.9 % + £0.30 per transaction Pay Later 1 Standard domestic fee 3.9 % 3.9 % + £0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % + £0.30 per transaction POS and Tap to",
+            "your business PayPal Standard domestic fee 2.9 % 2.9 % + £0.30 per transaction Pay Later 1 Standard domestic fee 3.9 % 3.9 % + £0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % + £0.30 per transaction POS and Tap to Pay* Standard d",
+            "transaction Pay Later 1 Standard domestic fee 3.9 % 3.9 % + £0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % + £0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pric",
+            "ction Pay Later 1 Standard domestic fee 3.9 % 3.9 % + £0.30 per transaction Card processing Standard domestic fee 1.2 % 1.2 % + £0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pricing available f",
+            "ion Card processing Standard domestic fee 1.2 % 1.2 % + £0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pricing available for eligible businesses with large payments volume or unique busi",
+            "d processing Standard domestic fee 1.2 % 1.2 % + £0.30 per transaction POS and Tap to Pay* Standard domestic fee 1.75 % 1.75 % *card and contactless Custom pricing available for eligible businesses with large payments volume or unique business mo",
+            "rds or using Fastlane by PayPal Tailor your approach to risk management and your checkout experience. Learn more PayPal 2.9 % 2.9 % + £0.30 per transaction Pay in 3 3.9 % 3.9 % + £0.30 per transaction Card processing 1.2 % 1.2 % + £0.30 per tran",
+            "using Fastlane by PayPal Tailor your approach to risk management and your checkout experience. Learn more PayPal 2.9 % 2.9 % + £0.30 per transaction Pay in 3 3.9 % 3.9 % + £0.30 per transaction Card processing 1.2 % 1.2 % + £0.30 per transaction You mig",
+            "pproach to risk management and your checkout experience. Learn more PayPal 2.9 % 2.9 % + £0.30 per transaction Pay in 3 3.9 % 3.9 % + £0.30 per transaction Card processing 1.2 % 1.2 % + £0.30 per transaction You might be eligible for custom pric",
+            "h to risk management and your checkout experience. Learn more PayPal 2.9 % 2.9 % + £0.30 per transaction Pay in 3 3.9 % 3.9 % + £0.30 per transaction Card processing 1.2 % 1.2 % + £0.30 per transaction You might be eligible for custom pricing. Contact sa"
           ]
         },
         {
@@ -22405,17 +22457,17 @@
           "url": "https://www.paypal.com/uk/business/paypal-business-fees",
           "price_leads": [
             "od (APM) APM Transaction Rates Apply Card funded payment from a user of our Terms for Payments without a PayPal account 1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% +",
-            "m a user of our Terms for Payments without a PayPal account 1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee All Other Commercial Transactions 2.9% + fixed fe",
-            "1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee All Other Commercial Transactions 2.9% + fixed fee Receiving international transactions The applicable fee",
-            "and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee All Other Commercial Transactions 2.9% + fixed fee Receiving international transactions The applicable fee for receiving domestic commercial and QR Code trans",
+            "m a user of our Terms for Payments without a PayPal account 1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee",
+            "1.2% + fixed fee QR Code Transactions – 10.01 GBP and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee All Other Commercial Transactions 2.9% + fixed fee (* exc",
+            "P and above 1.5% + fixed fee QR code Transactions – 10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee All Other Commercial Transactions 2.9% + fixed fee (* excludes PayPal Credit) Tiered rate plan for receivin",
+            "10.00 GBP and below 2% + fixed fee Buy Now Pay Later Transactions * 3.9% + fixed fee All Other Commercial Transactions 2.9% + fixed fee (* excludes PayPal Credit) Tiered rate plan for receiving domestic transactions The tiered rate plan is an",
+            "e previous calendar month Rate United Kingdom (UK), Guernsey (GG), Jersey (JE) and Isle of Man (IM) 0.00 - 4,000.00 GBP 2.9% + fixed fee More than 4,000.00 GBP up to 8,000.00 GBP 2.4% + fixed fee More than 8,000.00 GBP 2.1% + fixed fee Unless a",
+            "y (GG), Jersey (JE) and Isle of Man (IM) 0.00 - 4,000.00 GBP 2.9% + fixed fee More than 4,000.00 GBP up to 8,000.00 GBP 2.4% + fixed fee More than 8,000.00 GBP 2.1% + fixed fee Unless and until PayPal confirms your enrolment in the tiered rate",
+            "0.00 - 4,000.00 GBP 2.9% + fixed fee More than 4,000.00 GBP up to 8,000.00 GBP 2.4% + fixed fee More than 8,000.00 GBP 2.1% + fixed fee Unless and until PayPal confirms your enrolment in the tiered rate plan, the standard rate for receiving do",
             "able: Additional percentage-based fee for international commercial transactions Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Additional service fee for recipients of EEA based international commercial transactions This f",
             "age-based fee for international commercial transactions Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Additional service fee for recipients of EEA based international commercial transactions This fee only applies to merch",
             "nsactions where the recipient’s market/region is registered or identified by PayPal as the UK (including GG, JE and IM) 1.29% Fixed fee for commercial transactions (based on currency received) Fee Table: Fixed fee for commercial transactions (ba",
-            "r receiving domestic donations Fee Table: Standard rate for receiving domestic donations Transaction Type Rate Donation 2.9% + fixed fee QR code Transactions – 10.01 GBP and above Commercial Transaction rates apply QR code Transactions – 10.00",
-            "onations Fee Table: Additional percentage-based fee for international donations Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Fixed fee for donations (based on currency received) Fee Table: Fixed fee for donations (based",
-            "tional percentage-based fee for international donations Where sender’s market/region is Fee EEA 1.29% All other markets 1.99% Fixed fee for donations (based on currency received) Fee Table: Fixed fee for donations (based on currency received) Cu",
-            "domestic charity transactions Fee Table: Receiving domestic charity transactions Transaction Rate Charity transactions 1.4% + fixed fee QR code Transactions – 10.01 GBP and above Commercial Transaction rates apply QR code Transactions – 10.00",
-            "esa, Mixx by Yas, Payattitude, PesaLink, Promptpay QR, PSE, Bre-B, Nigerian Bank Transfer (NIBBS), Nequi, VietQR, Coins 2.9% + fixed fee Thailand Online Bank Transfer, Latvian Online Bank Transfer, Lithuanian Online Bank Transfer, Skrill, Ovo P"
+            "r receiving domestic donations Fee Table: Standard rate for receiving domestic donations Transaction Type Rate Donation 2.9% + fixed fee QR code Transactions – 10.01 GBP and above Commercial Transaction rates apply QR code Transactions – 10.00"
           ]
         }
       ]
@@ -23091,8 +23143,7 @@
         {
           "url": "https://www.reduniq.pt/aceitar-pagamentos/loja-fisica/easy/",
           "price_leads": [
-            "l Mensalidade (acresce IVA) Até 2.500€ 15€ 2.501€ a 5.000€ 30€ 5.001€ a 7.500€ 45€ Superior a 7.500€ 50€ + taxa fixa de 1,5% sobre o excedente Adira já Conheça outras soluções de pagamento Descubra o portfolio completo de soluções de pagamento",
-            "e se ultrapassar o limite de 7.500€? Caso ultrapasse este valor, apenas o montante excedente será sujeito a uma taxa de 1,5%, sem custos adicionais ocultos. Tenho algum custo ao aderir à solução de pagamentos Easy? Não. A adesão ao serviço é 10"
+            "e se ultrapassar o limite de 7.500€? Caso ultrapasse este valor, apenas o montante excedente será sujeito a uma taxa de 0,9%, sem custos adicionais ocultos. Tenho algum custo ao aderir à solução de pagamentos Easy? Não. A adesão ao serviço é 10"
           ]
         }
       ]
@@ -23190,9 +23241,8 @@
         {
           "url": "https://www.satispay.com/it-it/business/",
           "price_leads": [
-            "liberi professionisti e tutte le attivitÃ senza sede fissa. Fino a settembre 2026 â Commissione sul singolo pagamento 1% Da settembre 2026 â Pagamenti inferiori a 10â¬ Gratis Da settembre 2026 â Pagamenti pari o superiori a 10â¬ 0,95%",
-            "pplicate automaticamente le nuove condizioni economiche, che prevedono zero commissioni per transazioni sotto i 10â¬ e 0,95% per transazioni pari o sopra i 10â¬. Per gli esercenti giÃ registrati, provvederemo a comunicare le modalitÃ di aggior",
-            "vizio Satispay Business, contattando direttamente tutto il network. Tabacchi ed edicole prevedono una commissione dello 0,5% per transazioni pari o superiori a 10â¬ e zero commissioni per transazioni sotto i 10â¬. Per le altre tipologie di ne"
+            "pplicate automaticamente le nuove condizioni economiche, che prevedono zero commissioni per transazioni sotto i 10â¬ e 0,95% per transazioni pari o sopra i 10â¬. Agli esercenti giÃ registrati Ã¨ stata comunicata via e-mail le modalitÃ di aggio",
+            "delle condizioni economiche relative al Servizio Satispay Business. Tabacchi ed edicole prevedono una commissione dello 0,5% per transazioni pari o superiori a 10â¬ e zero commissioni per transazioni sotto i 10â¬. Per le altre tipologie di ne"
           ]
         }
       ]
@@ -23609,14 +23659,12 @@
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
-            "hronisieren Barcode-Scanfunktion aktivieren 49 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
-            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
-            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
+            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
           ]
         }
       ]
@@ -23631,18 +23679,18 @@
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/cs-cz/ceny/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
-          "final_url": "https://www.sumup.com/cs-cz/ceny/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "url": "https://www.sumup.com/cs-cz/ceny/",
+          "final_url": "https://www.sumup.com/cs-cz/ceny/",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
-          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/hr-hr/cijene/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
-          "final_url": "https://www.sumup.com/hr-hr/cijene/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "url": "https://www.sumup.com/hr-hr/cijene/",
+          "final_url": "https://www.sumup.com/hr-hr/cijene/",
           "status": "ok"
         }
       ],
@@ -23664,7 +23712,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/cs-cz/ceny/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "url": "https://www.sumup.com/cs-cz/ceny/",
           "price_leads": [
             "atky 0 Kč/měsíc ⓘ Ideální volba, když se vám tržby během roku mění, chcete být flexibilní a nemyslet na měsíční paušál. 1,95 % Transakční poplatek při použití všech karet (včetně American Express a prémiových karet) s osobní přítomností. Loading",
             "it více ↗ ⓘ Snižte si poplatky a ušetřete, pokud měsíčně zpracováváte 61 000 Kč či více. 7 dní zdarma, zrušení kdykoli. 0,95 % Transakční poplatek při použití debetní a kreditní karty s osobní přítomností. Při použití karet American Express a pré",
@@ -23680,7 +23728,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
           "price_leads": [
             "price, you’ll only be charged a fixed transaction fee when you take a payment. 1x One-time device cost $0 Monthly costs 1.40% Transaction fee Do you take more than $20,000 in payments per month? Talk to our Sales team to receive a special deal w",
             "e payment option to give your business an extra edge and to offer your customers even more ways to pay. $0 Monthly cost 2.10% Transaction fee Payment Links Share secure links with your customers to get paid from anywhere. Loading Learn more Some",
@@ -23689,7 +23737,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/hr-hr/cijene/?prc=CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026-s-CZST92026",
+          "url": "https://www.sumup.com/hr-hr/cijene/",
           "price_leads": [
             "€/mjesečno ⓘ Savršeno ako vaša prodaja varira tijekom godine i ako želite potpunu fleksibilnost bez mjesečnih troškova. 1,95% Naknada za osobne transakcije koja se primjenjuje na sve kartice, uključujući karticu American Express i premium kartic",
             "e ↗ ⓘ Snizite svoje naknade i uštedite ako mjesečno obradite 3 700 € ili više. Besplatno na 7 dana, otkažite bilo kada. 0,79% Naknada za osobne transakcije debitnim i kreditnim karticama. Na transakcije premium karticama i karticom American Expr",
@@ -23782,18 +23830,18 @@
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/hu-hu/arkepzes/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
-          "final_url": "https://www.sumup.com/hu-hu/arkepzes/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "url": "https://www.sumup.com/hu-hu/arkepzes/",
+          "final_url": "https://www.sumup.com/hu-hu/arkepzes/",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
-          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
-          "final_url": "https://www.sumup.com/de-at/preise/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "url": "https://www.sumup.com/de-at/preise/",
+          "final_url": "https://www.sumup.com/de-at/preise/",
           "status": "ok"
         }
       ],
@@ -23809,7 +23857,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/hu-hu/arkepzes/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "url": "https://www.sumup.com/hu-hu/arkepzes/",
           "price_leads": [
             "osárhoz A Fizetési linkek, a Bookings és az egyéb digitális termékeken keresztül feldolgozott online fizetések esetében 2,50% díjat számítunk fel. Fizetési mód visa Fizetési mód vpay Fizetési mód mastercard Fizetési mód maestro Fizetési mód amex",
             "azható), majd minden egyes fizetéskor fix tranzakciós díjat számítunk fel. Személyes fizetések esetén a tranzakciós díj 1.95% . Online fizetés esetén tranzakciónként 1,69% -ot kell fizetnie. Ha előfizet a rugalmas havi megoldásunkra, a Fizetés –",
@@ -23819,7 +23867,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
           "price_leads": [
             "price, you’ll only be charged a fixed transaction fee when you take a payment. 1x One-time device cost $0 Monthly costs 1.40% Transaction fee Do you take more than $20,000 in payments per month? Talk to our Sales team to receive a special deal w",
             "e payment option to give your business an extra edge and to offer your customers even more ways to pay. $0 Monthly cost 2.10% Transaction fee Payment Links Share secure links with your customers to get paid from anywhere. Loading Learn more Some",
@@ -23828,20 +23876,18 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/?prc=HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026-s-HUST92026",
+          "url": "https://www.sumup.com/de-at/preise/",
           "price_leads": [
             "al, wenn Ihre Umsätze im Laufe des Jahres schwanken und Sie sich volle Flexibilität ohne monatliche Fixkosten wünschen. 1,39 % Transaktionsgebühr für Vor-Ort-Zahlungen mit sämtlichen Karten, einschließlich American Express und Premium-Karten. Loa",
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
-            "hronisieren Barcode-Scanfunktion aktivieren 49 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
-            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
-            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
+            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
           ]
         }
       ]
@@ -23856,18 +23902,18 @@
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
-          "final_url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "url": "https://www.sumup.com/pl-pl/cennik/",
+          "final_url": "https://www.sumup.com/pl-pl/cennik/",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
-          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
+          "final_url": "https://www.sumup.com/en-au/payment-processing-pricing/",
           "status": "ok"
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
-          "final_url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "url": "https://www.sumup.com/de-at/preise/",
+          "final_url": "https://www.sumup.com/de-at/preise/",
           "status": "ok"
         }
       ],
@@ -23875,7 +23921,6 @@
         {
           "url": "https://www.sumup.com/pl-pl/cennik/",
           "price_leads": [
-            "Ceny i prowizje w SumUp - przejrzysty cennik i opłaty Nie przegap WIELKIEJ wyprzedaży. Do 50% zniżki Kup teraz ! Produkty Przegląd Solo Lite Solo Tap to Pay na Androida SumUp Card Submenu, Produkty Płatności zdaln",
             "rozwiązanie, jeśli Twoja sprzedaż zmienia się w ciągu roku i chcesz zyskać pełną elastyczność bez miesięcznych kosztów. 1,49% Prowizja od transakcji na miejscu wszystkimi kartami, w tym American Express i premium. Loading Kup Płatności Plus 89 z",
             "i dokonujesz transakcji na co najmniej 16 400 zł miesięcznie. Bezpłatnie przez 7 dni i w każdej chwili możesz anulować. 0,79% Prowizja od transakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest po",
             "ansakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest pobierana opłata 1,49% . Loading Dodaj do koszyka Od płatności online przy użyciu Płatności Linkiem, Bookings i innych produktów cyfrowych jes",
@@ -23889,9 +23934,8 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/pl-pl/cennik/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "url": "https://www.sumup.com/pl-pl/cennik/",
           "price_leads": [
-            "Ceny i prowizje w SumUp - przejrzysty cennik i opłaty Nie przegap WIELKIEJ wyprzedaży. Do 50% zniżki Kup teraz ! Produkty Przegląd Solo Lite Solo Tap to Pay na Androida SumUp Card Submenu, Produkty Płatności zdaln",
             "rozwiązanie, jeśli Twoja sprzedaż zmienia się w ciągu roku i chcesz zyskać pełną elastyczność bez miesięcznych kosztów. 1,49% Prowizja od transakcji na miejscu wszystkimi kartami, w tym American Express i premium. Loading Kup Płatności Plus 89 z",
             "i dokonujesz transakcji na co najmniej 16 400 zł miesięcznie. Bezpłatnie przez 7 dni i w każdej chwili możesz anulować. 0,79% Prowizja od transakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest po",
             "ansakcji na miejscu kartami debetowymi i kredytowymi. W przypadku kart American Express i premium jest pobierana opłata 1,49% . Loading Dodaj do koszyka Od płatności online przy użyciu Płatności Linkiem, Bookings i innych produktów cyfrowych jes",
@@ -23905,7 +23949,7 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/en-au/payment-processing-pricing/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "url": "https://www.sumup.com/en-au/payment-processing-pricing/",
           "price_leads": [
             "price, you’ll only be charged a fixed transaction fee when you take a payment. 1x One-time device cost $0 Monthly costs 1.40% Transaction fee Do you take more than $20,000 in payments per month? Talk to our Sales team to receive a special deal w",
             "e payment option to give your business an extra edge and to offer your customers even more ways to pay. $0 Monthly cost 2.10% Transaction fee Payment Links Share secure links with your customers to get paid from anywhere. Loading Learn more Some",
@@ -23914,20 +23958,18 @@
           ]
         },
         {
-          "url": "https://www.sumup.com/de-at/preise/?fcam_rc=8h1q884mexc9539o5vukionur&prc=PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026-s-PLST92026",
+          "url": "https://www.sumup.com/de-at/preise/",
           "price_leads": [
             "al, wenn Ihre Umsätze im Laufe des Jahres schwanken und Sie sich volle Flexibilität ohne monatliche Fixkosten wünschen. 1,39 % Transaktionsgebühr für Vor-Ort-Zahlungen mit sämtlichen Karten, einschließlich American Express und Premium-Karten. Loa",
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
-            "hronisieren Barcode-Scanfunktion aktivieren 49 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
-            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
-            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
+            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
           ]
         }
       ]
@@ -24004,14 +24046,12 @@
             "ren Sie Geld, wenn Sie monatlich Zahlungen in Höhe von 3.800 € oder mehr annehmen. 7 Tage kostenlos, jederzeit kündbar. 0,79 % Transaktionsgebühr für Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt ein",
             "ür Vor-Ort-Zahlungen mit Debit- und Kreditkarten. Bei American Express und Premium-Karten fällt eine Gebühr in Höhe von 1,39 % an. Loading Hinzufügen Für Online-Zahlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt",
             "hlungen, die über Zahlungslinks, Bookings und andere digitale Produkte abgewickelt werden, wird eine Gebühr in Höhe von 2,50 % erhoben. Zahlungsmethode visa Zahlungsmethode vpay Zahlungsmethode mastercard Zahlungsmethode maestro Zahlungsmethode a",
-            "hronisieren Barcode-Scanfunktion aktivieren 49 € /Monat Loading Mehr erfahren Möchten Sie zuerst Ihr Produkt auswählen? 17 % RABATT Terminal Kartenterminal und Drucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird",
-            "ucker mit HD-Touchscreen 139 € 169 € 166,80 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 31 % RABATT Solo und Mobildrucker Eigenständiges Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3",
-            "es Kartenterminal mit Drucker 75 € 109 € 90 € USt. inbegriffen quantity 1 2 3 Wird geladen ... Hinzufügen Mehr erfahren 35 % RABATT Solo Lite Smartphone-gekoppeltes Kartenterminal 22 € 34 € 26,40 € USt. inbegriffen quantity 1 2 3 Wird geladen .",
             "e feste Transaktionsgebühr für jede von Ihnen angenommene Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatliche",
             "Zahlung. Bei Vor-Ort-Zahlungen beträgt die Transaktionsgebühr 1,39% . Bei Online-Zahlungen erheben wir eine Gebühr von 2,50 % pro Zahlung. Mit Zahlungen Plus, unserem flexiblen monatlichen Abonnement, sichern Sie sich bei jeder angenommenen Zahl",
             "e sich bei jeder angenommenen Zahlung günstigere Transaktionsgebühren. Für monatlich 19 € berechnen wir Ihnen lediglich 0,79 % für jede Art von Vor-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine",
             "or-Ort-Zahlung. Bei Zahlungen mit internationalen oder Firmenkarten (einschließlich AMEX) fällt eine Gebühr in Höhe von 1,39 % an. Kann ich mit SumUp Bargeldzahlungen akzeptieren? Ja, selbstverständlich. Wir wissen, dass Sie flexibel sein müssen,",
-            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta"
+            "ng gestellt. Welche Vorteile bietet mir Zahlungen Plus? Mit Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Ta",
+            "it Zahlungen Plus kommen Sie in den Genuss folgender Vorteile: 0,79 % * Transaktionsgebühr für Vor-Ort-Zahlungen (statt 1,39 % ) Einfach und flexibel online kündigen *Preis zzgl. USt. 30-Tage-Geld-zurück-Garantie ab dem Zustelldatum. Es gelten zu"
           ]
         }
       ]
@@ -24489,43 +24529,15 @@
     },
     {
       "source_url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-          "final_url": "https://ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
-          "status": "ok"
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "final_url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "status": "ok"
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/produkti-za-golemi-korporativni-klienti",
-          "final_url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/produkti-za-golemi-korporativni-klienti",
-          "status": "ok"
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "final_url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "status": "ok"
+          "final_url": "https://www.ubb.bg/en/business-clients/request-form?product=virtualni-pos-terminali",
+          "status": "http_403"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://ubb.bg/en/business-clients/nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "price_leads": [
-            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
-          ]
-        },
-        {
-          "url": "https://ubb.bg/en/business-clients/zemedelski-stopani-nad-2-miliona/kreditirane/garantsionna-programa-na-eib-za-golemi-korporativni-klienti",
-          "price_leads": [
-            "al loans in installments Investment loans Bank Guarantees Maximum amount EUR 30 000 000 Currency EUR Guarantee coverage 50% of the loan amount Guarantee fee The guarantee fee is payable by the client, as its amount depends on the client’s fina"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.unicredit.ro/ro/imm/tranzactionare/pos-ecommerce.html",

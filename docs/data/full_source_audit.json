@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-10-05T11:56:42+00:00",
-  "dataset_generated_at": "2026-10-05T11:53:24+00:00",
+  "generated_at": "2026-10-12T12:34:29+00:00",
+  "dataset_generated_at": "2026-10-12T12:31:38+00:00",
   "scope": "All-offer official-source audit. Automated matches are triage evidence, never authority to change a merchant price without semantic review.",
   "offer_rows_scanned": 511,
   "unique_official_urls_scanned": 299,
   "source_outcomes": {
-    "ok": 213,
-    "source_unavailable_or_blocked": 86
+    "ok": 211,
+    "source_unavailable_or_blocked": 88
   },
   "row_outcomes": {
-    "priced_row_manually_verified_parser_mismatch": 114,
-    "source_blocked_but_previously_verified": 98,
-    "stored_components_found_on_official_source": 234,
+    "priced_row_manually_verified_parser_mismatch": 115,
+    "source_blocked_but_previously_verified": 99,
+    "stored_components_found_on_official_source": 231,
     "unpriced_manually_verified_without_public_number": 49,
-    "unpriced_numeric_lead_rejected_after_manual_review": 16
+    "unpriced_numeric_lead_rejected_after_manual_review": 17
   },
   "rows": [
     {
@@ -754,9 +754,9 @@
         "banknotes - upon request 1% on the total amount, min. EUR 5.60 Cash deposit of banknotes - listed and sorted banknotes 0,95% on the total amount, min. EUR 5.60 Payments and transfers Electronic channel In bank office Interbank domestic euro tra",
         "t 5% on the total amount, Cash withdrawal in coins2 - min. EUR 5.60 Requested, but not withdrawn amounts by the client5 0,75% on the requested but not withdrawn amount, min. EUR 9 0,75% on the total amount, in addition to the commission for cash",
         "UR 5.60 Requested, but not withdrawn amounts by the client5 0,75% on the requested but not withdrawn amount, min. EUR 9 0,75% on the total amount, in addition to the commission for cash Withdrawal of banknotes in certain denomination (if possibl",
-        "fers to non-EEA Euro Foreign currency banks and non-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 50 Urgent transfers (if feasible for the Bank) - additional",
-        "n-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 50 Urgent transfers (if feasible for the Bank) - additional fee EUR 30 Additional fees for foreign currency t",
-        "overed by the payer) Appendix №1 Additional fee for checking incoming and outgoing transfers to/from non-EEA countries3 0,10% on the total amount Other services Euro Foreign currency Payment of utility bills via E-banking4 EUR 0.40 USD 0.43/ GBP",
+        "fers to non-EEA Euro Foreign currency banks and non-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 55 Urgent transfers (if feasible for the Bank) - additional",
+        "n-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 55 Urgent transfers (if feasible for the Bank) - additional fee EUR 30 Additional fees for foreign currency t",
+        "overed by the payer) Appendix №1 Additional fee for checking incoming and outgoing transfers to/from non-EEA countries3 0.10%, min. EUR 100 Other services Euro Foreign currency Payment of utility bills4 EUR 0.40 USD 0.43/ GBP 0.34/ CHF 0.38 Paym",
         "if any payment system Return of received transfer for the benefit of a Banks`s client, regardless of who initiated it6 0,20%, min. EUR 30, max. EUR 300 Additional fee for processing of mass payments files, presented via e-mail7 EUR 26 per file"
       ]
     },
@@ -1544,12 +1544,10 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "unpriced_manually_verified_without_public_number",
       "evidence_match": null,
-      "price_leads": [
-        "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
-      ]
+      "price_leads": []
     },
     {
       "id": "SK-skpay-card",
@@ -4300,7 +4298,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_GB/payment-methods/blik",
       "source_outcome": "public_price_lead_found",
@@ -4333,7 +4331,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-czech-republic",
       "source_outcome": "public_price_lead_found",
@@ -4366,7 +4364,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
       "source_outcome": "public_price_lead_found",
@@ -4544,29 +4542,29 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           2.3
         ],
         "variable_matches": [
-          true
+          false
         ],
         "fixed_values": [
           0.11
         ],
         "fixed_matches": [
-          true
+          false
         ],
         "monthly_values": [],
         "monthly_matches": [],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -4577,7 +4575,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4610,7 +4608,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4643,7 +4641,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4676,7 +4674,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4709,7 +4707,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4742,7 +4740,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4775,7 +4773,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4808,7 +4806,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4841,7 +4839,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4874,7 +4872,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4907,7 +4905,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4940,7 +4938,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4973,7 +4971,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5006,7 +5004,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5039,7 +5037,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5072,7 +5070,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5105,7 +5103,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5138,7 +5136,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5171,7 +5169,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5204,7 +5202,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5237,7 +5235,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5303,7 +5301,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5336,7 +5334,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5369,7 +5367,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5402,7 +5400,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5435,7 +5433,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5468,7 +5466,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5501,7 +5499,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5534,7 +5532,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5567,7 +5565,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5600,7 +5598,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-05",
+      "price_verified_on": "2026-10-12",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5667,7 +5665,7 @@
       "price_lead_review": null,
       "source_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
       "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
           0.75
@@ -5681,11 +5679,11 @@
           29
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -5700,7 +5698,7 @@
       "price_lead_review": null,
       "source_url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
       "source_outcome": "public_price_lead_found",
-      "outcome": "stored_components_found_on_official_source",
+      "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
           1.99
@@ -5714,11 +5712,11 @@
           29
         ],
         "monthly_matches": [
-          true
+          false
         ],
         "setup_values": [],
         "setup_matches": [],
-        "all_stored_components_found": true
+        "all_stored_components_found": false
       },
       "price_leads": []
     },
@@ -5852,7 +5850,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -5861,7 +5859,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5883,7 +5881,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -5892,7 +5890,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5914,7 +5912,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -5923,7 +5921,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5945,7 +5943,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -5954,7 +5952,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -5976,7 +5974,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -5985,7 +5983,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6007,7 +6005,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6016,7 +6014,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6038,7 +6036,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6047,7 +6045,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6069,7 +6067,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6078,7 +6076,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6100,7 +6098,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6109,7 +6107,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6131,7 +6129,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6140,7 +6138,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6162,7 +6160,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6171,7 +6169,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -6193,7 +6191,7 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "source_outcome": "public_price_lead_found",
       "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
@@ -6202,7 +6200,7 @@
         ],
         "variable_matches": [
           false,
-          false
+          true
         ],
         "fixed_values": [],
         "fixed_matches": [],
@@ -9007,8 +9005,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": null,
       "price_leads": []
     },
@@ -9980,8 +9978,8 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [
           0.6
@@ -10526,10 +10524,12 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://www.paymove.io/en/contact/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
       "evidence_match": null,
-      "price_leads": []
+      "price_leads": [
+        "es, no fees. No fixed-term contract, no exit fee, no stress. Tell us what you sell PLN 0 activation fee PLN 0 per month 1.29% per transaction The money reaches your account first. You pay our fee afterwards. Questions you’d rather not dig throug"
+      ]
     },
     {
       "id": "PL-paymove-qr-card-wallet-card",
@@ -10541,10 +10541,12 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://www.paymove.io/en/contact/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
       "evidence_match": null,
-      "price_leads": []
+      "price_leads": [
+        "es, no fees. No fixed-term contract, no exit fee, no stress. Tell us what you sell PLN 0 activation fee PLN 0 per month 1.29% per transaction The money reaches your account first. You pay our fee afterwards. Questions you’d rather not dig throug"
+      ]
     },
     {
       "id": "BG-paynetics-card-acquiring",
@@ -11731,7 +11733,7 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.rabobank.nl/bedrijven/betalen/klanten-laten-betalen/rabo-smart-pay/rabo-onlinekassa",
-      "source_outcome": "public_price_lead_found",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
       "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [
@@ -11768,7 +11770,7 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.rabobank.nl/bedrijven/betalen/klanten-laten-betalen/rabo-smart-pay/rabo-onlinekassa",
-      "source_outcome": "public_price_lead_found",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
       "outcome": "stored_components_found_on_official_source",
       "evidence_match": {
         "variable_values": [],
@@ -15572,9 +15574,9 @@
             "banknotes - upon request 1% on the total amount, min. EUR 5.60 Cash deposit of banknotes - listed and sorted banknotes 0,95% on the total amount, min. EUR 5.60 Payments and transfers Electronic channel In bank office Interbank domestic euro tra",
             "t 5% on the total amount, Cash withdrawal in coins2 - min. EUR 5.60 Requested, but not withdrawn amounts by the client5 0,75% on the requested but not withdrawn amount, min. EUR 9 0,75% on the total amount, in addition to the commission for cash",
             "UR 5.60 Requested, but not withdrawn amounts by the client5 0,75% on the requested but not withdrawn amount, min. EUR 9 0,75% on the total amount, in addition to the commission for cash Withdrawal of banknotes in certain denomination (if possibl",
-            "fers to non-EEA Euro Foreign currency banks and non-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 50 Urgent transfers (if feasible for the Bank) - additional",
-            "n-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 50 Urgent transfers (if feasible for the Bank) - additional fee EUR 30 Additional fees for foreign currency t",
-            "overed by the payer) Appendix №1 Additional fee for checking incoming and outgoing transfers to/from non-EEA countries3 0,10% on the total amount Other services Euro Foreign currency Payment of utility bills via E-banking4 EUR 0.40 USD 0.43/ GBP",
+            "fers to non-EEA Euro Foreign currency banks and non-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 55 Urgent transfers (if feasible for the Bank) - additional",
+            "n-EUR transfers to EEA banks Electonic payment orders (Tariff \"Obem\") 0,18%, min. EUR 30 Paper based payment orders 1,2 0,30%, min. EUR 55 Urgent transfers (if feasible for the Bank) - additional fee EUR 30 Additional fees for foreign currency t",
+            "overed by the payer) Appendix №1 Additional fee for checking incoming and outgoing transfers to/from non-EEA countries3 0.10%, min. EUR 100 Other services Euro Foreign currency Payment of utility bills4 EUR 0.40 USD 0.43/ GBP 0.34/ CHF 0.38 Paym",
             "if any payment system Return of received transfer for the benefit of a Banks`s client, regardless of who initiated it6 0,20%, min. EUR 30, max. EUR 300 Additional fee for processing of mass payments files, presented via e-mail7 EUR 26 per file",
             "uiry via ATM in Bulgaria3 EUR 0.35 USD 0.40 Balance inquiry via ATM abroad EUR 1 USD 1 Receiving money through the card 1% 0,5% Money transfer4 EUR 1 + 1% USD 0.57 + 1% EUR 1 + 1% USD 0.57 + 1% Other operations and services EUR USD EUR USD 0,",
             "y via ATM in Bulgaria3 EUR 0.35 USD 0.40 Balance inquiry via ATM abroad EUR 1 USD 1 Receiving money through the card 1% 0,5% Money transfer4 EUR 1 + 1% USD 0.57 + 1% EUR 1 + 1% USD 0.57 + 1% Other operations and services EUR USD EUR USD 0,40%,",
@@ -16004,7 +16006,7 @@
         },
         {
           "url": "https://merchants.fiserv.com/en-europe/corporate/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=0e4f57c2-1348-46ef-9f01-063b50b1ea13&ssb=79106241074&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=9acffcd2-cskb-4f0c-9195-c126588eb919&ssk=botmanager_support@radware.com&ssm=63177948003515431138305491625978&ssn=8a7f385771cd11f2ca50a099f50c921f87013baf4586-1b14-421c-9c8c84&sso=288ce2ba-522f67039d10035b73dcd5f993cae45190a75f802f823971&ssp=47271168541791294908179124819094498&ssq=53107210123555288839301235691244147104268&ssr=MjAuMTYxLjc4LjY5&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDAzYmFmNDU4Ni0xYjE0LTQyMWMtOTJiYS01MjJmNjcwMzlkMTAxLTE3OTEyMDEyMzUzNjU1MDMtMDA1OTRjMTg5MGVjODU3NGM2YjEzIn0=",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=9353038f-3cdf-4127-a362-04ec7c80c8d4&ssb=03598253543&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=5f829d85-cskb-46d1-9c8c-5e10ab4eb860&ssk=botmanager_support@radware.com&ssm=36109455860387196134743963287223&ssn=303a46559fceec8ff6cea2a89717b69dea6b8758b57b-8f8f-473f-a36222&sso=56343761-327991a713da8284131cb18be8041485b65a383c1e1f4093&ssp=73245206461791879917179188660935287&ssq=61290130833285984438708332464903375881720&ssr=MTcyLjIxMi4yMDYuMTM0&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA4NzU4YjU3Yi04ZjhmLTQ3M2YtYTc2MS0zMjc5OTFhNzEzZGExLTE3OTE4MDgzMzIwNjU1OTEtMDA1M2NkYmM0NTNiNWY4MTNkNzEzIn0=",
           "status": "ok"
         }
       ],
@@ -16012,38 +16014,15 @@
     },
     {
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "outcome": "public_price_lead_found",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-          "final_url": "https://uk.clover.com/help-centre/faqs/",
-          "status": "ok"
-        },
-        {
-          "url": "https://uk.clover.com/offers/pricing/",
-          "final_url": "https://uk.clover.com/offers/pricing/",
-          "status": "ok"
-        },
-        {
-          "url": "https://uk.clover.com/help-centre/faqs/",
-          "final_url": "https://uk.clover.com/help-centre/faqs/",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=19756db0-af06-4b0a-bf13-cb4410e6a371&ssb=03598253543&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-uk%2Fresources%2Ffaqs%2F&ssi=f47afc2d-cskb-4082-acd1-e2827d62b4b1&ssk=botmanager_support@radware.com&ssm=36109455860387196104743963287223&ssn=303a4655dc78613a847538332524b69dea6bdce2484a-b1d3-445f-836222&sso=56343fb2-883f8d7178318284131c56e876be490ff32f6bc41e1f4093&ssp=73245206461791879917179188660935287&ssq=61290130833285984438708332464903375881720&ssr=MTcyLjIxMi4yMDYuMTM0&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBkY2UyNDg0YS1iMWQzLTQ0NWYtOGZiMi04ODNmOGQ3MTc4MzExLTE3OTE4MDgzMzI2ODEwLTAwNWMxMGM3MjlhODZjMWE2ODgxMCJ9",
           "status": "ok"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://uk.clover.com/help-centre/faqs/",
-          "price_leads": [
-            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
-          ]
-        },
-        {
-          "url": "https://uk.clover.com/help-centre/faqs/",
-          "price_leads": [
-            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://mojapos.skpay.sk/",
@@ -16478,8 +16457,10 @@
         {
           "url": "https://ready2order.com/at/preise/",
           "price_leads": [
-            "e Rechnung Happy Hour und Take Away Kassenbuch 13,90Â â¬ monatlich 166,80Â â¬ pro Jahr bei jÃ¤hrlicher Vorauszahlung 100% finanzamtkonform Direkt in die Kasse integriert Erfasst Einnahmen und Ausgaben Kassenstand jederzeit abrufbar Datenexpo",
-            "der Drucker und Verwaltungsoberfläche Dauer: ca. 90 Minuten Alle Preise exkl. MwSt. Kartenzahlung annehmen mit readyPay 1,23% pro Transaktion mit readyPay Für alle Kartenanbieter Günstige Kartengebühren Sekundenschnelle Transaktionen Kontaktarm"
+            "r Getrennte Rechnung und Happy Hour Kassenbuch 13,90Â â¬ monatlich 166,80Â â¬ pro Jahr bei jÃ¤hrlicher Vorauszahlung 100% finanzamtkonform Direkt in die Kasse integriert Erfasst Einnahmen und Ausgaben Kassenstand jederzeit abrufbar Datenexpo",
+            "yTab kannst Du readyPay selbst aktivieren; auf dem readyMiniPay Kartenterminal ist readyPay bereits vorinstalliert. Nur 1,23% TranskationsgebÃ¼hr FÃ¼r alle gÃ¤ngigen Karten und Mobile Payment Maestro / V-Pay, und MasterCard / Visa sowie Apple Pa",
+            "druckerÂ Integrierte SIM-Karte Zum Webshop readyMini 279,00Â â¬ einmalig Kleinste Kasse oder reines Kartenterminal Nur 1,23% TransaktionsgebÃ¼hr Ohne Fixkosten und Mindestumsatz GÃ¤ngige Karten & Mobile Payment Direkt verbunden mit all Deinen K",
+            "und flexibelÂ Einfach aufladen und weiter kassieren Zum Webshop SumUp Solo 79,00Â â¬ einmalig Externes Kartenterminal 1,39% TransaktionsgebÃ¼hr Diverse Karten & Mobile Payment Intelligente Trinkgeldfunktion Bluetooth-Verbindung mit nur einem K"
           ]
         }
       ]
@@ -16517,8 +16498,8 @@
           "price_leads": [
             "ation Pris Uttag i automat 3 % lägst 40 kr per uttag Kortköp 0 kr Valutaväxlingspåslag vid köp/uttag i utländsk valuta¹ 2 % per köp Dröjsmålsränta när företaget är betalningsansvarigt 2,5 % per månad Kopia på faktura 30 kr per faktura eller 35",
             "r Valutaväxlingspåslag vid köp/uttag i utländsk valuta¹ 2 % per köp Dröjsmålsränta när företaget är betalningsansvarigt 2,5 % per månad Kopia på faktura 30 kr per faktura eller 350 kr för ett år E-faktura 0 kr Pappersfaktura 25 kr Expresskort 55",
-            "r på vilken betaltid du väljer. Betaltid Pris per år 10 dagar 495 kr 20 dagar 595 kr Specifikation Pris Uttag i automat 3 %, lägst 40 kr per uttag Kortköp 0 kr Valutaväxlingspåslag vid köp/uttag i utländsk valuta ¹ 2 % per köp Loungebesök 35 U",
-            "is Avi om överdraget konto 0 kr Påminnelse 1 100 kr Påminnelse 2 100 kr Övertrasseringsränta Riksbankens reporänta plus 13,25 % Betalningar inom Sverige De första 250 inbetalningarna via Bankgirot – insättningsuppgift via Internetbanken eller papp",
+            "en betaltid du väljer. Betaltid Pris per kort och år 10 dagar 495 kr 20 dagar 595 kr Specifikation Pris Uttag i automat 3 %, lägst 40 kr per uttag Kortköp 0 kr Valutaväxlingspåslag vid köp/uttag i utländsk valuta ¹ 2 % per köp Loungebesök 35 U",
+            "is Avi om överdraget konto 0 kr Påminnelse 1 100 kr Påminnelse 2 100 kr Övertrasseringsränta Riksbankens reporänta plus 13,25 % Betalningar inom Sverige De första 250 inbetalningarna via Bankgirot – insättningsuppgift via Internetbanken är kostnad",
             "Övrigt Specifikation Pris/st Pris/månad Fakturaavgift, inklusive porto 15 kr 195 kr Fakturaköp, 10 dagars betalvillkor 2,30 % - Tjänst Pris per styck Påminnelsebrev vid förfallen lånebetalning 60 kr Betalning av lån på annat sätt än debitering a"
           ]
         }
@@ -18522,59 +18503,15 @@
     },
     {
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-          "final_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/pl_PL/cennik",
-          "final_url": "https://www.adyen.com/pl_PL/cennik",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "final_url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "status": "ok"
+          "status": "error",
+          "error": "ReadTimeout: HTTPSConnectionPool(host='www.adyen.com', port=443): Read timed out. (read timeout=15)"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.adyen.com/pl_PL/cennik",
-          "price_leads": [
-            "eryka Łacińska Ameryka Północna Azja i Pacyfik Bliski Wschód Europa Metoda płatności Opłata za metodę płatności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interc",
-            "nocna Azja i Pacyfik Bliski Wschód Europa Metoda płatności Opłata za metodę płatności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interchange++ przekazuje te opłaty",
-            "za metodę płatności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interchange++ przekazuje te opłaty bezpośrednio Tobie, zapewniając większą przejrzystość i ogólnie",
-            "tności €0.11 + 4% €0.11 + Interchange+ + 0.60% Opłaty interchange są zmienne. W Europie wynoszą około 0,3-0,4%, a w USA 2%. Cennik Interchange++ przekazuje te opłaty bezpośrednio Tobie, zapewniając większą przejrzystość i ogólnie niższe opłat",
-            "e Królestwo €0.11 + 4.19% + GBP 0.30 €0.11 + 3% €0.11 + 3% €0.11 + 3% Więcej informacji 3x installments Francja €0.11 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + I",
-            "0.11 + 3% €0.11 + 3% €0.11 + 3% Więcej informacji 3x installments Francja €0.11 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 +",
-            "rmacji 3x installments Francja €0.11 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.8",
-            "1 + 3.99% 4x installments Francja €0.11 + 4.70% Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North",
-            "Więcej informacji Mastercard €0.11 + 0.80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Glo",
-            "80% + Interchange++ Visa €0.11 + 0.80% + Interchange++ American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Zdefiniowane przez używaną kart",
-            "American Express €0.11 + 0.80% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Zdefiniowane przez używaną kartę €0.11 + 5% €0.11 + £ 0.55 €0.11 + Intercha",
-            "0% + 3.95% SEPA Direct Debit €0.11 + 0.80% + € 0.25 Więcej informacji North America €0.11 + 3.3% + $0.10 Global €0.11 + 3.95% Global €0.11 + Zdefiniowane przez używaną kartę €0.11 + 5% €0.11 + £ 0.55 €0.11 + Interchange+ + 0.60% Opłaty interchan"
-          ]
-        },
-        {
-          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "price_leads": [
-            "new and scalable revenue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of th",
-            "venue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions g",
-            "Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in m",
-            "nge fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in markets l",
-            "ons at merchants located in the EEA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for",
-            "EA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for",
-            "are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in",
-            "and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in 2010, caps debit card interchange",
-            "re, its debit and prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost i",
-            "prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost in card payments T",
-            "\"friendly fraud\". Friendly fraud is when customers claim a purchase was unauthorized or never arrived and accounts for 75% of all chargebacks. Because banks can’t physically verify the card or the cardholder's signature during an online check"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.adyen.com/pricing",
@@ -18725,8 +18662,8 @@
         {
           "url": "https://www.axeptabnpparibas.be/fr/devenir-client/",
           "price_leads": [
-            "ez votre pack Flex Votre solution flexible 29 € /mois Frais de transaction non inclus La location d’un terminal incluse 0,75% sur les cartes de débit et 1,99% sur les cartes de crédit Contrat de service inclus Découvrez tout sur Flex All-In-One",
-            "flexible 29 € /mois Frais de transaction non inclus La location d’un terminal incluse 0,75% sur les cartes de débit et 1,99% sur les cartes de crédit Contrat de service inclus Découvrez tout sur Flex All-In-One Grow Votre solution tout compris"
+            "k Flex Votre solution flexible À partir de 24 € /mois Frais de transaction non inclus La location d’un terminal incluse 0,75% sur les cartes de débit et 1,99% sur les cartes de crédit Contrat de service inclus Découvrez tout sur Flex All-In-One",
+            "partir de 24 € /mois Frais de transaction non inclus La location d’un terminal incluse 0,75% sur les cartes de débit et 1,99% sur les cartes de crédit Contrat de service inclus Découvrez tout sur Flex All-In-One Grow Votre solution tout compris"
           ]
         }
       ]
@@ -18854,7 +18791,7 @@
     },
     {
       "source_url": "https://www.barion.com/en/prices-and-conditions/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.barion.com/en/prices-and-conditions/",
@@ -18862,7 +18799,7 @@
           "status": "ok"
         },
         {
-          "url": "https://www.barion.com/en/business/price-calculator/",
+          "url": "https://www.barion.com/en/price-calculator/new/",
           "final_url": "https://www.barion.com/en/price-calculator/new/",
           "status": "ok"
         },
@@ -18872,7 +18809,22 @@
           "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.barion.com/en/price-calculator/new/",
+          "price_leads": [
+            "ndard plan Advanced plan Monthly transaction volume Up to 12k 12k-40k More than 40k Currency Currency USD Fixed pricing 1.49 % All costs included Predictable for every transaction Avg cart size above 25 USD Commercial & Foreign consumer cards bel",
+            "l costs included Predictable for every transaction Avg cart size above 25 USD Commercial & Foreign consumer cards below 2% Barion Base Pixel Get started IC++ pricing This is our added markup and doesn't include all the costs. + 1.09 % Fully t",
+            "cards below 2% Barion Base Pixel Get started IC++ pricing This is our added markup and doesn't include all the costs. + 1.09 % Fully transparent pricing Fees depend on volume & card types Scalable for high growth Seamless integration with major p"
+          ]
+        },
+        {
+          "url": "https://www.barion.com/en/personal/pricing/",
+          "price_leads": [
+            "traditional banking systems as well. EUR HUF USD CZK PLN CZK Express top-up fee via card Withdrawal & wire transfer fee 1% 0.5 € Barion General Terms ﻿ Barion List of Prices & Conditions ﻿ Facebook Discord dev community @BarionPayment EU Lice"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.bbva.es/empresas/productos/tpv/tpv-virtual.html",
@@ -20684,27 +20636,12 @@
     },
     {
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.lhv.ee/en/payment-acquiring/",
-          "final_url": "https://www.lhv.ee/en/payment-acquiring/",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
-          "final_url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.lhv.ee/en/corporate-insurance",
-          "final_url": "https://www.lhv.ee/en/corporate-insurance",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
-          "final_url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
-          "status": "ok"
+          "status": "error",
+          "error": "ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
         }
       ],
       "evidence": []
@@ -20733,7 +20670,7 @@
         {
           "url": "http://www.lloydsbank.com/rates_and_charges.asp",
           "status": "error",
-          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.c62645f.1791201290.3c0958ff (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
+          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.2e62645f.1791808378.c3abcfe7 (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
         }
       ],
       "evidence": []
@@ -20787,9 +20724,9 @@
             "Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
             "aal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "deals Transactietarieven per betaalmethode in BelgiÃ« Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland,",
-            "rland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
-            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland,",
+            "rland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
             "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
@@ -20804,9 +20741,9 @@
             "Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
             "aal voor incidentele betalingen â¬ 0 /maand Lokale debetkaarten 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "deals Transactietarieven per betaalmethode in BelgiÃ« Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland,",
-            "rland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
-            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland,",
+            "rland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact â¬ 0,39 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
             "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
@@ -20850,10 +20787,10 @@
             "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
             "e et flexible IdÃ©al pour les paiements occasionnels 0 â¬ /mois Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% 1 terminal physique max",
             "Frais de transaction par mode de paiement en France Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "+ 0,35 â¬ in3 3,99 % + 0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de",
-            "0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgiq",
-            "caire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie All",
-            "â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie Allemagne, Autriche & Suisse 3,49 % + 0,35 â¬ France, I"
+            "% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty",
+            "42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagn",
+            "(national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagne & Autriche 2,99 % + 0,35 â¬ Billink Pays-Bas,",
+            "+ 0,35 â¬ in3 3,99 % + 0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de"
           ]
         },
         {
@@ -20867,10 +20804,10 @@
             "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
             "e et flexible IdÃ©al pour les paiements occasionnels 0 â¬ /mois Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% 1 terminal physique max",
             "Frais de transaction par mode de paiement en France Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "+ 0,35 â¬ in3 3,99 % + 0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de",
-            "0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgiq",
-            "caire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie All",
-            "â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de 5,50 % + 0,35 â¬ Belgique Paiement en 3x Ã partir de 4,29% + 0,35 â¬ Billie Allemagne, Autriche & Suisse 3,49 % + 0,35 â¬ France, I"
+            "% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty",
+            "42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagn",
+            "(national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagne & Autriche 2,99 % + 0,35 â¬ Billink Pays-Bas,",
+            "+ 0,35 â¬ in3 3,99 % + 0,95 â¬ PrÃ©lÃ¨vement SEPA Direct 0,35 â¬ Virement bancaire SEPA 0,25 â¬ PrÃ©lÃ¨vement Bacs 0,90 % + 0,25 â¬ Swish 1,25 % + 0,25 â¬ Alma Paiement en 3x France Ã partir de 4,50 % + 0,35 â¬ Paiement en 4Ã France Ã partir de"
           ]
         }
       ]
@@ -20888,11 +20825,6 @@
           "url": "https://www.mollie.com/it/pricing",
           "final_url": "https://www.mollie.com/it/pricing",
           "status": "ok"
-        },
-        {
-          "url": "https://www.mollie.com/it/payments/paypal",
-          "final_url": "https://www.mollie.com/it/payments/paypal",
-          "status": "ok"
         }
       ],
       "evidence": [
@@ -20909,8 +20841,8 @@
             "% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona Non Ã¨ l'opzione giusta per te? Contattaci Pay as you go",
             "mplice e flessibile Ideale per pagamenti occasionali 0 â¬ /mese Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Fino a un terminale hardware",
             "d Business benefits Commissioni per metodo di pagamento Mastercard Carte dei consumatori dello Spazio Economico Europeo 1,80% + 0,25 â¬ Carte Commerciali dello Spazio Economico Europeo 2,90% + 0,25 â¬ Carte non appartenenti allo Spazio Economico Europ",
-            "9% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â",
-            ",42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â¬ SEPA Direct Debit 0,35 â¬"
+            "9% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal Commissioni PayPal + 0,10 â¬ in3 3,99% +",
+            ",42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal Commissioni PayPal + 0,10 â¬ in3 3,99% + 0,95 â¬ SEPA Direct Debit 0"
           ]
         },
         {
@@ -20926,8 +20858,8 @@
             "% + â¬0.25 Apple Pay Tasso definito dalla carta usata PostePay 1,20% + 0,25 â¬ BANCOMAT Pay 1,50% + 0,25 â¬ Satispay 1,50% + 0,25 â¬ Visualizza tutti i metodi di pagamento Pagamenti di persona Non Ã¨ l'opzione giusta per te? Contattaci Pay as you go",
             "mplice e flessibile Ideale per pagamenti occasionali 0 â¬ /mese Carte di debito e di credito dei consumatori nazionali 1.20% Altre carte per consumatori 1.80% American Express 2.10% Tutte le carte commerciali 2.90% Fino a un terminale hardware",
             "d Business benefits Commissioni per metodo di pagamento Mastercard Carte dei consumatori dello Spazio Economico Europeo 1,80% + 0,25 â¬ Carte Commerciali dello Spazio Economico Europeo 2,90% + 0,25 â¬ Carte non appartenenti allo Spazio Economico Europ",
-            "9% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â",
-            ",42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal PayPal Fees + 0,10 â¬ in3 3,99% + 0,95 â¬ SEPA Direct Debit 0,35 â¬"
+            "9% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal Commissioni PayPal + 0,10 â¬ in3 3,99% +",
+            ",42 â¬ Wero Paesi Bassi nazionale 0,32 â¬ Belgio domestico 0,39 â¬ Tutti gli altri paesi 0,90% + 0,25 â¬ Bancontact 1,40% + 0,25 â¬ Paga con la tua banca 0,45% + 0,25 â¬ PayPal Commissioni PayPal + 0,10 â¬ in3 3,99% + 0,95 â¬ SEPA Direct Debit 0"
           ]
         }
       ]
@@ -20968,10 +20900,10 @@
             "en. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
             "Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "eals Transactietarieven per betaalmethode in Nederland Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Ned",
-            "â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland &",
-            "¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
-            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Ned",
+            "â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland &",
+            "¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
             "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
@@ -20985,10 +20917,10 @@
             "en. Simpel en flexibel Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps A",
             "Ideaal voor incidentele betalingen â¬ 0 /maand Maestro en V-pay 1,50% Andere consumentenkaarten 1,80% American Express 2,10% Alle zakelijke kaarten 2,90% Maximaal 1 terminal (PAX niet ondersteund) â¢ Onbeperkt Tap apps Aan de slag Pro Lagere t",
             "eals Transactietarieven per betaalmethode in Nederland Mastercard Consumentenkaarten uit de Europese Economische Ruimte 1,80% + â¬ 0,25 CommerciÃ«le kaarten voor de Europese Economische Ruimte 2,90% + â¬ 0,25 Niet-Europese Economische Ruimte k",
-            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Ned",
-            "â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland &",
-            "¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
-            "Betalen via je bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
+            "99% + â¬ 0,35 iDEAL | Wero â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Ned",
+            "â¬ 0,32 Wero Binnenland Nederland â¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland &",
+            "¬ 0,32 Binnenlands BelgiÃ« â¬ 0,39 Alle andere landen 0,90% + â¬ 0,25 Bancontact 1,40% + â¬ 0,25 Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink",
+            "Betalen via de bank 0,45% + â¬ 0,25 PayPal PayPal-kosten + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-over",
             "n + â¬ 0,10 Riverty Nederland, BelgiÃ«, Duitsland & Oostenrijk 2,99% + â¬ 0,35 Billink Nederland, BelgiÃ« & Duitsland 2,99% + â¬ 0,35 in3 3,99% + â¬ 0,95 SEPA-incasso â¬ 0,35 SEPA-overboeking â¬ 0,25 Bacs Direct Debit 0,90% + â¬ 0,25 Swis"
           ]
         },
@@ -21244,14 +21176,14 @@
         {
           "url": "https://www.mypos.com/de-at/pricing-and-fees",
           "price_leads": [
-            "Ihrem Unternehmen passt. One Einfache Preisgestaltung ohne monatliche Gebühr. Sie zahlen nur für das, was Sie abwickeln 1.29% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 0 /Monat One-Tarif auswählen Wichtigste F",
-            "onen anzeigen € 0 /Monat One-Tarif auswählen Wichtigste Funktionen  Sofortige Auszahlung  Abhebungen am Geldautomaten 1%  1 physische Debitkarte  2 virtuelle Debitkarten  1 zusätzliches Teammitglied  Tap to Pay auf dem Smartphone inklus",
-            "one inklusive  1 Multi-Währungskonto inklusive Plus Sparen Sie Gebühren, wenn Sie mehr als € 5.000 pro Monat abwickeln 0.89% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 19 /Monat Plus-Tarif auswählen Wichtigste",
-            "en  Sofortige Auszahlung  15 kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten  3",
-            "kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten  3 zusätzliche Teammitglieder ",
-            "e  5 Multi-Währungskonten inklusive Pro Maximieren Sie die Einsparungen für Unternehmen mit hohem Transaktionsvolumen. 0.79% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 39 /Monat Pro-Tarif auswählen Wichtigste",
-            "en  Sofortige Auszahlung  50 kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten  1",
-            "kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten  10 zusätzliche Teammitglieder",
+            "ren  Jederzeit kündigen One Einfache Preisgestaltung ohne monatliche Gebühr. Sie zahlen nur für das, was Sie abwickeln 1.29% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 0 /Monat Mit One starten Hauptfunktionen",
+            "erkarten Alle Gebühren und Funktionen anzeigen € 0 /Monat Mit One starten Hauptfunktionen  Abhebungen am Geldautomaten 1%  1 physische Debitkarte  2 virtuelle Debitkarten Team und Konten  1 zusätzliches Teammitglied  1 Multi-Währungskont",
+            "anzeigen Plus Sparen Sie Gebühren, wenn Sie über € 5.000 /Monat abwickeln. Kein Vertrag und keine langfristige Bindung. 0.89% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 19 /Monat Mit Plus starten Hauptfunktione",
+            "s starten Hauptfunktionen  15 kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten Team",
+            "kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten Team und Konten  3 zusätzliche T",
+            "ktionen anzeigen Pro Maximale Ersparnis für Unternehmen mit hohem Volumen. Kein Vertrag und keine langfristige Bindung. 0.79% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 39 /Monat Mit Pro starten Hauptfunktionen",
+            "o starten Hauptfunktionen  50 kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten Tea",
+            "kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten Team und Konten  10 zusätzliche",
             "undgebühr € 0 /Monat € 19 /Monat € 39 /Monat Transaktionsgebühren (kartenpräsent) Inländische und EWR-Verbraucherkarten 1,29 % 0,89 % 0,79 % Alle anderen Karten, einschließlich American Express 2,69 % 2,49 % 2,49 % Transaktionsgebühren (nicht kar",
             "hr € 0 /Monat € 19 /Monat € 39 /Monat Transaktionsgebühren (kartenpräsent) Inländische und EWR-Verbraucherkarten 1,29 % 0,89 % 0,79 % Alle anderen Karten, einschließlich American Express 2,69 % 2,49 % 2,49 % Transaktionsgebühren (nicht kartenpräs",
             "/Monat € 19 /Monat € 39 /Monat Transaktionsgebühren (kartenpräsent) Inländische und EWR-Verbraucherkarten 1,29 % 0,89 % 0,79 % Alle anderen Karten, einschließlich American Express 2,69 % 2,49 % 2,49 % Transaktionsgebühren (nicht kartenpräsent) 1",
@@ -21337,14 +21269,14 @@
         {
           "url": "https://www.mypos.com/de-at/pricing-and-fees",
           "price_leads": [
-            "Ihrem Unternehmen passt. One Einfache Preisgestaltung ohne monatliche Gebühr. Sie zahlen nur für das, was Sie abwickeln 1.29% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 0 /Monat One-Tarif auswählen Wichtigste F",
-            "onen anzeigen € 0 /Monat One-Tarif auswählen Wichtigste Funktionen  Sofortige Auszahlung  Abhebungen am Geldautomaten 1%  1 physische Debitkarte  2 virtuelle Debitkarten  1 zusätzliches Teammitglied  Tap to Pay auf dem Smartphone inklus",
-            "one inklusive  1 Multi-Währungskonto inklusive Plus Sparen Sie Gebühren, wenn Sie mehr als € 5.000 pro Monat abwickeln 0.89% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 19 /Monat Plus-Tarif auswählen Wichtigste",
-            "en  Sofortige Auszahlung  15 kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten  3",
-            "kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten  3 zusätzliche Teammitglieder ",
-            "e  5 Multi-Währungskonten inklusive Pro Maximieren Sie die Einsparungen für Unternehmen mit hohem Transaktionsvolumen. 0.79% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 39 /Monat Pro-Tarif auswählen Wichtigste",
-            "en  Sofortige Auszahlung  50 kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten  1",
-            "kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten  10 zusätzliche Teammitglieder",
+            "ren  Jederzeit kündigen One Einfache Preisgestaltung ohne monatliche Gebühr. Sie zahlen nur für das, was Sie abwickeln 1.29% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 0 /Monat Mit One starten Hauptfunktionen",
+            "erkarten Alle Gebühren und Funktionen anzeigen € 0 /Monat Mit One starten Hauptfunktionen  Abhebungen am Geldautomaten 1%  1 physische Debitkarte  2 virtuelle Debitkarten Team und Konten  1 zusätzliches Teammitglied  1 Multi-Währungskont",
+            "anzeigen Plus Sparen Sie Gebühren, wenn Sie über € 5.000 /Monat abwickeln. Kein Vertrag und keine langfristige Bindung. 0.89% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 19 /Monat Mit Plus starten Hauptfunktione",
+            "s starten Hauptfunktionen  15 kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten Team",
+            "kostenlose SEPA-Überweisungen pro Monat  3 Gratisabhebungen am Geldautomaten im Monat  0,25 % unbegrenztes Cashback  25 % Rabatt auf Ihr erstes Ultra-Gerät  2 physische Debitkarten  5 virtuelle Debitkarten Team und Konten  3 zusätzliche T",
+            "ktionen anzeigen Pro Maximale Ersparnis für Unternehmen mit hohem Volumen. Kein Vertrag und keine langfristige Bindung. 0.79% Inländische und EWR-Verbraucherkarten Alle Gebühren und Funktionen anzeigen € 39 /Monat Mit Pro starten Hauptfunktionen",
+            "o starten Hauptfunktionen  50 kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten Tea",
+            "kostenlose SEPA-Überweisungen pro Monat  5 Gratisabhebungen am Geldautomaten im Monat  0,50 % unbegrenztes Cashback  50 % Rabatt auf Ihr erstes Ultra-Gerät  3 physische Debitkarten  20 virtuelle Debitkarten Team und Konten  10 zusätzliche",
             "undgebühr € 0 /Monat € 19 /Monat € 39 /Monat Transaktionsgebühren (kartenpräsent) Inländische und EWR-Verbraucherkarten 1,29 % 0,89 % 0,79 % Alle anderen Karten, einschließlich American Express 2,69 % 2,49 % 2,49 % Transaktionsgebühren (nicht kar",
             "hr € 0 /Monat € 19 /Monat € 39 /Monat Transaktionsgebühren (kartenpräsent) Inländische und EWR-Verbraucherkarten 1,29 % 0,89 % 0,79 % Alle anderen Karten, einschließlich American Express 2,69 % 2,49 % 2,49 % Transaktionsgebühren (nicht kartenpräs",
             "/Monat € 19 /Monat € 39 /Monat Transaktionsgebühren (kartenpräsent) Inländische und EWR-Verbraucherkarten 1,29 % 0,89 % 0,79 % Alle anderen Karten, einschließlich American Express 2,69 % 2,49 % 2,49 % Transaktionsgebühren (nicht kartenpräsent) 1",
@@ -21355,27 +21287,12 @@
     },
     {
       "source_url": "https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf",
-          "final_url": "https://www.nbg.gr/el/idiwtes",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.nbg.gr/el/epixeiriseis",
-          "final_url": "https://www.nbg.gr/el/epixeiriseis",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.nbg.gr/el/idiwtes/kathimerines-sunallages/online-trapezika-ergaleia/ergaleio-epiloghs-stegastikou-daneiou",
-          "final_url": "https://www.nbg.gr/el/idiwtes/kathimerines-sunallages/online-trapezika-ergaleia/ergaleio-epiloghs-stegastikou-daneiou",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.nbg.gr/el/epixeiriseis/ekseidikeumenos-sumvoulos-etairikhs-sunallaktikhs-trapezikhs",
-          "final_url": "https://www.nbg.gr/el/epixeiriseis/ekseidikeumenos-sumvoulos-etairikhs-sunallaktikhs-trapezikhs",
-          "status": "ok"
+          "status": "error",
+          "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf"
         }
       ],
       "evidence": []
@@ -21973,15 +21890,22 @@
     },
     {
       "source_url": "https://www.paymove.io/en/contact/",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://www.paymove.io/en/contact/",
-          "status": "error",
-          "error": "HTTPError: 404 Client Error: Not Found for url: https://www.paymove.io/en/contact"
+          "final_url": "https://www.paymove.io/en",
+          "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://www.paymove.io/en",
+          "price_leads": [
+            "es, no fees. No fixed-term contract, no exit fee, no stress. Tell us what you sell PLN 0 activation fee PLN 0 per month 1.29% per transaction The money reaches your account first. You pay our fee afterwards. Questions you’d rather not dig throug"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://www.paynetics.digital/card-acquiring/",
@@ -22653,35 +22577,35 @@
         {
           "url": "https://www.paysera.ee/v2/en-EE/fees/payment-gateway-with-payment-cards-fees",
           "price_leads": [
-            "the last 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 %",
-            "t 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 %",
-            "issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,3",
-            "outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,6",
-            "1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,",
-            "2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,",
-            "0 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special o",
-            "0 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is",
-            "% 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commis",
-            "% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commission fe",
-            "l offer is provided, please contact Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is sub",
-            "act Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is subject to a commission fee of +0,5"
+            "EU Payment card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions",
+            "ent card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501",
+            "rd issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500",
+            "ed outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1",
+            "ide the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactio",
+            "EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,",
+            "nimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,",
+            "–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EU",
+            "% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transacti",
+            "EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25",
+            "–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37",
+            "ansactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37,500 E"
           ]
         },
         {
           "url": "https://www.paysera.ee/v2/en-EE/fees/payment-gateway-with-payment-cards-fees",
           "price_leads": [
-            "the last 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 %",
-            "t 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 %",
-            "issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,3",
-            "outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,6",
-            "1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,",
-            "2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,",
-            "0 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special o",
-            "0 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is",
-            "% 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commis",
-            "% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commission fe",
-            "l offer is provided, please contact Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is sub",
-            "act Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is subject to a commission fee of +0,5"
+            "EU Payment card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions",
+            "ent card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501",
+            "rd issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500",
+            "ed outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1",
+            "ide the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactio",
+            "EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,",
+            "nimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,",
+            "–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EU",
+            "% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transacti",
+            "EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25",
+            "–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37",
+            "ansactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37,500 E"
           ]
         }
       ]
@@ -22715,35 +22639,35 @@
         {
           "url": "https://www.paysera.lt/v2/en-LT/fees/payment-gateway-with-payment-cards-fees",
           "price_leads": [
-            "the last 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 %",
-            "t 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 %",
-            "issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,3",
-            "outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,6",
-            "1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,",
-            "2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,",
-            "0 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special o",
-            "0 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is",
-            "% 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commis",
-            "% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commission fe",
-            "l offer is provided, please contact Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is sub",
-            "act Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is subject to a commission fee of +0,5"
+            "EU Payment card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions",
+            "ent card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501",
+            "rd issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500",
+            "ed outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1",
+            "ide the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactio",
+            "EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,",
+            "nimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,",
+            "–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EU",
+            "% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transacti",
+            "EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25",
+            "–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37",
+            "ansactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37,500 E"
           ]
         },
         {
           "url": "https://www.paysera.lt/v2/en-LT/fees/payment-gateway-with-payment-cards-fees",
           "price_leads": [
-            "the last 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 %",
-            "t 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 %",
-            "issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,3",
-            "outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,6",
-            "1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,",
-            "2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,",
-            "0 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special o",
-            "0 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is",
-            "% 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commis",
-            "% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commission fe",
-            "l offer is provided, please contact Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is sub",
-            "act Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is subject to a commission fee of +0,5"
+            "EU Payment card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions",
+            "ent card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501",
+            "rd issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500",
+            "ed outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1",
+            "ide the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactio",
+            "EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,",
+            "nimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,",
+            "–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EU",
+            "% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transacti",
+            "EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25",
+            "–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37",
+            "ansactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37,500 E"
           ]
         }
       ]
@@ -22777,35 +22701,35 @@
         {
           "url": "https://www.paysera.lv/v2/en-LV/fees/payment-gateway-with-payment-cards-fees",
           "price_leads": [
-            "the last 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 %",
-            "t 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 %",
-            "issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,3",
-            "outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,6",
-            "1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,",
-            "2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,",
-            "0 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special o",
-            "0 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is",
-            "% 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commis",
-            "% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commission fe",
-            "l offer is provided, please contact Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is sub",
-            "act Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is subject to a commission fee of +0,5"
+            "EU Payment card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions",
+            "ent card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501",
+            "rd issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500",
+            "ed outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1",
+            "ide the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactio",
+            "EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,",
+            "nimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,",
+            "–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EU",
+            "% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transacti",
+            "EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25",
+            "–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37",
+            "ansactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37,500 E"
           ]
         },
         {
           "url": "https://www.paysera.lv/v2/en-LV/fees/payment-gateway-with-payment-cards-fees",
           "price_leads": [
-            "the last 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 %",
-            "t 30 days Payment card issued in the EU Payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 %",
-            "issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,3",
-            "outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,6",
-            "1,45 % 2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,",
-            "2,90 % 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,",
-            "0 % 2,80 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special o",
-            "0 % 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is",
-            "% 2,70 % 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commis",
-            "% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2,60 % 0.15 EUR 501–750 transactions 25,001–37,500 EUR 1,25 % 2,50 % 0.15 EUR >750 transactions >37,500 EUR A special offer is provided, please contact Client Support Shopify commission fe",
-            "l offer is provided, please contact Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is sub",
-            "act Client Support Shopify commission fee share Processing of card payments Minimum fee 1,45 % EU-issued cards 0.15 EUR 2,45 % Non-EU-issued cards 0.15 EUR Note! Payment processing through the Shopify system is subject to a commission fee of +0,5"
+            "EU Payment card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions",
+            "ent card issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501",
+            "rd issued outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500",
+            "ed outside the EU Business payment card issued outside the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1",
+            "ide the EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactio",
+            "EU Minimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,",
+            "nimum 0–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,",
+            "–50 transactions 0–2,500 EUR 1,45 % 2.40% 2,90 % 2.90% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EU",
+            "% 0.15 EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transacti",
+            "EUR 51–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25",
+            "–150 transactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37",
+            "ansactions 2,501–7,500 EUR 1,40 % 2.35% 2,80 % 2.85% 0.15 EUR 151–250 transactions 7,501–12,500 EUR 1,35 % 2.30% 2,70 % 2.80% 0.15 EUR 251–500 transactions 12,501–25,000 EUR 1,30 % 2.25% 2,60 % 2.75% 0.15 EUR 501–750 transactions 25,001–37,500 E"
           ]
         }
       ]
@@ -23024,7 +22948,7 @@
     },
     {
       "source_url": "https://www.rabobank.nl/bedrijven/betalen/klanten-laten-betalen/rabo-smart-pay/rabo-onlinekassa",
-      "outcome": "public_price_lead_found",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://www.rabobank.nl/bedrijven/betalen/klanten-laten-betalen/rabo-smart-pay/rabo-onlinekassa",
@@ -23035,17 +22959,14 @@
           "url": "https://www.rabobank.nl/over-ons/strategie",
           "final_url": "https://www.rabobank.nl/over-ons/strategie",
           "status": "ok"
+        },
+        {
+          "url": "https://www.rabobank.nl/bedrijven/betalen/tarieven",
+          "final_url": "https://www.rabobank.nl/bedrijven/betalen/tarieven",
+          "status": "ok"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.rabobank.nl/bedrijven/betalen/klanten-laten-betalen/rabo-smart-pay/rabo-onlinekassa",
-          "price_leads": [
-            "es per maand € 0,17 MasterCard 1,90% (minimum € 0,10 per transactie) Visa 1,90% (minimum € 0,10 per transactie) Maestro 1,50% (minimum € 0,10 per transactie) V PAY 1,50% (minimum € 0,10 per transactie) Bancontact € 0,35 PayPal € 0,15 + kosten va",
-            "m € 0,10 per transactie) Visa 1,90% (minimum € 0,10 per transactie) Maestro 1,50% (minimum € 0,10 per transactie) V PAY 1,50% (minimum € 0,10 per transactie) Bancontact € 0,35 PayPal € 0,15 + kosten van PayPal Apple Pay € 0 Terugbetaling door (w"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.raiffeisen.ro/ro/imm.html",
@@ -23242,7 +23163,7 @@
           "url": "https://www.satispay.com/it-it/business/",
           "price_leads": [
             "pplicate automaticamente le nuove condizioni economiche, che prevedono zero commissioni per transazioni sotto i 10â¬ e 0,95% per transazioni pari o sopra i 10â¬. Agli esercenti giÃ registrati Ã¨ stata comunicata via e-mail le modalitÃ di aggio",
-            "delle condizioni economiche relative al Servizio Satispay Business. Tabacchi ed edicole prevedono una commissione dello 0,5% per transazioni pari o superiori a 10â¬ e zero commissioni per transazioni sotto i 10â¬. Per le altre tipologie di ne"
+            "delle condizioni economiche relative al Servizio Satispay Business. Tabacchi ed edicole prevedono una commissione dello 0,5% per transazioni pari o superiori a 10â¬ e zero commissioni per transazioni sotto i 10â¬. Lâagevolazione sarÃ applic"
           ]
         }
       ]
@@ -23414,8 +23335,8 @@
         {
           "url": "https://www.shoper.pl/cennik-sklepu-shoper",
           "price_leads": [
-            "er Relacje inwestorskie Wypróbuj za darmo Zaloguj się Cennik sklepu internetowego Otwórz własny sklep internetowy nawet 91% taniej. Testuj przez 14 dni za darmo. Bez podpinania karty płatniczej. Dane kontaktowe Wypróbuj za darmo Od teraz! Więc",
-            "raz! Więcej nowych darmowych szablonów dla każdej branży Standard Dla sprzedawców startujących z biznesem online 299 zł 91% taniej 29 zł netto miesięcznie Wypróbuj Więcej darmowych szablonów do wyboru Nowość 50 000 produktów Skrzynka pocztowa"
+            "er Relacje inwestorskie Wypróbuj za darmo Zaloguj się Cennik sklepu internetowego Otwórz własny sklep internetowy nawet 91% taniej. Testuj przez 14 dni za darmo. Bez podpinania karty płatniczej. Od teraz! Więcej nowych darmowych szablonów dla",
+            "raz! Więcej nowych darmowych szablonów dla każdej branży Standard Dla sprzedawców startujących z biznesem online 299 zł 91% taniej 29 zł netto miesięcznie Wypróbuj Więcej darmowych szablonów do wyboru 50 000 produktów Skrzynka pocztowa w domen"
           ]
         }
       ]

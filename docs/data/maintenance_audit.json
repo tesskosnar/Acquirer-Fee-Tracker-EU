@@ -1,0 +1,27 @@
+{
+  "reviewed_on": "2026-10-19",
+  "scope": "Bounded semantic review of eight CEE offers and regression fixes identified on 2026-10-15. This is not a fresh semantic verification of every offer.",
+  "reviewed_offer_ids": [
+    "CZ-comgate-profi-card", "CZ-comgate-profi-a2a",
+    "CZ-gopay-standard-card-restored", "CZ-gopay-standard-a2a-restored",
+    "HR-corvuspay-standard-card-verified", "HR-corvuspay-iban-a2a-verified",
+    "HU-raiffeisen-softpos-card", "HU-raiffeisen-vpos-card"
+  ],
+  "primary_evidence": [
+    {"url": "https://www.comgate.cz/files/comgate-profi-czk26pbcz.pdf", "finding": "100 CZK monthly fee waived strictly above 100000 CZK monthly turnover; card 0.67% + 1 CZK, Czech bank transfer 0.62%."},
+    {"url": "https://www.gopay.com/cs/platebni-brana/", "finding": "Standard post-introductory 0.95% + 0 CZK; 80 CZK monthly operating fee applies only up to 50000 CZK turnover."},
+    {"url": "https://www.corvuspay.com/cjenik/", "finding": "30 EUR minimum licence includes processing charges. Card components total 1.8% + 0.06 EUR; IBAN 1.1% + 0.02 EUR. Published prices exclude VAT."},
+    {"url": "https://ugyfeltajekoztatas.raiffeisen.hu/documents/d/bank/kereskedoi-kondicios-lista", "finding": "Waiver expired 2026-09-30. Standard monthly SoftPOS 990 HUF, VPOS 3500 HUF. For 20 EUR domestic debit, SoftPOS Visa 0.078% + 0.04 EUR / Mastercard 0.103% + 0.04 EUR; VPOS Visa 0.078% + 0.06 EUR / Mastercard 0.126% + 0.05 EUR. Paired scheme scenarios are preserved."}
+  ],
+  "regression_controls": [
+    "Normalise economic fields before final calculation/export.",
+    "Compare actual browser calculations against every exported offer before publication.",
+    "Check strict waiver boundary after currency conversion.",
+    "Label nonzero promotional rates as promotional."
+  ],
+  "pending": [
+    {"issue": "Other conditional recurring fees and partial-component monthly minima need individual semantic review.", "status": "retry_next_maintenance_batch"},
+    {"issue": "OTP Hungary promotion extension and other time-limited offers require separate current-source review.", "status": "retry_next_maintenance_batch"},
+    {"issue": "Full-source audit availability/mismatch results are not yet propagated to dashboard monitoring summary.", "status": "retry_next_maintenance_batch", "evidence_file": "full_source_audit.json"}
+  ]
+}

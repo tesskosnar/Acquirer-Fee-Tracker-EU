@@ -116,6 +116,57 @@ def test_monthly_minimum_commitment_is_a_floor_not_an_addon():
     assert result['effective_min_pct']==1.0
 
 
+def test_monthly_fee_waiver_obeys_fx_and_strict_turnover_boundary():
+    offer={
+        'variable_pct_min':1,'variable_pct_max':1,'fixed_fee_min':0,'fixed_fee_max':0,
+        'monthly_fee':100,'monthly_currency':'CZK','fee_currency':'CZK',
+        'monthly_fee_waiver':{'turnover_threshold':100000,'currency':'CZK','operator':'gt'},
+    }
+    for eur_rate,expected in ((25,1.0),(20,1.1),(10,1.2)):
+        fx={'EUR':{'czk_per_unit':eur_rate},'CZK':{'czk_per_unit':1}}
+        assert calc(offer,fx)['effective_min_pct']==expected
+
+
+def test_final_exports_use_normalised_monthly_minimum_and_waiver(tmp_path,monkeypatch):
+    previous=json.loads((update.DATA/'latest.json').read_text(encoding='utf-8'))
+    (tmp_path/'latest.json').write_text(json.dumps(previous),encoding='utf-8')
+    monkeypatch.setattr(update,'DATA',tmp_path)
+    monkeypatch.setattr(update,'HISTORY',tmp_path/'history')
+    monkeypatch.setenv('ACQ_TRACKER_OFFLINE','1')
+    assert update.main()==0
+    dataset=json.loads((tmp_path/'latest.json').read_text(encoding='utf-8'))
+    by_id={o['id']:o for o in dataset['offers']}
+    assert by_id['HR-corvuspay-standard-card-verified']['calculation_reference']['effective_min_pct']==2.1
+    assert by_id['HR-corvuspay-iban-a2a-verified']['calculation_reference']['effective_min_pct']==1.2
+    assert by_id['CZ-gopay-standard-card-restored']['calculation_reference']['effective_min_pct']==0.95
+    assert by_id['CZ-comgate-profi-a2a']['calculation_reference']['effective_min_pct']==0.62
+    csv_rows={r['id']:r for r in csv.DictReader((tmp_path/'latest.csv').open(encoding='utf-8-sig'))}
+    assert float(csv_rows['HR-corvuspay-standard-card-verified']['effective_reference_min_pct'])==2.1
+    assert json.loads(csv_rows['CZ-comgate-profi-card']['monthly_fee_waiver'])['turnover_threshold']==100000
+
+
+def test_reviewed_raiffeisen_tariffs_use_post_promotion_monthly_fees():
+    rows=apply_audit_corrections([
+        {'id':oid} for oid in set(
+            item['id'] for item in json.loads(update.AUDIT_CORRECTIONS.read_text())['updates']
+        ) | set(
+            oid for group in json.loads(update.AUDIT_CORRECTIONS.read_text())['group_updates'] for oid in group['ids']
+        )
+    ])
+    by_id={o['id']:o for o in rows}
+    assert by_id['HU-raiffeisen-softpos-card']['monthly_fee']==990
+    assert by_id['HU-raiffeisen-vpos-card']['monthly_fee']==3500
+    assert by_id['HU-raiffeisen-vpos-card']['promo'] is False
+    assert by_id['HR-corvuspay-standard-card-verified']['tax_treatment']=='excluding_vat'
+    vpos=by_id['HU-raiffeisen-vpos-card']
+    vpos.update(variable_pct_min=0.69,variable_pct_max=0.69,fixed_fee_min=15,fixed_fee_max=15,fee_currency='HUF')
+    result=calc(vpos,{'EUR':{'czk_per_unit':25},'HUF':{'czk_per_unit':0.0625}})
+    # Preserve paired scheme scenarios: lower percentage is not necessarily
+    # the lower all-in scheme cost when Visa has the higher fixed component.
+    assert result['effective_min_pct']==1.6285
+    assert result['effective_max_pct']==1.6305
+
+
 def test_cee_overlay_replaces_wrong_rows_and_adds_local_acquirers():
     baseline=json.loads(BASELINE.read_text(encoding='utf-8'))
     offers=apply_cee_verified_overlay(deepcopy(baseline['offers']),baseline['countries'])
@@ -748,7 +799,7 @@ def test_dashboard_does_not_treat_promos_or_monthly_fees_as_zero_total():
     assert 'monthly_acceptance_turnover_eur ?? 5000' in dashboard
     assert "o.monthly_fee_mode === 'minimum_commitment'" in dashboard
     assert 'id="monthlyTransactions"' not in dashboard
-    assert 'akční ${value}' in dashboard
+    assert "if (o.promo === true) return `akční ${isApproximate(o) ? '≈ ' : ''}${value}`" in dashboard
     assert 'při využití limitu' in dashboard
     assert 'return [...permanent, ...promos, ...withoutVal]' in dashboard
 
@@ -924,7 +975,7 @@ def test_dashboard_orders_total_rate_first_and_keeps_scheme_filter_methodologica
     assert 'button.disabled=!available' in dashboard
     assert "if (S.scheme && selected?.disabled)" in dashboard
     assert "S.method='card'" in dashboard
-    assert "const amount=`${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`" in dashboard
+    assert "Number(waived ? 0 : fee.amount).toLocaleString('cs-CZ')" in dashboard
     assert "fee.kind === 'monthly_service' ? amount" in dashboard
     assert ' Aktuálně:' not in dashboard
 

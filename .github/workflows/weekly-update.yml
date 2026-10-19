@@ -41,6 +41,9 @@ jobs:
       - name: Spustit testy (kontrola, že se nic nerozbilo)
         run: python -m pytest -q
 
+      - name: Ověřit shodu výpočtů dashboardu a exportu
+        run: node scripts/check_calculations.cjs
+
       - name: Commitnout aktualizovaná data
         run: |
           git config user.name "acquirer-fee-tracker-bot"

@@ -3,6 +3,83 @@
   "methodology": "Only semantically reviewed, current primary official sources. Search snippets, expired promotions and interchange-only tables are not merchant prices.",
   "group_updates": [
     {
+      "ids": ["CZ-comgate-profi-card", "CZ-comgate-profi-a2a"],
+      "set": {
+        "monthly_fee_waiver": {"turnover_threshold": 100000, "currency": "CZK", "operator": "gt"},
+        "condition": "Měsíční poplatek 100 Kč je odpuštěn při měsíčním objemu plateb nad 100 000 Kč; srovnávací obrat se převádí aktuálním kurzem ČNB.",
+        "verification": "ručně ověřeno v oficiálním ceníku Comgate Profi dne 19. 10. 2026, včetně podmínky odpuštění paušálu",
+        "price_verified_on": "2026-10-19"
+      }
+    },
+    {
+      "ids": ["CZ-gopay-standard-card-restored", "CZ-gopay-standard-a2a-restored"],
+      "set": {
+        "monthly_fee_waiver": {"turnover_threshold": 50000, "currency": "CZK", "operator": "gt"},
+        "condition": "Běžná sazba po úvodní akci je 0,95 % + 0 Kč; provozní poplatek 80 Kč měsíčně se účtuje jen do obratu 50 000 Kč měsíčně, nad tuto hranici je nulový.",
+        "verification": "ručně ověřeno v oficiálním českém ceníku GoPay dne 19. 10. 2026, včetně podmínky měsíčního poplatku",
+        "price_verified_on": "2026-10-19"
+      }
+    },
+    {
+      "ids": ["HR-corvuspay-standard-card-verified", "HR-corvuspay-iban-a2a-verified"],
+      "set": {
+        "monthly_fee_mode": "minimum_commitment",
+        "tax_treatment": "excluding_vat",
+        "verification": "ručně ověřeno v oficiálním ceníku CorvusPay dne 19. 10. 2026; minimální licence zahrnuje processing a uvedené ceny jsou bez DPH",
+        "price_verified_on": "2026-10-19"
+      }
+    },
+    {
+      "ids": ["HU-raiffeisen-softpos-card"],
+      "set": {
+        "monthly_fee": 990,
+        "monthly_currency": "HUF",
+        "monthly_fee_mode": "additional",
+        "pricing_components": {
+          "model": "interchange++",
+          "merchant_fee": {"pct": 0.69, "fixed": 10, "currency": "HUF"},
+          "comparison_reference": {
+            "profile": "Domácí spotřebitelská debetní Visa/MC, transakce 20 EUR",
+            "interchange_pct": 0.2,
+            "scheme_fee_scenarios": [
+              {"scheme": "Visa Debit", "pct": 0.078, "fixed": 0.04, "currency": "EUR"},
+              {"scheme": "Mastercard Debit", "pct": 0.103, "fixed": 0.04, "currency": "EUR"}
+            ],
+            "scheme_fee_source_url": "https://ugyfeltajekoztatas.raiffeisen.hu/documents/d/bank/kereskedoi-kondicios-lista"
+          }
+        },
+        "promo": false,
+        "condition": "Merchant fee 0,69 % + 10 HUF; srovnání přičítá samostatně interchange a veřejné scheme složky. Akce s nulovým paušálem skončila 30. 9. 2026, standardní SoftPOS paušál je 990 HUF měsíčně.",
+        "verification": "ručně ověřeno v oficiálním sazebníku Raiffeisen Hungary dne 19. 10. 2026; použity standardní poplatky po skončení akce",
+        "price_verified_on": "2026-10-19"
+      }
+    },
+    {
+      "ids": ["HU-raiffeisen-vpos-card"],
+      "set": {
+        "monthly_fee": 3500,
+        "monthly_currency": "HUF",
+        "monthly_fee_mode": "additional",
+        "pricing_components": {
+          "model": "interchange++",
+          "merchant_fee": {"pct": 0.69, "fixed": 15, "currency": "HUF"},
+          "comparison_reference": {
+            "profile": "Domácí spotřebitelská debetní Visa/MC, transakce 20 EUR",
+            "interchange_pct": 0.2,
+            "scheme_fee_scenarios": [
+              {"scheme": "Visa Debit", "pct": 0.078, "fixed": 0.06, "currency": "EUR"},
+              {"scheme": "Mastercard Debit", "pct": 0.126, "fixed": 0.05, "currency": "EUR"}
+            ],
+            "scheme_fee_source_url": "https://ugyfeltajekoztatas.raiffeisen.hu/documents/d/bank/kereskedoi-kondicios-lista"
+          }
+        },
+        "promo": false,
+        "condition": "Merchant fee 0,69 % + 15 HUF pro roční karetní obrat do 24 999 999 HUF; srovnání přičítá samostatně interchange a veřejné scheme složky. Akce s nulovým paušálem skončila 30. 9. 2026, standardní VPOS paušál je 3 500 HUF měsíčně.",
+        "verification": "ručně ověřeno v oficiálním sazebníku Raiffeisen Hungary dne 19. 10. 2026; použity standardní poplatky po skončení akce",
+        "price_verified_on": "2026-10-19"
+      }
+    },
+    {
       "ids": [
         "BG-stripe-standard-eea-consumer-cards-card",
         "CZ-stripe-standard-eea-consumer-cards-card",

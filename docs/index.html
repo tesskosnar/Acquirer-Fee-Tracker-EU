@@ -592,6 +592,15 @@ function scaleColor(v, min, max) {
   return `rgb(${mix(r1,r2,frac)},${mix(g1,g2,frac)},${mix(b1,b2,frac)})`;
 }
 
+function monthlyFeeIsWaived(o) {
+  const waiver=o.monthly_fee_waiver;
+  if (!waiver) return false;
+  const fx=S.data.fx.rates;
+  const turnover=(S.data.comparison_profile?.monthly_acceptance_turnover_eur ?? 5000)*fx.EUR.czk_per_unit;
+  const threshold=waiver.turnover_threshold*fx[waiver.currency].czk_per_unit;
+  return waiver.operator === 'gt' ? turnover>threshold : turnover>=threshold;
+}
+
 function calc(o) {
   const isEstimate = o.comparison_estimate === true;
   if (o.variable_pct_min == null || (o.all_in_complete === false && !isEstimate)) return {min:null, max:null, emin:null, emax:null};
@@ -605,7 +614,7 @@ function calc(o) {
   const fixedAddonFx = fixedAddon ? (S.data.fx.rates[fixedAddon.currency]?.czk_per_unit ?? 1) : 0;
   const fixedAddonCzk = fixedAddon ? (fixedAddon.amount || 0) * fixedAddonFx : 0;
   const packageEffectivePct = o.package_effective_pct;
-  const monthlyFee=o.monthly_fee || 0;
+  const monthlyFee=monthlyFeeIsWaived(o) ? 0 : (o.monthly_fee || 0);
   const monthlyCurrency=o.monthly_currency || o.fee_currency;
   const monthlyFx=S.data.fx.rates[monthlyCurrency]?.czk_per_unit ?? 1;
   const monthlyTurnoverEur=S.data.comparison_profile?.monthly_acceptance_turnover_eur ?? 5000;
@@ -705,9 +714,9 @@ function effectiveRate(o) {
   const value = !hasRange
     ? fmtPct(o._c.emin)
     : `${fmtPct(o._c.emin)}–${fmtPct(o._c.emax)}`;
+  if (o.promo === true) return `akční ${isApproximate(o) ? '≈ ' : ''}${value}`;
   if (!hasRange) {
     if (o.package_effective_pct != null) return `≈ ${value} při využití limitu`;
-    if (o.promo === true && o._c.emin === 0) return `akční ${value}`;
     if (o.comparison_estimate === true) return `≈ ${value}`;
     if ((o.monthly_fee || 0) > 0) return `≈ ${model === 'from' ? 'od ' : ''}${value}`;
     if (model === 'from') return `od ${value}`;
@@ -724,7 +733,8 @@ function effectiveRate(o) {
 function additionalFees(o) {
   const labels={monthly_service:'Měsíční poplatek',low_volume_fee:'Poplatek při nízkém obratu',terminal_rental:'Pronájem terminálu',activation:'Aktivace',service_and_terminal:'Služba a terminál',card_reader_purchase:'Čtečka',card_reader_purchase_from:'Čtečka od',terminal_purchase:'Terminál'};
   const fees=(o.non_transaction_fees || []).map(fee => {
-    const amount=`${Number(fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`;
+    const waived=fee.interval === 'monthly' && monthlyFeeIsWaived(o);
+    const amount=`${Number(waived ? 0 : fee.amount).toLocaleString('cs-CZ')} ${fee.currency}${fee.interval === 'monthly' ? ' měsíčně' : ''}`;
     return fee.kind === 'monthly_service' ? amount : `${labels[fee.kind] || fee.kind}: ${amount}`;
   });
   return fees.length ? fees.join('<br>') : '—';
@@ -794,7 +804,7 @@ function pricingReference(o) {
     }
   }
   if (o.package_effective_pct != null) parts.push('Celková sazba = paušál / zahrnutý obrat při plném využití limitu.');
-  else if ((o.monthly_fee || 0) > 0) parts.push(`Měsíční paušál je započten při srovnávacím obratu ${(S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000).toLocaleString('cs-CZ')} €.`);
+  else if ((o.monthly_fee || 0) > 0) parts.push(`Měsíční paušál ${monthlyFeeIsWaived(o) ? 'se neúčtuje' : 'je započten'} při srovnávacím obratu ${(S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000).toLocaleString('cs-CZ')} €.`);
   if (o.condition) parts.push(esc(o.condition));
   return parts.map(part => `<span class="sub">${part}</span>`).join('');
 }
@@ -1264,11 +1274,11 @@ function exportCsv() {
     (a.method || '').localeCompare(b.method) ||
     (a.product || '').localeCompare(b.product,'cs')
   );
-  const head = ['country','provider','provider_type','provider_role','product','method','channel','card_schemes','national_scheme_name','national_scheme_source_url','card_profile','pricing_model','pricing_model_code','published_rate','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','setup_fee','setup_currency','non_transaction_fees','reference_transaction','reference_currency','reference_monthly_turnover_eur','effective_min_pct','effective_max_pct','comparison_estimate','promo','condition','price_verified_on','source_url','comparison_source_url'];
+  const head = ['country','provider','provider_type','provider_role','product','method','channel','card_schemes','national_scheme_name','national_scheme_source_url','card_profile','pricing_model','pricing_model_code','published_rate','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','setup_fee','setup_currency','non_transaction_fees','reference_transaction','reference_currency','reference_monthly_turnover_eur','effective_min_pct','effective_max_pct','comparison_estimate','promo','condition','price_verified_on','source_url','comparison_source_url','monthly_fee_waiver'];
   const lines = [head.join(',')];
   for (const o of rows) {
     const c = o._c;
-    lines.push([o.country_iso2, o.provider, o.provider_type, o.provider_role, o.product, o.method, o.channel || '', (o.card_schemes || []).join('|'), o.national_scheme_name || '', o.national_scheme_source_url || '', o.card_profile || '', o.pricing_model, o.pricing_model_code, published(o), o.variable_pct_min, o.variable_pct_max, o.fixed_fee_min, o.fixed_fee_max, o.minimum_fee, o.fee_currency, o.monthly_fee, o.monthly_currency, o.monthly_fee_mode, o.setup_fee, o.setup_currency, JSON.stringify(o.non_transaction_fees || []), S.amount, S.ccy, S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000, c.emin, c.emax, o.comparison_estimate === true, o.promo === true, o.condition || '', o.price_verified_on || '', o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '']
+    lines.push([o.country_iso2, o.provider, o.provider_type, o.provider_role, o.product, o.method, o.channel || '', (o.card_schemes || []).join('|'), o.national_scheme_name || '', o.national_scheme_source_url || '', o.card_profile || '', o.pricing_model, o.pricing_model_code, published(o), o.variable_pct_min, o.variable_pct_max, o.fixed_fee_min, o.fixed_fee_max, o.minimum_fee, o.fee_currency, o.monthly_fee, o.monthly_currency, o.monthly_fee_mode, o.setup_fee, o.setup_currency, JSON.stringify(o.non_transaction_fees || []), S.amount, S.ccy, S.data.comparison_profile?.monthly_acceptance_turnover_eur || 5000, c.emin, c.emax, o.comparison_estimate === true, o.promo === true, o.condition || '', o.price_verified_on || '', o.source_url, o.pricing_components?.comparison_reference?.scheme_fee_source_url || '', JSON.stringify(o.monthly_fee_waiver || null)]
       .map(x => '"' + String(x ?? '').replaceAll('"','""') + '"').join(','));
   }
   const blob = new Blob(['\ufeff' + lines.join('\n')], {type:'text/csv'});

@@ -141,7 +141,7 @@ VERIFICATION_DATE_RE = re.compile(r"\b(?P<day>[0-3]?\d)\.\s*(?P<month>[01]?\d)\.
 EFFECTIVE_DATE_PREFIX_RE = re.compile(r"(?:účinn\w*|platn\w*)\s+od\s*$", re.I)
 PRICE_VERIFICATION_FIELDS = (
     'source_url', 'product', 'pricing_model', 'variable_pct_min', 'variable_pct_max',
-    'fixed_fee_min', 'fixed_fee_max', 'minimum_fee', 'monthly_fee', 'package_effective_pct',
+    'fixed_fee_min', 'fixed_fee_max', 'minimum_fee', 'monthly_fee', 'monthly_fee_waiver', 'package_effective_pct',
     'condition', 'pricing_components', 'all_in_complete', 'comparison_estimate',
 )
 
@@ -467,6 +467,15 @@ def validate_offer_schema(offers: list[dict]) -> None:
             raise ValueError(f'card_schemes missing for {oid}')
         if not isinstance(offer.get('non_transaction_fees'),list):
             raise ValueError(f'non_transaction_fees missing for {oid}')
+        waiver=offer.get('monthly_fee_waiver')
+        if waiver is not None and (
+            not isinstance(waiver,dict)
+            or waiver.get('operator') not in {'gt','gte'}
+            or not isinstance(waiver.get('turnover_threshold'),(int,float))
+            or waiver['turnover_threshold']<=0
+            or not re.fullmatch(r'[A-Z]{3}',waiver.get('currency',''))
+        ):
+            raise ValueError(f'Invalid monthly_fee_waiver for {oid}')
 
 
 def referenced_source_configs(offers:list[dict], sources:dict)->dict:
@@ -482,7 +491,7 @@ def append_dataset_changes(changes: list[dict], previous: list[dict], current: l
     """Record manual overlays as well as parser changes in the same audit log."""
     fields=(
         'provider','product','method','channel','pricing_model_code','variable_pct_min','variable_pct_max',
-        'fixed_fee_min','fixed_fee_max','minimum_fee','monthly_fee','monthly_currency','monthly_fee_mode',
+        'fixed_fee_min','fixed_fee_max','minimum_fee','monthly_fee','monthly_currency','monthly_fee_mode','monthly_fee_waiver',
         'setup_fee','fee_currency','all_in_complete','comparison_estimate','condition','source_url',
         'card_schemes','card_profile','tax_treatment','variable_pct_basis',
     )
@@ -1134,6 +1143,15 @@ def select_candidate(offer: dict, text: str) -> tuple[dict|None,float,str]:
     return best,confidence,best['raw'] if best else 'none'
 
 
+def monthly_fee_is_waived(offer:dict,fx:dict)->bool:
+    waiver=offer.get('monthly_fee_waiver')
+    if not waiver:
+        return False
+    turnover=REFERENCE_MONTHLY_ACCEPTANCE_TURNOVER_EUR*fx['EUR']['czk_per_unit']
+    threshold=waiver['turnover_threshold']*fx[waiver['currency']]['czk_per_unit']
+    return turnover>threshold if waiver['operator']=='gt' else turnover>=threshold
+
+
 def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     if amount is None:
         amount=REFERENCE_TRANSACTION_EUR*fx.get('EUR',{'czk_per_unit':1})['czk_per_unit']
@@ -1148,7 +1166,7 @@ def calc(offer:dict,fx:dict,amount:float|None=None)->dict:
     fixed_addon_rate=fx.get(fixed_addon.get('currency'),{'czk_per_unit':1})['czk_per_unit']
     fixed_addon_czk=(fixed_addon.get('amount') or 0)*fixed_addon_rate
     package_effective_pct=offer.get('package_effective_pct')
-    monthly_fee=offer.get('monthly_fee') or 0
+    monthly_fee=0 if monthly_fee_is_waived(offer,fx) else (offer.get('monthly_fee') or 0)
     monthly_currency=offer.get('monthly_currency') or offer.get('fee_currency')
     monthly_rate=fx.get(monthly_currency,{'czk_per_unit':1})['czk_per_unit']
     monthly_turnover_czk=REFERENCE_MONTHLY_ACCEPTANCE_TURNOVER_EUR*fx.get('EUR',{'czk_per_unit':1})['czk_per_unit']
@@ -1581,14 +1599,14 @@ def normalize_unpriced_pricing_models(offers:list[dict])->list[dict]:
 
 
 def write_csv(output:dict)->None:
-    cols=['id','country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_basis','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','non_transaction_fees','card_schemes','national_scheme_name','national_scheme_source_url','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
+    cols=['id','country_iso2','country','provider','provider_type','provider_role','product','method','channel','pricing_model','pricing_model_code','variable_pct_basis','variable_pct_min','variable_pct_max','fixed_fee_min','fixed_fee_max','minimum_fee','fee_currency','monthly_fee','monthly_currency','monthly_fee_mode','monthly_fee_waiver','non_transaction_fees','card_schemes','national_scheme_name','national_scheme_source_url','card_profile','all_in_complete','tax_treatment','reference_transaction_eur','fee_reference_min_czk','fee_reference_max_czk','effective_reference_min_pct','effective_reference_max_pct','condition','source_url','verification','verification_state','verification_scope','price_verified_on','monitoring_level','source_status','source_checked_at','source_last_attempt_at','source_last_attempt_status']
     with (DATA/'latest.csv').open('w',newline='',encoding='utf-8-sig') as f:
         w=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');w.writeheader()
         offers=sorted(output['offers'],key=lambda o:(o.get('country_iso2',''),(o.get('provider') or '').casefold(),o.get('method',''),o.get('product',''),o.get('id','')))
         for o in offers:
             c=o.get('calculation_reference',{})
             row={k:o.get(k) for k in cols}
-            for field in ('non_transaction_fees','card_schemes'):
+            for field in ('non_transaction_fees','card_schemes','monthly_fee_waiver'):
                 row[field]=json.dumps(row.get(field),ensure_ascii=False)
             row.update({'reference_transaction_eur':REFERENCE_TRANSACTION_EUR,'fee_reference_min_czk':c.get('fee_min_czk'),'fee_reference_max_czk':c.get('fee_max_czk'),'effective_reference_min_pct':c.get('effective_min_pct'),'effective_reference_max_pct':c.get('effective_max_pct')})
             w.writerow(row)
@@ -1754,6 +1772,10 @@ def main()->int:
         if not offer.get('price_verified_on'):
             offer['price_verified_on']=infer_price_verified_on(offer)
     normalise_offer_schema(offers)
+    # Normalisation can resolve monthly minima and other economic semantics.
+    # Exports must use those final fields, just like the browser calculator.
+    for offer in offers:
+        offer['calculation_reference']=calc(offer,fx)
     payment_infrastructure=json.loads(NATIONAL_PAYMENT_INFRASTRUCTURE.read_text(encoding='utf-8'))
     annotate_national_card_schemes(offers,payment_infrastructure)
     assign_provider_roles(offers)

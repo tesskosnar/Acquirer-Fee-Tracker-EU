@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-10-12T12:34:29+00:00",
-  "dataset_generated_at": "2026-10-12T12:31:38+00:00",
+  "generated_at": "2026-10-19T10:24:43+00:00",
+  "dataset_generated_at": "2026-10-19T10:21:28+00:00",
   "scope": "All-offer official-source audit. Automated matches are triage evidence, never authority to change a merchant price without semantic review.",
   "offer_rows_scanned": 511,
   "unique_official_urls_scanned": 299,
   "source_outcomes": {
-    "ok": 211,
-    "source_unavailable_or_blocked": 88
+    "ok": 212,
+    "source_unavailable_or_blocked": 87
   },
   "row_outcomes": {
-    "priced_row_manually_verified_parser_mismatch": 115,
-    "source_blocked_but_previously_verified": 99,
+    "priced_row_manually_verified_parser_mismatch": 112,
+    "source_blocked_but_previously_verified": 100,
     "stored_components_found_on_official_source": 231,
-    "unpriced_manually_verified_without_public_number": 49,
-    "unpriced_numeric_lead_rejected_after_manual_review": 17
+    "unpriced_manually_verified_without_public_number": 50,
+    "unpriced_numeric_lead_rejected_after_manual_review": 18
   },
   "rows": [
     {
@@ -1544,10 +1544,12 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": "non_merchant_or_incomplete",
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
-      "outcome": "unpriced_manually_verified_without_public_number",
+      "source_outcome": "public_price_lead_found",
+      "outcome": "unpriced_numeric_lead_rejected_after_manual_review",
       "evidence_match": null,
-      "price_leads": []
+      "price_leads": [
+        "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
+      ]
     },
     {
       "id": "SK-skpay-card",
@@ -3832,8 +3834,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://worldline.com/it-it/home",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "unpriced_manually_verified_without_public_number",
       "evidence_match": null,
       "price_leads": []
     },
@@ -4298,7 +4300,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_GB/payment-methods/blik",
       "source_outcome": "public_price_lead_found",
@@ -4331,7 +4333,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-czech-republic",
       "source_outcome": "public_price_lead_found",
@@ -4364,7 +4366,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/en_SG/payment-methods/online-banking-slovakia",
       "source_outcome": "public_price_lead_found",
@@ -4429,8 +4431,8 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/payment-methods/sepa-direct-debit",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -4458,8 +4460,8 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/payment-methods/trustly",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -4487,8 +4489,8 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/payment-methods/trustly",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -4516,8 +4518,8 @@
       "price_verified_on": "2026-08-25",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/payment-methods/trustly",
-      "source_outcome": "public_price_lead_found",
-      "outcome": "priced_row_manually_verified_parser_mismatch",
+      "source_outcome": "source_unavailable_or_blocked",
+      "outcome": "source_blocked_but_previously_verified",
       "evidence_match": {
         "variable_values": [],
         "variable_matches": [],
@@ -4542,7 +4544,7 @@
       "method": "a2a",
       "pricing_model": "Blended",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
       "source_outcome": "source_unavailable_or_blocked",
@@ -4575,7 +4577,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4608,7 +4610,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4641,7 +4643,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4674,7 +4676,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4707,7 +4709,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4740,7 +4742,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4773,7 +4775,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4806,7 +4808,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4839,7 +4841,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4872,7 +4874,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4905,7 +4907,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4938,7 +4940,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -4971,7 +4973,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5004,7 +5006,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5037,7 +5039,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5070,7 +5072,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5103,7 +5105,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5136,7 +5138,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5169,7 +5171,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5202,7 +5204,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5235,7 +5237,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5301,7 +5303,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5334,7 +5336,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5367,7 +5369,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5400,7 +5402,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5433,7 +5435,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5466,7 +5468,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5499,7 +5501,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5532,7 +5534,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5565,7 +5567,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -5598,7 +5600,7 @@
       "method": "card",
       "pricing_model": "IC++",
       "verification_state": "verified_automated",
-      "price_verified_on": "2026-10-12",
+      "price_verified_on": "2026-10-19",
       "price_lead_review": null,
       "source_url": "https://www.adyen.com/pricing",
       "source_outcome": "public_price_lead_found",
@@ -9005,8 +9007,8 @@
       "price_verified_on": "2026-08-18",
       "price_lead_review": null,
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "unpriced_manually_verified_without_public_number",
       "evidence_match": null,
       "price_leads": []
     },
@@ -9978,8 +9980,8 @@
       "price_verified_on": "2026-08-20",
       "price_lead_review": null,
       "source_url": "https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf",
-      "source_outcome": "source_unavailable_or_blocked",
-      "outcome": "source_blocked_but_previously_verified",
+      "source_outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "priced_row_manually_verified_parser_mismatch",
       "evidence_match": {
         "variable_values": [
           0.6
@@ -16006,7 +16008,7 @@
         },
         {
           "url": "https://merchants.fiserv.com/en-europe/corporate/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=9353038f-3cdf-4127-a362-04ec7c80c8d4&ssb=03598253543&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=5f829d85-cskb-46d1-9c8c-5e10ab4eb860&ssk=botmanager_support@radware.com&ssm=36109455860387196134743963287223&ssn=303a46559fceec8ff6cea2a89717b69dea6b8758b57b-8f8f-473f-a36222&sso=56343761-327991a713da8284131cb18be8041485b65a383c1e1f4093&ssp=73245206461791879917179188660935287&ssq=61290130833285984438708332464903375881720&ssr=MTcyLjIxMi4yMDYuMTM0&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA4NzU4YjU3Yi04ZjhmLTQ3M2YtYTc2MS0zMjc5OTFhNzEzZGExLTE3OTE4MDgzMzIwNjU1OTEtMDA1M2NkYmM0NTNiNWY4MTNkNzEzIn0=",
+          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=ed83f99f-77af-4cb3-8816-37aa967d9534&ssb=41691204147&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-europe%2Fcorporate%2F&ssi=6119b4ed-cskb-4e70-8a7c-ce612ce5fce9&ssk=botmanager_support@radware.com&ssm=93071471573692071136002411009029&ssn=e3146f168c591ecd16381e069179370933675badab7f-6593-43fa-b7ff2e&sso=cbc5bb57-43e712155da5b9e89598b0cd93c1144319a1a800b6a97ff5&ssp=17582969541792422486179241775615645&ssq=23613880531825760202205318085920721641688&ssr=NDguMjE3LjI1MS45Nw==&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA1YmFkYWI3Zi02NTkzLTQzZmEtYmI1Ny00M2U3MTIxNTVkYTUxLTE3OTI0MDUzMTgyNzQ2NzItMDA1Y2Y0MmI3MDRkMTRkNjRjMzEzIn0=",
           "status": "ok"
         }
       ],
@@ -16014,15 +16016,38 @@
     },
     {
       "source_url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-      "outcome": "no_numeric_price_found_on_scanned_official_pages",
+      "outcome": "public_price_lead_found",
       "pages_checked": [
         {
           "url": "https://merchants.fiserv.com/en-uk/resources/faqs/",
-          "final_url": "https://validate.perfdrive.com/64b926de080836ab9a2812de3f961c22/?ssa=19756db0-af06-4b0a-bf13-cb4410e6a371&ssb=03598253543&ssc=https%3A%2F%2Fmerchants.fiserv.com%2Fen-uk%2Fresources%2Ffaqs%2F&ssi=f47afc2d-cskb-4082-acd1-e2827d62b4b1&ssk=botmanager_support@radware.com&ssm=36109455860387196104743963287223&ssn=303a4655dc78613a847538332524b69dea6bdce2484a-b1d3-445f-836222&sso=56343fb2-883f8d7178318284131c56e876be490ff32f6bc41e1f4093&ssp=73245206461791879917179188660935287&ssq=61290130833285984438708332464903375881720&ssr=MTcyLjIxMi4yMDYuMTM0&sst=AcquirerFeeTrackerBot/1.0%20(public-interest%20research;%20read-only%20public%20pricing%20audit)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDBkY2UyNDg0YS1iMWQzLTQ0NWYtOGZiMi04ODNmOGQ3MTc4MzExLTE3OTE4MDgzMzI2ODEwLTAwNWMxMGM3MjlhODZjMWE2ODgxMCJ9",
+          "final_url": "https://uk.clover.com/help-centre/faqs/",
+          "status": "ok"
+        },
+        {
+          "url": "https://uk.clover.com/offers/pricing/",
+          "final_url": "https://uk.clover.com/offers/pricing/",
+          "status": "ok"
+        },
+        {
+          "url": "https://uk.clover.com/help-centre/faqs/",
+          "final_url": "https://uk.clover.com/help-centre/faqs/",
           "status": "ok"
         }
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "url": "https://uk.clover.com/help-centre/faqs/",
+          "price_leads": [
+            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
+          ]
+        },
+        {
+          "url": "https://uk.clover.com/help-centre/faqs/",
+          "price_leads": [
+            "*You will be expected to operate your business in a way that ensures Liberis recieves a minimum monthly amount of up to 3% of the total amount owned to Liberis. How long does it take to pay? Business Capital doesn't set a maximum payment peri"
+          ]
+        }
+      ]
     },
     {
       "source_url": "https://mojapos.skpay.sk/",
@@ -16522,6 +16547,11 @@
         {
           "url": "https://secupay.com/payments/zahlungsarten-in-ecom-und-am-pos",
           "final_url": "https://secupay.com/payments/zahlungsarten-in-ecom-und-am-pos",
+          "status": "ok"
+        },
+        {
+          "url": "https://secupay.com/wissen/ecommerce/kosten-senken-durch-google-apple-pay",
+          "final_url": "https://secupay.com/wissen/ecommerce/kosten-senken-durch-google-apple-pay",
           "status": "ok"
         }
       ],
@@ -18047,12 +18077,12 @@
     },
     {
       "source_url": "https://worldline.com/it-it/home",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://worldline.com/it-it/home",
-          "status": "error",
-          "error": "HTTPError: 406 Client Error: Not Acceptable for url: https://worldline.com/it-it/home"
+          "final_url": "https://worldline.com/it-it/home",
+          "status": "ok"
         }
       ],
       "evidence": []
@@ -18406,100 +18436,27 @@
     },
     {
       "source_url": "https://www.adyen.com/payment-methods/sepa-direct-debit",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.adyen.com/payment-methods/sepa-direct-debit",
-          "final_url": "https://www.adyen.com/payment-methods/sepa-direct-debit",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/pricing",
-          "final_url": "https://www.adyen.com/pricing",
-          "status": "ok"
+          "status": "error",
+          "error": "ReadTimeout: HTTPSConnectionPool(host='www.adyen.com', port=443): Read timed out. (read timeout=15)"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.adyen.com/pricing",
-          "price_leads": [
-            "ion Region Africa Asia Pacific Europe Latin America Middle East North America Payment method Payment method fee $0.13 + 4% $0.13 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you",
-            "ific Europe Latin America Middle East North America Payment method Payment method fee $0.13 + 4% $0.13 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you, giving you more transparenc",
-            ", giving you more transparency and lower fees overall. Learn more $0.13 + $ 0.27 More information United States $0.13 + 4.19% + $0.30 Canada $0.13 + 4.19% + C$0.30 United Kingdom $0.13 + Direct Contract with Affirm United States $0.13 + 4.49% +",
-            "y and lower fees overall. Learn more $0.13 + $ 0.27 More information United States $0.13 + 4.19% + $0.30 Canada $0.13 + 4.19% + C$0.30 United Kingdom $0.13 + Direct Contract with Affirm United States $0.13 + 4.49% + $0.30 Canada $0.13 + 4.49% +",
-            "stralia, New Zealand $0.13 + 4.99% + AUD/NZD 0.30 United Kingdom $0.13 + 4.19% + GBP 0.30 $0.13 + 3% $0.13 + 3% $0.13 + 3% More information 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard",
-            "nited Kingdom $0.13 + 4.19% + GBP 0.30 $0.13 + 3% $0.13 + 3% $0.13 + 3% More information 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Int",
-            "0 $0.13 + 3% $0.13 + 3% $0.13 + 3% More information 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0",
-            "formation 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.8",
-            ".13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North",
-            "% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North America $0.13 + 3.3% + $0.10 Global $0.13 + 3.95% Glob",
-            "80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North America $0.13 + 3.3% + $0.10 Global $0.13 + 3.95% Global $0.13 + Defined by card used $0.13 + 5%",
-            "American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North America $0.13 + 3.3% + $0.10 Global $0.13 + 3.95% Global $0.13 + Defined by card used $0.13 + 5% $0.13 + £ 0.55 $0.13 + Interchange+ + 0.60%"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.adyen.com/payment-methods/trustly",
-      "outcome": "public_price_lead_found",
+      "outcome": "source_unavailable_or_blocked",
       "pages_checked": [
         {
           "url": "https://www.adyen.com/payment-methods/trustly",
-          "final_url": "https://www.adyen.com/payment-methods/trustly",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/pricing",
-          "final_url": "https://www.adyen.com/pricing",
-          "status": "ok"
-        },
-        {
-          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "final_url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "status": "ok"
+          "status": "error",
+          "error": "ReadTimeout: HTTPSConnectionPool(host='www.adyen.com', port=443): Read timed out. (read timeout=15)"
         }
       ],
-      "evidence": [
-        {
-          "url": "https://www.adyen.com/payment-methods/trustly",
-          "price_leads": [
-            "Norway, Latvia, Estonia, Sweden $0.13 + € 0.50 For gaming, gambling, travel and financial services additional rates up 3% can apply Documentation Pricing Effortless payments leveraging Open Banking technology High value transactions (no limi"
-          ]
-        },
-        {
-          "url": "https://www.adyen.com/pricing",
-          "price_leads": [
-            "ion Region Africa Asia Pacific Europe Latin America Middle East North America Payment method Payment method fee $0.13 + 4% $0.13 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you",
-            "ific Europe Latin America Middle East North America Payment method Payment method fee $0.13 + 4% $0.13 + Interchange+ + 0.60% Interchange fees are variable, our Interchange++ pricing passes these fees directly to you, giving you more transparenc",
-            ", giving you more transparency and lower fees overall. Learn more $0.13 + $ 0.27 More information United States $0.13 + 4.19% + $0.30 Canada $0.13 + 4.19% + C$0.30 United Kingdom $0.13 + Direct Contract with Affirm United States $0.13 + 4.49% +",
-            "y and lower fees overall. Learn more $0.13 + $ 0.27 More information United States $0.13 + 4.19% + $0.30 Canada $0.13 + 4.19% + C$0.30 United Kingdom $0.13 + Direct Contract with Affirm United States $0.13 + 4.49% + $0.30 Canada $0.13 + 4.49% +",
-            "stralia, New Zealand $0.13 + 4.99% + AUD/NZD 0.30 United Kingdom $0.13 + 4.19% + GBP 0.30 $0.13 + 3% $0.13 + 3% $0.13 + 3% More information 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard",
-            "nited Kingdom $0.13 + 4.19% + GBP 0.30 $0.13 + 3% $0.13 + 3% $0.13 + 3% More information 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Int",
-            "0 $0.13 + 3% $0.13 + 3% $0.13 + 3% More information 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0",
-            "formation 3x installments France $0.13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.8",
-            ".13 + 3.99% 4x installments France $0.13 + 4.70% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North",
-            "% More information Mastercard $0.13 + 0.80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North America $0.13 + 3.3% + $0.10 Global $0.13 + 3.95% Glob",
-            "80% + Interchange++ Visa $0.13 + 0.80% + Interchange++ American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North America $0.13 + 3.3% + $0.10 Global $0.13 + 3.95% Global $0.13 + Defined by card used $0.13 + 5%",
-            "American Express $0.13 + 0.80% + 3.95% SEPA Direct Debit $0.13 + 0.80% + € 0.25 More information North America $0.13 + 3.3% + $0.10 Global $0.13 + 3.95% Global $0.13 + Defined by card used $0.13 + 5% $0.13 + £ 0.55 $0.13 + Interchange+ + 0.60%"
-          ]
-        },
-        {
-          "url": "https://www.adyen.com/knowledge-hub/interchange-fees-explained",
-          "price_leads": [
-            "new and scalable revenue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of th",
-            "venue stream. How much are interchange fees in 2026? Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions g",
-            "Interchange fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in m",
-            "nge fees in Europe (EEA) Debit cards: ~0.2% Credit cards: ~0.3% Interchange fees in the United States Typically 1.5% to 3.5%+ Key insight: Europe remains one of the cheapest regions globally due to regulatory constraints, including in markets l",
-            "ons at merchants located in the EEA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for",
-            "EA and the UK. The EEA and UK interregional fee caps for card-present transactions are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for",
-            "are 0.20% for debit transactions and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in",
-            "and 0.30% for credit transactions. For card-not-present transactions, the fee caps are 1.15% for debit transactions and 1.50% for credit transactions. US: The Durbin Amendment The Durbin Amendment, introduced in 2010, caps debit card interchange",
-            "re, its debit and prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost i",
-            "prepaid cards will be charged regulated rates. These cards are then subject to an interchange rate of 0.05% + $0.21 or 0.05% + $0.22, depending on fraud prevention policies. Key takeaways Interchange fees are the largest cost in card payments T",
-            "\"friendly fraud\". Friendly fraud is when customers claim a purchase was unauthorized or never arrived and accounts for 75% of all chargebacks. Because banks can’t physically verify the card or the cardholder's signature during an online check"
-          ]
-        }
-      ]
+      "evidence": []
     },
     {
       "source_url": "https://www.adyen.com/pl_PL/metody-platnosci/online-banking-poland",
@@ -18678,12 +18635,12 @@
           "status": "ok"
         },
         {
-          "url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/tariffe-pos-easy-commissioni",
+          "url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/tariffe-pos-easy-commissioni/",
           "final_url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/tariffe-pos-easy-commissioni/",
           "status": "ok"
         },
         {
-          "url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/tariffe-e-funzionamento-delle-soglie",
+          "url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/tariffe-e-funzionamento-delle-soglie/",
           "final_url": "https://www.axerve.com/assistenza/soluzioni-punto-vendita/pos-easy/tariffe-e-funzionamento-delle-soglie/",
           "status": "ok"
         }
@@ -19880,7 +19837,7 @@
           "price_leads": [
             "c Sari la conținut • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business. • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Bus",
             "rocesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. Descoperă oferta → Despre noi Cariere Parteneri Aparitii Presa Servic",
-            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Vezi toate serviciile Portofoliu Ecommerce Servicii HoReCa Universitați",
+            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Instant Money Back Vezi toate serviciile Portofoliu Ecommerce Servicii",
             "aceasta este expusă. Prețurile sunt stabilite numai după discuția cu un reprezentant EuPlătesc.ro Ofertă standard De la 1.2% Tranzacție Oferta este orientativă, pentru mai multe detalii completează formularul iar echipa noastră de vânzări te va"
           ]
         },
@@ -19889,7 +19846,7 @@
           "price_leads": [
             "c Sari la conținut • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business. • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Bus",
             "rocesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. Descoperă oferta → Despre noi Cariere Parteneri Aparitii Presa Servic",
-            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Vezi toate serviciile Portofoliu Ecommerce Servicii HoReCa Universitați",
+            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Instant Money Back Vezi toate serviciile Portofoliu Ecommerce Servicii",
             "aceasta este expusă. Prețurile sunt stabilite numai după discuția cu un reprezentant EuPlătesc.ro Ofertă standard De la 1.2% Tranzacție Oferta este orientativă, pentru mai multe detalii completează formularul iar echipa noastră de vânzări te va"
           ]
         },
@@ -19898,7 +19855,7 @@
           "price_leads": [
             "c Sari la conținut • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business. • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Bus",
             "rocesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. Descoperă oferta → Despre noi Cariere Parteneri Aparitii Presa Servic",
-            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Vezi toate serviciile Portofoliu Ecommerce Servicii HoReCa Universitați"
+            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Instant Money Back Vezi toate serviciile Portofoliu Ecommerce Servicii"
           ]
         },
         {
@@ -19906,7 +19863,7 @@
           "price_leads": [
             "c Sari la conținut • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business. • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Bus",
             "rocesare eCommerce. • Plătești mai puțin pentru încasările online cu EuPlătesc x Salt Business • Beneficiezi de până la 0,5% compensare din comisionul de procesare eCommerce. Descoperă oferta → Despre noi Cariere Parteneri Aparitii Presa Servic",
-            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Vezi toate serviciile Portofoliu Ecommerce Servicii HoReCa Universitați"
+            "e Parteneri Aparitii Presa Servicii Plata online cu cardul ApplePay & GooglePay Click to Pay Plata recurentă Finanțare 100% online Plata în rate QR bLink Pay Link de plată Instant Money Back Vezi toate serviciile Portofoliu Ecommerce Servicii"
           ]
         }
       ]
@@ -20636,12 +20593,27 @@
     },
     {
       "source_url": "https://www.lhv.ee/en/payment-acquiring/",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://www.lhv.ee/en/payment-acquiring/",
-          "status": "error",
-          "error": "ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+          "final_url": "https://www.lhv.ee/en/payment-acquiring/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
+          "final_url": "https://www.lhv.ee/en/interest-rate-risk-hedging",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/corporate-insurance",
+          "final_url": "https://www.lhv.ee/en/corporate-insurance",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
+          "final_url": "https://www.lhv.ee/en/pension/new-home?type=ii-contribution-rate",
+          "status": "ok"
         }
       ],
       "evidence": []
@@ -20670,7 +20642,7 @@
         {
           "url": "http://www.lloydsbank.com/rates_and_charges.asp",
           "status": "error",
-          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.2e62645f.1791808378.c3abcfe7 (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
+          "error": "ConnectionError: HTTPSConnectionPool(host='failover.www.bankofscotland.co.uk', port=443): Max retries exceeded with url: /sorry_pages/lloyds_scep/error.html?refid=18.471a1202.1792405372.1264c74a (Caused by NameResolutionError(\"HTTPSConnection(host='failover.www.bankofscotland.co.uk', port=443): Failed to resolve 'failover.www.bankofscotland.co.uk' ([Errno -2] Name or service not known)\"))"
         }
       ],
       "evidence": []
@@ -20779,14 +20751,14 @@
         {
           "url": "https://www.mollie.com/fr/pricing",
           "price_leads": [
-            "Facturation Checkout RÃ©current Paiements en ligne Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "ican Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur d",
-            "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,2",
-            ",90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "ican Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas",
-            "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
+            "Facturation Checkout RÃ©current Paiements en ligne Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique EuropÃ©enne 3,2",
+            "Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de Consommateu",
+            "i par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,2",
+            "90 % + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique EuropÃ©enne 3,2",
+            "Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est p",
+            "i par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
             "e et flexible IdÃ©al pour les paiements occasionnels 0 â¬ /mois Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% 1 terminal physique max",
-            "Frais de transaction par mode de paiement en France Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
+            "Frais de transaction par mode de paiement en France Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique EuropÃ©enne 3,2",
             "% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty",
             "42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagn",
             "(national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagne & Autriche 2,99 % + 0,35 â¬ Billink Pays-Bas,",
@@ -20796,14 +20768,14 @@
         {
           "url": "https://www.mollie.com/fr/pricing",
           "price_leads": [
-            "Facturation Checkout RÃ©current Paiements en ligne Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "ican Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur d",
-            "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,2",
-            ",90% + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
-            "ican Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas",
-            "dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consumer 1,20 % + 0,25 â¬ Cartes Bancaires Commercial 2,90% + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
+            "Facturation Checkout RÃ©current Paiements en ligne Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique EuropÃ©enne 3,2",
+            "Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de Consommateu",
+            "i par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,2",
+            "90 % + 0,25 â¬ Afficher tous les modes de paiement Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique EuropÃ©enne 3,2",
+            "Express 2,90 % + 0,25 â¬ Apple Pay Taux dÃ©fini par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est p",
+            "i par la carte utilisÃ©e Cartes Bancaires Cartes Bancaires Consommateur 1,20 % + 0,25 â¬ Cartes Bancaires Commerciales 2,90 % + 0,25 â¬ Afficher tous les modes de paiement Paiements en personne Ce n'est pas l'option la plus appropriÃ©e pour vous ? Cont",
             "e et flexible IdÃ©al pour les paiements occasionnels 0 â¬ /mois Cartes de dÃ©bit et de crÃ©dit grand public nationales 1,20% Autres cartes de consommation 1,80% American Express 2,10% Toutes les cartes commerciales 2,90% 1 terminal physique max",
-            "Frais de transaction par mode de paiement en France Mastercard Cartes de consommateur de l'Espace Ã©conomique europÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique europÃ©enne 3,2",
+            "Frais de transaction par mode de paiement en France Mastercard Cartes de Consommateur de l'Espace Ãconomique EuropÃ©en 1,80 % + 0,25 â¬ Cartes Commerciales de l'Espace Ãconomique EuropÃ©en 2,90 % + 0,25 â¬ Cartes hors zone Ã©conomique EuropÃ©enne 3,2",
             "% + 0,35 â¬ iDEAL | Wero 0,42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty",
             "42 â¬ Wero Pays-Bas (national) 0,32 â¬ Belgique (national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagn",
             "(national) 0,39 â¬ Tous les autres pays 0,90 % + 0,25 â¬ Bancontact 1,40 % + 0,25 â¬ Paiement par virement bancaire 0,45 % + 0,25 â¬ PayPal Frais PayPal + 0,10 â¬ Riverty Pays-Bas, Belgique, Allemagne & Autriche 2,99 % + 0,35 â¬ Billink Pays-Bas,",
@@ -21287,12 +21259,27 @@
     },
     {
       "source_url": "https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf",
-      "outcome": "source_unavailable_or_blocked",
+      "outcome": "no_numeric_price_found_on_scanned_official_pages",
       "pages_checked": [
         {
           "url": "https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf",
-          "status": "error",
-          "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://www.nbg.gr/-/jssmedia/Files/Idiwtes/timologio_trapezikon_ergasion/English/Timologio-ergasion-se-isxy/Timologio-Gia-Epaggelmaties-Epiheiriseis-en.pdf"
+          "final_url": "https://www.nbg.gr/el/idiwtes",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.nbg.gr/el/epixeiriseis",
+          "final_url": "https://www.nbg.gr/el/epixeiriseis",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.nbg.gr/el/idiwtes/kathimerines-sunallages/online-trapezika-ergaleia/ergaleio-epiloghs-stegastikou-daneiou",
+          "final_url": "https://www.nbg.gr/el/idiwtes/kathimerines-sunallages/online-trapezika-ergaleia/ergaleio-epiloghs-stegastikou-daneiou",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.nbg.gr/el/epixeiriseis/ekseidikeumenos-sumvoulos-etairikhs-sunallaktikhs-trapezikhs",
+          "final_url": "https://www.nbg.gr/el/epixeiriseis/ekseidikeumenos-sumvoulos-etairikhs-sunallaktikhs-trapezikhs",
+          "status": "ok"
         }
       ],
       "evidence": []
@@ -22038,10 +22025,10 @@
           "url": "https://www.payone.com/DE-en/payment-solutions/payment-terminals/all-time-flex",
           "price_leads": [
             "customer portal setup from 19 € initial fee Credit Card Fee Fee per cashless credit card transaction (Mastercard, Visa) 1,9 % per transaction Debit Card Fee Fee per cashless debit card transaction (Maestro, V-Pay) 0,89 % per transaction girocard",
-            "action (Mastercard, Visa) 1,9 % per transaction Debit Card Fee Fee per cashless debit card transaction (Maestro, V-Pay) 0,89 % per transaction girocard Fee Fee per cashless girocard transaction 0,89 % per transaction More information When using o",
-            "hless debit card transaction (Maestro, V-Pay) 0,89 % per transaction girocard Fee Fee per cashless girocard transaction 0,89 % per transaction More information When using our payment app solution, a minimum fee of 0,15 € applies per cashless tran",
-            "on When using our payment app solution, a minimum fee of 0,15 € applies per cashless transaction. If the discount rate (1,90% for credit card payments and 0,89% for debit card payments) is less than 0,15 €, the minimum fee of 0,15 € will be char",
-            "ion, a minimum fee of 0,15 € applies per cashless transaction. If the discount rate (1,90% for credit card payments and 0,89% for debit card payments) is less than 0,15 €, the minimum fee of 0,15 € will be charged. Changes are subject to modific"
+            "action (Mastercard, Visa) 1,9 % per transaction Debit Card Fee Fee per cashless debit card transaction (Maestro, V-Pay) 0,89 % per transaction girocard Fee Fee per cashless girocard transaction 0,89 % per transaction More information A minimum fe",
+            "hless debit card transaction (Maestro, V-Pay) 0,89 % per transaction girocard Fee Fee per cashless girocard transaction 0,89 % per transaction More information A minimum fee of 0,15 € applies per cashless transaction. If the discount rate (1,90%",
+            "0,89 % per transaction More information A minimum fee of 0,15 € applies per cashless transaction. If the discount rate (1,90% for credit card payments and 0,89% for debit card payments) is less than 0,15 €, the minimum fee of 0,15 € will be char",
+            "tion A minimum fee of 0,15 € applies per cashless transaction. If the discount rate (1,90% for credit card payments and 0,89% for debit card payments) is less than 0,15 €, the minimum fee of 0,15 € will be charged. Changes are subject to modific"
           ]
         },
         {
@@ -22886,7 +22873,7 @@
         {
           "url": "https://www.postfinance.ch/en/business/products/payment-collection/payment-solutions/combo-payment-methods.html",
           "price_leads": [
-            "with Combo payment methods for on-site payment collection, you will benefit from our attractive POS bundle conditions. 25% discount on our PAX terminals We cover the account management fees for the PostFinance business account and the annual"
+            "with Combo payment methods for on-site payment collection, you will benefit from our attractive POS bundle conditions. 50% discount on our PAX terminals We cover the account management fees for the PostFinance business account and the annual"
           ]
         }
       ]
@@ -22978,6 +22965,11 @@
           "status": "ok"
         },
         {
+          "url": "https://www.raiffeisen.ro/content/dam/rbi/retail/eu/ro/documents/pj/cont-de-economii-business-dobanzi-taxe-comisioane.sv.pdf",
+          "final_url": "https://www.raiffeisen.ro/content/dam/rbi/retail/eu/ro/documents/pj/cont-de-economii-business-dobanzi-taxe-comisioane.sv.pdf",
+          "status": "ok"
+        },
+        {
           "url": "https://www.raiffeisen.ro/content/dam/rbi/retail/eu/ro/documents/pj/tarife-si-comisioane-imm-si-profesii-liberale.sv.pdf",
           "final_url": "https://www.raiffeisen.ro/content/dam/rbi/retail/eu/ro/documents/pj/tarife-si-comisioane-imm-si-profesii-liberale.sv.pdf",
           "status": "ok"
@@ -22985,20 +22977,27 @@
       ],
       "evidence": [
         {
+          "url": "https://www.raiffeisen.ro/ro/imm.html",
+          "price_leads": [
+            "promoționale . ZERO abonament lunar timp de 6 luni prin programul Visa ePosibil. Comisioane de tranzacționare : - PF : 0,75% + 0,75 lei / tranzacție; - PJ : 2,1%./ tranzacție Clienții plătesc ușor, fără ordine de plată. Încasări mai rapide și sigure, c",
+            "imp de 6 luni prin programul Visa ePosibil. Comisioane de tranzacționare : - PF : 0,75% + 0,75 lei / tranzacție; - PJ : 2,1%./ tranzacție Clienții plătesc ușor, fără ordine de plată. Încasări mai rapide și sigure, clienții primesc instant confi"
+          ]
+        },
+        {
           "url": "https://www.raiffeisen.ro/content/dam/rbi/retail/eu/ro/documents/pj/tarife-si-comisioane-imm-si-profesii-liberale.sv.pdf",
           "price_leads": [
-            "feisen Online IMM/Raiffeisen Smart Business 2.3 Ratele de dobândă aferente conturilor curente Cont curent sold creditor 0% Cont curent cu descoperit neautorizat (dobanda debitoare) 15% 3. OPERAȚIUNI ÎN lei și VALUTĂ 3.1 Încasări Intrabancar I",
-            "car Depunere gratuit la MFM-uri Raiffeisen Bank² gratuit Retragere numerar de la ATM/ MFM Raiffeisen Bank³/retragere de 0,4% min. 1 lei 0,75%, plus 2.5 EUR la ATM-uri și ghișee bancare naționale și internaționale 6.2 Carduri de credit VISA BUSI",
-            "tuit la MFM-uri Raiffeisen Bank² gratuit Retragere numerar de la ATM/ MFM Raiffeisen Bank³/retragere de 0,4% min. 1 lei 0,75%, plus 2.5 EUR la ATM-uri și ghișee bancare naționale și internaționale 6.2 Carduri de credit VISA BUSINESS SILVER VISA",
-            "100 lei Comision pentru retrageri de numerar Retragere numerar de la ATM/ MFM Raiffeisen Bank, ATM-uri/retragere de la 1,5% min. 3 lei ghișee bancare naționale și internaționale 6.3 Carduri Visa Business MFM Taxă anuală administrare card 30 le",
-            "ro/trimestru sau Emitere/majorare/prelungirea valabilității fracțiune de trimestru Plată/negociere/manipulare documente 0,20% min. 75 euro 0,15% pe trimestru sau fracțiune de trimestru,min. 100 euro/trimestru Acceptarea/plata amânată sau fracțiu",
-            "itere/majorare/prelungirea valabilității fracțiune de trimestru Plată/negociere/manipulare documente 0,20% min. 75 euro 0,15% pe trimestru sau fracțiune de trimestru,min. 100 euro/trimestru Acceptarea/plata amânată sau fracțiune de trimestru 50",
-            "estru negociabil în funcție de ratingul băncii emitente Banking 1:1 Make it happen Plată/negociere/manipulare documente 0,20% min. 75 euro Incasso documentar de export 0,15% pe trimestru sau fracțiune de trimestru, min. 100 Acceptare trate/plată",
-            "mitente Banking 1:1 Make it happen Plată/negociere/manipulare documente 0,20% min. 75 euro Incasso documentar de export 0,15% pe trimestru sau fracțiune de trimestru, min. 100 Acceptare trate/plată amânată euro/trimestru sau fracțiune de trimest",
-            "rarea documentelor “franco de plată” 0,10% min. 30 euro max. 500 euro Eliberarea mărfurilor expediate la ordinul Băncii 0,10% min. 50 euro Banking 1:1 Make it happen Incasso documentar de export Remiterea documentelor pentru plată/acceptare 0,15",
-            ",10% min. 50 euro Banking 1:1 Make it happen Incasso documentar de export Remiterea documentelor pentru plată/acceptare 0,15% min. 50 euro max. 750 euro Remiterea documentelor “franco de plată” 0,10% min. 30 euro max. 500 euro Modificări/documen",
-            "Remiterea documentelor pentru plată/acceptare 0,15% min. 50 euro max. 750 euro Remiterea documentelor “franco de plată” 0,10% min. 30 euro max. 500 euro Modificări/documente returnate neplătite 25 euro 7.5 Alte comis oane asociate produselor pen",
-            "ii documente și tranzacţii mai vechi de 3 luni 15 euro sau echivalent lei Emitere/ Avizare ordine de plată condiţionate 0,10% min 85 euro Comision de investigaţii/ Anulare/ Modificare / Retur: Incasări/ Plăți în lei naționale 10 lei Încasări/ Pl"
+            "Raiffeisen Online SME / Raiffeisen Smart Business 2.3 Interest rates on current accounts Current account credit balance 0% Current account with unauthorized overdraft (debit interest) 15% 3. Operations in LEI and in foreign currency 3.1 Recei",
+            "e accounts of the same client free of charge PO between the accounts of the same client LEI 2 LEI 20 NON - SEPA payment 0.10%, min. LEI 70 max. LEI 1,000 Instant payment LEI 5 Emergency surcharge (interbank) LEI 250 External commission for payme",
+            "harge Cash withdrawal from Raiffeisen Bank ATMs/MFMs3/withdrawal from national and international ATMs and bank counters 0.4% min. LEI 1 0.75% plus EUR 2.5 6.2 Credit cards VISA BUSINESS SILVER VISA BUSINESS GOLD Annual card management fee (char",
+            "rawal from Raiffeisen Bank ATMs/MFMs3/withdrawal from national and international ATMs and bank counters 0.4% min. LEI 1 0.75% plus EUR 2.5 6.2 Credit cards VISA BUSINESS SILVER VISA BUSINESS GOLD Annual card management fee (charged for the first card issued)",
+            "LEI 100 LEI 100 Commission for cash withdrawals Cash withdrawals from Raiffeisen Bank ATMs/MFMs, ATMs/withdrawals from 1.5%, min. LEI 3 national and international bank counters 6.3 Visa Business MFM Cards Annual card management fee LEI 30 Card",
+            "r according to bank standards Issue/increase in value/extension of validity/letters of guarantee with non-standard text 0.50%, min. EUR 75/quarter or fraction of a quarter Emergency fee for issuing guarantees/amendments EUR 30 Amendments¹ EUR 30",
+            "/quarter or fraction of a quarter Emergency fee for issuing guarantees/amendments EUR 30 Amendments¹ EUR 30 Enforcement 0.20%, min. EUR 200 ¹ Applicable for any type of amendment (for validity extension and increase the fee will be applied in ad",
+            "n addition to the standard fee for opening and administration/extension of validity/increase account value) Enforcement 0.10% min. LEI 120 7.3 Documentary credits Import credits 0.20% per quarter or fraction of a quarter, min. EUR 100/quarter or",
+            "in. EUR 100/quarter or Issue/increase/extension of validity fraction of a quarter Document payment/negotiation/handling 0.20% min. EUR 75 0.15% per quarter or fraction of a quarter, min. EUR 100/quarter or Deferred acceptance/payment fraction of",
+            "r or Issue/increase/extension of validity fraction of a quarter Document payment/negotiation/handling 0.20% min. EUR 75 0.15% per quarter or fraction of a quarter, min. EUR 100/quarter or Deferred acceptance/payment fraction of a quarter EUR 50",
+            "fraction of a quarter Acknowledgement negotiable depending on the rating of the issuing bank Banking 1:1 Make it happen 0.20% min. EUR 75 Pre-verification of documents 0.15% per quarter or fraction of a quarter, min. Accepting drafts/payment pos",
+            "depending on the rating of the issuing bank Banking 1:1 Make it happen 0.20% min. EUR 75 Pre-verification of documents 0.15% per quarter or fraction of a quarter, min. Accepting drafts/payment postponed EUR 100/quarter or fraction of a quarter"
           ]
         }
       ]
@@ -23052,6 +23051,11 @@
         {
           "url": "https://www.reduniq.pt/aceitar-pagamentos/loja-fisica/easy/",
           "final_url": "https://www.reduniq.pt/aceitar-pagamentos/loja-fisica/easy/",
+          "status": "ok"
+        },
+        {
+          "url": "https://www.reduniq.pt/apoio-ao-cliente-elogios-reclamacoes/",
+          "final_url": "https://www.reduniq.pt/apoio-ao-cliente-elogios-reclamacoes/",
           "status": "ok"
         },
         {
@@ -24427,23 +24431,23 @@
         {
           "url": "https://www.tylbynatwest.com/card-machines/pricing-fees",
           "price_leads": [
-            "ust combine the relevant transaction fee of our latest products and services (monthly charge) and you’re ready to go. . 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction All other cards Your choice of card machine Online p",
-            "r latest products and services (monthly charge) and you’re ready to go. . 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction All other cards Your choice of card machine Online payment gateway Things you are charged for Two",
+            "monthly charge) and you’re ready to go. *No monthly hire or PCI fees for Tap to Pay. Transaction fees and limits apply. 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction Other excl. Amex Monthly card machine fee* £14.95 Mo",
+            "nthly hire or PCI fees for Tap to Pay. Transaction fees and limits apply. 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction Other excl. Amex Monthly card machine fee* £14.95 Monthly for the online package Optional Things y",
             "or credit cards connected to a person’s private bank or credit account (not a business account) – the fee you’ll pay is 1.39% of the transaction value, plus a 5p authorisation fee. So, on a £10 sale, your Tyl account will be charged 19p (14p + 5",
-            "using other cards (such as business account cards or international personal debit/credit cards), the fee you’ll pay is 1.99% plus a 5p authorisation fee. So, for a £10 sale, your Tyl account will be charged 25p (20p + 5p). American Express (Ame",
-            "at into our quote. A uthorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisati",
-            "o our quote. A uthorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisation fees ar"
+            "using other cards (such as business account cards or international personal debit/credit cards), the fee you’ll pay is 1.99% plus a 5p authorisation fee. So, for a £10 sale, your Tyl account will be charged 25p (20p + 5p). For American Express",
+            "uded in your quote. Authorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisati",
+            "n your quote. Authorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisation fees ar"
           ]
         },
         {
           "url": "https://www.tylbynatwest.com/card-machines/pricing-fees",
           "price_leads": [
-            "ust combine the relevant transaction fee of our latest products and services (monthly charge) and you’re ready to go. . 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction All other cards Your choice of card machine Online p",
-            "r latest products and services (monthly charge) and you’re ready to go. . 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction All other cards Your choice of card machine Online payment gateway Things you are charged for Two",
+            "monthly charge) and you’re ready to go. *No monthly hire or PCI fees for Tap to Pay. Transaction fees and limits apply. 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction Other excl. Amex Monthly card machine fee* £14.95 Mo",
+            "nthly hire or PCI fees for Tap to Pay. Transaction fees and limits apply. 1.39% + 5p fee per transaction Personal cards 1.99% + 5p fee per transaction Other excl. Amex Monthly card machine fee* £14.95 Monthly for the online package Optional Things y",
             "or credit cards connected to a person’s private bank or credit account (not a business account) – the fee you’ll pay is 1.39% of the transaction value, plus a 5p authorisation fee. So, on a £10 sale, your Tyl account will be charged 19p (14p + 5",
-            "using other cards (such as business account cards or international personal debit/credit cards), the fee you’ll pay is 1.99% plus a 5p authorisation fee. So, for a £10 sale, your Tyl account will be charged 25p (20p + 5p). American Express (Ame",
-            "at into our quote. A uthorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisati",
-            "o our quote. A uthorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisation fees ar"
+            "using other cards (such as business account cards or international personal debit/credit cards), the fee you’ll pay is 1.99% plus a 5p authorisation fee. So, for a £10 sale, your Tyl account will be charged 25p (20p + 5p). For American Express",
+            "uded in your quote. Authorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisati",
+            "n your quote. Authorisation fees We charge a flat 5p per transaction as an authorisation fee (included above, so “1.39%/1.99% + 5p”). Authorisation fees are charged at a flat fee for every card transaction you take through Tyl. Authorisation fees ar"
           ]
         }
       ]
